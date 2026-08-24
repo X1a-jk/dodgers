@@ -1,0 +1,48 @@
+alex-call                 | Los Angeles Dodgers #12 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+alex-freeland             | Los Angeles Dodgers #76 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+ben-casparius             | Los Angeles Dodgers #78 | 投手 | IL-60
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望']
+blake-treinen             | Los Angeles Dodgers #49 | 投手 | IL-15（2026年7月进入15天伤病名单）
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库']
+bobby-miller              | Los Angeles Dodgers #28 | 投手 | IL-60
+   sections: ['基本信息', '📊 生涯数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+brock-stewart             | Los Angeles Dodgers #41 | 投手 | 活跃
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+brusdar-graterol          | Los Angeles Dodgers #48 | 投手 | IL-60
+   sections: ['基本信息', '📊 生涯数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+charlie-barnes            | Los Angeles Dodgers #57 | 投手 | Minors（目前下放小联盟，2026 年曾短暂升上大联盟）
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+dalton-rushing            | Los Angeles Dodgers #68 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+edwin-diaz                | Los Angeles Dodgers #3 | 投手
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季投球数据', '📊 2025 vs 2026 赛季对比', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+eliezer-alfonzo           | Los Angeles Dodgers #64 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+evan-phillips             | Los Angeles Dodgers #59 | 投手
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季投球数据', '📊 2025 vs 2026 赛季对比', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+gavin-stone               | Los Angeles Dodgers #35 | 投手 | IL-60
+   sections: ['基本信息', '📊 生涯数据', '⚾ 投球武器库', '🔍 球探分析', '📊 综合评分', '🔮 未来展望']
+hyeseong-kim              | Los Angeles Dodgers #6 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+jack-dreyer               | Los Angeles Dodgers #86 | 投手 | 活跃
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库']
+jake-cousins              | Los Angeles Dodgers #— | 投手 | IL-60（2026年赛季进入60天伤病名单）
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+kyle-hurt                 | Los Angeles Dodgers #37 | 投手 | 活跃
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+landon-knack              | Los Angeles Dodgers #31 | 投手 | IL-60
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '📊 综合评分', '🔮 未来展望']
+nick-frasso               | Los Angeles Dodgers #58 | 投手 | Minors（AAA Albuquerque Isotopes，2026 年 Tommy John 术后复健/回归）
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+paul-gervase              | Los Angeles Dodgers #38 | 投手 | Minors（下放 AAA Oklahoma City Comets）
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+river-ryan                | Los Angeles Dodgers #77 | 投手 | 小联盟 (Oklahoma City Comets)
+   sections: ['基本信息', '📖 背景故事', '⚾ 投球武器库', '🔍 球探分析', '📊 综合评分', '🔮 未来展望']
+roki-sasaki               | Los Angeles Dodgers #— | 投手
+   sections: ['基本信息', '球探总评', '📊 2026赛季投球数据', '📊 2025 vs 2026 赛季对比', '⚾ 投球武器库', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+ryan-ward                 | Los Angeles Dodgers #67 | 打者
+   sections: ['基本信息', '球探总评', '🏆 职业生涯亮点', '📊 2026赛季打击数据', '📊 2025 vs 2026 赛季对比', '🔍 球探分析', '✅ 优势 vs ❌ 劣势', '📊 综合评分', '🔮 未来展望', '📖 背景故事']
+will-klein                | Los Angeles Dodgers #61 | 投手 | 活跃
+   sections: ['基本信息', '📊 2026赛季投球数据', '⚾ 投球武器库']

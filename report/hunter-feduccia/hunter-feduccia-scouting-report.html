@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Hunter Feduccia 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255,255,255,0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255,255,255,0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0,90,156,0.3) 0%, rgba(26,84,144,0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79,195,247,0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1); }
+ .comparison-table th { background: rgba(0,90,156,0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255,255,255,0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: linear-gradient(135deg, rgba(0,90,156,0.2) 0%, rgba(26,84,144,0.2) 100%); border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7; }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76,175,80,0.3); color: #4caf50; }
+ .grade-b { background: rgba(79,195,247,0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255,152,0,0.3); color: #ff9800; }
+ .grade-d { background: rgba(244,67,54,0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255,215,0,0.1); border: 1px solid rgba(255,215,0,0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ .section table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+ .section th, .section td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255,255,255,0.1); }
+ .section th { background: rgba(0,90,156,0.3); color: #4fc3f7; font-weight: bold; }
+ .section tr:hover { background: rgba(255,255,255,0.05); }
+ .section h3 { color: #4fc3f7; margin: 20px 0 12px 0; font-size: 1.2em; }
+ .section p { margin-bottom: 12px; }
+ .section strong { color: #4fc3f7; }
+ .section ul { margin-left: 25px; margin-bottom: 15px; }
+ .section li { margin-bottom: 8px; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Hunter Feduccia</h1>
+ <p class="subtitle">Los Angeles Dodgers #46 | 捕手 (Catcher) | 活跃（2026年8月3日从光芒回到道奇）</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="hunter-feduccia_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Hunter Feduccia</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1997-06-05</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">29岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国路易斯安那州 Lake Charles</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'1" / 215 lbs</div></div>
+ <div class="info-item"><div class="label">击球/投球</div><div class="value">左打 / 右投</div></div>
+ <div class="info-item"><div class="label">位置</div><div class="value">捕手 (Catcher)</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024-07-31</div></div>
+ <div class="info-item"><div class="label">大学</div><div class="value">Louisiana State University (LSU)</div></div>
+ <div class="info-item"><div class="label">高中</div><div class="value">Barbe (La.) High School</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2018年 第12轮 第374顺位 (Los Angeles Dodgers)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#46</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">活跃（2026年8月3日从光芒回到道奇）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Hunter Feduccia 是道奇自家农场出身的替补捕手，2024 年完成大联盟首秀，2025 年季中被交易至光芒，2026 年8月3日又被交易回道奇。他是一名以<span class="warning">选球与守备</span>见长的左打捕手，但大联盟打击样本有限，且面对左投表现极差。</p>
+ <p style="margin-bottom: 15px;">2026 年在光芒 60 场出赛缴出 .234/.306/.340、2 轰、12 打点，相比 2025 年的 .151 有显著进步。他在 3A 曾展现 .280+/.400+ 的上垒能力，但尚未稳定转化到大联盟。道奇重新拿回他，主要是为补强捕手深度并提供便宜的左打替补选择。</p>
+ <p>29 岁的 Feduccia 已接近定型：天花板是稳定的 backup catcher，关键价值在于 接捕偷好球、阻挡与偶尔对右投的贡献。</p>
+ 
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight"><h4>🎓 2018年 - LSU / Dodgers 第12轮</h4><p>出身 Barbe 高中，在 LSU-Eunice 两年打下 .390 生涯平均后转 LSU。2018 年道奇第12轮（374顺位）选中他。</p></div>
+ <div class="career-highlight"><h4>🌟 2024年 - 大联盟首秀</h4><p>2024年7月31日对教士以代打身份完成大联盟首秀。该年道奇 5 场出赛、4 安打、1 打点。</p></div>
+ <div class="career-highlight"><h4>🔁 2025年 - 交易至光芒</h4><p>7月31日被道奇交易至光芒，换来 Paul Gervase、Adam Serwinowski 与 Ben Rortvedt。在光芒 36 场出赛，打击率 .151。</p></div>
+ <div class="career-highlight"><h4>🔵 2026年 - 重返道奇</h4><p>8月3日光芒将他与 RHP Jacob Kmatz 交易回道奇，换来外野手 Jack Suwinski。背号 #46。</p></div>
+ 
+ </div>
+
+
+ <div class="section">
+ <h2>📊 2026赛季打击数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">60</span><div class="stat-label">出赛</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">141</span><div class="stat-label">打数</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">160</span><div class="stat-label">打席</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">15</span><div class="stat-label">得分</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">33</span><div class="stat-label">安打</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">7</span><div class="stat-label">二垒</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">1</span><div class="stat-label">三垒</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">2</span><div class="stat-label">本垒打</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">12</span><div class="stat-label">打点</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">14</span><div class="stat-label">保送</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">44</span><div class="stat-label">三振</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.234</span><div class="stat-label">AVG</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.306</span><div class="stat-label">OBP</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.340</span><div class="stat-label">SLG</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #f44336;">.646</span><div class="stat-label">OPS</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">0</span><div class="stat-label">盗垒</div></div>
+
+ </div>
+ </div>
+
+
+ <div class="section">
+ <h2>📊 2024-2026 近三年赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="hunter-feduccia_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">近三年打击数据对比</h3>
+ <table class="comparison-table">
+ <thead><tr><th>赛季</th><th>G</th><th>AB</th><th>PA</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th></tr></thead>
+ <tbody>
+ <tr><td class="success">2024</td><td>5</td><td>12</td><td>14</td><td>0</td><td>1</td><td>2</td><td>2</td><td>.333</td><td>.429</td><td>.333</td><td>.762</td></tr>
+ <tr><td class="highlight">2025</td><td>36</td><td>86</td><td>102</td><td>0</td><td>8</td><td>14</td><td>28</td><td>.151</td><td>.265</td><td>.209</td><td>.474</td></tr>
+ <tr><td class="warning">2026</td><td>60</td><td>141</td><td>160</td><td>2</td><td>12</td><td>14</td><td>44</td><td>.234</td><td>.306</td><td>.340</td><td>.646</td></tr>
+
+ </tbody>
+ </table>
+ </div>
+
+
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">打击机制与选球</h3>
+ <p>Feduccia 采用左打者常见的紧凑姿势，挥棒路径较为水平，擅长把球打向反方向。他的主要价值在于选球：2025 年在光芒 102 打席 14 保送，BB/PA 约 13.7%，在至少 100 PA 的捕手中名列前茅。问题是三振率也高达 27.5%，显示他在两好球后常追打坏球。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">近三年趋势（2024-2026）</h3>
+ <p>2024 年道奇 5 场小样本 .333/.429；2025 年光芒 36 场 .151/.265 严重低潮；2026 年 60 场回升到 .234/.306/.340。虽然 OPS 仅 .646，但对一名 backup catcher 已属可接受范围。关键在于他能否维持在 .240/.320/.350 左右的水准。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">对左右投表现</h3>
+ <p>2025 年数据清楚显示他对左投几乎无法打击：对右投 .321 OBP 还有基本贡献，对左投 OBP 仅 .048。这限制他只能作为 左右分工 后半的右投 specialist。道奇若要使用他，必须严格避免左投 对位。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">守备与配球</h3>
+ <p>光芒时期 28 场先发捕手没有失误与漏接，显示接捕基本功稳定。3A 时期 接捕偷好球 与阻挡能力获得好评，虽然大联盟 接捕偷好球 数据样本不足。他的配球经验主要来自道奇农场，对道奇投手群相对熟悉，这是交易回他的隐性价值。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">在道奇的角色定位</h3>
+ <p>Feduccia 回到道奇后预计担任第三捕手或 Will Smith 的替补。他可能在 Smith 需要休息、面对右投先发时获得首发机会。除非 Smith 长期伤病，否则他的上场时间有限。</p>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>选球能力出色，BB/PA 在捕手中名列前茅</li>
+ <li>2026 年打击大幅回升，从 .151 提升到 .234</li>
+ <li>对右投有基本贡献，能上垒并制造长打机会</li>
+ <li>道奇农场出身，对投手群熟悉</li>
+ <li>守备基本功稳定，2025 年 28 场先发无失误无漏接</li>
+ <li>3A 长期表现优于大联盟，仍有上调空间</li>
+ <li>左打身份在替补捕手市场有价值</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>对左投打击能力极差，2025 年对左投 OBP 仅 .048</li>
+ <li>大联盟样本仍小，2026 年 OPS 仅 .646</li>
+ <li>三振率偏高，2025 年达 27.5%</li>
+ <li>力量有限，大联盟 2 年仅 2 轰</li>
+ <li>已 29 岁，接近定型，天花板有限</li>
+ <li>盗垒阻杀与 接捕偷好球 大联盟数据不足</li>
+ <li>多次上下大联盟，稳定性待验证</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="hunter-feduccia_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Hitting</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Power</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Plate Discipline</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Arm</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Defense</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">接捕偷好球</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">阻挡</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">45</span><div class="stat-label">配球</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">35</span><div class="stat-label">Running</div><span class="grade grade-d">C</span></div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">Hunter Feduccia 是一名合格的 backup catcher，主要价值在于选球与守备稳定性。他能在面对右投时提供有限进攻贡献，但无法对抗左投。29 岁的年龄让他的天花板受限，未来定位是道奇第三捕手或交易筹码。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 / 替补捕手深度</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Feduccia 回到道奇后，短期定位明确：Will Smith 的替补或第三捕手。他不需要承担大量先发，但必须在有限机会中证明能维持 2026 年 .234/.306/.340 的水准。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">发展建议</h3>
+ <ol style="margin-left: 20px; line-height: 2;">
+ <li><strong>强化对左投：</strong>至少达到能担任代打而不自动出局的水准。</li>
+ <li><strong>保持选球：</strong>继续发挥 BB/PA 优势，弥补打击率不足。</li>
+ <li><strong>降低三振：</strong>两好球后的追打率需要改善。</li>
+ <li><strong>巩固守备数据：</strong>在大联盟累积 接捕偷好球 与阻杀样本，证明能稳定蹲捕。</li>
+ </ol>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">预期轨迹</h3>
+ <p><strong>2026 下半季：</strong>道奇第三捕手，预计 20-30 场出赛，主要面对右投先发。</p>
+ <p><strong>2027：</strong>若 Smith 健康，仍 backup；若 Smith 离队或受伤，可能升任主要替补。</p>
+ <p><strong>2028+：</strong>天花板为稳定 backup catcher，OPS 约 .650-.700。</p>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Hunter Feduccia 出生于路易斯安那州 Lake Charles，在 Barbe High School 度过高中时期。该校是路易斯安那州棒球名校，培养出 Wade LeBlanc 等 MLB 球员。Feduccia 在高中时直到高三才成为常规先发，该年打出 .353 并获得 all-district 荣誉。</p>
+ <p>大学时期他先就读 LSU-Eunice 两年，创下 .390 生涯打击率并保持校史纪录；随后转入 Louisiana State University (LSU)。2018 年道奇在第12轮（374顺位）选中他。</p>
+ <p>他在道奇农场体系缓慢爬升，2023 年在 3A Oklahoma City 打出 .279/.387/.451、11 轰、57 打点的成绩。2024 年完成大联盟首秀，2025 年被交易至光芒，2026 年8月3日又被光芒送回道奇，换来 Jack Suwinski。</p>
+ </div>
+ 
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-08-07 | 数据截止日期：2026-08-07</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

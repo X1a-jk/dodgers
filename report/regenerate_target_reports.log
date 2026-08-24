@@ -1,0 +1,25 @@
+[2026-08-07 11:06:26] 开始重新生成 14 名球员报告
+[OK] ben-casparius: 已生成 ben-casparius-scouting-report.html
+[OK] blake-treinen: 已生成 blake-treinen-scouting-report.html
+[OK] bobby-miller: 已生成 bobby-miller-scouting-report.html
+[OK] brock-stewart: 已生成 brock-stewart-scouting-report.html
+[OK] brusdar-graterol: 已生成 brusdar-graterol-scouting-report.html
+[OK] gavin-stone: 已生成 gavin-stone-scouting-report.html
+[OK] jack-dreyer: 已生成 jack-dreyer-scouting-report.html
+[OK] jake-cousins: 已生成 jake-cousins-scouting-report.html
+[OK] kyle-hurt: 已生成 kyle-hurt-scouting-report.html
+[OK] landon-knack: 已生成 landon-knack-scouting-report.html
+[OK] nick-frasso: 已生成 nick-frasso-scouting-report.html
+[OK] paul-gervase: 已生成 paul-gervase-scouting-report.html
+[OK] river-ryan: 已生成 river-ryan-scouting-report.html
+[OK] will-klein: 已生成 will-klein-scouting-report.html
+[2026-08-07 11:08:00] 格式统一任务完成：14 名球员 HTML 报告已按 alex-vesia / tanner-scott 风格重新生成，并通过 validate_outputs.py 结构检查。
+[2026-08-07 11:08:00] 关键修复记录：
+  - 基本信息 table → info-grid 卡片
+  - 2026 数据 table → stat-cards 网格（小联盟/伤病球员自动降级为说明文字）
+  - 新增 🏆 职业生涯亮点板块（大学、选秀、大联盟首秀、当前状态）
+  - 投球武器库 → pitch-card 网格，自动提取球速与评分
+  - 优势/劣势 → pros-cons 双栏网格
+  - 综合评分 → 保留原表格 + 总体评分大数字展示
+  - 清理冗余分隔线与 HTML 格式 bug
+  - 状态字段清洗（副标题中 IL-15/IL-60/Minors 短写）

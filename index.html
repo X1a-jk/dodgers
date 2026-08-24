@@ -1,0 +1,1621 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <title>道奇队数据门户 | Dodgers Analytics Hub</title>
+    <script src="portal/marked.min.js"></script>
+    <style>
+        :root {
+            --dodgers-blue: #005A9C;
+            --dodgers-light: #1E88E5;
+            --dodgers-dark: #0a1628;
+            --bg: #0f172a;
+            --panel: rgba(30, 41, 59, 0.7);
+            --panel-solid: #1e293b;
+            --text: #e2e8f0;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.08);
+            --accent: #ff9800;
+            --success: #22c55e;
+            --danger: #ef4444;
+            --radius: 16px;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        .layout {
+            display: grid;
+            grid-template-columns: 260px 1fr;
+            min-height: 100vh;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            background: var(--dodgers-dark);
+            border-right: 1px solid var(--border);
+            display: flex;
+            flex-direction: column;
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            z-index: 100;
+        }
+
+        .brand {
+            padding: 28px 24px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .logo {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--dodgers-blue) 0%, var(--dodgers-light) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 1.1rem;
+            color: #fff;
+            box-shadow: 0 6px 20px rgba(0, 90, 156, 0.35);
+        }
+
+        .brand-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            line-height: 1.25;
+        }
+
+        .brand-sub {
+            font-size: 0.78rem;
+            color: var(--text-muted);
+        }
+
+        nav {
+            padding: 16px 12px;
+            flex: 1;
+        }
+
+        .nav-item {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 13px 16px;
+            margin-bottom: 6px;
+            border-radius: 10px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            cursor: pointer;
+        }
+
+        .nav-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+        }
+
+        .nav-item.active {
+            background: linear-gradient(90deg, rgba(0, 90, 156, 0.25) 0%, rgba(30, 136, 229, 0.12) 100%);
+            color: #fff;
+            border-left: 3px solid var(--dodgers-light);
+        }
+
+        .nav-icon {
+            font-size: 1.25rem;
+            width: 24px;
+            text-align: center;
+        }
+
+        .sidebar-footer {
+            padding: 18px 22px;
+            border-top: 1px solid var(--border);
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: center;
+        }
+
+        /* Main */
+        .main {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            background: linear-gradient(90deg, rgba(0, 90, 156, 0.18) 0%, transparent 100%);
+            border-bottom: 1px solid var(--border);
+            padding: 22px 32px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: sticky;
+            top: 0;
+            backdrop-filter: blur(12px);
+            z-index: 90;
+        }
+
+        .page-title {
+            font-size: 1.45rem;
+            font-weight: 700;
+        }
+
+        .page-title span {
+            color: var(--dodgers-light);
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .btn {
+            padding: 9px 18px;
+            border-radius: 8px;
+            border: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            text-decoration: none;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--dodgers-blue) 0%, var(--dodgers-light) 100%);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(0, 90, 156, 0.35);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 6px 20px rgba(0, 90, 156, 0.45);
+        }
+
+        .btn-ghost {
+            background: rgba(255, 255, 255, 0.06);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+
+        .btn-ghost:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .content {
+            flex: 1;
+            padding: 28px 32px 40px;
+            overflow-x: hidden;
+        }
+
+        /* Dashboard */
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 22px;
+            margin-bottom: 32px;
+        }
+
+        .portal-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s, box-shadow 0.25s;
+            cursor: pointer;
+        }
+
+        .portal-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.35);
+            border-color: rgba(255, 255, 255, 0.14);
+        }
+
+        .portal-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--dodgers-blue), var(--dodgers-light));
+        }
+
+        .portal-card.reports::before { background: linear-gradient(90deg, #7c3aed, #a78bfa); }
+        .portal-card.weekly::before { background: linear-gradient(90deg, var(--success), #4ade80); }
+        .portal-card.daily::before { background: linear-gradient(90deg, var(--accent), #fbbf24); }
+
+        .card-icon {
+            font-size: 2.2rem;
+            margin-bottom: 14px;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .card-desc {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            margin-bottom: 16px;
+        }
+
+        .card-meta {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .card-badge {
+            margin-left: auto;
+            background: rgba(255, 255, 255, 0.08);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+        }
+
+        .recent-section {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        /* Dashboard */
+        .dashboard-section {
+            margin-bottom: 32px;
+        }
+
+        .dashboard-section-title {
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .kpi-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .kpi-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+        }
+
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--dodgers-blue), var(--dodgers-light));
+        }
+
+        .kpi-value {
+            font-size: 2.2rem;
+            font-weight: 800;
+            color: #fff;
+            margin: 8px 0;
+            line-height: 1;
+        }
+
+        .kpi-label {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .kpi-sub {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            margin-top: 6px;
+        }
+
+        .dashboard-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 22px;
+        }
+
+        .dashboard-card {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 22px;
+        }
+
+        .dashboard-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .leader-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 11px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .leader-row:last-child {
+            border-bottom: none;
+        }
+
+        .leader-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .leader-rank {
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--text-muted);
+        }
+
+        .leader-rank.top {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .leader-rank.bottom {
+            background: rgba(239, 68, 68, 0.2);
+            color: var(--danger);
+        }
+
+        .leader-name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .leader-stats {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .leader-value {
+            font-weight: 700;
+            font-size: 1.05rem;
+            color: #fff;
+        }
+
+        .schedule-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 14px 16px;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.15s;
+        }
+
+        .schedule-card:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .schedule-main {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+        }
+
+        .schedule-opponent {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .schedule-meta {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        .schedule-badge {
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            background: rgba(0, 90, 156, 0.2);
+            color: #fff;
+        }
+
+        .schedule-badge.home {
+            background: rgba(34, 197, 94, 0.2);
+            color: var(--success);
+        }
+
+        .schedule-badge.away {
+            background: rgba(255, 152, 0, 0.2);
+            color: var(--accent);
+        }
+
+        .weekly-summary-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 22px;
+        }
+
+        .mini-list-item {
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border);
+            font-size: 0.9rem;
+        }
+
+        .mini-list-item:last-child {
+            border-bottom: none;
+        }
+
+        .mini-list-item strong {
+            color: #fff;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-left: 8px;
+        }
+
+        .tag-red {
+            background: rgba(239, 68, 68, 0.2);
+            color: #fca5a5;
+        }
+
+        .tag-green {
+            background: rgba(34, 197, 94, 0.2);
+            color: #86efac;
+        }
+
+        .dashboard-loading {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 400px;
+            color: var(--text-muted);
+        }
+
+        .dashboard-error {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: #fca5a5;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+
+        .data-age {
+            font-size: 0.75rem;
+            color: var(--text-muted);
+            text-align: right;
+            margin-top: 10px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 18px;
+        }
+
+        .section-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .file-list {
+            display: grid;
+            gap: 10px;
+        }
+
+        .file-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 16px;
+            background: rgba(255, 255, 255, 0.04);
+            border-radius: 10px;
+            border: 1px solid transparent;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .file-row:hover {
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--border);
+        }
+
+        .file-name {
+            font-weight: 600;
+            font-size: 0.92rem;
+        }
+
+        .file-date {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+        }
+
+        /* Module Layout */
+        .module-layout {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 22px;
+            height: calc(100vh - 170px);
+            min-height: 600px;
+        }
+
+        .module-sidebar {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .module-sidebar-header {
+            padding: 18px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .module-sidebar-header h3 {
+            font-size: 1rem;
+            font-weight: 700;
+        }
+
+        .module-sidebar-header p {
+            font-size: 0.8rem;
+            color: var(--text-muted);
+            margin-top: 3px;
+        }
+
+        .module-search {
+            padding: 0 16px 12px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .module-search input {
+            width: 100%;
+            padding: 10px 14px;
+            border-radius: 10px;
+            border: 1px solid var(--border);
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--text);
+            font-size: 0.9rem;
+            outline: none;
+            transition: all 0.2s;
+        }
+
+        .module-search input:focus {
+            border-color: var(--dodgers-light);
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .module-search input::placeholder {
+            color: var(--text-muted);
+        }
+
+        .module-file-list {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+        }
+
+        .module-file-item {
+            padding: 11px 14px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.15s;
+            margin-bottom: 4px;
+            font-size: 0.88rem;
+        }
+
+        .module-file-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+
+        .module-file-item.active {
+            background: rgba(0, 90, 156, 0.22);
+            color: #fff;
+            font-weight: 600;
+        }
+
+        .module-preview {
+            background: var(--panel);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .preview-toolbar {
+            padding: 12px 18px;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(255, 255, 255, 0.03);
+        }
+
+        .preview-title {
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .preview-actions {
+            display: flex;
+            gap: 8px;
+        }
+
+        .preview-body {
+            flex: 1;
+            overflow-y: auto;
+            padding: 28px 34px;
+            background: #fff;
+            color: #1f2937;
+        }
+
+        .preview-body iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 4px;
+        }
+
+        /* Markdown preview styling */
+        .markdown-body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            line-height: 1.75;
+            max-width: 880px;
+            margin: 0 auto;
+        }
+
+        .markdown-body h1,
+        .markdown-body h2,
+        .markdown-body h3 {
+            color: #111827;
+            margin-top: 28px;
+            margin-bottom: 14px;
+            font-weight: 700;
+        }
+
+        .markdown-body h1 { font-size: 1.9rem; border-bottom: 2px solid #e5e7eb; padding-bottom: 10px; }
+        .markdown-body h2 { font-size: 1.5rem; border-bottom: 1px solid #e5e7eb; padding-bottom: 8px; }
+        .markdown-body h3 { font-size: 1.2rem; }
+
+        .markdown-body p { margin-bottom: 14px; }
+
+        .markdown-body table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 18px 0;
+            font-size: 0.92rem;
+        }
+
+        .markdown-body th,
+        .markdown-body td {
+            border: 1px solid #d1d5db;
+            padding: 8px 12px;
+            text-align: left;
+        }
+
+        .markdown-body th {
+            background: #f3f4f6;
+            font-weight: 600;
+        }
+
+        .markdown-body tr:nth-child(even) { background: #f9fafb; }
+
+        .markdown-body ul, .markdown-body ol {
+            margin: 14px 0;
+            padding-left: 24px;
+        }
+
+        .markdown-body li { margin-bottom: 6px; }
+
+        .markdown-body blockquote {
+            border-left: 4px solid var(--dodgers-blue);
+            padding: 10px 18px;
+            margin: 16px 0;
+            background: #f3f4f6;
+            color: #4b5563;
+        }
+
+        .markdown-body code {
+            background: #f3f4f6;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-size: 0.9em;
+        }
+
+        .markdown-body pre {
+            background: #1f2937;
+            color: #e5e7eb;
+            padding: 16px;
+            border-radius: 8px;
+            overflow-x: auto;
+        }
+
+        .empty-state {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            text-align: center;
+            padding: 40px;
+        }
+
+        .empty-state-icon { font-size: 3rem; margin-bottom: 16px; opacity: 0.6; }
+        .empty-state h3 { font-size: 1.1rem; margin-bottom: 8px; color: var(--text); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .layout { grid-template-columns: 1fr; }
+            .sidebar {
+                height: auto;
+                position: relative;
+                flex-direction: row;
+                align-items: center;
+                padding: 12px 16px;
+            }
+            .brand { border-bottom: none; border-right: 1px solid var(--border); padding: 0 16px 0 0; margin-right: 16px; }
+            nav { display: flex; padding: 0; flex: 1; overflow-x: auto; }
+            .nav-item { margin-bottom: 0; margin-right: 6px; white-space: nowrap; }
+            .sidebar-footer { display: none; }
+            .module-layout { grid-template-columns: 1fr; height: auto; }
+            .module-sidebar { max-height: 300px; }
+        }
+
+        @media (max-width: 768px) {
+            .content { padding: 20px 18px; }
+            header { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
+            .dashboard-grid { grid-template-columns: 1fr; }
+        }
+
+        .hidden { display: none !important; }
+
+        .loading {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        .error-box {
+            background: rgba(239, 68, 68, 0.12);
+            border: 1px solid rgba(239, 68, 68, 0.25);
+            color: #fca5a5;
+            padding: 16px 20px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="layout">
+        <aside class="sidebar">
+            <div class="brand">
+                <div class="logo">LA</div>
+                <div>
+                    <div class="brand-title">道奇数据门户</div>
+                    <div class="brand-sub">Dodgers Analytics Hub</div>
+                </div>
+            </div>
+            <nav>
+                <a class="nav-item active" data-page="dashboard">
+                    <span class="nav-icon">🏠</span> 首页概览
+                </a>
+                <a class="nav-item" data-page="dashboard_v2">
+                    <span class="nav-icon">📈</span> 数据大屏
+                </a>
+                <a class="nav-item" data-page="reports">
+                    <span class="nav-icon">🧢</span> 球员报告
+                </a>
+                <a class="nav-item" data-page="weekly">
+                    <span class="nav-icon">📊</span> 每周战报
+                </a>
+                <a class="nav-item" data-page="daily">
+                    <span class="nav-icon">⚾</span> 每日阵容
+                </a>
+            </nav>
+            <div class="sidebar-footer">LA Dodgers · 2026</div>
+        </aside>
+
+        <main class="main">
+            <header>
+                <div class="page-title"><span id="header-title">首页概览</span></div>
+                <div class="header-actions" id="header-actions">
+                    <button class="btn btn-ghost" onclick="window.open('report/index.html','_blank')">在新标签打开球员报告</button>
+                </div>
+            </header>
+
+            <div class="content" id="content">
+                <!-- Pages injected here -->
+            </div>
+        </main>
+    </div>
+
+    <script>
+        // File index - generated by update-portal.py
+        const FILE_INDEX = {
+            "weekly": [
+                        {
+                                    "name": "2026-08-24-week21.md",
+                                    "label": "Week 21 · 08/24-08/30",
+                                    "date": "2026-08-24"
+                        },
+                        {
+                                    "name": "2026-08-17-week20.md",
+                                    "label": "Week 20 · 08/17-08/23",
+                                    "date": "2026-08-17"
+                        },
+                        {
+                                    "name": "2026-08-10-week19.md",
+                                    "label": "Week 19 · 08/10-08/16",
+                                    "date": "2026-08-10"
+                        },
+                        {
+                                    "name": "2026-08-03-week18.md",
+                                    "label": "Week 18 · 08/03-08/09",
+                                    "date": "2026-08-03"
+                        },
+                        {
+                                    "name": "2026-07-27-week17.md",
+                                    "label": "Week 17 · 07/27-08/02",
+                                    "date": "2026-07-27"
+                        },
+                        {
+                                    "name": "2026-07-20-week16.md",
+                                    "label": "Week 16 · 07/20-07/26",
+                                    "date": "2026-07-20"
+                        },
+                        {
+                                    "name": "2026-07-13-week15.md",
+                                    "label": "Week 15 · 07/13-07/19",
+                                    "date": "2026-07-13"
+                        },
+                        {
+                                    "name": "2026-07-06-week14.md",
+                                    "label": "Week 14 · 07/06-07/12",
+                                    "date": "2026-07-06"
+                        },
+                        {
+                                    "name": "2026-06-29-week13.md",
+                                    "label": "Week 13 · 06/29-07/05",
+                                    "date": "2026-06-29"
+                        },
+                        {
+                                    "name": "2026-06-22-week12.md",
+                                    "label": "Week 12 · 06/22-06/28",
+                                    "date": "2026-06-22"
+                        }
+            ],
+            "daily": [
+                        {
+                                    "name": "2026-08-24.md",
+                                    "label": "08/24 阵容快照",
+                                    "date": "2026-08-24"
+                        },
+                        {
+                                    "name": "2026-08-23.md",
+                                    "label": "08/23 阵容快照",
+                                    "date": "2026-08-23"
+                        },
+                        {
+                                    "name": "2026-08-22.md",
+                                    "label": "08/22 阵容快照",
+                                    "date": "2026-08-22"
+                        },
+                        {
+                                    "name": "2026-08-20.md",
+                                    "label": "08/20 阵容快照",
+                                    "date": "2026-08-20"
+                        },
+                        {
+                                    "name": "2026-08-19.md",
+                                    "label": "08/19 阵容快照",
+                                    "date": "2026-08-19"
+                        },
+                        {
+                                    "name": "2026-08-18.md",
+                                    "label": "08/18 阵容快照",
+                                    "date": "2026-08-18"
+                        },
+                        {
+                                    "name": "2026-08-17.md",
+                                    "label": "08/17 阵容快照",
+                                    "date": "2026-08-17"
+                        },
+                        {
+                                    "name": "2026-08-16.md",
+                                    "label": "08/16 阵容快照",
+                                    "date": "2026-08-16"
+                        },
+                        {
+                                    "name": "2026-08-15.md",
+                                    "label": "08/15 阵容快照",
+                                    "date": "2026-08-15"
+                        },
+                        {
+                                    "name": "2026-08-14.md",
+                                    "label": "08/14 阵容快照",
+                                    "date": "2026-08-14"
+                        },
+                        {
+                                    "name": "2026-08-13.md",
+                                    "label": "08/13 阵容快照",
+                                    "date": "2026-08-13"
+                        },
+                        {
+                                    "name": "2026-08-12.md",
+                                    "label": "08/12 阵容快照",
+                                    "date": "2026-08-12"
+                        },
+                        {
+                                    "name": "2026-08-11.md",
+                                    "label": "08/11 阵容快照",
+                                    "date": "2026-08-11"
+                        },
+                        {
+                                    "name": "2026-08-10.md",
+                                    "label": "08/10 阵容快照",
+                                    "date": "2026-08-10"
+                        },
+                        {
+                                    "name": "2026-08-09.md",
+                                    "label": "08/09 阵容快照",
+                                    "date": "2026-08-09"
+                        },
+                        {
+                                    "name": "2026-08-08.md",
+                                    "label": "08/08 阵容快照",
+                                    "date": "2026-08-08"
+                        },
+                        {
+                                    "name": "2026-08-07.md",
+                                    "label": "08/07 阵容快照",
+                                    "date": "2026-08-07"
+                        },
+                        {
+                                    "name": "2026-08-06.md",
+                                    "label": "08/06 阵容快照",
+                                    "date": "2026-08-06"
+                        },
+                        {
+                                    "name": "2026-08-05.md",
+                                    "label": "08/05 阵容快照",
+                                    "date": "2026-08-05"
+                        },
+                        {
+                                    "name": "2026-08-04.md",
+                                    "label": "08/04 阵容快照",
+                                    "date": "2026-08-04"
+                        },
+                        {
+                                    "name": "2026-08-03.md",
+                                    "label": "08/03 阵容快照",
+                                    "date": "2026-08-03"
+                        },
+                        {
+                                    "name": "2026-08-02.md",
+                                    "label": "08/02 阵容快照",
+                                    "date": "2026-08-02"
+                        },
+                        {
+                                    "name": "2026-08-01.md",
+                                    "label": "08/01 阵容快照",
+                                    "date": "2026-08-01"
+                        },
+                        {
+                                    "name": "2026-07-31.md",
+                                    "label": "07/31 阵容快照",
+                                    "date": "2026-07-31"
+                        },
+                        {
+                                    "name": "2026-07-30.md",
+                                    "label": "07/30 阵容快照",
+                                    "date": "2026-07-30"
+                        },
+                        {
+                                    "name": "2026-07-29.md",
+                                    "label": "07/29 阵容快照",
+                                    "date": "2026-07-29"
+                        },
+                        {
+                                    "name": "2026-07-27.md",
+                                    "label": "07/27 阵容快照",
+                                    "date": "2026-07-27"
+                        },
+                        {
+                                    "name": "2026-07-26.md",
+                                    "label": "07/26 阵容快照",
+                                    "date": "2026-07-26"
+                        },
+                        {
+                                    "name": "2026-07-25.md",
+                                    "label": "07/25 阵容快照",
+                                    "date": "2026-07-25"
+                        },
+                        {
+                                    "name": "2026-07-24.md",
+                                    "label": "07/24 阵容快照",
+                                    "date": "2026-07-24"
+                        },
+                        {
+                                    "name": "2026-07-23.md",
+                                    "label": "07/23 阵容快照",
+                                    "date": "2026-07-23"
+                        },
+                        {
+                                    "name": "2026-07-22.md",
+                                    "label": "07/22 阵容快照",
+                                    "date": "2026-07-22"
+                        },
+                        {
+                                    "name": "2026-07-21.md",
+                                    "label": "07/21 阵容快照",
+                                    "date": "2026-07-21"
+                        },
+                        {
+                                    "name": "2026-07-20.md",
+                                    "label": "07/20 阵容快照",
+                                    "date": "2026-07-20"
+                        },
+                        {
+                                    "name": "2026-07-18.md",
+                                    "label": "07/18 阵容快照",
+                                    "date": "2026-07-18"
+                        },
+                        {
+                                    "name": "2026-07-17.md",
+                                    "label": "07/17 阵容快照",
+                                    "date": "2026-07-17"
+                        },
+                        {
+                                    "name": "2026-07-13.md",
+                                    "label": "07/13 阵容快照",
+                                    "date": "2026-07-13"
+                        },
+                        {
+                                    "name": "2026-07-12.md",
+                                    "label": "07/12 阵容快照",
+                                    "date": "2026-07-12"
+                        },
+                        {
+                                    "name": "2026-07-11.md",
+                                    "label": "07/11 阵容快照",
+                                    "date": "2026-07-11"
+                        },
+                        {
+                                    "name": "2026-07-09.md",
+                                    "label": "07/09 阵容快照",
+                                    "date": "2026-07-09"
+                        },
+                        {
+                                    "name": "2026-07-08.md",
+                                    "label": "07/08 阵容快照",
+                                    "date": "2026-07-08"
+                        },
+                        {
+                                    "name": "2026-07-07.md",
+                                    "label": "07/07 阵容快照",
+                                    "date": "2026-07-07"
+                        },
+                        {
+                                    "name": "2026-07-06.md",
+                                    "label": "07/06 阵容快照",
+                                    "date": "2026-07-06"
+                        },
+                        {
+                                    "name": "2026-07-05.md",
+                                    "label": "07/05 阵容快照",
+                                    "date": "2026-07-05"
+                        },
+                        {
+                                    "name": "2026-07-04.md",
+                                    "label": "07/04 阵容快照",
+                                    "date": "2026-07-04"
+                        },
+                        {
+                                    "name": "2026-07-03.md",
+                                    "label": "07/03 阵容快照",
+                                    "date": "2026-07-03"
+                        },
+                        {
+                                    "name": "2026-07-02.md",
+                                    "label": "07/02 阵容快照",
+                                    "date": "2026-07-02"
+                        },
+                        {
+                                    "name": "2026-07-01.md",
+                                    "label": "07/01 阵容快照",
+                                    "date": "2026-07-01"
+                        },
+                        {
+                                    "name": "2026-06-30.md",
+                                    "label": "06/30 阵容快照",
+                                    "date": "2026-06-30"
+                        },
+                        {
+                                    "name": "2026-06-29.md",
+                                    "label": "06/29 阵容快照",
+                                    "date": "2026-06-29"
+                        },
+                        {
+                                    "name": "2026-06-28.md",
+                                    "label": "06/28 阵容快照",
+                                    "date": "2026-06-28"
+                        },
+                        {
+                                    "name": "2026-06-27.md",
+                                    "label": "06/27 阵容快照",
+                                    "date": "2026-06-27"
+                        },
+                        {
+                                    "name": "2026-06-26.md",
+                                    "label": "06/26 阵容快照",
+                                    "date": "2026-06-26"
+                        },
+                        {
+                                    "name": "2026-06-25.md",
+                                    "label": "06/25 阵容快照",
+                                    "date": "2026-06-25"
+                        },
+                        {
+                                    "name": "2026-06-24.md",
+                                    "label": "06/24 阵容快照",
+                                    "date": "2026-06-24"
+                        },
+                        {
+                                    "name": "2026-06-23.md",
+                                    "label": "06/23 阵容快照",
+                                    "date": "2026-06-23"
+                        }
+            ]
+};
+
+        let currentPage = 'dashboard';
+
+        function $(s) { return document.querySelector(s); }
+        function $$(s) { return document.querySelectorAll(s); }
+
+        function setPage(page) {
+            currentPage = page;
+            $$('.nav-item').forEach(el => el.classList.toggle('active', el.dataset.page === page));
+            const titles = {
+                dashboard: '首页概览',
+                dashboard_v2: '数据大屏',
+                reports: '球员报告',
+                weekly: '每周战报',
+                daily: '每日阵容'
+            };
+            $('#header-title').textContent = titles[page];
+            renderContent(page);
+            updateHeaderActions(page);
+        }
+
+        function updateHeaderActions(page) {
+            const actions = $('#header-actions');
+            if (page === 'dashboard_v2') {
+                actions.innerHTML = `<button class="btn btn-primary" onclick="refreshDashboard()">🔄 刷新数据</button>`;
+            } else if (page === 'reports') {
+                actions.innerHTML = `<button class="btn btn-ghost" onclick="window.open('report/index.html','_blank')">在新标签打开球员报告</button>`;
+            } else if (page === 'weekly') {
+                actions.innerHTML = `<button class="btn btn-primary" onclick="openFirst('weekly')">查看最新周报</button>`;
+            } else if (page === 'daily') {
+                actions.innerHTML = `<button class="btn btn-primary" onclick="openFirst('daily')">查看最新日报</button>`;
+            } else {
+                actions.innerHTML = `<button class="btn btn-ghost" onclick="window.open('report/index.html','_blank')">在新标签打开球员报告</button>`;
+            }
+        }
+
+        function openFirst(type) {
+            setPage(type);
+            setTimeout(() => selectFile(type, FILE_INDEX[type][0].name), 50);
+        }
+
+        function renderContent(page) {
+            const content = $('#content');
+            content.innerHTML = '';
+
+            if (page === 'dashboard') {
+                content.innerHTML = `
+                    <div class="dashboard-grid">
+                        <div class="portal-card reports" onclick="setPage('reports')">
+                            <div class="card-icon">🧢</div>
+                            <div class="card-title">球员报告</div>
+                            <div class="card-desc">按球员维度查看详细球探报告、数据图表与赛季表现分析。</div>
+                            <div class="card-meta">
+                                <span>入口：report/index.html</span>
+                                <span class="card-badge">独立模块</span>
+                            </div>
+                        </div>
+                        <div class="portal-card weekly" onclick="setPage('weekly')">
+                            <div class="card-icon">📊</div>
+                            <div class="card-title">每周战报</div>
+                            <div class="card-desc">每周战绩、赛程、红黑榜与伤病更新，按周一归档。</div>
+                            <div class="card-meta">
+                                <span>最近：${FILE_INDEX.weekly[0].date}</span>
+                                <span class="card-badge">${FILE_INDEX.weekly.length} 期</span>
+                            </div>
+                        </div>
+                        <div class="portal-card daily" onclick="setPage('daily')">
+                            <div class="card-icon">⚾</div>
+                            <div class="card-title">每日阵容</div>
+                            <div class="card-desc">道奇队 40 人名单每日快照，含伤病名单与人员变动。</div>
+                            <div class="card-meta">
+                                <span>最近：${FILE_INDEX.daily[0].date}</span>
+                                <span class="card-badge">${FILE_INDEX.daily.length} 天</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="recent-section">
+                        <div class="section-header">
+                            <div class="section-title">📅 最新周报</div>
+                            <button class="btn btn-ghost" onclick="setPage('weekly')">查看全部</button>
+                        </div>
+                        <div class="file-list">
+                            ${FILE_INDEX.weekly.slice(0, 5).map(f => `
+                                <div class="file-row" onclick="setPage('weekly'); setTimeout(() => selectFile('weekly','${f.name}'), 50)">
+                                    <span class="file-name">${f.label}</span>
+                                    <span class="file-date">${f.date}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+
+                    <div class="recent-section">
+                        <div class="section-header">
+                            <div class="section-title">📰 最新日报</div>
+                            <button class="btn btn-ghost" onclick="setPage('daily')">查看全部</button>
+                        </div>
+                        <div class="file-list">
+                            ${FILE_INDEX.daily.slice(0, 7).map(f => `
+                                <div class="file-row" onclick="setPage('daily'); setTimeout(() => selectFile('daily','${f.name}'), 50)">
+                                    <span class="file-name">${f.label}</span>
+                                    <span class="file-date">${f.date}</span>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            } else if (page === 'reports') {
+                const cacheBuster = new Date().getTime();
+                content.innerHTML = `
+                    <div style="background: var(--panel); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; height: calc(100vh - 170px); min-height: 600px;">
+                        <iframe src="report/index.html?v=${cacheBuster}" style="width: 100%; height: 100%; border: none;"></iframe>
+                    </div>
+                `;
+            } else if (page === 'dashboard_v2') {
+                renderDashboard();
+            } else if (page === 'weekly' || page === 'daily') {
+                renderModule(page);
+            }
+        }
+
+        async function renderDashboard() {
+            const content = $('#content');
+            content.innerHTML = `<div class="dashboard-loading"><div>⏳ 正在加载数据大屏...</div></div>`;
+
+            let data = null;
+            let source = '';
+            try {
+                const res = await fetch('portal/dashboard-data.json');
+                if (!res.ok) throw new Error('无法读取 dashboard 数据');
+                data = await res.json();
+                source = 'current';
+            } catch (err) {
+                try {
+                    const bak = await fetch('portal/dashboard-data.json.bak');
+                    if (bak.ok) {
+                        data = await bak.json();
+                        source = 'backup';
+                    }
+                } catch (e) {
+                    // ignore
+                }
+            }
+
+            if (!data) {
+                content.innerHTML = `
+                    <div class="dashboard-error">
+                        <strong>数据大屏加载失败</strong><br>
+                        无法读取当前数据或历史 checkpoint。<br><br>
+                        请先运行 <code>python D:\baseball\portal\fetch-dashboard-data.py</code> 生成数据。
+                    </div>
+                `;
+                return;
+            }
+
+            content.innerHTML = buildDashboardHTML(data, source);
+        }
+
+        function buildDashboardHTML(data, source = 'current') {
+            const s = data.standings || {};
+            const hitters = (data.last7Hitters || []).slice().sort((a, b) => parseFloat(b.ops) - parseFloat(a.ops));
+            const topHitters = hitters.slice(0, 3);
+            const bottomHitters = hitters.slice(-3).reverse();
+            const upcoming = (data.schedule || []).filter(g => g.status !== 'Final').slice(0, 5);
+            const weekly = data.weekly || {};
+
+            const streakCode = (s.streak || {}).streakCode || '-';
+            const streakText = streakCode.startsWith('W') ? `连胜 ${streakCode.slice(1)} 场` : streakCode.startsWith('L') ? `连败 ${streakCode.slice(1)} 场` : '-';
+            const streakClass = streakCode.startsWith('W') ? 'tag-green' : streakCode.startsWith('L') ? 'tag-red' : '';
+            const sourceBadge = source === 'backup' ? '<span class="tag tag-red">读取自本地 checkpoint</span>' : '';
+
+            return `
+                <div class="dashboard-section">
+                    <div class="dashboard-section-title">📊 球队战绩</div>
+                    <div class="kpi-grid">
+                        <div class="kpi-card">
+                            <div class="kpi-label">战绩</div>
+                            <div class="kpi-value">${s.wins || 0}-${s.losses || 0}</div>
+                            <div class="kpi-sub">胜率 ${s.pct || '.000'}</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">分区排名</div>
+                            <div class="kpi-value">${s.divisionRank || '-'}</div>
+                            <div class="kpi-sub">国联西区</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">联盟排名</div>
+                            <div class="kpi-value">${s.leagueRank || '-'}</div>
+                            <div class="kpi-sub">国联</div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">连胜/连败</div>
+                            <div class="kpi-value">${streakCode}</div>
+                            <div class="kpi-sub"><span class="tag ${streakClass}">${streakText}</span></div>
+                        </div>
+                        <div class="kpi-card">
+                            <div class="kpi-label">已赛场次</div>
+                            <div class="kpi-value">${s.gamesPlayed || 0}</div>
+                            <div class="kpi-sub">主 ${s.homeRecord || '-'} / 客 ${s.awayRecord || '-'}</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="dashboard-section-title">🔥 最近 7 天打线状态</div>
+                    <div class="dashboard-grid-2">
+                        <div class="dashboard-card">
+                            <h3>🔥 OPS 热棒 TOP 5</h3>
+                            ${topHitters.map((h, i) => `
+                                <div class="leader-row">
+                                    <div class="leader-info">
+                                        <div class="leader-rank top">${i + 1}</div>
+                                        <div>
+                                            <div class="leader-name">${h.name}</div>
+                                            <div class="leader-stats">${h.avg}/${h.obp}/${h.slg} · ${h.hr} HR · ${h.rbi} RBI</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-value">${h.ops}</div>
+                                </div>
+                            `).join('')}
+                            ${topHitters.length === 0 ? '<div class="empty-state"><div>暂无数据</div></div>' : ''}
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>🧊 OPS 冷手 BOTTOM 3</h3>
+                            ${bottomHitters.map((h, i) => `
+                                <div class="leader-row">
+                                    <div class="leader-info">
+                                        <div class="leader-rank bottom">${i + 1}</div>
+                                        <div>
+                                            <div class="leader-name">${h.name}</div>
+                                            <div class="leader-stats">${h.avg}/${h.obp}/${h.slg} · ${h.hr} HR · ${h.rbi} RBI</div>
+                                        </div>
+                                    </div>
+                                    <div class="leader-value">${h.ops}</div>
+                                </div>
+                            `).join('')}
+                            ${bottomHitters.length === 0 ? '<div class="empty-state"><div>暂无数据</div></div>' : ''}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="dashboard-section-title">📅 未来 5 场比赛</div>
+                    <div>
+                        ${upcoming.map(g => {
+                            const localTime = g.time ? new Date(g.time).toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }) : 'TBD';
+                            return `
+                                <div class="schedule-card">
+                                    <div class="schedule-main">
+                                        <div>
+                                            <div class="schedule-opponent">${g.isHome ? 'vs' : '@'} ${g.opponent.abbreviation}</div>
+                                            <div class="schedule-meta">${localTime} · ${g.venue}${g.probablePitcher ? ' · 先发: ' + g.probablePitcher : ''}</div>
+                                        </div>
+                                    </div>
+                                    <span class="schedule-badge ${g.isHome ? 'home' : 'away'}">${g.isHome ? '主场' : '客场'}</span>
+                                </div>
+                            `;
+                        }).join('')}
+                        ${upcoming.length === 0 ? '<div class="empty-state"><div>暂无 upcoming 赛程</div></div>' : ''}
+                    </div>
+                </div>
+
+                <div class="dashboard-section">
+                    <div class="dashboard-section-title">📰 周报红黑榜速览</div>
+                    <div class="weekly-summary-grid">
+                        <div class="dashboard-card">
+                            <h3>🔥 当周红榜</h3>
+                            ${(weekly.red || []).length ? weekly.red.map(r => `
+                                <div class="mini-list-item"><strong>${r.name}</strong> ${r.note}</div>
+                            `).join('') : '<div class="empty-state"><div>最新周报未解析出红榜</div></div>'}
+                        </div>
+                        <div class="dashboard-card">
+                            <h3>🥶 当周黑榜</h3>
+                            ${(weekly.black || []).length ? weekly.black.map(r => `
+                                <div class="mini-list-item"><strong>${r.name}</strong> ${r.note}</div>
+                            `).join('') : '<div class="empty-state"><div>最新周报未解析出黑榜</div></div>'}
+                        </div>
+                    </div>
+                    <div class="data-age">数据时间：${data.generatedAt ? new Date(data.generatedAt).toLocaleString('zh-CN') : '未知'} · 来源：MLB Stats API / 道奇周报 ${sourceBadge}</div>
+                </div>
+            `;
+        }
+
+        async function refreshDashboard() {
+            await renderDashboard();
+        }
+
+        function renderModule(type) {
+            const content = $('#content');
+            const files = FILE_INDEX[type];
+            const title = type === 'weekly' ? '每周战报' : '每日阵容';
+            const folder = type === 'weekly' ? 'weekly' : 'roster';
+            content.innerHTML = `
+                <div class="module-layout">
+                    <div class="module-sidebar">
+                        <div class="module-sidebar-header">
+                            <h3>${title}</h3>
+                            <p>点击文件在右侧预览</p>
+                        </div>
+                        <div class="module-search">
+                            <input type="text" id="${type}-search" placeholder="搜索日期或 Week..." oninput="filterFiles('${type}', this.value)">
+                        </div>
+                        <div class="module-file-list" id="${type}-list">
+                            ${files.map(f => `
+                                <div class="module-file-item" data-file="${f.name}" data-label="${f.label}" onclick="selectFile('${type}','${f.name}')">${f.label}</div>
+                            `).join('')}
+                        </div>
+                    </div>
+                    <div class="module-preview">
+                        <div class="preview-toolbar">
+                            <span class="preview-title" id="${type}-title">选择一个文件</span>
+                            <div class="preview-actions">
+                                <button class="btn btn-ghost" id="${type}-raw" disabled onclick="openRaw('${folder}','')">打开原文件</button>
+                            </div>
+                        </div>
+                        <div class="preview-body" id="${type}-preview">
+                            <div class="empty-state">
+                                <div class="empty-state-icon">📄</div>
+                                <h3>选择左侧文件查看内容</h3>
+                                <p>周报与日报均为 Markdown 格式，会在这里自动渲染成网页。</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        function filterFiles(type, query) {
+            const q = query.trim().toLowerCase();
+            $$(`#${type}-list .module-file-item`).forEach(el => {
+                const label = el.dataset.label.toLowerCase();
+                el.style.display = label.includes(q) ? '' : 'none';
+            });
+        }
+
+        async function selectFile(type, filename) {
+            const folder = type === 'weekly' ? 'weekly' : 'roster';
+            const preview = $(`#${type}-preview`);
+            const title = $(`#${type}-title`);
+            const rawBtn = $(`#${type}-raw`);
+
+            // Update active state
+            $$(`#${type}-list .module-file-item`).forEach(el => {
+                el.classList.toggle('active', el.dataset.file === filename);
+            });
+
+            title.textContent = filename;
+            rawBtn.disabled = false;
+            rawBtn.onclick = () => window.open(`${folder}/${filename}`, '_blank');
+
+            preview.innerHTML = '<div class="loading">⏳ 正在加载并渲染文档...</div>';
+
+            try {
+                const res = await fetch(`${folder}/${filename}`);
+                if (!res.ok) throw new Error(`无法读取文件 (HTTP ${res.status})`);
+                const md = await res.text();
+                const html = marked.parse(md);
+                preview.innerHTML = `<div class="markdown-body">${html}</div>`;
+            } catch (err) {
+                preview.innerHTML = `
+                    <div class="error-box">
+                        <strong>加载失败</strong><br>
+                        ${err.message}<br><br>
+                        这通常是因为用 <code>file://</code> 协议直接打开页面导致的本地文件访问限制。<br>
+                        建议通过本地服务器访问：在 PowerShell 里运行 <code>python -m http.server 8080</code>，然后打开 <code>http://localhost:8080</code>。
+                    </div>
+                `;
+            }
+        }
+
+        // Initialize
+        $$('.nav-item').forEach(el => {
+            el.addEventListener('click', e => {
+                e.preventDefault();
+                setPage(el.dataset.page);
+            });
+        });
+
+        setPage('dashboard');
+    </script>
+</body>
+</html>

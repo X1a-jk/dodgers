@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kyle Hurt 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ .section table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+ .section th, .section td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .section th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; }
+ .section tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .section h3 { color: #4fc3f7; margin: 20px 0 12px 0; font-size: 1.2em; }
+ .section p { margin-bottom: 12px; }
+ .section blockquote { border-left: 4px solid #4fc3f7; padding-left: 15px; margin: 15px 0; color: #b0bec5; font-style: italic; }
+ .section strong { color: #4fc3f7; }
+ .section ul { margin-left: 25px; margin-bottom: 15px; }
+ .section li { margin-bottom: 8px; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Kyle Hurt</h1>
+ <p class="subtitle">Los Angeles Dodgers #37 | 投手 | 活跃</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="kyle-hurt_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Kyle Hurt</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1998-05-30</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">28岁</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 240 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2023-09-12</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2020年 第5轮 (道奇)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#37</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">活跃</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+<p>Kyle Hurt 是道奇自家农场培养的大体型右投后援，拥有优秀的三振能力但控球起伏不定。2026 年他出赛 33 场，缴出 4.59 ERA、1.38 WHIP、K/9 10.53 的成绩，三振能力出色但保送率偏高 (BB/9 4.86) 限制了他的 leverage 上限。28 岁的 Hurt 正处于"证明自己是稳定大联盟后援"的关键阶段，若能改善控球，他有机会成为道奇牛棚中值得信赖的中段 布局（setup）man。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+<div class="career-highlight"><h4>🌟 2023年 - 大联盟首秀</h4><p>Kyle Hurt 于 2023-09-12 登上大联盟，开始在高水平舞台展现自己的实力。</p></div>
+<div class="career-highlight"><h4>🔵 道奇时期 - 活跃名单贡献者</h4><p>Kyle Hurt 目前是洛杉矶道奇活跃名单的一员，作为投手为球队提供稳定贡献。</p></div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">33</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3</span>
+ <div class="stat-label">胜场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">败场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">救援成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">8</span>
+ <div class="stat-label">中继成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.59</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">33.1</span>
+ <div class="stat-label">投球局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">28</span>
+ <div class="stat-label">被安打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">17</span>
+ <div class="stat-label">自责分</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">39</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">18</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">1.38</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">10.53</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.86</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0.81</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kyle-hurt_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th><th>BB/9</th></tr>
+</thead>
+<tbody>
+<tr><td>2025</td><td>22</td><td>0</td><td>2-1</td><td>4.24</td><td>23.1</td><td>28</td><td>12</td><td>1.41</td><td>10.80</td><td>4.63</td></tr>
+<tr><td>2026</td><td>33</td><td>1</td><td>3-1</td><td>4.59</td><td>33.1</td><td>39</td><td>18</td><td>1.38</td><td>10.53</td><td>4.86</td></tr>
+</tbody>
+</table>
+
+<blockquote>Hurt 的 2026 年与 2025 年数据极为相似：三振能力稳定，但 ERA 与 WHIP 受保送拖累。</blockquote>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线快速球 (Four-Seam Fastball) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">95-99 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">Hurt 的速球具备 elite 球速，均速可达 97 mph 左右。身材高大让他能创造不错的下坠角度，但控球不稳时这颗球容易被打出长打或制造保送。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">84-88 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">主要变化球，横向位移明显，对右打者效果不错。当滑球落在好球带角落时是出局武器，失投时则容易被硬打。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">87-90 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">偶尔用来对付左打者，使用频率不高。若能提升这颗球的稳定性，可有效降低 左右差距。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+<h3>投球机制</h3>
+<p>Hurt 采用标准的四分之三投球机制，6 尺 3 寸、240 磅的身材让他在投球时拥有不错的稳定性与耐久度。他的动作节奏有时会过快，导致手臂跟不上身体，造成控球失准。若能放慢节奏、提升重复性，BB/9 有望下降。</p>
+<h3>球质与配球策略</h3>
+<ul>
+<li><strong>高 K/9 与保送并存</strong>：10.53 K/9 显示他有 出局球，但 4.86 BB/9 说明他常常需要在没有退路的情况下对决打者</li>
+<li><strong>全垒打控制尚可</strong>：HR/9 0.81 不算差，显示他不会频繁被长打击溃</li>
+<li><strong> leverage 受限</strong>：由于控球不稳，Roberts 目前多安排他在第 6-7 局或领先较多的情况下登板</li>
+</ul>
+<h3>角色定位</h3>
+<ul>
+<li>当前角色：中段 布局（setup）/ 长局数后援 / 偶尔吃局数</li>
+<li>潜在升级：若 BB/9 降至 3.5 以下，有望竞争第 8 局 setup</li>
+<li>使用情境：需要三振化解危机、但可接受保送风险时</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li><strong>球速出色</strong>：四缝线 95-99 mph，具备 elite 球威 基础</li>
+ <li><strong>三振能力</strong>：K/9 10+，能制造挥空</li>
+ <li><strong>体型耐久</strong>：240 磅身材适合吃多局数</li>
+ <li><strong>农场自产</strong>：道奇熟悉度高，愿意给时间调整</li>
+ <li><strong>全垒打控制不差</strong>：HR/9 低于 1.0</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li><strong>保送偏多</strong>：BB/9 4.86 偏高，经常自找麻烦</li>
+ <li><strong>控球稳定性差</strong>：连续出赛表现起伏大</li>
+ <li><strong> leverage 经验不足</strong>：尚未在关键局证明自己</li>
+ <li><strong>变化球深度有限</strong>：第三、第四球种尚未成熟</li>
+ <li><strong>年龄 28 岁</strong>：成长空间不如 24-25 岁新秀</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kyle-hurt_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>项目</th><th>评分 (20-80)</th><th>等级</th></tr>
+</thead>
+<tbody>
+<tr><td>速球</td><td>60</td><td>B+</td></tr>
+<tr><td>滑球</td><td>55</td><td>B</td></tr>
+<tr><td>变速球</td><td>45</td><td>C+</td></tr>
+<tr><td>控球</td><td>40</td><td>C</td></tr>
+<tr><td>指挥</td><td>45</td><td>C+</td></tr>
+<tr><td>三振</td><td>60</td><td>B+</td></tr>
+<tr><td>心理素质</td><td>50</td><td>B-</td></tr>
+<tr><td>耐久</td><td>55</td><td>B</td></tr>
+</tbody>
+</table>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">Kyle Hurt 是"半完成品"：他有成为 布局（setup）man 的 原始球威，但控球是通往更高 leverage 的最大门槛。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 高 K 但高 BB 的后援</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+<h3>2026 年剩余赛季</h3>
+<ul>
+<li>目标：将 BB/9 压到 4.0 以下，ERA 降至 4.00 以下</li>
+<li>角色：继续担任中段后援，争取更多 hold 机会</li>
+</ul>
+<h3>2027 年及以后</h3>
+<ul>
+<li>若控球改善，可竞争更高 leverage 角色</li>
+<li>否则可能沦为 名单 bubble 或交易筹码</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+<p>Kyle Hurt 是道奇 2020 年第 5 轮选秀选中的右投，大学时期曾以先发投手身份培养。进入职棒后，道奇将他转为后援，希望利用他的球速与体型优势。2023 年 9 月 12 日完成大联盟首秀。过去几个赛季他在大联盟与小联盟之间起伏，始终未能完全站稳，但 2025-26 年的三振数据证明他有能力在大联盟制造出局。</p>
+<p>*⚾ 洛杉矶道奇队球探报告*</p>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-08-07 | 数据截止日期：2026-08-07</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

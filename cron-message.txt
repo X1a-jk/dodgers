@@ -1,0 +1,1 @@
+请检查道奇队阵容更新：1. 访问 https://www.mlb.com/dodgers/roster 和 https://www.mlb.com/dodgers/roster/40-man 2. 获取最新阵容和伤病信息 3. 对比 D:\baseball\dodgers-roster.md 文件内容 4. 如果有变化，请通知用户并更新文件 5. 关注：活跃名单人员变化、伤病名单变化、小联盟人员调动

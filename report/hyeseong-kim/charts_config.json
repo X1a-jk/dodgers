@@ -1,0 +1,49 @@
+{
+  "player_name": "Hyeseong Kim",
+  "player_slug": "hyeseong-kim",
+  "output_dir": "D:\\baseball\\report\\hyeseong-kim",
+  "prefix": "kim",
+  "info": {
+    "number": "6",
+    "position": "IF / OF"
+  },
+  "cover": {
+    "stats": [
+      ["AVG", ".259"],
+      ["OBP", ".323"],
+      ["SLG", ".328"],
+      ["OPS", ".651"],
+      ["SB", "5"],
+      ["AGE", "27"]
+    ]
+  },
+  "overall_grades": {
+    "Contact": 55,
+    "Power": 25,
+    "Discipline": 45,
+    "Speed": 55,
+    "2B Defense": 60,
+    "SS Defense": 50,
+    "OF Defense": 45,
+    "Versatility": 60
+  },
+  "season_comparison": {
+    "categories": ["AVG", "OBP", "SLG", "OPS", "BB%", "K%"],
+    "current": {
+      "AVG": {"value": 0.259, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.323, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.328, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.651, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 9.2, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 23.7, "low": 10.0, "high": 35.0, "invert": true}
+    },
+    "previous": {
+      "AVG": {"value": 0.245, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.315, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.320, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.635, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 8.8, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 22.4, "low": 10.0, "high": 35.0, "invert": true}
+    }
+  }
+}

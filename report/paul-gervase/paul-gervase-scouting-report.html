@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Paul Gervase 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ .section table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+ .section th, .section td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .section th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; }
+ .section tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .section h3 { color: #4fc3f7; margin: 20px 0 12px 0; font-size: 1.2em; }
+ .section p { margin-bottom: 12px; }
+ .section blockquote { border-left: 4px solid #4fc3f7; padding-left: 15px; margin: 15px 0; color: #b0bec5; font-style: italic; }
+ .section strong { color: #4fc3f7; }
+ .section ul { margin-left: 25px; margin-bottom: 15px; }
+ .section li { margin-bottom: 8px; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Paul Gervase</h1>
+ <p class="subtitle">Los Angeles Dodgers #38 | 投手 | Minors</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="paul-gervase_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Paul Gervase</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">2000-05-23</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国新泽西州 Middletown</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'10" / 230 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2025-06-21 (光芒队)</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2022年 第12轮 (光芒，总第361顺位)</div></div>
+ <div class="info-item"><div class="label">大学</div><div class="value">Rutgers University</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#38</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">Minors（下放 AAA Oklahoma City Comets）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+<p>Paul Gervase 是道奇牛棚中一名极具视觉压迫感的右投后援。6 尺 10 寸的身高与 230 磅的体重让他在投手丘上鹤立鸡群，出手点极高，让打者产生极大的视角不适。他的快速球约在 94-97 mph，搭配滑球与变速球，具备成为高杠杆后援的 原始天赋。2025 年在光芒队完成大联盟首秀，但表现起伏（6.1 局 4.26 ERA，被击出 3 支本垒打）。2026 年加盟道奇后，4 场出赛 7.2 局 2.35 ERA，虽然保送率仍然偏高，但本垒打控制明显改善。目前他被下放至 AAA Oklahoma City，仍是道奇牛棚深度的潜在选项。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+<div class="career-highlight"><h4>🎓 大学时期 - Rutgers University</h4><p>Paul Gervase 在大学时期展现出成为大联盟投手的潜力，积累了扎实的基础与比赛经验。</p></div>
+<div class="career-highlight"><h4>⭐ 2022年 - 第12轮选中</h4><p>Paul Gervase 在 2022 年 MLB 选秀第 12 轮被选中，开启职业棒球生涯。</p></div>
+<div class="career-highlight"><h4>🌟 2025年 - 大联盟首秀</h4><p>Paul Gervase 于 2025-06-21 (光芒队) 登上大联盟，开始在高水平舞台展现自己的实力。</p></div>
+<div class="career-highlight"><h4>🔮 当前状态 - 小联盟发展中</h4><p>Paul Gervase 目前位于道奇小联盟体系，是球队长期深度规划的一部分。</p></div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">胜场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">败场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">救援成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">中继成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2.35</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">7.2</span>
+ <div class="stat-label">投球局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">7</span>
+ <div class="stat-label">被安打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">自责分</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">8</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">1.57</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">9.39</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5.87</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.60</span>
+ <div class="stat-label">K/BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0.00</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="paul-gervase_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>赛季</th><th>球队</th><th>G</th><th>W-L</th><th>SV</th><th>HLD</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th><th>BB/9</th><th>HR/9</th></tr>
+</thead>
+<tbody>
+<tr><td>2025</td><td>TBR</td><td>5</td><td>0-0</td><td>0</td><td>0</td><td>4.26</td><td>6.1</td><td>6</td><td>5</td><td>1.74</td><td>8.53</td><td>7.11</td><td>4.26</td></tr>
+<tr><td>2026</td><td>LAD</td><td>4</td><td>0-0</td><td>0</td><td>0</td><td>2.35</td><td>7.2</td><td>8</td><td>5</td><td>1.57</td><td>9.39</td><td>5.87</td><td>0.00</td></tr>
+</tbody>
+</table>
+<h3 style="margin-top: 30px; color: #4fc3f7;">大联盟生涯数据</h3>
+<table class="comparison-table">
+<thead>
+<tr><th>统计项目</th><th>数值</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>出赛 (G)</strong></td><td>9</td></tr>
+<tr><td><strong>先发 (GS)</strong></td><td>0</td></tr>
+<tr><td><strong>胜场 (W)</strong></td><td>0</td></tr>
+<tr><td><strong>败场 (L)</strong></td><td>0</td></tr>
+<tr><td><strong>救援成功 (SV)</strong></td><td>0</td></tr>
+<tr><td><strong>中继成功 (HLD)</strong></td><td>0</td></tr>
+<tr><td><strong>自责分率 (ERA)</strong></td><td>3.21</td></tr>
+<tr><td><strong>投球局数 (IP)</strong></td><td>14.0</td></tr>
+<tr><td><strong>被安打 (H)</strong></td><td>13</td></tr>
+<tr><td><strong>全垒打 (HR)</strong></td><td>3</td></tr>
+<tr><td><strong>三振 (K)</strong></td><td>14</td></tr>
+<tr><td><strong>保送 (BB)</strong></td><td>10</td></tr>
+<tr><td><strong>WHIP</strong></td><td>1.64</td></tr>
+<tr><td><strong>K/9</strong></td><td>9.00</td></tr>
+<tr><td><strong>BB/9</strong></td><td>6.43</td></tr>
+<tr><td><strong>K/BB</strong></td><td>1.40</td></tr>
+<tr><td><strong>HR/9</strong></td><td>1.93</td></tr>
+</tbody>
+</table>
+<blockquote>注：两季合计样本仅 14.0 局。2026 年 ERA 与本垒打控制明显优于 2025 年，但保送率仍是主要问题。</blockquote>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线快速球 (Four-Seam Fastball) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">94-97 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">Gervase 的王牌球种。6 尺 10 寸的身高让他的出手点接近打者头顶，快速球从极高角度下坠，即使球速不是 elite，也能制造大量挥空与软弱击球。他的快速球上飘（纵向位移）优于平均，是三振的主要来源。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">82-86 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">对右打者的主要出局武器。滑球横移明显，与快速球形成约 12 mph 速差与垂直/水平位移差异。当滑球落在后脚边缘时，右打者极难处理。2026 年他的滑球使用率与指挥官均有提升。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">86-89 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">对左打者的配球。变速球速差相较于快速球不算大，但下坠幅度足够，偶尔能让左打者击出滚地球。Gervase 仍在开发这颗球的稳定性，以提升对左打者的压制力。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 / 二缝线 (Sinker) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">93-96 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">偶尔使用的配球，利用极端身高与手臂角度制造下沉。虽然不是主要武器，但能在需要滚地球时派上用场。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+<h3>投球机制</h3>
+<p>Gervase 的投球机制最为人津津乐道的是他 6 尺 10 寸的身材所带来的出手角度。他采用高四分之三（high-three-quarters）动作，出手点极高，球的入射角非常陡峭。这种机制让他即使球速未达 elite，也能制造 MLB 级别的球质。不过，高大的身材也带来协调挑战：他的动作节奏需要保持稳定，否则容易出现控球失常或连续保送。</p>
+<h3>球质与配球策略</h3>
+<ul>
+<li><strong>身高优势是最大武器</strong>：极端的出手角度让打者极难适应，尤其是快速球在好球带上方的位置</li>
+<li><strong>三振潜力</strong>：快速球/滑球组合具备 9+ K/9 的能力</li>
+<li><strong>控球是最大短板</strong>：生涯 BB/9 6.43，在 小样本 中仍显偏高，是高杠杆使用的最大障碍</li>
+<li><strong>本垒打风险改善</strong>：2025 年 6.1 局被击出 3 支本垒打；2026 年 7.2 局 0 支，显示他已开始学会避免红中失误</li>
+<li><strong>对左打者挑战</strong>：需要变速球与伸卡球更稳定，否则左打者能等快速球或滑球失投</li>
+</ul>
+<h3>角色定位</h3>
+<ul>
+<li>当前角色：AAA Oklahoma City 后援投手，等待大联盟机会</li>
+<li>短期目标：在 AAA 稳定控球，减少保送率，争取再次 升上大联盟</li>
+<li>长期潜力：高杠杆后援（7th-8th inning）或 对位 right-handed specialist</li>
+<li>使用情境：需要利用身高优势对付右打者、或需要三振解决危机时</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li><strong>极端身材优势</strong>：6'10" 身高创造 MLB 罕见的出手角度与球路下坠</li>
+ <li><strong>快速球品质</strong>：94-97 mph 搭配高出手点，具备 高于平均 三振能力</li>
+ <li><strong>滑球武器</strong>：对右打者具有显著威胁，两好球后可靠</li>
+ <li><strong>三振潜力</strong>：2026 年 K/9 9.39，具备高杠杆后援的 原始球威</li>
+ <li><strong>本垒打改善</strong>：2026 年尚未被击出本垒打，显示配球与进垒点进步</li>
+ <li><strong>年龄优势</strong>：26 岁，仍有时间发展控球与稳定性</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li><strong>控球不稳</strong>：生涯 BB/9 6.43，保送率过高限制 高杠杆 使用</li>
+ <li><strong>大联盟样本极小</strong>：合计 14.0 局，难以判断真实水准</li>
+ <li><strong>对左打者压制力不足</strong>：变速球与伸卡球尚未成熟，左打者较不畏惧</li>
+ <li><strong>高身材协调风险</strong>：一旦动作节奏失衡，控球容易崩盘</li>
+ <li><strong>2025 年本垒打灾难</strong>：6.1 局 3 支本垒打，虽然 2026 改善，但需持续观察</li>
+ <li><strong>角色上限</strong>：若控球无法改善，可能只能担任 一人次 specialist</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="paul-gervase_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>项目</th><th>评分 (20-80 量表)</th><th>等级</th></tr>
+</thead>
+<tbody>
+<tr><td>四缝线 (Fastball)</td><td>60</td><td>B+</td></tr>
+<tr><td>滑球 (Slider)</td><td>55</td><td>B</td></tr>
+<tr><td>变速球 (Changeup)</td><td>45</td><td>C+</td></tr>
+<tr><td>伸卡球 (Sinker)</td><td>50</td><td>B-</td></tr>
+<tr><td>控球 (控球)</td><td>40</td><td>C</td></tr>
+<tr><td>指挥 (控球精准度)</td><td>45</td><td>C+</td></tr>
+<tr><td>心理素质 (Mental)</td><td>50</td><td>B-</td></tr>
+<tr><td>耐力/健康 (Durability)</td><td>55</td><td>B</td></tr>
+<tr><td>三振能力 (Strikeout Ability)</td><td>55</td><td>B</td></tr>
+</tbody>
+</table>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">Paul Gervase 拥有道奇牛棚中罕见的极端身材优势与三振潜力，但控球不稳与样本不足让他仍处在 发展阶段。若能将 BB/9 压低至 4.0 以下，他有机会成为 Roberts 教练在 7-8 局信赖的后援。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 具有独特身材的潜力后援</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+<h3>2026 年剩余赛季</h3>
+<ul>
+<li><strong>首要目标</strong>：在 AAA 稳定出赛，降低保送率，提升连续出赛的稳定性</li>
+<li><strong>ERA 目标</strong>：若再次升上大联盟，目标 ERA 在 3.80-4.20 区间</li>
+<li><strong>角色预期</strong>：可能作为道奇伤病潮或 名单 调整时的 升上大联盟 选项</li>
+<li><strong>观察重点</strong>：对左打者的表现、连续出赛后的控球、是否被击出长打</li>
+</ul>
+<h3>2027 年及以后</h3>
+<ul>
+<li>若控球改善，有望在 2027 年竞争道奇大联盟牛棚 名单位置</li>
+<li>可能的发展方向：高杠杆 布局投手（第八局 setup） 或 right-handed 对位 specialist</li>
+<li>若身材优势能被持续发挥，他有机会成为道奇牛棚中独特的 weapon</li>
+</ul>
+<h3>生涯里程碑追踪</h3>
+<ul>
+<li><strong>生涯大联盟出赛</strong>：9 场，仍在起步阶段</li>
+<li><strong>生涯胜场/救援成功</strong>：0 次</li>
+<li><strong>生涯三振</strong>：14 次，若获得更多机会可快速累积</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+<h3>早年与大学</h3>
+<p>Paul Gervase 出生于新泽西州 Middletown，高中时期因高挑身材受到关注。他进入 Rutgers University 后担任先发投手，逐渐提升自己的控球与球速。2022 年 MLB 选秀中，他在第 12 轮被坦帕湾光芒队选中，开启职业棒球生涯。</p>
+<h3>光芒时期 (2022-2025)</h3>
+<ul>
+<li>在小联盟体系中快速适应后援角色，凭借身高与快速球获得上升空间</li>
+<li>2025 年 6 月 21 日完成大联盟首秀，在光芒队牛棚中短暂出赛 5 场</li>
+<li>2025 年表现起伏，6.1 局被击出 3 支本垒打，赛季末被移出 名单</li>
+</ul>
+<h3>加盟道奇 (2026)</h3>
+<ul>
+<li>2026 年加盟洛杉矶道奇，获得新的发展机会</li>
+<li>在道奇投手教练团队指导下，改善配球策略与进垒点</li>
+<li>4 场大联盟出赛 2.35 ERA，展现三振潜力，但保送率仍需改善</li>
+<li>目前下放至 AAA Oklahoma City Comets，等待下一次机会</li>
+</ul>
+<h3>个人风格</h3>
+<p>Gervase 以冷静、低调著称。他的 6 尺 10 寸身材让他在场上天然具有存在感，但他并不依赖气势，而是专注于每一球的执行。他的身高让他在休赛期需要特别注意体能与柔韧性训练，以维持长期健康。</p>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-08-07 | 数据截止日期：2026-08-07</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

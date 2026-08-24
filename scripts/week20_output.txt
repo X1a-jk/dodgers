@@ -1,0 +1,51 @@
+=== 上周赛程 ===
+2026-08-10 vs Royals: 6-5 (Final)
+2026-08-11 vs Royals: 5-4 (Final)
+2026-08-12 vs Royals: 4-2 (Final)
+2026-08-13 vs Brewers: 4-5 (Final)
+2026-08-14 vs Brewers: 3-1 (Final)
+2026-08-15 vs Brewers: 1-4 (Final)
+2026-08-16 vs Brewers: 2-6 (Final)
+
+=== 本周赛程 ===
+2026-08-17 @ Rockies: 2026-08-18T00:40:00Z
+2026-08-18 @ Rockies: 2026-08-19T00:40:00Z
+2026-08-19 @ Rockies: 2026-08-20T00:40:00Z
+2026-08-21 vs Pirates: 2026-08-22T02:10:00Z
+2026-08-22 vs Pirates: 2026-08-22T23:15:00Z
+2026-08-23 vs Pirates: 2026-08-23T20:10:00Z
+
+=== 当周打者数据 ===
+Alex Call (LF): .375/.375/.500 OPS .875, 0HR, 1RBI, 8PA, 2G, 2K/0BB
+Mookie Betts (SS): .333/.360/.667 OPS 1.027, 2HR, 4RBI, 25PA, 7G, 4K/1BB
+Hunter Feduccia (C): .286/.286/.571 OPS .857, 1HR, 1RBI, 14PA, 6G, 2K/0BB
+Max Muncy (3B): .273/.333/.636 OPS .969, 2HR, 8RBI, 24PA, 7G, 7K/1BB
+Teoscar Hernández (LF): .263/.300/.316 OPS .616, 0HR, 1RBI, 20PA, 7G, 5K/1BB
+Shohei Ohtani (TWP): .250/.276/.500 OPS .776, 1HR, 4RBI, 29PA, 7G, 8K/1BB
+Miguel Rojas (2B): .250/.455/.500 OPS .955, 0HR, 0RBI, 11PA, 5G, 0K/3BB
+Andy Pages (CF): .231/.310/.462 OPS .772, 2HR, 2RBI, 29PA, 7G, 3K/3BB
+Freddie Freeman (1B): .190/.292/.190 OPS .482, 0HR, 2RBI, 24PA, 6G, 6K/3BB
+Tommy Edman (2B): .182/.250/.318 OPS .568, 1HR, 1RBI, 24PA, 7G, 4K/2BB
+Ben Rortvedt (C): .143/.143/.143 OPS .286, 0HR, 1RBI, 7PA, 3G, 4K/0BB
+Enrique Hernández (1B): .000/.000/.000 OPS .000, 0HR, 0RBI, 6PA, 3G, 4K/0BB
+Kyle Tucker (RF): .000/.136/.000 OPS .136, 0HR, 0RBI, 22PA, 6G, 4K/3BB
+
+=== 当周投手数据 ===
+Seth Halvorsen: 1.0IP, ERA 0.00, WHIP 1.00, 1G/0GS, 0K/1BB, 0H, 0ER
+Jonathan Hernández: 3.0IP, ERA 0.00, WHIP 0.67, 1G/0GS, 4K/1BB, 1H, 0ER
+Kyle Hurt: 1.1IP, ERA 0.00, WHIP 1.50, 1G/0GS, 3K/1BB, 1H, 0ER
+Landon Knack: 2.2IP, ERA 0.00, WHIP 0.75, 1G/0GS, 2K/0BB, 2H, 0ER
+Tanner Scott: 2.1IP, ERA 0.00, WHIP 0.86, 3G/0GS, 2K/1BB, 1H, 0ER
+Eric Lauer: 6.1IP, ERA 1.42, WHIP 0.95, 1G/1GS, 6K/2BB, 4H, 1ER
+Blake Snell: 6.0IP, ERA 1.50, WHIP 0.67, 1G/1GS, 10K/1BB, 3H, 1ER
+Yoshinobu Yamamoto: 6.0IP, ERA 1.50, WHIP 1.00, 1G/1GS, 9K/2BB, 4H, 1ER
+Roki Sasaki: 6.0IP, ERA 3.00, WHIP 1.50, 1G/1GS, 2K/5BB, 4H, 2ER
+Tarik Skubal: 11.0IP, ERA 3.27, WHIP 1.36, 2G/2GS, 13K/4BB, 11H, 4ER
+Alex Vesia: 2.2IP, ERA 3.38, WHIP 1.88, 4G/0GS, 2K/2BB, 3H, 1ER
+Edgardo Henriquez: 2.1IP, ERA 3.86, WHIP 0.86, 3G/0GS, 2K/1BB, 1H, 1ER
+Jack Dreyer: 3.1IP, ERA 5.40, WHIP 1.50, 4G/0GS, 6K/2BB, 3H, 2ER
+Justin Wrobleski: 6.0IP, ERA 6.00, WHIP 0.83, 1G/1GS, 6K/1BB, 4H, 4ER
+Edwin Díaz: 2.2IP, ERA 10.13, WHIP 2.25, 3G/0GS, 4K/2BB, 4H, 3ER
+Evan Phillips: 1.1IP, ERA 13.50, WHIP 3.00, 2G/0GS, 1K/1BB, 3H, 2ER
+
+=== 球队战绩 ===

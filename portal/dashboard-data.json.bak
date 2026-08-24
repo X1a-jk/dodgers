@@ -1,0 +1,342 @@
+{
+  "generatedAt": "2026-08-21T16:13:37.104753",
+  "season": 2026,
+  "team": {
+    "id": 119,
+    "name": "Los Angeles Dodgers",
+    "abbreviation": "LAD"
+  },
+  "standings": {
+    "wins": 77,
+    "losses": 51,
+    "pct": ".602",
+    "gamesPlayed": 128,
+    "divisionRank": "1",
+    "leagueRank": "2",
+    "sportRank": "2",
+    "gamesBack": "-",
+    "wildCardGamesBack": "-",
+    "streak": {
+      "streakCode": "W3",
+      "streakType": "wins",
+      "streakNumber": 3
+    },
+    "homeRecord": "37-26",
+    "awayRecord": "40-25",
+    "lastUpdated": "2026-08-20T04:11:25Z"
+  },
+  "schedule": [
+    {
+      "gamePk": 823911,
+      "date": "2026-08-21",
+      "time": "2026-08-22T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 134,
+        "name": "Pittsburgh Pirates",
+        "abbreviation": "PIT"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "probablePitcher": "Yoshinobu Yamamoto",
+      "opponentProbablePitcher": "Bubba Chandler"
+    },
+    {
+      "gamePk": 823910,
+      "date": "2026-08-22",
+      "time": "2026-08-22T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 134,
+        "name": "Pittsburgh Pirates",
+        "abbreviation": "PIT"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "probablePitcher": "Tarik Skubal",
+      "opponentProbablePitcher": "Jared Jones"
+    },
+    {
+      "gamePk": 823909,
+      "date": "2026-08-23",
+      "time": "2026-08-23T20:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 134,
+        "name": "Pittsburgh Pirates",
+        "abbreviation": "PIT"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "probablePitcher": "Blake Snell"
+    },
+    {
+      "gamePk": 824881,
+      "date": "2026-08-25",
+      "time": "2026-08-25T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park"
+    },
+    {
+      "gamePk": 824878,
+      "date": "2026-08-26",
+      "time": "2026-08-26T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park"
+    },
+    {
+      "gamePk": 824879,
+      "date": "2026-08-27",
+      "time": "2026-08-27T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park"
+    },
+    {
+      "gamePk": 824231,
+      "date": "2026-08-28",
+      "time": "2026-08-28T22:40:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 824230,
+      "date": "2026-08-29",
+      "time": "2026-08-29T17:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 824232,
+      "date": "2026-08-30",
+      "time": "2026-08-30T17:40:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 823908,
+      "date": "2026-09-01",
+      "time": "2026-09-02T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823906,
+      "date": "2026-09-02",
+      "time": "2026-09-03T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823907,
+      "date": "2026-09-03",
+      "time": "2026-09-04T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823905,
+      "date": "2026-09-04",
+      "time": "2026-09-05T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "abbreviation": "WSH"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    }
+  ],
+  "last7Hitters": [
+    {
+      "name": "Andy Pages",
+      "playerId": 681624,
+      "games": 6,
+      "avg": ".360",
+      "obp": ".407",
+      "slg": ".640",
+      "ops": "1.047",
+      "hr": 2,
+      "rbi": 4,
+      "sb": 1,
+      "so": 2,
+      "bb": 2,
+      "pa": 27
+    },
+    {
+      "name": "Shohei Ohtani",
+      "playerId": 660271,
+      "games": 6,
+      "avg": ".280",
+      "obp": ".333",
+      "slg": ".720",
+      "ops": "1.053",
+      "hr": 3,
+      "rbi": 6,
+      "sb": 0,
+      "so": 7,
+      "bb": 2,
+      "pa": 27
+    },
+    {
+      "name": "Mookie Betts",
+      "playerId": 605141,
+      "games": 6,
+      "avg": ".222",
+      "obp": ".222",
+      "slg": ".370",
+      "ops": ".592",
+      "hr": 1,
+      "rbi": 5,
+      "sb": 0,
+      "so": 3,
+      "bb": 0,
+      "pa": 27
+    }
+  ],
+  "seasonPitchers": [
+    {
+      "name": "Yoshinobu Yamamoto",
+      "playerId": 808967,
+      "w": 12,
+      "l": 7,
+      "era": "2.60",
+      "whip": "0.89",
+      "ip": "145.1",
+      "so": 136,
+      "bb": 34,
+      "sv": 0,
+      "hld": 0,
+      "gs": 22,
+      "k9": "8.42",
+      "bb9": "2.11",
+      "games": 22
+    }
+  ],
+  "weekly": {
+    "file": "2026-08-17-week20.md",
+    "date": "2026-08-10 ~ 2026-08-16",
+    "weekRecord": "4 胜 3 负",
+    "red": [
+      {
+        "name": "Mookie Betts",
+        "note": "SS · .333/.360/.667，OPS 1.027，2 HR，4 RBI，25 PA",
+        "detail": "整周全勤，长打率 .667 为全队最高；2 支本垒打集中在酿酒人系列赛，是系列赛唯一赢球的进攻支柱。选球仍有提升空间（仅 1 BB），但火力完全回归。"
+      },
+      {
+        "name": "Max Muncy",
+        "note": "3B · .273/.333/.636，OPS .969，2 HR，8 RBI，24 PA",
+        "detail": "全队打点王；8 分打点分布在 3 场比赛中，包含关键超前/保险分。长打率 .636 显示恢复往日 power threat 本色。"
+      },
+      {
+        "name": "Andy Pages",
+        "note": "CF · .231/.310/.462，OPS .772，2 HR，2 RBI，29 PA",
+        "detail": "全勤出赛，2 轰贡献稳定；OBP 高于 AVG 说明有选球耐心。虽然 AVG 仅 .231，但 power 输出让他在中外野位置仍然有价值。"
+      },
+      {
+        "name": "Eric Lauer",
+        "note": "SP · 6.1 IP，ERA 1.42，WHIP 0.95，6 K / 2 BB",
+        "detail": "先发轮值当周最佳：6.1 局仅 1 自责，被安打 4 支，用球精简。是皇家系列赛横扫的重要功臣。"
+      },
+      {
+        "name": "Tanner Scott",
+        "note": "RP · 2.1 IP，ERA 0.00，WHIP 0.86，3 G，2 K / 1 BB",
+        "detail": "3 场出赛无失分，是当周牛棚少数稳定点；WHIP 低于 1.00，有效控制垒上危机。"
+      }
+    ],
+    "black": [
+      {
+        "name": "Kyle Tucker",
+        "note": "RF · .000/.136/.000，OPS .136，0 HR，0 RBI，22 PA",
+        "detail": "当周最冷打者：6 场出赛 22 个打席没有安打，仅靠 3 次保送避免完全熄火。保送率（3 BB）无法掩盖被压制状态，需要尽快调整击球节奏。"
+      },
+      {
+        "name": "Freddie Freeman",
+        "note": "1B · .190/.292/.190，OPS .482，0 HR，2 RBI，24 PA",
+        "detail": "完全失去长打能力，SLG = AVG，击出 14 球没有一支长打。6 次三振也高于赛季平均水平，一垒火力缺口明显。"
+      },
+      {
+        "name": "Edwin Díaz",
+        "note": "RP · 2.2 IP，ERA 10.13，WHIP 2.25，3 G，4 K / 2 BB",
+        "detail": "牛棚当周最大漏点：3 场出赛被击出 4 支安打、2 次保送，失 3 分自责。在酿酒人系列赛关键局数未能守住，导致系列赛失利。"
+      },
+      {
+        "name": "Justin Wrobleski",
+        "note": "SP · 6.0 IP，ERA 6.00，WHIP 0.83，1 GS，6 K / 1 BB",
+        "detail": "数据矛盾：WHIP 仅 0.83 但 ERA 6.00，说明被安打虽少但集中在得分圈，且本垒打伤害大。赛后已进入 15 天伤病名单（right shoulder），需待回归后再评估。"
+      },
+      {
+        "name": "Tommy Edman",
+        "note": "2B · .182/.250/.318，OPS .568，1 HR，1 RBI，24 PA",
+        "detail": "仅靠 1 支本垒打撑住 OPS； otherwise 打击低迷，AVG .182 且仅有 2 次保送。作为二垒/工具人，需要提高上垒能力。"
+      }
+    ]
+  }
+}

@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Teoscar Hernandez 球探报告</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+}
+.container { max-width: 1000px; margin: 0 auto; padding: 20px; }
+.header {
+  text-align: center; padding: 40px 0;
+  background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+  border-radius: 15px; margin-bottom: 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+.header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+.header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+.player-card {
+  background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+  backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex; gap: 30px; flex-wrap: wrap;
+}
+.player-info { flex: 1; min-width: 250px; }
+.player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+.info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+.info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+.info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+.info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+.section {
+  background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+  margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.section h2 {
+  color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+  border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+}
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px; margin-top: 20px; }
+.stat-card {
+  background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+  border-radius: 10px; padding: 20px; text-align: center;
+  border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+}
+.stat-card:hover { transform: translateY(-5px); }
+.stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+.stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; display: block; }
+.comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+.comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+.comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+.pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+.pitch-card {
+  background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+  border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+}
+.pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+.pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+.pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+.pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+.pros h3 { color: #4caf50; margin-bottom: 15px; }
+.cons h3 { color: #f44336; margin-bottom: 15px; }
+.pros ul, .cons ul { list-style: none; }
+.pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+.pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+.cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+.grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; margin-top: 8px; }
+.grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+.grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+.grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+.grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+.highlight { color: #4fc3f7; font-weight: bold; }
+.warning { color: #ff9800; font-weight: bold; }
+.success { color: #4caf50; font-weight: bold; }
+.danger { color: #f44336; font-weight: bold; }
+.career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+.career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+.footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+img { max-width: 100%; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
+</style>
+</head>
+<body>
+<div class="container">
+
+<div class="header">
+  <h1>⚾ Teoscar Hernandez</h1>
+  <p class="subtitle">Los Angeles Dodgers #37 | 左外野手 | 活跃</p>
+</div>
+
+<div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+  <img src="teoscar-hernandez_report_cover.png" alt="报告封面" style="width: 100%; max-width: 750px;">
+</div>
+
+<div class="player-card">
+  <div class="player-info">
+    <h2>基本信息</h2>
+    <div class="info-grid">
+      <div class="info-item"><div class="label">全名</div><div class="value">Teoscar Hernandez</div></div>
+<div class="info-item"><div class="label">出生日期</div><div class="value">1992-10-15</div></div>
+<div class="info-item"><div class="label">年龄</div><div class="value">33岁</div></div>
+<div class="info-item"><div class="label">出生地</div><div class="value">Cotui, Dominican Republic（多米尼加共和国科图伊）</div></div>
+<div class="info-item"><div class="label">身高/体重</div><div class="value">6' 0" / 215 lbs</div></div>
+<div class="info-item"><div class="label">击球/投球</div><div class="value">右打 / 右投</div></div>
+<div class="info-item"><div class="label">位置</div><div class="value">左外野手</div></div>
+<div class="info-item"><div class="label">MLB首秀</div><div class="value">2016-08-12</div></div>
+<div class="info-item"><div class="label">背号</div><div class="value">#37</div></div>
+    </div>
+  </div>
+  <div class="player-info">
+    <h2>球探总评</h2>
+    <p style='margin-bottom: 15px;'>Teoscar Hernandez 是一名以力量见长的右打外野手，2026 年加入道奇后担任左外野主力。他具备稳定的中段打线和 25+ 轰级别的长打产能，但三振率偏高、选球普通，整体攻击效率接近联盟平均。他的防守在外野三个位置都能胜任，臂力是其守备亮点。2026 年截至目前 OPS .714，与生涯平均接近，但相较于 2024 年道奇赛季的 .840 OPS 有明显下滑。他需要在赛季末段提升长打效率，才能在季后赛打线中扮演更重要角色。</p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🏆 职业生涯亮点</h2>
+  <div class="career-highlight"><h4>🌟 2011 - 加盟太空人</h4><p>以国际自由球员身份加盟休斯顿太空人，开启职业棒球生涯。</p></div>
+<div class="career-highlight"><h4>🌟 2016 - 大联盟首秀</h4><p>2016 年 8 月 12 日完成大联盟首秀，初期在太空人机会有限。</p></div>
+<div class="career-highlight"><h4>🌟 2020-2021 - 蓝鸟银棒奖双连霸</h4><p>在多伦多蓝鸟连续两个赛季获得美联外野手银棒奖，成为联盟顶尖 power 型外野手。</p></div>
+<div class="career-highlight"><h4>🌟 2021-2022 - 连续全明星</h4><p>连续两年入选全明星赛，巅峰期 OPS 超过 .800，单季稳定贡献 25+ 轰。</p></div>
+<div class="career-highlight"><h4>🌟 2024 - 道奇强力赛季</h4><p>在洛杉矶道奇打出 .272/.339/.501、33 轰、99 打点的赛季，展现冠军队所需火力。</p></div>
+<div class="career-highlight"><h4>🌟 2026 - 道奇常规左外野手</h4><p>担任道奇左外野主力，负责提供中段打线长打保护和 RBI 产出。</p></div>
+</div>
+
+<div class="section">
+  <h2>📊 2026赛季打击数据</h2>
+  <div class="stats-grid">
+    <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">93</span><div class="stat-label">出赛</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">324</span><div class="stat-label">打数</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">得分</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">81</span><div class="stat-label">安打</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">11</span><div class="stat-label">本垒打</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">43</span><div class="stat-label">打点</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">2</span><div class="stat-label">盗垒</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">29</span><div class="stat-label">保送</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">97</span><div class="stat-label">三振</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.250</span><div class="stat-label">AVG</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.313</span><div class="stat-label">OBP</div></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.714</span><div class="stat-label">OPS</div></div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📊 赛季对比</h2>
+  <h3 style="margin-top: 20px; color: #4fc3f7;">打击数据对比</h3>
+  <table class="comparison-table">
+    <thead><tr><th>赛季</th><th>球队</th><th>G</th><th>AB</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>SB</th></tr></thead>
+    <tbody><tr><td>2021</td><td>Toronto Blue Jays</td><td>143</td><td>550</td><td>.296</td><td>.346</td><td>.524</td><td>.870</td><td>32</td><td>116</td><td>12</td></tr>
+<tr><td>2022</td><td>Toronto Blue Jays</td><td>131</td><td>499</td><td>.267</td><td>.316</td><td>.491</td><td>.807</td><td>25</td><td>77</td><td>6</td></tr>
+<tr><td>2023</td><td>Seattle Mariners</td><td>160</td><td>625</td><td>.258</td><td>.305</td><td>.435</td><td>.740</td><td>26</td><td>93</td><td>7</td></tr>
+<tr><td>2024</td><td>Los Angeles Dodgers</td><td>154</td><td>589</td><td>.272</td><td>.339</td><td>.501</td><td>.840</td><td>33</td><td>99</td><td>12</td></tr>
+<tr><td>2025</td><td>Los Angeles Dodgers</td><td>134</td><td>511</td><td>.247</td><td>.284</td><td>.454</td><td>.738</td><td>25</td><td>89</td><td>5</td></tr>
+<tr><td class='warning'>2026</td><td>Los Angeles Dodgers</td><td>93</td><td>324</td><td>.250</td><td>.313</td><td>.401</td><td>.714</td><td>11</td><td>43</td><td>2</td></tr></tbody>
+  </table>
+</div>
+
+<div class="section"><h2>🎯 打击能力分析</h2><div class="pitch-arsenal"><div class="pitch-card"><h3>🎯 打击 (Hit)</h3><p><span class="velocity">评分：B-</span></p><p>AVG .250、strikeout rate 约 27% 显示他不是高 contact 型打者，但 barrel 能力让他在球打甜时威胁极大。他的挥棒路径较长，容易在快速球和变化球交界处挥空。</p></div>
+<div class="pitch-card"><h3>💥 力量 (Power)</h3><p><span class="velocity">评分：A-</span></p><p>生涯单季多次击出 25+ 轰，平均 exit velocity 和 hard-hit rate 位于联盟前段。2026 年 11 轰、.401 SLG 略低于巅峰，但仍是道奇主要 power source。他的 raw power 足以把球打到任何方向。</p></div>
+<div class="pitch-card"><h3>⚡ 速度 (Run)</h3><p><span class="velocity">评分：C+</span></p><p>33 岁，速度已非卖点，2026 年仅 2 盗。跑垒判断尚可，但不适合担任开路先锋。他的速度足以在右外野防守中覆盖中等范围。</p></div>
+<div class="pitch-card"><h3>🛡️ 防守 (Defense)</h3><p><span class="velocity">评分：B</span></p><p>左外野防守稳定，range 中等，接球手法可靠。臂力优于平均，能阻止跑者推进。他在外野角落位置的防守值得信赖。</p></div>
+<div class="pitch-card"><h3>🎯 选球 (Plate Discipline)</h3><p><span class="velocity">评分：C+</span></p><p>BB% 约 8.1%，三振率偏高。面对变化球和边缘速球容易出棒，是主要被利用弱点。若能提升选球耐心，他的 OBP 和整体攻击效率会明显改善。</p></div></div></div>
+
+<div class="section"><h2>🛡️ 守备与多功能性</h2><h3 style='color: #4fc3f7; margin: 20px 0 15px 0;'>守备分析</h3>
+<p>Hernandez 主要镇守左外野，也能客串右外野。他的 first step 和 range 属联盟平均，但接球稳定、臂力突出，能有效阻止跑者从 singles 进垒到二垒。他不会是金手套候选人，但也不会成为防守负担。</p>
+<h3 style='color: #4fc3f7; margin: 20px 0 15px 0;'>多功能性</h3>
+<p>虽然以左外野为主，但在必要时也能担任指定打击或右外野。他的价值更多集中在打击输出而非守备弹性。道奇安排他左外野先发，是因为他在这个位置能最大化打击贡献同时不牺牲太多防守。</p></div>
+
+<div class="section">
+  <h2>🔍 球探分析</h2>
+  <h3 style='color: #4fc3f7; margin: 20px 0 15px 0;'>打击分析</h3>
+<p>2026 年 OPS .714 接近生涯平均，但相较于 2020-2022 年的巅峰期（单季 OPS .800+）有所下滑。主要问题是三振率居高不下，且出棒范围大。他的 swing-and-miss 问题在面对 elite 变化球时尤其明显。</p>
+<h3 style='color: #4fc3f7; margin: 20px 0 15px 0;'>长打效率</h3>
+<p>.401 SLG 对于一名以力量为卖点的外野手来说偏低。若想在季后赛扮演更重要角色，他需要提升 barrel rate 和对变化球的识别。2024 年在道奇打出的 .501 SLG 证明他仍有能力，但 2025-2026 年呈现下滑趋势。</p>
+<h3 style='color: #4fc3f7; margin: 20px 0 15px 0;'>角色定位</h3>
+<p>在道奇打线中，Hernandez 主要担任第 5-7 棒，负责提供长打保护和 RBI 产出。他不是建队核心，但是阵容深度的关键拼图。面对左投时他的价值更高。</p>
+</div>
+
+<div class="section">
+  <h2>✅ 优势 vs ❌ 劣势</h2>
+  <div class="pros-cons">
+    <div class="pros">
+      <h3>优势 (Strengths)</h3>
+      <ul><li>稳定的中段 power 产出，具备 25+ 轰产能</li>
+<li>hard-hit 能力强，击球初速联盟前列</li>
+<li>外野防守稳定，臂力优于平均</li>
+<li> postseason 经验丰富，多次帮助球队进入季后赛</li>
+<li>右打平衡道奇左打偏重的打线</li>
+<li>在道奇体系的击球教练帮助下仍有提升空间</li></ul>
+    </div>
+    <div class="cons">
+      <h3>劣势 (Weaknesses)</h3>
+      <ul><li>三振率偏高，容易在关键时刻被三振出局</li>
+<li>选球普通，BB% 不高，上垒能力有限</li>
+<li>2026 年 SLG .401 低于生涯平均，力量输出有下滑迹象</li>
+<li>33 岁，运动能力进入衰退期</li>
+<li>对 elite 变化球和高速内角球应对不佳</li></ul>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h2>📊 综合评分</h2>
+  <div style="text-align: center; margin: 20px 0;">
+    <img src="teoscar-hernandez_overall_grades.png" alt="综合评分雷达图" style="max-width: 600px;">
+  </div>
+  <div class="stats-grid">
+    <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">45</span><div class="stat-label">打击</div><span class="grade grade-b">B-</span></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">65</span><div class="stat-label">力量</div><span class="grade grade-a">A-</span></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">45</span><div class="stat-label">速度</div><span class="grade grade-b">B-</span></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">防守</div><span class="grade grade-c">C+</span></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">55</span><div class="stat-label">臂力</div><span class="grade grade-b">B</span></div>
+<div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">45</span><div class="stat-label">选球</div><span class="grade grade-b">B-</span></div>
+  </div>
+  <div style="margin-top: 30px; text-align: center;">
+    <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+    <div style="font-size: 4em; color: #4caf50; font-weight: bold;">55</div>
+    <p style="color: #90a4ae; margin-top: 10px;">联盟平均以上 power 型外野手</p>
+    <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B 级</span></p>
+  </div>
+</div>
+
+<div class="section">
+  <h2>🔮 未来展望</h2>
+  <p>2026 年赛季剩余部分，Hernandez 需要提升长打率和减少三振，以维持道奇外野主力的位置。2027 年他仍有望获得一份合约，但随着年龄增长，他可能逐渐转为 platoon 外野手或指定打击。长期来看，他的 best-case 是成为一名 veteran power bat，worst-case 则是因三振率过高而失去先发位置。道奇可能会在休赛季评估是否引进更年轻、contact 能力更好的外野手。</p>
+</div>
+
+<div class="section">
+  <h2>📖 背景故事</h2>
+  <p>Teoscar Hernandez 出生于多米尼加共和国科图伊，2011 年以国际自由球员身份加盟休斯顿太空人，2016 年 8 月 12 日完成大联盟首秀。他在太空人时期机会有限，2017 年被交易至多伦多蓝鸟后逐渐成长为全明星外野手。2020-2021 年连续获得美联外野手银棒奖，2021-2022 年连续两年入选全明星。2023 年转投西雅图水手，2024-2025 年持续贡献稳定 power 输出。2026 年加入洛杉矶道奇，希望在这座冠军球队中扮演重要角色。</p>
+</div>
+
+<div class="footer">
+  <p>数据来源：MLB.com | Baseball Savant | MLB Stats API</p>
+  <p>报告生成时间：2026-08-20 | 数据截止日期：2026-08-20</p>
+  <p>⚾ 洛杉矶道奇队球探报告</p>
+</div>
+
+</div>
+</body>
+</html>

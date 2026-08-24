@@ -1,0 +1,355 @@
+{
+  "generatedAt": "2026-08-24T14:14:54.683986",
+  "season": 2026,
+  "team": {
+    "id": 119,
+    "name": "Los Angeles Dodgers",
+    "abbreviation": "LAD"
+  },
+  "standings": {},
+  "schedule": [
+    {
+      "gamePk": 824881,
+      "date": "2026-08-25",
+      "time": "2026-08-25T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park",
+      "probablePitcher": "Tyler Glasnow",
+      "opponentProbablePitcher": "Bryce Elder"
+    },
+    {
+      "gamePk": 824878,
+      "date": "2026-08-26",
+      "time": "2026-08-26T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park",
+      "probablePitcher": "Roki Sasaki",
+      "opponentProbablePitcher": "AJ Smith-Shawver"
+    },
+    {
+      "gamePk": 824879,
+      "date": "2026-08-27",
+      "time": "2026-08-27T23:15:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 144,
+        "name": "Atlanta Braves",
+        "abbreviation": "ATL"
+      },
+      "venue": "Truist Park",
+      "probablePitcher": "Yoshinobu Yamamoto",
+      "opponentProbablePitcher": "Chris Sale"
+    },
+    {
+      "gamePk": 824231,
+      "date": "2026-08-28",
+      "time": "2026-08-28T22:40:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 824230,
+      "date": "2026-08-29",
+      "time": "2026-08-29T17:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 824232,
+      "date": "2026-08-30",
+      "time": "2026-08-30T17:40:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": false,
+      "opponent": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "abbreviation": "Tigers"
+      },
+      "venue": "Comerica Park"
+    },
+    {
+      "gamePk": 823908,
+      "date": "2026-09-01",
+      "time": "2026-09-02T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823906,
+      "date": "2026-09-02",
+      "time": "2026-09-03T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823907,
+      "date": "2026-09-03",
+      "time": "2026-09-04T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 138,
+        "name": "St. Louis Cardinals",
+        "abbreviation": "Cardinals"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823905,
+      "date": "2026-09-04",
+      "time": "2026-09-05T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "abbreviation": "WSH"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823904,
+      "date": "2026-09-05",
+      "time": "2026-09-06T01:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "abbreviation": "WSH"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823903,
+      "date": "2026-09-06",
+      "time": "2026-09-07T02:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 120,
+        "name": "Washington Nationals",
+        "abbreviation": "WSH"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    },
+    {
+      "gamePk": 823902,
+      "date": "2026-09-07",
+      "time": "2026-09-08T01:10:00Z",
+      "status": "Preview",
+      "detailedStatus": "Scheduled",
+      "isHome": true,
+      "opponent": {
+        "id": 113,
+        "name": "Cincinnati Reds",
+        "abbreviation": "Reds"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium"
+    }
+  ],
+  "last7Hitters": [
+    {
+      "name": "Freddie Freeman",
+      "playerId": 518692,
+      "games": 6,
+      "avg": ".375",
+      "obp": ".393",
+      "slg": ".500",
+      "ops": ".893",
+      "hr": 0,
+      "rbi": 4,
+      "sb": 1,
+      "so": 6,
+      "bb": 2,
+      "pa": 28
+    },
+    {
+      "name": "Shohei Ohtani",
+      "playerId": 660271,
+      "games": 6,
+      "avg": ".261",
+      "obp": ".414",
+      "slg": ".652",
+      "ops": "1.066",
+      "hr": 3,
+      "rbi": 5,
+      "sb": 2,
+      "so": 7,
+      "bb": 6,
+      "pa": 29
+    },
+    {
+      "name": "Mookie Betts",
+      "playerId": 605141,
+      "games": 6,
+      "avg": ".240",
+      "obp": ".321",
+      "slg": ".400",
+      "ops": ".721",
+      "hr": 1,
+      "rbi": 6,
+      "sb": 0,
+      "so": 1,
+      "bb": 2,
+      "pa": 28
+    },
+    {
+      "name": "Kyle Tucker",
+      "playerId": 663656,
+      "games": 6,
+      "avg": ".200",
+      "obp": ".259",
+      "slg": ".240",
+      "ops": ".499",
+      "hr": 0,
+      "rbi": 3,
+      "sb": 1,
+      "so": 4,
+      "bb": 2,
+      "pa": 27
+    },
+    {
+      "name": "Teoscar Hernández",
+      "playerId": 606192,
+      "games": 6,
+      "avg": ".167",
+      "obp": ".200",
+      "slg": ".292",
+      "ops": ".492",
+      "hr": 0,
+      "rbi": 2,
+      "sb": 0,
+      "so": 10,
+      "bb": 1,
+      "pa": 25
+    }
+  ],
+  "seasonPitchers": [
+    {
+      "name": "Yoshinobu Yamamoto",
+      "playerId": 808967,
+      "w": 12,
+      "l": 7,
+      "era": "2.61",
+      "whip": "0.90",
+      "ip": "151.2",
+      "so": 145,
+      "bb": 35,
+      "sv": 0,
+      "hld": 0,
+      "gs": 23,
+      "k9": "8.60",
+      "bb9": "2.08",
+      "games": 23
+    }
+  ],
+  "weekly": {
+    "file": "2026-08-24-week21.md",
+    "date": "",
+    "weekRecord": "6胜0负",
+    "red": [
+      {
+        "name": "Max Muncy",
+        "note": "3B · .389/.478/.833, 2HR, 7RBI",
+        "detail": "OPS 1.311 全队最高；7 打点、2 轰，长打火力强势回归，打第几棒都能制造伤害。"
+      },
+      {
+        "name": "Shohei Ohtani",
+        "note": "TWP · .261/.414/.652, 3HR, 5RBI",
+        "detail": "当周全垒打王；上垒率 .414 显示选球在线，长打率 .652 撑起进攻效率。"
+      },
+      {
+        "name": "Freddie Freeman",
+        "note": "1B · .375/.393/.500, 0HR, 4RBI",
+        "detail": "打击率全队第一，但长打率仅 .500 且无全垒打，属于“能敲但推不远”的一周。"
+      },
+      {
+        "name": "Blake Snell",
+        "note": "SP · 12.0IP, ERA 0.75, WHIP 0.83, 2W",
+        "detail": "两场均优质先发，12 局仅失 1 分，本季冲劲延续。"
+      },
+      {
+        "name": "Tommy Edman",
+        "note": "2B · .278/.409/.389, 0HR, 1RBI",
+        "detail": "上垒率 .409 亮眼，但打点仅 1 分，串联效率偏低。"
+      }
+    ],
+    "black": [
+      {
+        "name": "Teoscar Hernández",
+        "note": "LF · .167/.200/.292, 0HR, 2RBI",
+        "detail": "OPS 仅 .492 全队常规打者最低；上垒率 .200 说明选球纪律差，6 场无轰，长打真空。"
+      },
+      {
+        "name": "Kyle Tucker",
+        "note": "RF · .200/.259/.240, 0HR, 3RBI",
+        "detail": "SLG 仅 .240，整周没有长打；OBP 靠保送支撑，实际打击状态堪忧。"
+      },
+      {
+        "name": "Eric Lauer",
+        "note": "SP · 5.0IP, ERA 7.20, WHIP 1.40, 1W",
+        "detail": "只撑 5 局便失 4 分，靠队友火力拿胜投；控球与速球品质都需调整。"
+      },
+      {
+        "name": "Hunter Feduccia",
+        "note": "C · .167/.333/.250, 0HR, 1RBI",
+        "detail": "*小样本（15 PA / 5 场）*：上垒率尚可，但 AVG 与长打不足；作为替补捕手，评价需保留。"
+      },
+      {
+        "name": "Alex Vesia",
+        "note": "RP · 3.0IP, ERA 6.00, WHIP 1.00",
+        "detail": "*小样本（3 局 / 3 场）*：3 局丢 2 分自责，WHIP 1.00 不算失控，但中继失分险些影响战局。"
+      }
+    ]
+  }
+}

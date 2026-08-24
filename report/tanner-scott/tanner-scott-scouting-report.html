@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tanner Scott 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Tanner Scott</h1>
+ <p class="subtitle">Los Angeles Dodgers #66 | 左投后援/终结者 (LHP) | 活跃</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="tanner-scott_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Tanner Scott</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-07-22</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">31岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国俄亥俄州沃伦 (Warren, OH)</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'0" / 235 lbs</div></div>
+ <div class="info-item"><div class="label">击球/投球</div><div class="value">右打 / 左投</div></div>
+ <div class="info-item"><div class="label">位置</div><div class="value">左投后援/终结者 (LHP)</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2017-09-20</div></div>
+ <div class="info-item"><div class="label">大学</div><div class="value">Howard JC, TX</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Scottie</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#66</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">活跃</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Tanner Scott 是道奇牛棚中最重要的<span class="highlight">左投后援/终结者</span>之一，以高侧投机制、锐利滑球和出色控球著称。2024年首次入选全明星，2025年在道奇拿下23次救援成功，2026年更将ERA压至2.56、WHIP降至0.78的 elite 水准。</p>
+ <p style="margin-bottom: 15px;">作为一名30岁后的后援投手，Scott 的价值不仅在于救援成功次数，更在于他能在高压局面中稳定出局。他与 Evan Phillips 是长期好友，两人从金莺时代起就并肩作战，这份默契也延续到道奇牛棚。</p>
+ <p>2026年他的<span class="success">K/9 高达11.64、BB/9 仅1.16</span>，显示他已经从2025年的4.74 ERA 大幅反弹，进入职业生涯最稳定的时期。</p>
+ 
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🌟 2017年 - 大联盟首秀（巴尔的摩金莺）</h4>
+ <p>2014年金莺第6轮（总第181顺位）选中，2017年9月20日登上大联盟。早期作为左投后援在金莺农场和牛棚中逐步成长。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>⭐ 2023年 - 马林鱼 爆发 赛季</h4>
+ <p>在马林鱼缴出9胜5败、2.31 ERA、78.0 IP、104 K、0.99 WHIP 的生涯年。成为马林鱼队史首位单季100K的左投后援，并获选国联九月最佳后援投手。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>⭐ 2024年 - 首次全明星 + 交易至教士</h4>
+ <p>在迈阿密马林鱼入选生涯首次全明星，前段赛季1.18 ERA、18次救援成功。7月30日被交易至圣地亚哥教士，并在季后赛对道奇出赛4.1局无失分。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 道奇23次救援 + 世界大赛关键救援</h4>
+ <p>加盟道奇首个赛季拿下生涯新高23次救援成功（国联第6），包括4月5日对费城人用3球完成三出局救援，成为史上第五位达成此成就的投手。世界大赛第3战对蓝鸟中继登板，0.2局无失分（官方记录），协助道奇在延长赛守成。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔥 2026年 - 道奇牛棚王牌</h4>
+ <p>41场出赛、13次救援成功、ERA 2.56、WHIP 0.78、K/9 11.64、BB/9 1.16。从2025年的4.74 ERA 强势反弹，成为道奇最可靠的终结者人选。</p>
+ </div>
+ 
+ </div>
+
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">41</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">胜</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3</span>
+ <div class="stat-label">败</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2.56</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">38.2</span>
+ <div class="stat-label">IP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">K</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5</span>
+ <div class="stat-label">BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0.78</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">11.64</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.16</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4</span>
+ <div class="stat-label">被全垒打</div>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="tanner-scott_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>61</td>
+ <td>0</td>
+ <td>1-4</td>
+ <td>4.74</td>
+ <td>57.0</td>
+ <td>60</td>
+ <td>18</td>
+ <td>1.26</td>
+ <td>9.47</td>
+ </tr> <tr>
+ <td class="warning">2026</td>
+ <td>41</td>
+ <td>0</td>
+ <td>1-3</td>
+ <td>2.56</td>
+ <td>38.2</td>
+ <td>50</td>
+ <td>5</td>
+ <td>0.78</td>
+ <td>11.64</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="tanner-scott_pitch_velocities.png" alt="投球武器库速度" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">⚾ 上图为各球种球速区间（蓝=最低球速，橙=最高球速，红线=平均值）。球速差与位移差越大，打者越难锁定单一球路。</p>
+ </div>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝快速球 (Four-Seam Fastball)</h3>
+ <p><span class="velocity">95-98 mph</span></p>
+ <p>Scott 的压制核心。虽然身材不高，但出手点高、球速出色，能在好球带边缘制造大量挥空。2026年打者对他的快速球 xBA 极低。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider)</h3>
+ <p><span class="velocity">84-87 mph</span></p>
+ <p>主要出局球，sharp lateral break，对右打者外角和左打者内角都极具威胁。是他两好球后最信赖的追打球。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球/二缝线 (Sinker) — 辅助配球</h3>
+ <p><span class="velocity">93-96 mph</span></p>
+ <p>非主要武器，偶尔用来制造地面球。Scott 在 2026 年的球路主轴仍是四缝快速球与滑球，伸卡球与变速球仅作为变奏。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) — 罕见变化球</h3>
+ <p><span class="velocity">86-89 mph</span></p>
+ <p>使用频率极低，偶尔用来对付左打者。Scott 绝大多数出局依靠四缝+滑球，变速球更多是“出其不意”的第三选择。</p>
+ </div>
+ </div>
+ </div>
+
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">投球机制与球风</h3>
+ <p>Scott 采用高侧投/three-quarter 出手点，出手点高且释放稳定。6'0"的身材在投手丘上并不显眼，但他的球速和球路分离度让他在后援投手中脱颖而出。他的投球动作简洁、重复性高，这使他在连续出赛时仍能保持控球。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026年大反弹</h3>
+ <p>2025年ERA 4.74、WHIP 1.26 显示他那一年的控球和球路被击中都出了问题。2026年他强势反弹，ERA 2.56、WHIP 0.78，K/9 从9.47 提升至11.64，BB/9 从2.84 降至1.16。这说明他重新找回了好球带边缘的 控球精准度，并且更有效地使用滑球来结束打席。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">终结者素质</h3>
+ <p>Scott 具备终结者所需的心理素质和球路组合。他的快速球-滑球 组合 是他 2026 年 90% 以上出局的核心武器；伸卡球与变速球仅作为辅助，能在九局下连续制造三振。2026年救援成功13次且ERA低于2.60，显示他已经可以承担第九局重任。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">健康与耐用性</h3>
+ <p>2025年他曾因左肘发炎进入IL，并在季后赛前因下肢脓肿手术被移出NLDS名单。2026年能稳定出赛41场，是健康管理的正面讯号。但鉴于他的后援使用强度和过往伤病，道奇仍需谨慎安排背靠背出赛。</p>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>2026年反弹强势，ERA 2.56、WHIP 0.78</li>
+ <li>K/9 11.64、BB/9 1.16，三振/保送比出色</li>
+ <li>具备终结者的心理素质和球路组合</li>
+ <li>2025年曾拿下23次救援成功，经验丰富</li>
+ <li>左投身份在牛棚中战术价值高</li>
+ <li>与 Evan Phillips 长期搭档，牛棚默契好</li>
+ <li>2024年全明星，实力经过验证</li>
+ <li>快速球-滑球 组合 足以应付 elite 打者</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>2025年曾有伤病史（左肘发炎、下肢脓肿）</li>
+ <li>身材不高，球速依赖机制而非 raw 力量</li>
+ <li>连续出赛时可能受疲劳影响</li>
+ <li>武器库集中在四缝+滑球，面对特定左打时第三球种不足</li>
+ <li>2026年救援成功13次但机会相对有限</li>
+ <li>年龄31岁，未来体能恢复速度可能下降</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="tanner-scott_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Sinker</div>
+ <span class="grade grade-a">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">控球</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">控球精准度</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Stamina</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">Mental</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">63</div>
+ <p style="color: #90a4ae; margin-top: 10px;">2026年反弹后，Scott 已是道奇牛棚最可靠的终结者之一。只要保持健康，他能持续在高压局面中提供 elite 出局能力。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-a" style="font-size: 1.2em;">A- 级 / 精英后援/终结者</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tanner Scott 正在享受职业生涯最稳定的阶段。31岁的他结合经验、球路组合和道奇教练团的资源，有望在未来2-3年继续担任球队终结者或 布局（setup）man。他的快速球和滑球 组合 在季后赛中尤其有价值。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">发展建议</h3>
+ <ol style="margin-left: 20px; line-height: 2;">
+ <li><strong>保持健康：</strong>避免2025年式伤病，合理安排背靠背出赛。</li>
+ <li><strong>提升变速球：</strong>增加面对左打时的变化球选择，减少配球被预测性。</li>
+ <li><strong>继续扩大好球带控制：</strong>维持2026年的低保送率，增加 首球好球 比例。</li>
+ <li><strong>巩固终结者角色：</strong>在 Evan Phillips 伤愈后，与 Phillips 形成左右终结者组合。</li>
+ </ol>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">预期发展轨迹</h3>
+ <p><strong>2026（下半季）：</strong>继续担任道奇主要终结者，ERA有望维持在2.50以下，全季救援成功25+次。</p>
+ <p><strong>2027-2028：</strong>保持 elite 布局/终结者 角色，每年60-65场出赛，ERA 2.50-3.00。</p>
+ <p><strong>2029+：</strong>随着年龄增长，可能逐渐转为专门对付左打或 eighth-inning 布局（setup）man，但控球和滑球仍具价值。</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>左肘和手肘伤病史可能复发</li>
+ <li>连续出赛时球速和控球可能下滑</li>
+ <li>随着年龄增长，快速球压制力可能逐年下降</li>
+ </ul>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tanner Alexander Scott 出生于美国俄亥俄州沃伦（Warren）。他在 Howland High School 就读时就是多项运动的明星，不仅打棒球，还参与橄榄球。高中毕业后，他先在 Notre Dame College 就读一年（该校于2024年关闭），随后转学到德州 Howard College。</p>
+ <p>2014年，Scott 在选秀第6轮（总第181顺位）被巴尔的摩金莺选中。他与日后也成为道奇后援的 Evan Phillips 在金莺牛棚共事多年，两人关系深厚，甚至 Phillips 结婚时 Scott 是他的伴郎。这段经历也让两人2025年在道奇重逢时迅速形成默契。</p>
+ <p>Scott 在2017年登上大联盟，早期经历起伏，但在马林鱼时期（2023-2024）打出 生涯年，2024年首次入选全明星。2025年他加盟洛杉矶道奇，成为球队后援核心。他与妻子 Maddie 育有一子 Beau。</p>
+ <p>场外，Scott 是 Cleveland Cavaliers、Browns 和 New England Patriots 的球迷。他喜欢高尔夫、电子游戏和弹吉他。他以冷静和专注著称，深受道奇教练团和队友信任。</p>
+ </div>
+ 
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-07-17 | 数据截止日期：2026-07-17</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

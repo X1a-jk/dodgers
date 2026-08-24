@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Blake Treinen 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ .section table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+ .section th, .section td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .section th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; }
+ .section tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .section h3 { color: #4fc3f7; margin: 20px 0 12px 0; font-size: 1.2em; }
+ .section p { margin-bottom: 12px; }
+ .section blockquote { border-left: 4px solid #4fc3f7; padding-left: 15px; margin: 15px 0; color: #b0bec5; font-style: italic; }
+ .section strong { color: #4fc3f7; }
+ .section ul { margin-left: 25px; margin-bottom: 15px; }
+ .section li { margin-bottom: 8px; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+</style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Blake Treinen</h1>
+ <p class="subtitle">Los Angeles Dodgers #49 | 投手 | 伤病名单-15</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="blake-treinen_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Blake M. Treinen</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1988-06-30</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">38岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国堪萨斯州 Osage City</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'5" / 225 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2014-04-12 (国民队)</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2011年 第7轮 (运动家，后交易至国民)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#49</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">The Reaper（终结者时期）</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">伤病名单-15（2026年7月进入15天伤病名单）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+<p>Blake Treinen 是道奇牛棚中经验最丰富的老将之一，以极端下沉的快速球和招牌滑球闻名。他是 2018 年美联全明星与救援王，当季以 0.78 ERA 写下生涯巅峰；2020 年加盟道奇后成为 Roberts 教练在季后赛最信任的 布局（setup）man 之一，并随队夺得 2024 年世界大赛冠军。38 岁的 Treinen 球速 已不如巅峰，但凭借球质、经验与关键局面的心理素质，仍是道奇牛棚的定海神针。2026 年他因 伤病名单-15 短暂缺阵，回归后预计继续担任第 8 局setup 或终结者保险角色。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+<div class="career-highlight"><h4>⭐ 2011年 - 第7轮选中</h4><p>Blake Treinen 在 2011 年 MLB 选秀第 7 轮被选中，开启职业棒球生涯。</p></div>
+<div class="career-highlight"><h4>🌟 2014年 - 大联盟首秀</h4><p>Blake Treinen 于 2014-04-12 (国民队) 登上大联盟，开始在高水平舞台展现自己的实力。</p></div>
+<div class="career-highlight"><h4>🏥 当前状态 - 伤病名单-15 伤病名单</h4><p>Blake Treinen 目前因伤位于 伤病名单-15 名单。恢复后，他将重新回到道奇的投手阵容中。</p></div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">29</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4</span>
+ <div class="stat-label">胜场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">败场</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">救援成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">6</span>
+ <div class="stat-label">中继成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.52</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">23.0</span>
+ <div class="stat-label">投球局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">21</span>
+ <div class="stat-label">被安打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">9</span>
+ <div class="stat-label">自责分</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">25</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">10</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">1.35</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">9.78</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.91</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2.50</span>
+ <div class="stat-label">K/BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0.78</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="blake-treinen_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>赛季</th><th>G</th><th>W-L</th><th>SV</th><th>HLD</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th><th>BB/9</th></tr>
+</thead>
+<tbody>
+<tr><td>2025</td><td>58</td><td>4-2</td><td>1</td><td>13</td><td>2.07</td><td>52.1</td><td>49</td><td>14</td><td>1.03</td><td>8.43</td><td>2.41</td></tr>
+<tr><td>2026</td><td>29</td><td>4-1</td><td>1</td><td>6</td><td>3.52</td><td>23.0</td><td>25</td><td>10</td><td>1.35</td><td>9.78</td><td>3.91</td></tr>
+</tbody>
+</table>
+
+<blockquote>注：2026 年数据截至进入 伤病名单-15 前，样本较小，需结合伤病恢复后表现综合评估。</blockquote>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>伸卡球 / 二缝线快速球 (Sinker / Two-Seam Fastball) <span class="grade grade-a">A-</span></h3>
+ <div class="velocity">90-95 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">Treinen 的签名球种，也是他的立命之本。球速虽较 2018 年巅峰期（97-100 mph）有所下滑，但下沉幅度依旧惊人，能制造大量滚地球。本垒打抑制能力优秀（HR/9 0.78），与这颗伸卡球的 滚地球 导向密切相关。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">82-86 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">对右打者的主要出局球。横移幅度大，与伸卡球形成 speed-differential 与垂直/水平位移的双重落差。近年使用比例上升，是 Treinen 在 两好球 count 时的首选武器。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>四缝线快速球 (Four-Seam Fastball) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">92-95 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">偶尔用来抢好球数或改变节奏，并非主力球种。由于伸卡球下沉效果更佳，四缝线更多作为 视线高度 的配球出现。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">84-87 mph</div>
+ <p style="margin-top: 10px; color: #b0bec5;">对左打者的罕见配球，使用比例不高，主要用来打乱击球节奏。随着年龄增长，若能提升这颗球的稳定性，可进一步降低 左右差距。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+<h3>投球机制</h3>
+<p>Treinen 采用低四分之三（low-three-quarters）到侧投（sidearm）的投球角度，出手点极低且靠近身体，造成右打者极大的视角不适。6 尺 5 寸的身高让他的伸卡球从更陡的角度进入好球带，放大下沉效果。随着年龄增长，他的动作节奏更趋简洁，避免过度消耗手肘与肩膀。</p>
+<h3>球质与配球策略</h3>
+<ul>
+<li><strong>Ground ball 机器</strong>：Treinen 的滚飞比长期优于联盟平均，伸卡球是其核心。即便 球速 下降，球质依旧能让打者打出软弱的滚地球。</li>
+<li><strong>两好球后的终结能力</strong>：滑球是 Treinen 制造挥空的主要武器，与伸卡球的下坠形成鲜明对比。</li>
+<li><strong>控球回归中</strong>：2025 年 BB/9 仅 2.41 是近年最佳；2026 年升至 3.91，小样本下需观察是否与伤势有关。</li>
+</ul>
+<h3>伤病与体能</h3>
+<p>2026 年 7 月进入 伤病名单-15，具体伤病需以官方公告为准。38 岁高龄让每一次伤病都值得密切关注，球队预计会控制他的连续出赛与背靠背频率，以确保季后赛健康。</p>
+<h3>角色定位</h3>
+<ul>
+<li>常规角色：第 8 局 布局（setup）man / 终结者前的 bridge</li>
+<li>特殊价值：季后赛经验、关键局心理素质、对右打者的压制</li>
+<li>未来角色：若 Evan Phillips 或 Edwin Díaz 回归后状态不稳，Treinen 仍可暂代终结者</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li><strong>招牌伸卡球</strong>：极端下沉，滚地球率高，本垒打压制力强</li>
+ <li><strong>季后赛血统</strong>：2020、2024 年世界大赛冠军成员，多次关键出局</li>
+ <li><strong>右打者克星</strong>：低角度侧投 + 伸卡/滑球组合让右打极难应对</li>
+ <li><strong>心理素质</strong>：大场面不手软，Roberts 信任的关键局人选</li>
+ <li><strong>控球改善历史</strong>：2024-25 年已证明仍可维持 elite 级别的 WHIP</li>
+ <li><strong>牛棚导师价值</strong>：经验可指导年轻后援如 Jack Dreyer、Will Klein</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li><strong>年龄</strong>：38 岁，恢复速度与连续出赛能力下降</li>
+ <li><strong>球速 下滑</strong>：伸卡球均速从巅峰 97+ mph 降至 92-94 mph</li>
+ <li><strong>对左打者压制力</strong>：左打者面对低角度侧投视角较舒适，需依赖变速球改善</li>
+ <li><strong>伤病风险</strong>：2023 年因伤仅出赛 13 场，2026 年再次 伤病名单</li>
+ <li><strong>回弹力</strong>：一旦被打者掌握 timing， ERA 容易单场爆炸（参考 6/2 @ NYM）</li>
+ <li><strong>薪资与 名单 效率</strong>：老将合约对球队薪资空间形成压力</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="blake-treinen_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+<table class="comparison-table">
+<thead>
+<tr><th>项目</th><th>评分 (20-80 量表)</th><th>等级</th></tr>
+</thead>
+<tbody>
+<tr><td>伸卡球 (Sinker)</td><td>60</td><td>B+</td></tr>
+<tr><td>滑球 (Slider)</td><td>55</td><td>B</td></tr>
+<tr><td>四缝线 (Fastball)</td><td>45</td><td>C+</td></tr>
+<tr><td>变速球 (Changeup)</td><td>40</td><td>C</td></tr>
+<tr><td>控球 (控球)</td><td>55</td><td>B</td></tr>
+<tr><td>指挥 (控球精准度)</td><td>60</td><td>B+</td></tr>
+<tr><td>心理素质 (Mental)</td><td>70</td><td>A</td></tr>
+<tr><td>耐力/健康 (Durability)</td><td>40</td><td>C</td></tr>
+<tr><td>滚地球制造 (GB Inducement)</td><td>65</td><td>A-</td></tr>
+</tbody>
+</table>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">55</div>
+ <p style="color: #90a4ae; margin-top: 10px;">38 岁的 Treinen 已非 2018 年的全明星终结者，但仍是道奇牛棚中不可或缺的 playoff-tested 老将。只要健康，他依然能在第 7-8 局稳定输出。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B 级 / 经验丰富的关键后援</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+<h3>2026 年剩余赛季</h3>
+<ul>
+<li><strong>首要目标</strong>：从 伤病名单-15 健康回归，避免反复进出伤病名单</li>
+<li><strong>ERA 目标</strong>：在健康前提下，有望将 ERA 压回 3.00-3.30 区间</li>
+<li><strong>角色预期</strong>：Evan Phillips 伤愈前分担 closing，回归后继续 setup</li>
+</ul>
+<h3>2027 年及以后</h3>
+<ul>
+<li>若保持健康，可能以一年短约或 minor-league deal 形式继续职业生涯</li>
+<li>转型为 one-batter / righty specialist 的概率上升</li>
+<li>道奇可能逐步将第 8 局交给 Jack Dreyer、Will Klein 等年轻后援</li>
+</ul>
+<h3>生涯里程碑追踪</h3>
+<ul>
+<li><strong>生涯出赛</strong>：接近 700 场，有望冲击 750 场</li>
+<li><strong>生涯救援成功</strong>：累计 84 次，继续向 100 次迈进</li>
+<li><strong>世界大赛冠军戒指</strong>：2 枚（2020、2024），名人堂难以企及但为道奇王朝重要成员</li>
+</ul>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+<h3>早年与选秀</h3>
+<p>Blake Treinen 出生于堪萨斯州 Osage City，高中时期同时参与棒球与美式足球。大学就读于阿肯色大学 Fort Smith 分校与南阿肯色大学，2011 年 MLB 选秀第 7 轮被奥克兰运动家选中。因肩部手术错过了 2011 年大部分赛事，后被交易至华盛顿国民队。</p>
+<h3>国民队时期 (2014-2016)</h3>
+<ul>
+<li>2014 年 4 月 12 日完成 MLB 首秀</li>
+<li>初期作为先发投手起步，但因控球不稳转战牛棚</li>
+<li>2016 年成为国民队主要 布局（setup）man</li>
+</ul>
+<h3>运动家巅峰 (2017-2019)</h3>
+<ul>
+<li><strong>2018</strong>：生涯年。68 场出赛、0.78 ERA、38 次救援成功、100 次三振，入选全明星并获美联救援王</li>
+<li>其招牌伸卡球在该年达到生涯最高均速，成为联盟最令人畏惧的终结者之一</li>
+</ul>
+<h3>道奇王朝 (2020-至今)</h3>
+<ul>
+<li>2020 年以 2 年 1750 万美元加盟道奇，立刻成为 Roberts 的 playoff weapon</li>
+<li>2020 年世界大赛冠军</li>
+<li>2021 年 72 场出赛、1.99 ERA，是道奇近年最稳定的后援之一</li>
+<li>2023 年因伤仅出赛 13 场</li>
+<li>2024 年恢复健康，50 场出赛 2.93 ERA，第二枚世界大赛冠军戒指</li>
+<li>2025 年 58 场出赛、2.07 ERA，证明高龄仍可高效</li>
+</ul>
+<h3>个人风格</h3>
+<p>Treinen 以沉默寡言、场上冷静著称。他的低角度侧投被球迷形容为"从地面钻出来的球"，招牌伸卡球是教科书级别的 滚地球 pitch。他与妻子 Kati 育有子女，休赛期居住在堪萨斯州。</p>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-08-07 | 数据截止日期：2026-08-07</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

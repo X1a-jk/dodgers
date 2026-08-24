@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Alex Vesia 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Alex Vesia</h1>
+ <p class="subtitle">Los Angeles Dodgers #51 | 左投后援 (LHP) | 活跃</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="alex-vesia_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Alex Vesia</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1996-04-11</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">30岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国加州阿尔派恩 (Alpine, CA)</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'1" / 209 lbs</div></div>
+ <div class="info-item"><div class="label">击球/投球</div><div class="value">左打 / 左投</div></div>
+ <div class="info-item"><div class="label">位置</div><div class="value">左投后援 (LHP)</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2020-07-25</div></div>
+ <div class="info-item"><div class="label">大学</div><div class="value">Cal State East Bay</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Vesia</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#51</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">活跃</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Alex Vesia 是道奇牛棚中稳定且多才多艺的左投后援。2024年他以 1.76 ERA 缔造生涯年，2025年则成为球队 hold 王（26次），2026年继续提供 elite 的三振能力（K/9 12.79）和稳定出局。</p>
+ <p style="margin-bottom: 15px;">Vesia 的球风以高侧投、快速球上飘和锐利滑球为主。他能在第6到第8局承担 布局（setup）任务，也能在紧急情况下救援。他的职业生涯 ERA 仅 2.85，显示他已经从早期起伏成长为可靠的中继核心。</p>
+ <p>作为一名30岁的成熟后援，Vesia 是道奇争冠路上不可或缺的 lefty specialist 和 布局（setup）man。他的经验和三振能力让他在季后赛中极具价值。</p>
+ 
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight"><h4>🎓 2018年 - 马林鱼第17轮选中</h4><p>来自 Cal State East Bay，2018年选秀第17轮（总第507顺位）被迈阿密马林鱼选中。低顺位起步，但凭借出色表现快速上升。</p></div>
+ <div class="career-highlight"><h4>🌟 2020年 - 大联盟首秀</h4><p>2020年7月25日代表马林鱼登上大联盟。早期成绩起伏，但展现了左投后援的潜力。</p></div>
+ <div class="career-highlight"><h4>🔵 2021年 - 交易至道奇</h4><p>被交易至洛杉矶道奇，开始在新体系中成长。他的控球和球路组合在道奇教练团指导下逐步成熟。</p></div>
+ <div class="career-highlight"><h4>💪 2024年 - 生涯年</h4><p>1.76 ERA、.148 被打击率、0.99 WHIP，缔造多项生涯新高。世界大赛第2战仅用1球完成救援，创造历史。</p></div>
+ <div class="career-highlight"><h4>🏆 2025年 - 道奇 hold 王</h4><p>68场出赛、26次 hold、3.02 ERA。成为道奇最信赖的中继左投，季后赛中也有关键表现。</p></div>
+ 
+ </div>
+
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">42</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">胜</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">败</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2.27</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">31.2</span>
+ <div class="stat-label">IP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">45</span>
+ <div class="stat-label">K</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">20</span>
+ <div class="stat-label">BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.14</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">12.79</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5.68</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">被全垒打</div>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="alex-vesia_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>68</td>
+ <td>0</td>
+ <td>4-2</td>
+ <td>3.02</td>
+ <td>59.2</td>
+ <td>80</td>
+ <td>22</td>
+ <td>0.99</td>
+ <td>12.07</td>
+ </tr> <tr>
+ <td class="warning">2026</td>
+ <td>42</td>
+ <td>0</td>
+ <td>1-1</td>
+ <td>2.27</td>
+ <td>31.2</td>
+ <td>45</td>
+ <td>20</td>
+ <td>1.14</td>
+ <td>12.79</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="alex-vesia_pitch_velocities.png" alt="投球武器库速度" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">⚾ 上图为各球种球速区间（蓝=最低球速，橙=最高球速，红线=平均值）。球速差与位移差越大，打者越难锁定单一球路。</p>
+ </div>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝快速球 (Four-Seam Fastball)</h3>
+ <p><span class="velocity">92-95 mph</span></p>
+ <p>Vesia 的压制核心。出手点高，具有 good ride，能在好球带上角制造大量挥空。他善于利用快速球抢 strike。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider)</h3>
+ <p><span class="velocity">80-83 mph</span></p>
+ <p>主要出局球，sharp lateral break。对付左打者内角和右打者外角都很有效。是他 K/9 高企的关键。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup)</h3>
+ <p><span class="velocity">84-87 mph</span></p>
+ <p>偶尔用来对付右打者，制造速度差。使用频率较低，但能增加配球变化。</p>
+ </div>
+ </div>
+ </div>
+
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;"><h3 style="color: #4fc3f7; margin-bottom: 15px;">左投后援王牌</h3><p>Vesia 是道奇最值得信赖的左投 布局（setup）man。他的快速球上飘和 slider 的 组合 让他在面对左右打者时都有三振能力。2024年 .148 被打击率证明了他的压制力。</p></div>
+ <div style="margin-top: 20px;"><h3 style="color: #4fc3f7; margin-bottom: 15px;">2026年三振能力更上层楼</h3><p>K/9 从12.07提升至12.79，ERA 降至2.27。虽然 WHIP 因保送增加而上升到1.14，但他的三振能力让他在 高杠杆 中仍然可靠。若能减少保送，ERA 有望逼近2.00。</p></div>
+ <div style="margin-top: 20px;"><h3 style="color: #4fc3f7; margin-bottom: 15px;">2025年 hold 王的价值</h3><p>26次 hold 显示教练团在领先时 frequently go to him。他能在第6-8局稳定局势，是世界大赛夺冠的重要拼图。</p></div>
+ <div style="margin-top: 20px;"><h3 style="color: #4fc3f7; margin-bottom: 15px;">伤病与稳定性</h3><p>2025年8月曾因右斜肌拉伤进入 伤病名单，但复出后迅速找回状态。2026年目前42场出赛，显示健康状况良好。</p></div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>K/9 12.79，三振能力 elite</li>
+ <li>2025年道奇 hold 王（26次）</li>
+ <li>左投身份在牛棚中极具战术价值</li>
+ <li>2024年生涯年 1.76 ERA</li>
+ <li>能快速从伤病中恢复</li>
+ <li>面对左右打者都有三振能力</li>
+ <li>季后赛经验丰富，2024年世界第一球救援</li>
+ <li>道奇牛棚稳定核心</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>2026年 BB/9 5.68，保送率偏高</li>
+ <li>WHIP 从0.99升至1.14</li>
+ <li>身材和球速限制了 天花板</li>
+ <li>连续出赛时控球可能不稳</li>
+ <li>不属于传统 fireball 终结者</li>
+ <li>面对强打阵容时 occasionally 被长打</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="alex-vesia_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">控球</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">控球精准度</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Mental</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Stamina</div>
+ <span class="grade grade-a">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Durability</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">60</div>
+ <p style="color: #90a4ae; margin-top: 10px;">三振能力 elite，经验丰富。若减少保送，将成为联盟顶级左投后援。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-a" style="font-size: 1.2em;">B+ 级 / 精英左投 布局（setup）man</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;"><p>Vesia 正处于后援投手的黄金期。他的球路组合和大赛经验让他在未来2-3年仍将是道奇牛棚的核心。改善控球是他迈向 elite 终结者 的关键。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">发展建议</h3>
+ <ol style="margin-left: 20px; line-height: 2;"><li><strong>降低保送率：</strong>将 BB/9 压回 3.5 以下。</li><li><strong>保持三振优势：</strong>继续利用 slider 和 fastball ride 制造挥空。</li><li><strong>增加局数弹性：</strong>能在多局数 situation 中稳定出局。</li><li><strong>健康管理：</strong>避免斜肌和肩部伤病复发。</li></ol>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">预期发展轨迹</h3>
+ <p><strong>2026-2027：</strong>继续担任 布局（setup）man，ERA 2.20-3.00，年出赛 65-70 场。</p><p><strong>2028+：</strong>若控球进步，可能转型为终结者或 lefty specialist 王牌。</p>
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3><ul style="margin-left: 20px; line-height: 2;"><li>保送率过高导致上垒</li><li>斜肌伤病复发</li><li>面对 elite 右打时 fastball 压制力有限</li></ul></div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;"><p>Alexander Victor Vesia 出生于加州圣地亚哥郡的 Alpine。他在 Cal State East Bay 大学就读，主修休闲管理，并曾在2019年亚利桑那秋季联盟后，在圣地亚哥州立大学橄榄球招募办公室实习。</p>
+ <p>2018年马林鱼在第17轮选中他，2020年登上大联盟。2021年被交易至道奇后，他在教练团指导下逐步成长为联盟最可靠的左投后援之一。2024年1月，他与妻子 Kayla 结婚。</p>
+ <p>Vesia 以勤奋和低调著称。他从低顺位新秀到世界冠军牛棚核心，是道奇球探和培养体系的又一成功案例。</p></div>
+ 
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-07-18 | 数据截止日期：2026-07-18</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>
