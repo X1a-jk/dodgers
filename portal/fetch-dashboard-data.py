@@ -29,6 +29,135 @@ def safe_get(func, default=None):
         return default
 
 
+def _safe_int(v, default=99):
+    try:
+        return int(v)
+    except (TypeError, ValueError):
+        return default
+
+
+DIVISION_NAMES = {
+    200: ('AL', 'AL West', '美联西区'),
+    201: ('AL', 'AL East', '美联东区'),
+    202: ('AL', 'AL Central', '美联中区'),
+    203: ('NL', 'NL West', '国联西区'),
+    204: ('NL', 'NL East', '国联东区'),
+    205: ('NL', 'NL Central', '国联中区'),
+}
+
+
+def fetch_league_standings():
+    """全联盟积分榜：6 个分区 30 队 + 各联盟季后赛席位与外卡形势（全联盟积分榜页用）。"""
+    standings = statsapi.get('standings', {
+        'season': SEASON,
+        'sportIds': 1,
+        'leagueId': '103,104',
+    })
+    divisions = {}
+    by_league = {'AL': [], 'NL': []}
+    for record in standings.get('records', []):
+        div_id = record.get('division', {}).get('id')
+        league, div_key, div_label = DIVISION_NAMES.get(div_id, ('?', str(div_id), str(div_id)))
+        teams = []
+        for tr in record.get('teamRecords', []):
+            rec = tr.get('leagueRecord', {})
+            team = tr.get('team', {})
+            entry = {
+                'name': team.get('name', ''),
+                'abbrev': _team_abbrev(team.get('name', '')),
+                'w': rec.get('wins', 0),
+                'l': rec.get('losses', 0),
+                'pct': rec.get('pct', '.000'),
+                'gb': tr.get('gamesBack', '-'),
+                'wcgb': tr.get('wildCardGamesBack', '-'),
+                'divRank': tr.get('divisionRank', '-'),
+                'wcRank': tr.get('wildCardRank', '-'),
+                'streak': (tr.get('streak') or {}).get('streakCode', ''),
+                'last10': _get_split_record(tr, 'lastTen'),
+                'clinch': tr.get('clinchIndicator', '') or '',
+                'elim': tr.get('eliminationNumber', ''),
+                'isDodgers': team.get('id') == TEAM_ID,
+            }
+            teams.append(entry)
+            by_league[league].append(entry)
+        teams.sort(key=lambda x: _safe_int(x['divRank']))
+        divisions[div_key] = {'key': div_key, 'label': div_label, 'league': league, 'teams': teams}
+
+    # 季后赛形势：分区冠军按胜率排 1-3 号种子，外卡前 3 排 4-6 号
+    playoffs = {}
+    for league, teams in by_league.items():
+        winners = sorted([t for t in teams if t['divRank'] == '1'],
+                         key=lambda x: x['pct'], reverse=True)
+        seeds = []
+        for i, t in enumerate(winners, 1):
+            seeds.append({
+                'seed': i, 'kind': 'division', 'abbrev': t['abbrev'],
+                'name': t['name'], 'w': t['w'], 'l': t['l'], 'pct': t['pct'],
+                'clinch': t['clinch'], 'isDodgers': t['isDodgers'],
+            })
+        wc = sorted([t for t in teams if t['wcRank'] not in (None, '', '-')],
+                    key=lambda x: _safe_int(x['wcRank']))
+        for t in wc[:3]:
+            seeds.append({
+                'seed': _safe_int(t['wcRank']) + 3, 'kind': 'wildCard', 'abbrev': t['abbrev'],
+                'name': t['name'], 'w': t['w'], 'l': t['l'], 'pct': t['pct'],
+                'clinch': t['clinch'], 'isDodgers': t['isDodgers'],
+            })
+        seeds.sort(key=lambda x: x['seed'])
+        playoffs[league] = {
+            'seeds': seeds,
+            'wcRace': wc[3:8],
+        }
+
+    div_order = ['AL East', 'AL Central', 'AL West', 'NL East', 'NL Central', 'NL West']
+    return {
+        'divisions': [divisions[k] for k in div_order if k in divisions],
+        'playoffs': playoffs,
+    }
+
+
+def fetch_nl_standings():
+    """获取国联完整积分数据：国联西区榜 + 外卡榜（数据大屏用）。"""
+    standings = statsapi.get('standings', {
+        'season': SEASON,
+        'sportIds': 1,
+        'leagueId': 104
+    })
+    nl_west, wild_card = [], []
+    # standings 接口的 division 对象默认不带名字，只有 id：203=NL West 204=NL East 205=NL Central
+    NL_WEST_ID = 203
+    for record in standings.get('records', []):
+        div_id = record.get('division', {}).get('id')
+        for tr in record.get('teamRecords', []):
+            rec = tr.get('leagueRecord', {})
+            team = tr.get('team', {})
+            entry = {
+                'name': team.get('name', ''),
+                'abbrev': _team_abbrev(team.get('name', '')),
+                'w': rec.get('wins', 0),
+                'l': rec.get('losses', 0),
+                'pct': rec.get('pct', '.000'),
+                'gb': tr.get('gamesBack', '-'),
+                'wcgb': tr.get('wildCardGamesBack', '-'),
+                'divRank': tr.get('divisionRank', '-'),
+                'wcRank': tr.get('wildCardRank', '-'),
+                'leagueRank': tr.get('leagueRank', '-'),
+                'streak': (tr.get('streak') or {}).get('streakCode', ''),
+                'last10': _get_split_record(tr, 'lastTen'),
+                'home': _get_split_record(tr, 'home'),
+                'away': _get_split_record(tr, 'away'),
+                'clinch': tr.get('clinchIndicator', '') or '',
+                'isDodgers': team.get('id') == TEAM_ID,
+            }
+            if div_id == NL_WEST_ID:
+                nl_west.append(entry)
+            if tr.get('wildCardRank') not in (None, '', '-'):
+                wild_card.append(entry)
+    nl_west.sort(key=lambda x: _safe_int(x['divRank']))
+    wild_card.sort(key=lambda x: _safe_int(x['wcRank']))
+    return {'nlWest': nl_west, 'wildCard': wild_card}
+
+
 def fetch_standings():
     """获取道奇队战绩与排名"""
     standings = statsapi.get('standings', {
@@ -134,19 +263,37 @@ def _result(our_score, their_score):
 def _team_abbrev(full_name):
     """简陋的球队简称映射"""
     mapping = {
-        'Los Angeles Dodgers': 'LAD',
-        'Pittsburgh Pirates': 'PIT',
-        'Colorado Rockies': 'COL',
-        'Milwaukee Brewers': 'MIL',
-        'Kansas City Royals': 'KC',
-        'San Diego Padres': 'SD',
-        'San Francisco Giants': 'SF',
-        'Arizona Diamondbacks': 'ARI',
-        'New York Mets': 'NYM',
-        'Atlanta Braves': 'ATL',
-        'Philadelphia Phillies': 'PHI',
-        'Miami Marlins': 'MIA',
-        'Washington Nationals': 'WSH',
+        # standings 接口返回短名，schedule 接口返回全名，两种都收
+        'Dodgers': 'LAD', 'Los Angeles Dodgers': 'LAD',
+        'Pirates': 'PIT', 'Pittsburgh Pirates': 'PIT',
+        'Rockies': 'COL', 'Colorado Rockies': 'COL',
+        'Brewers': 'MIL', 'Milwaukee Brewers': 'MIL',
+        'Royals': 'KC', 'Kansas City Royals': 'KC',
+        'Padres': 'SD', 'San Diego Padres': 'SD',
+        'Giants': 'SF', 'San Francisco Giants': 'SF',
+        'D-backs': 'ARI', 'Arizona Diamondbacks': 'ARI',
+        'Mets': 'NYM', 'New York Mets': 'NYM',
+        'Braves': 'ATL', 'Atlanta Braves': 'ATL',
+        'Phillies': 'PHI', 'Philadelphia Phillies': 'PHI',
+        'Marlins': 'MIA', 'Miami Marlins': 'MIA',
+        'Nationals': 'WSH', 'Washington Nationals': 'WSH',
+        'Red Sox': 'BOS', 'Boston Red Sox': 'BOS',
+        'White Sox': 'CWS', 'Chicago White Sox': 'CWS',
+        'Rays': 'TB', 'Tampa Bay Rays': 'TB',
+        'Cubs': 'CHC', 'Chicago Cubs': 'CHC',
+        'Orioles': 'BAL', 'Baltimore Orioles': 'BAL',
+        'Guardians': 'CLE', 'Cleveland Guardians': 'CLE',
+        'Twins': 'MIN', 'Minnesota Twins': 'MIN',
+        'Tigers': 'DET', 'Detroit Tigers': 'DET',
+        'Astros': 'HOU', 'Houston Astros': 'HOU',
+        'Angels': 'LAA', 'Los Angeles Angels': 'LAA',
+        'Rangers': 'TEX', 'Texas Rangers': 'TEX',
+        'Mariners': 'SEA', 'Seattle Mariners': 'SEA',
+        'Athletics': 'OAK', 'Oakland Athletics': 'OAK',
+        'Blue Jays': 'TOR', 'Toronto Blue Jays': 'TOR',
+        'Yankees': 'NYY', 'New York Yankees': 'NYY',
+        'Cardinals': 'STL', 'St. Louis Cardinals': 'STL',
+        'Reds': 'CIN', 'Cincinnati Reds': 'CIN',
     }
     return mapping.get(full_name, full_name.split()[-1])
 
@@ -316,6 +463,8 @@ def build_dashboard_data():
             'abbreviation': 'LAD',
         },
         'standings': safe_get(fetch_standings, {}),
+        'nlStandings': safe_get(fetch_nl_standings, {}),
+        'leagueStandings': safe_get(fetch_league_standings, {}),
         'schedule': safe_get(lambda: fetch_schedule(days=14), []),
         'last7Hitters': safe_get(fetch_last7_hitters, []),
         'seasonPitchers': safe_get(fetch_pitching_season, []),

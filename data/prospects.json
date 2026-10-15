@@ -1,0 +1,439 @@
+{
+  "generatedAt": "2026-10-15T20:54:57.860859",
+  "source": "MLB Pipeline (mlb.com/prospects/dodgers)",
+  "teamRankings": [
+    {
+      "rank": 1,
+      "name": "Josue De Paula",
+      "playerId": 800543,
+      "position": "OF",
+      "eta": "2026",
+      "grades": {
+        "Hit": 65,
+        "Power": 60,
+        "Run": 40,
+        "Arm": 50,
+        "Field": 40
+      },
+      "overall": 60
+    },
+    {
+      "rank": 2,
+      "name": "Eduardo Quintero",
+      "playerId": 808234,
+      "position": "OF",
+      "eta": "2028",
+      "grades": {
+        "Hit": 55,
+        "Power": 50,
+        "Run": 60,
+        "Arm": 60,
+        "Field": 55
+      },
+      "overall": 55
+    },
+    {
+      "rank": 3,
+      "name": "Mike Sirota",
+      "playerId": 701527,
+      "position": "OF",
+      "eta": "2027",
+      "grades": {
+        "Hit": 55,
+        "Power": 55,
+        "Run": 60,
+        "Arm": 55,
+        "Field": 55
+      },
+      "overall": 60
+    },
+    {
+      "rank": 4,
+      "name": "Emil Morales",
+      "playerId": 815896,
+      "position": "SS/3B",
+      "eta": "2029",
+      "grades": {
+        "Hit": 50,
+        "Power": 60,
+        "Run": 50,
+        "Arm": 55,
+        "Field": 50
+      },
+      "overall": 55
+    },
+    {
+      "rank": 5,
+      "name": "Christian Zazueta",
+      "playerId": 800537,
+      "position": "RHP",
+      "eta": "2028",
+      "grades": {
+        "Fastball": 60,
+        "Slider": 50,
+        "Changeup": 60,
+        "Control": 60
+      },
+      "overall": 55
+    },
+    {
+      "rank": 6,
+      "name": "Charles Davalan",
+      "playerId": 804560,
+      "position": "OF",
+      "eta": "2028",
+      "grades": {
+        "Hit": 60,
+        "Power": 50,
+        "Run": 55,
+        "Arm": 45,
+        "Field": 50
+      },
+      "overall": 55
+    },
+    {
+      "rank": 7,
+      "name": "James Tibbs III",
+      "playerId": 696486,
+      "position": "1B/OF",
+      "eta": "2027",
+      "grades": {
+        "Hit": 50,
+        "Power": 55,
+        "Run": 40,
+        "Arm": 50,
+        "Field": 45
+      },
+      "overall": 50
+    },
+    {
+      "rank": 8,
+      "name": "Zach Root",
+      "playerId": 702539,
+      "position": "LHP",
+      "eta": "2028",
+      "grades": {
+        "Fastball": 50,
+        "Curveball": 60,
+        "Cutter": 50,
+        "Changeup": 60,
+        "Control": 50
+      },
+      "overall": 50
+    },
+    {
+      "rank": 9,
+      "name": "Chase Harlan",
+      "playerId": 815792,
+      "position": "3B",
+      "eta": "2028",
+      "grades": {
+        "Hit": 45,
+        "Power": 55,
+        "Run": 45,
+        "Arm": 55,
+        "Field": 50
+      },
+      "overall": 50
+    },
+    {
+      "rank": 10,
+      "name": "Bo Lowrance",
+      "playerId": 836574,
+      "position": "3B",
+      "eta": "2030",
+      "grades": {
+        "Hit": 55,
+        "Power": 55,
+        "Run": 50,
+        "Arm": 55,
+        "Field": 45
+      },
+      "overall": 50
+    },
+    {
+      "rank": 11,
+      "name": "Kendall George",
+      "playerId": 806077,
+      "position": "OF",
+      "eta": "2027",
+      "grades": {
+        "Hit": 55,
+        "Power": 20,
+        "Run": 80,
+        "Arm": 40,
+        "Field": 60
+      },
+      "overall": 45
+    },
+    {
+      "rank": 12,
+      "name": "Ching-Hsien Ko",
+      "playerId": 828667,
+      "position": "OF",
+      "eta": "2029",
+      "grades": {
+        "Hit": 55,
+        "Power": 50,
+        "Run": 50,
+        "Arm": 55,
+        "Field": 50
+      },
+      "overall": 45
+    },
+    {
+      "rank": 13,
+      "name": "Kellon Lindsey",
+      "playerId": 813916,
+      "position": "2B/SS",
+      "eta": "2028",
+      "grades": {
+        "Hit": 50,
+        "Power": 40,
+        "Run": 80,
+        "Arm": 50,
+        "Field": 55
+      },
+      "overall": 45
+    },
+    {
+      "rank": 14,
+      "name": "Adam Serwinowski",
+      "playerId": 703445,
+      "position": "LHP",
+      "eta": "2027",
+      "grades": {
+        "Fastball": 60,
+        "Slider": 60,
+        "Control": 45
+      },
+      "overall": 45
+    },
+    {
+      "rank": 15,
+      "name": "Zach Ehrhard",
+      "playerId": 701394,
+      "position": "OF",
+      "eta": "2027",
+      "grades": {
+        "Hit": 55,
+        "Power": 45,
+        "Run": 55,
+        "Arm": 50,
+        "Field": 55
+      },
+      "overall": 45
+    },
+    {
+      "rank": 16,
+      "name": "Cam Leiter",
+      "playerId": 804942,
+      "position": "RHP",
+      "eta": "2028",
+      "grades": {
+        "Fastball": 65,
+        "Curveball": 55,
+        "Slider": 55,
+        "Changeup": 50,
+        "Control": 40
+      },
+      "overall": 45
+    },
+    {
+      "rank": 17,
+      "name": "Jackson Ferris",
+      "playerId": 701328,
+      "position": "LHP",
+      "eta": "2027",
+      "grades": {
+        "Fastball": 50,
+        "Curveball": 50,
+        "Slider": 55,
+        "Changeup": 50,
+        "Control": 40
+      },
+      "overall": 45
+    },
+    {
+      "rank": 18,
+      "name": "Jaron Elkins",
+      "playerId": 814696,
+      "position": "OF",
+      "eta": "2029",
+      "grades": {
+        "Hit": 40,
+        "Power": 50,
+        "Run": 65,
+        "Arm": 60,
+        "Field": 60
+      },
+      "overall": 40
+    },
+    {
+      "rank": 19,
+      "name": "Logan Wagner",
+      "playerId": 702488,
+      "position": "3B/2B",
+      "eta": "2028",
+      "grades": {
+        "Hit": 50,
+        "Power": 50,
+        "Run": 45,
+        "Arm": 55,
+        "Field": 50
+      },
+      "overall": 40
+    },
+    {
+      "rank": 20,
+      "name": "Aidan Foeller",
+      "playerId": 826538,
+      "position": "RHP",
+      "eta": "2027",
+      "grades": null,
+      "overall": null
+    },
+    {
+      "rank": 21,
+      "name": "Elijah Hainline",
+      "playerId": 809944,
+      "position": "SS",
+      "eta": "2027",
+      "grades": {
+        "Hit": 50,
+        "Power": 45,
+        "Run": 50,
+        "Arm": 50,
+        "Field": 50
+      },
+      "overall": 40
+    },
+    {
+      "rank": 22,
+      "name": "Nico Perez",
+      "playerId": 703639,
+      "position": "2B/3B",
+      "eta": "2028",
+      "grades": null,
+      "overall": null
+    },
+    {
+      "rank": 23,
+      "name": "Sterling Patick",
+      "playerId": 814507,
+      "position": "LHP",
+      "eta": "2028",
+      "grades": {
+        "Fastball": 50,
+        "Curveball": 60,
+        "Slider": 55,
+        "Changeup": 50,
+        "Control": 45
+      },
+      "overall": 40
+    },
+    {
+      "rank": 24,
+      "name": "Jacob Kmatz",
+      "playerId": 695771,
+      "position": "RHP",
+      "eta": "2027",
+      "grades": {
+        "Fastball": 60,
+        "Curveball": 60,
+        "Slider": 70,
+        "Control": 55
+      },
+      "overall": 40
+    },
+    {
+      "rank": 25,
+      "name": "Noah Miller",
+      "playerId": 695653,
+      "position": "SS/3B",
+      "eta": "2027",
+      "grades": {
+        "Hit": 45,
+        "Power": 30,
+        "Run": 50,
+        "Arm": 60,
+        "Field": 70
+      },
+      "overall": 40
+    },
+    {
+      "rank": 26,
+      "name": "Marlon Nieves",
+      "playerId": 812363,
+      "position": "RHP",
+      "eta": "2029",
+      "grades": {
+        "Fastball": 60,
+        "Slider": 60,
+        "Changeup": 45,
+        "Control": 40
+      },
+      "overall": 40
+    },
+    {
+      "rank": 27,
+      "name": "Aidan West",
+      "playerId": 828140,
+      "position": "SS",
+      "eta": "2029",
+      "grades": {
+        "Hit": 45,
+        "Power": 50,
+        "Run": 55,
+        "Arm": 55,
+        "Field": 45
+      },
+      "overall": 40
+    },
+    {
+      "rank": 28,
+      "name": "Brooks Auger",
+      "playerId": 824624,
+      "position": "RHP",
+      "eta": "2028",
+      "grades": {
+        "Fastball": 55,
+        "Curveball": 50,
+        "Slider": 55,
+        "Changeup": 50,
+        "Control": 45
+      },
+      "overall": 40
+    },
+    {
+      "rank": 29,
+      "name": "Eduardo Rojas",
+      "playerId": 821672,
+      "position": "C",
+      "eta": "2030",
+      "grades": {
+        "Hit": 55,
+        "Power": 40,
+        "Run": 30,
+        "Arm": 55,
+        "Field": 55
+      },
+      "overall": 40
+    },
+    {
+      "rank": 30,
+      "name": "Easton Shelton",
+      "playerId": 806221,
+      "position": "1B/3B",
+      "eta": "2029",
+      "grades": {
+        "Hit": 35,
+        "Power": 60,
+        "Run": 40,
+        "Arm": 55,
+        "Field": 50
+      },
+      "overall": 40
+    }
+  ]
+}

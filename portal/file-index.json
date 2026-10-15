@@ -1,0 +1,860 @@
+{
+  "weekly": [
+    {
+      "name": "2026-09-28-week26.md",
+      "label": "2026 · Week 26 · 09/28-10/04",
+      "date": "2026-09-28",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-21-week25.md",
+      "label": "2026 · Week 25 · 09/21-09/27",
+      "date": "2026-09-21",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-14-week24.md",
+      "label": "2026 · Week 24 · 09/14-09/20",
+      "date": "2026-09-14",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-07-week23.md",
+      "label": "2026 · Week 23 · 09/07-09/13",
+      "date": "2026-09-07",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-31-week22.md",
+      "label": "2026 · Week 22 · 08/31-09/06",
+      "date": "2026-08-31",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-24-week21.md",
+      "label": "2026 · Week 21 · 08/24-08/30",
+      "date": "2026-08-24",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-17-week20.md",
+      "label": "2026 · Week 20 · 08/17-08/23",
+      "date": "2026-08-17",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-10-week19.md",
+      "label": "2026 · Week 19 · 08/10-08/16",
+      "date": "2026-08-10",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-03-week18.md",
+      "label": "2026 · Week 18 · 08/03-08/09",
+      "date": "2026-08-03",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-27-week17.md",
+      "label": "2026 · Week 17 · 07/27-08/02",
+      "date": "2026-07-27",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-20-week16.md",
+      "label": "2026 · Week 16 · 07/20-07/26",
+      "date": "2026-07-20",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-13-week15.md",
+      "label": "2026 · Week 15 · 07/13-07/19",
+      "date": "2026-07-13",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-06-week14.md",
+      "label": "2026 · Week 14 · 07/06-07/12",
+      "date": "2026-07-06",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-29-week13.md",
+      "label": "2026 · Week 13 · 06/29-07/05",
+      "date": "2026-06-29",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-22-week12.md",
+      "label": "2026 · Week 12 · 06/22-06/28",
+      "date": "2026-06-22",
+      "folder": "seasons/2026/regular/weekly",
+      "season": "2026"
+    }
+  ],
+  "daily": [
+    {
+      "name": "2026-10-15.md",
+      "label": "2026 · 10/15 阵容快照",
+      "date": "2026-10-15",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-13.md",
+      "label": "2026 · 10/13 阵容快照",
+      "date": "2026-10-13",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-12.md",
+      "label": "2026 · 10/12 阵容快照",
+      "date": "2026-10-12",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-08.md",
+      "label": "2026 · 10/08 阵容快照",
+      "date": "2026-10-08",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-07.md",
+      "label": "2026 · 10/07 阵容快照",
+      "date": "2026-10-07",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-05.md",
+      "label": "2026 · 10/05 阵容快照",
+      "date": "2026-10-05",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-04.md",
+      "label": "2026 · 10/04 阵容快照",
+      "date": "2026-10-04",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-29.md",
+      "label": "2026 · 09/29 阵容快照",
+      "date": "2026-09-29",
+      "folder": "roster",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-28.md",
+      "label": "2026 · 09/28 阵容快照",
+      "date": "2026-09-28",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-27.md",
+      "label": "2026 · 09/27 阵容快照",
+      "date": "2026-09-27",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-26.md",
+      "label": "2026 · 09/26 阵容快照",
+      "date": "2026-09-26",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-25.md",
+      "label": "2026 · 09/25 阵容快照",
+      "date": "2026-09-25",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-24.md",
+      "label": "2026 · 09/24 阵容快照",
+      "date": "2026-09-24",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-23.md",
+      "label": "2026 · 09/23 阵容快照",
+      "date": "2026-09-23",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-21.md",
+      "label": "2026 · 09/21 阵容快照",
+      "date": "2026-09-21",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-20.md",
+      "label": "2026 · 09/20 阵容快照",
+      "date": "2026-09-20",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-19.md",
+      "label": "2026 · 09/19 阵容快照",
+      "date": "2026-09-19",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-18.md",
+      "label": "2026 · 09/18 阵容快照",
+      "date": "2026-09-18",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-17.md",
+      "label": "2026 · 09/17 阵容快照",
+      "date": "2026-09-17",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-16.md",
+      "label": "2026 · 09/16 阵容快照",
+      "date": "2026-09-16",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-15.md",
+      "label": "2026 · 09/15 阵容快照",
+      "date": "2026-09-15",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-14.md",
+      "label": "2026 · 09/14 阵容快照",
+      "date": "2026-09-14",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-13.md",
+      "label": "2026 · 09/13 阵容快照",
+      "date": "2026-09-13",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-12.md",
+      "label": "2026 · 09/12 阵容快照",
+      "date": "2026-09-12",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-11.md",
+      "label": "2026 · 09/11 阵容快照",
+      "date": "2026-09-11",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-10.md",
+      "label": "2026 · 09/10 阵容快照",
+      "date": "2026-09-10",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-09.md",
+      "label": "2026 · 09/09 阵容快照",
+      "date": "2026-09-09",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-08.md",
+      "label": "2026 · 09/08 阵容快照",
+      "date": "2026-09-08",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-07.md",
+      "label": "2026 · 09/07 阵容快照",
+      "date": "2026-09-07",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-06.md",
+      "label": "2026 · 09/06 阵容快照",
+      "date": "2026-09-06",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-05.md",
+      "label": "2026 · 09/05 阵容快照",
+      "date": "2026-09-05",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-04.md",
+      "label": "2026 · 09/04 阵容快照",
+      "date": "2026-09-04",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-03.md",
+      "label": "2026 · 09/03 阵容快照",
+      "date": "2026-09-03",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-02.md",
+      "label": "2026 · 09/02 阵容快照",
+      "date": "2026-09-02",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-09-01.md",
+      "label": "2026 · 09/01 阵容快照",
+      "date": "2026-09-01",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-31.md",
+      "label": "2026 · 08/31 阵容快照",
+      "date": "2026-08-31",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-30.md",
+      "label": "2026 · 08/30 阵容快照",
+      "date": "2026-08-30",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-29.md",
+      "label": "2026 · 08/29 阵容快照",
+      "date": "2026-08-29",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-28.md",
+      "label": "2026 · 08/28 阵容快照",
+      "date": "2026-08-28",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-27.md",
+      "label": "2026 · 08/27 阵容快照",
+      "date": "2026-08-27",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-26.md",
+      "label": "2026 · 08/26 阵容快照",
+      "date": "2026-08-26",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-24.md",
+      "label": "2026 · 08/24 阵容快照",
+      "date": "2026-08-24",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-23.md",
+      "label": "2026 · 08/23 阵容快照",
+      "date": "2026-08-23",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-22.md",
+      "label": "2026 · 08/22 阵容快照",
+      "date": "2026-08-22",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-20.md",
+      "label": "2026 · 08/20 阵容快照",
+      "date": "2026-08-20",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-19.md",
+      "label": "2026 · 08/19 阵容快照",
+      "date": "2026-08-19",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-18.md",
+      "label": "2026 · 08/18 阵容快照",
+      "date": "2026-08-18",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-17.md",
+      "label": "2026 · 08/17 阵容快照",
+      "date": "2026-08-17",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-16.md",
+      "label": "2026 · 08/16 阵容快照",
+      "date": "2026-08-16",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-15.md",
+      "label": "2026 · 08/15 阵容快照",
+      "date": "2026-08-15",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-14.md",
+      "label": "2026 · 08/14 阵容快照",
+      "date": "2026-08-14",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-13.md",
+      "label": "2026 · 08/13 阵容快照",
+      "date": "2026-08-13",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-12.md",
+      "label": "2026 · 08/12 阵容快照",
+      "date": "2026-08-12",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-11.md",
+      "label": "2026 · 08/11 阵容快照",
+      "date": "2026-08-11",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-10.md",
+      "label": "2026 · 08/10 阵容快照",
+      "date": "2026-08-10",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-09.md",
+      "label": "2026 · 08/09 阵容快照",
+      "date": "2026-08-09",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-08.md",
+      "label": "2026 · 08/08 阵容快照",
+      "date": "2026-08-08",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-07.md",
+      "label": "2026 · 08/07 阵容快照",
+      "date": "2026-08-07",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-06.md",
+      "label": "2026 · 08/06 阵容快照",
+      "date": "2026-08-06",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-05.md",
+      "label": "2026 · 08/05 阵容快照",
+      "date": "2026-08-05",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-04.md",
+      "label": "2026 · 08/04 阵容快照",
+      "date": "2026-08-04",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-03.md",
+      "label": "2026 · 08/03 阵容快照",
+      "date": "2026-08-03",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-02.md",
+      "label": "2026 · 08/02 阵容快照",
+      "date": "2026-08-02",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-08-01.md",
+      "label": "2026 · 08/01 阵容快照",
+      "date": "2026-08-01",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-31.md",
+      "label": "2026 · 07/31 阵容快照",
+      "date": "2026-07-31",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-30.md",
+      "label": "2026 · 07/30 阵容快照",
+      "date": "2026-07-30",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-29.md",
+      "label": "2026 · 07/29 阵容快照",
+      "date": "2026-07-29",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-27.md",
+      "label": "2026 · 07/27 阵容快照",
+      "date": "2026-07-27",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-26.md",
+      "label": "2026 · 07/26 阵容快照",
+      "date": "2026-07-26",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-25.md",
+      "label": "2026 · 07/25 阵容快照",
+      "date": "2026-07-25",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-24.md",
+      "label": "2026 · 07/24 阵容快照",
+      "date": "2026-07-24",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-23.md",
+      "label": "2026 · 07/23 阵容快照",
+      "date": "2026-07-23",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-22.md",
+      "label": "2026 · 07/22 阵容快照",
+      "date": "2026-07-22",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-21.md",
+      "label": "2026 · 07/21 阵容快照",
+      "date": "2026-07-21",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-20.md",
+      "label": "2026 · 07/20 阵容快照",
+      "date": "2026-07-20",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-18.md",
+      "label": "2026 · 07/18 阵容快照",
+      "date": "2026-07-18",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-17.md",
+      "label": "2026 · 07/17 阵容快照",
+      "date": "2026-07-17",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-13.md",
+      "label": "2026 · 07/13 阵容快照",
+      "date": "2026-07-13",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-12.md",
+      "label": "2026 · 07/12 阵容快照",
+      "date": "2026-07-12",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-11.md",
+      "label": "2026 · 07/11 阵容快照",
+      "date": "2026-07-11",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-09.md",
+      "label": "2026 · 07/09 阵容快照",
+      "date": "2026-07-09",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-08.md",
+      "label": "2026 · 07/08 阵容快照",
+      "date": "2026-07-08",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-07.md",
+      "label": "2026 · 07/07 阵容快照",
+      "date": "2026-07-07",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-06.md",
+      "label": "2026 · 07/06 阵容快照",
+      "date": "2026-07-06",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-05.md",
+      "label": "2026 · 07/05 阵容快照",
+      "date": "2026-07-05",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-04.md",
+      "label": "2026 · 07/04 阵容快照",
+      "date": "2026-07-04",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-03.md",
+      "label": "2026 · 07/03 阵容快照",
+      "date": "2026-07-03",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-02.md",
+      "label": "2026 · 07/02 阵容快照",
+      "date": "2026-07-02",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-07-01.md",
+      "label": "2026 · 07/01 阵容快照",
+      "date": "2026-07-01",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-30.md",
+      "label": "2026 · 06/30 阵容快照",
+      "date": "2026-06-30",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-29.md",
+      "label": "2026 · 06/29 阵容快照",
+      "date": "2026-06-29",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-28.md",
+      "label": "2026 · 06/28 阵容快照",
+      "date": "2026-06-28",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-27.md",
+      "label": "2026 · 06/27 阵容快照",
+      "date": "2026-06-27",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-26.md",
+      "label": "2026 · 06/26 阵容快照",
+      "date": "2026-06-26",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-25.md",
+      "label": "2026 · 06/25 阵容快照",
+      "date": "2026-06-25",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-24.md",
+      "label": "2026 · 06/24 阵容快照",
+      "date": "2026-06-24",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    },
+    {
+      "name": "2026-06-23.md",
+      "label": "2026 · 06/23 阵容快照",
+      "date": "2026-06-23",
+      "folder": "seasons/2026/regular/daily",
+      "season": "2026"
+    }
+  ],
+  "postseason": [
+    {
+      "name": "2026-10-15-ps-nlcs-g3.md",
+      "label": "🍂 NLCS G3 · 10-15",
+      "date": "2026-10-15",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-12-ps-nlcs-g1.md",
+      "label": "🍂 NLCS G1 · 10-12",
+      "date": "2026-10-12",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-12-ps-nlds-g1-g4.md",
+      "label": "🍂 NLDS G1 G4 · 10-12",
+      "date": "2026-10-12",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-12-ps-nlds-g3-g4-nlcs-g1.md",
+      "label": "🍂 NLDS G3 G4 NLCS G1 · 10-12",
+      "date": "2026-10-12",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-08-ps-nlds-g1-g4.md",
+      "label": "🍂 NLDS G1 G4 · 10-08",
+      "date": "2026-10-08",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-07-ps-nlds-g1-g3.md",
+      "label": "🍂 NLDS G1 G3 · 10-07",
+      "date": "2026-10-07",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-05-ps-nlds-g1-g2.md",
+      "label": "🍂 NLDS G1 G2 · 10-05",
+      "date": "2026-10-05",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
+      "name": "2026-10-04-ps-nlds-g1.md",
+      "label": "🍂 NLDS G1 · 10-04",
+      "date": "2026-10-04",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    }
+  ],
+  "years": [
+    "2026"
+  ],
+  "currentSeason": "2026",
+  "reportEditions": [
+    {
+      "label": "2026 当前（实时更新）",
+      "path": "report/index.html",
+      "current": true
+    }
+  ],
+  "generatedAt": "2026-10-15T21:05:16.015929"
+}

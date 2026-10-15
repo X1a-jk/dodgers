@@ -1,0 +1,47 @@
+﻿=== 40MAN ===
+Alex Call|LF|A|Active
+Alex Freeland|2B|A|Active
+Alex Vesia|P|A|Active
+Andy Pages|CF|A|Active
+Ben Casparius|P|D60|Injured 60-Day
+Blake Snell|P|A|Active
+Blake Treinen|P|A|Active
+Bobby Miller|P|RM|Reassigned to Minors
+Brock Stewart|P|A|Active
+Brusdar Graterol|P|D60|Injured 60-Day
+Dalton Rushing|C|D10|Injured 10-Day
+Edgardo Henriquez|P|D15|Injured 15-Day
+Edwin D铆az|P|A|Active
+Eliezer Alfonzo|C|RM|Reassigned to Minors
+Emmet Sheehan|P|RM|Reassigned to Minors
+Enrique Hern谩ndez|3B|A|Active
+Eric Lauer|P|D60|Injured 60-Day
+Evan Phillips|P|A|Active
+Freddie Freeman|1B|A|Active
+Gavin Stone|P|D60|Injured 60-Day
+Hunter Feduccia|C|A|Active
+Hyeseong Kim|SS|RM|Reassigned to Minors
+Jack Dreyer|P|A|Active
+Jake Cousins|P|D60|Injured 60-Day
+Josue De Paula|DH|RM|Reassigned to Minors
+Justin Wrobleski|P|A|Active
+Kris Bubic|P|A|Active
+Kyle Hurt|P|RM|Reassigned to Minors
+Kyle Tucker|RF|A|Active
+Landon Knack|P|RM|Reassigned to Minors
+Max Muncy|3B|A|Active
+Miguel Rojas|2B|A|Active
+Mookie Betts|SS|A|Active
+Paul Gervase|P|RM|Reassigned to Minors
+Roki Sasaki|P|A|Active
+Ronan Kopp|P|RM|Reassigned to Minors
+Seth Halvorsen|P|RM|Reassigned to Minors
+Shohei Ohtani|TWP|A|Active
+Tanner Scott|P|A|Active
+Tarik Skubal|P|A|Active
+Teoscar Hern谩ndez|LF|A|Active
+Tommy Edman|2B|A|Active
+Tyler Glasnow|P|A|Active
+Will Klein|P|D60|Injured 60-Day
+Will Smith|C|A|Active
+Yoshinobu Yamamoto|P|A|Active

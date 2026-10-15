@@ -1,0 +1,1046 @@
+{
+  "generatedAt": "2026-10-15T20:53:58.054504",
+  "season": 2026,
+  "summary": {
+    "active": 26,
+    "il": 6,
+    "minors": 14
+  },
+  "columns": [
+    {
+      "key": "C",
+      "label": "捕手",
+      "players": [
+        {
+          "id": 669257,
+          "name": "Will Smith",
+          "pos": "C",
+          "jersey": "16",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/will-smith/will-smith-scouting-report.html",
+          "headshot": "report/will-smith/headshot.jpg",
+          "bat": {
+            "g": 73,
+            "avg": ".260",
+            "obp": ".355",
+            "slg": ".426",
+            "ops": ".781",
+            "hr": 10,
+            "rbi": 34,
+            "sb": 0
+          }
+        },
+        {
+          "id": 676439,
+          "name": "Hunter Feduccia",
+          "pos": "C",
+          "jersey": "46",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/hunter-feduccia/hunter-feduccia-scouting-report.html",
+          "headshot": "report/hunter-feduccia/headshot.jpg",
+          "bat": {
+            "g": 33,
+            "avg": ".197",
+            "obp": ".322",
+            "slg": ".263",
+            "ops": ".585",
+            "hr": 1,
+            "rbi": 7,
+            "sb": 0
+          }
+        },
+        {
+          "id": 687221,
+          "name": "Dalton Rushing",
+          "pos": "C",
+          "jersey": "68",
+          "statusCode": "40M",
+          "status": "Forty Man",
+          "reportUrl": "report/dalton-rushing/dalton-rushing-scouting-report.html",
+          "headshot": "report/dalton-rushing/headshot.jpg",
+          "bat": {
+            "g": 80,
+            "avg": ".246",
+            "obp": ".328",
+            "slg": ".460",
+            "ops": ".788",
+            "hr": 12,
+            "rbi": 36,
+            "sb": 0
+          }
+        },
+        {
+          "id": 672613,
+          "name": "Eliezer Alfonzo",
+          "pos": "C",
+          "jersey": "64",
+          "statusCode": "40M",
+          "status": "Forty Man",
+          "reportUrl": "report/eliezer-alfonzo/eliezer-alfonzo-scouting-report.html",
+          "headshot": "report/eliezer-alfonzo/headshot.jpg",
+          "bat": {
+            "g": 13,
+            "avg": ".179",
+            "obp": ".179",
+            "slg": ".250",
+            "ops": ".429",
+            "hr": 0,
+            "rbi": 4,
+            "sb": 0
+          }
+        }
+      ]
+    },
+    {
+      "key": "1B",
+      "label": "一垒",
+      "players": [
+        {
+          "id": 518692,
+          "name": "Freddie Freeman",
+          "pos": "1B",
+          "jersey": "5",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/freddie-freeman/freddie-freeman-scouting-report.html",
+          "headshot": "report/freddie-freeman/headshot.jpg",
+          "bat": {
+            "g": 153,
+            "avg": ".288",
+            "obp": ".362",
+            "slg": ".430",
+            "ops": ".792",
+            "hr": 16,
+            "rbi": 70,
+            "sb": 7
+          }
+        }
+      ]
+    },
+    {
+      "key": "2B",
+      "label": "二垒",
+      "players": [
+        {
+          "id": 500743,
+          "name": "Miguel Rojas",
+          "pos": "2B",
+          "jersey": "72",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/miguel-rojas/miguel-rojas-scouting-report.html",
+          "headshot": "report/miguel-rojas/headshot.jpg",
+          "bat": {
+            "g": 107,
+            "avg": ".267",
+            "obp": ".312",
+            "slg": ".391",
+            "ops": ".703",
+            "hr": 4,
+            "rbi": 23,
+            "sb": 1
+          },
+          "pitch": {
+            "g": 4,
+            "gs": 0,
+            "w": 0,
+            "l": 0,
+            "era": "13.50",
+            "whip": "2.50",
+            "so": 0,
+            "ip": "4.0"
+          }
+        },
+        {
+          "id": 669242,
+          "name": "Tommy Edman",
+          "pos": "2B",
+          "jersey": "25",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/tommy-edman/tommy-edman-scouting-report.html",
+          "headshot": "report/tommy-edman/headshot.jpg",
+          "bat": {
+            "g": 84,
+            "avg": ".247",
+            "obp": ".329",
+            "slg": ".385",
+            "ops": ".714",
+            "hr": 8,
+            "rbi": 42,
+            "sb": 7
+          }
+        },
+        {
+          "id": 690976,
+          "name": "Alex Freeland",
+          "pos": "2B",
+          "jersey": "76",
+          "statusCode": "40M",
+          "status": "Forty Man",
+          "reportUrl": "report/alex-freeland/alex-freeland-scouting-report.html",
+          "headshot": "report/alex-freeland/headshot.jpg",
+          "bat": {
+            "g": 89,
+            "avg": ".234",
+            "obp": ".327",
+            "slg": ".325",
+            "ops": ".652",
+            "hr": 4,
+            "rbi": 21,
+            "sb": 4
+          }
+        }
+      ]
+    },
+    {
+      "key": "3B",
+      "label": "三垒",
+      "players": [
+        {
+          "id": 571970,
+          "name": "Max Muncy",
+          "pos": "3B",
+          "jersey": "13",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/max-muncy/max-muncy-scouting-report.html",
+          "headshot": "report/max-muncy/headshot.jpg",
+          "bat": {
+            "g": 149,
+            "avg": ".252",
+            "obp": ".348",
+            "slg": ".490",
+            "ops": ".838",
+            "hr": 29,
+            "rbi": 76,
+            "sb": 3
+          }
+        },
+        {
+          "id": 571771,
+          "name": "Enrique Hernández",
+          "pos": "3B",
+          "jersey": "8",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/enrique-hernandez/enrique-hernandez-scouting-report.html",
+          "headshot": "report/enrique-hernandez/headshot.jpg",
+          "bat": {
+            "g": 41,
+            "avg": ".222",
+            "obp": ".271",
+            "slg": ".400",
+            "ops": ".671",
+            "hr": 4,
+            "rbi": 12,
+            "sb": 0
+          },
+          "pitch": {
+            "g": 1,
+            "gs": 0,
+            "w": 0,
+            "l": 0,
+            "era": "0.00",
+            "whip": "1.00",
+            "so": 0,
+            "ip": "1.0"
+          }
+        }
+      ]
+    },
+    {
+      "key": "SS",
+      "label": "游击",
+      "players": [
+        {
+          "id": 605141,
+          "name": "Mookie Betts",
+          "pos": "SS",
+          "jersey": "50",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/mookie-betts/mookie-betts-scouting-report.html",
+          "headshot": "report/mookie-betts/headshot.jpg",
+          "bat": {
+            "g": 123,
+            "avg": ".257",
+            "obp": ".326",
+            "slg": ".454",
+            "ops": ".780",
+            "hr": 23,
+            "rbi": 69,
+            "sb": 2
+          }
+        },
+        {
+          "id": 808975,
+          "name": "Hyeseong Kim",
+          "pos": "SS",
+          "jersey": "6",
+          "statusCode": "40M",
+          "status": "Forty Man",
+          "reportUrl": "report/hyeseong-kim/hyeseong-kim-scouting-report.html",
+          "headshot": "report/hyeseong-kim/headshot.jpg",
+          "bat": {
+            "g": 43,
+            "avg": ".259",
+            "obp": ".323",
+            "slg": ".328",
+            "ops": ".651",
+            "hr": 1,
+            "rbi": 11,
+            "sb": 5
+          }
+        }
+      ]
+    },
+    {
+      "key": "IF",
+      "label": "工具人",
+      "players": []
+    },
+    {
+      "key": "LF",
+      "label": "左外野",
+      "players": [
+        {
+          "id": 606192,
+          "name": "Teoscar Hernández",
+          "pos": "LF",
+          "jersey": "37",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/teoscar-hernandez/teoscar-hernandez-scouting-report.html",
+          "headshot": "report/teoscar-hernandez/headshot.jpg",
+          "bat": {
+            "g": 125,
+            "avg": ".267",
+            "obp": ".334",
+            "slg": ".425",
+            "ops": ".759",
+            "hr": 16,
+            "rbi": 64,
+            "sb": 5
+          }
+        },
+        {
+          "id": 669743,
+          "name": "Alex Call",
+          "pos": "LF",
+          "jersey": "12",
+          "statusCode": "40M",
+          "status": "Forty Man",
+          "reportUrl": "report/alex-call/alex-call-scouting-report.html",
+          "headshot": "report/alex-call/headshot.jpg",
+          "bat": {
+            "g": 88,
+            "avg": ".233",
+            "obp": ".349",
+            "slg": ".307",
+            "ops": ".656",
+            "hr": 1,
+            "rbi": 20,
+            "sb": 1
+          }
+        }
+      ]
+    },
+    {
+      "key": "CF",
+      "label": "中外野",
+      "players": [
+        {
+          "id": 681624,
+          "name": "Andy Pages",
+          "pos": "CF",
+          "jersey": "44",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/andy-pages/andy-pages-scouting-report.html",
+          "headshot": "report/andy-pages/headshot.jpg",
+          "bat": {
+            "g": 134,
+            "avg": ".274",
+            "obp": ".343",
+            "slg": ".468",
+            "ops": ".811",
+            "hr": 23,
+            "rbi": 85,
+            "sb": 13
+          }
+        }
+      ]
+    },
+    {
+      "key": "RF",
+      "label": "右外野",
+      "players": [
+        {
+          "id": 663656,
+          "name": "Kyle Tucker",
+          "pos": "RF",
+          "jersey": "23",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/kyle-tucker/kyle-tucker-scouting-report.html",
+          "headshot": "report/kyle-tucker/headshot.jpg",
+          "bat": {
+            "g": 154,
+            "avg": ".233",
+            "obp": ".330",
+            "slg": ".385",
+            "ops": ".715",
+            "hr": 17,
+            "rbi": 70,
+            "sb": 12
+          }
+        }
+      ]
+    },
+    {
+      "key": "DH",
+      "label": "指定打击",
+      "players": [
+        {
+          "id": 660271,
+          "name": "Shohei Ohtani",
+          "pos": "TWP",
+          "jersey": "17",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/shohei-ohtani/shohei-ohtani-scouting-report.html",
+          "headshot": "report/shohei-ohtani/headshot.jpg",
+          "bat": {
+            "g": 139,
+            "avg": ".275",
+            "obp": ".377",
+            "slg": ".512",
+            "ops": ".889",
+            "hr": 30,
+            "rbi": 81,
+            "sb": 11
+          },
+          "pitch": {
+            "g": 14,
+            "gs": 14,
+            "w": 8,
+            "l": 2,
+            "era": "1.79",
+            "whip": "0.95",
+            "so": 95,
+            "ip": "85.2"
+          },
+          "twoWay": true
+        },
+        {
+          "id": 800543,
+          "name": "Josue De Paula",
+          "pos": "DH",
+          "jersey": "95",
+          "statusCode": "A",
+          "status": "活跃",
+          "reportUrl": "report/josue-de-paula/josue-de-paula-scouting-report.html",
+          "headshot": "report/josue-de-paula/headshot.jpg",
+          "bat": {
+            "g": 11,
+            "avg": ".323",
+            "obp": ".500",
+            "slg": ".581",
+            "ops": "1.081",
+            "hr": 1,
+            "rbi": 7,
+            "sb": 1
+          }
+        }
+      ]
+    }
+  ],
+  "starters": [
+    {
+      "id": 808967,
+      "name": "Yoshinobu Yamamoto",
+      "pos": "P",
+      "jersey": "18",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/yoshinobu-yamamoto/yoshinobu-yamamoto-scouting-report.html",
+      "headshot": "report/yoshinobu-yamamoto/headshot.jpg",
+      "pitch": {
+        "g": 28,
+        "gs": 28,
+        "w": 14,
+        "l": 9,
+        "era": "2.53",
+        "whip": "0.87",
+        "so": 182,
+        "ip": "185.0"
+      }
+    },
+    {
+      "id": 808963,
+      "name": "Roki Sasaki",
+      "pos": "P",
+      "jersey": "11",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/roki-sasaki/roki-sasaki-scouting-report.html",
+      "headshot": "report/roki-sasaki/headshot.jpg",
+      "pitch": {
+        "g": 26,
+        "gs": 23,
+        "w": 5,
+        "l": 5,
+        "era": "4.49",
+        "whip": "1.32",
+        "so": 123,
+        "ip": "122.1"
+      }
+    },
+    {
+      "id": 680736,
+      "name": "Justin Wrobleski",
+      "pos": "P",
+      "jersey": "70",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/justin-wrobleski/justin-wrobleski-scouting-report.html",
+      "headshot": "report/justin-wrobleski/headshot.jpg",
+      "pitch": {
+        "g": 28,
+        "gs": 22,
+        "w": 12,
+        "l": 5,
+        "era": "3.66",
+        "whip": "1.14",
+        "so": 118,
+        "ip": "140.0"
+      }
+    },
+    {
+      "id": 686218,
+      "name": "Emmet Sheehan",
+      "pos": "P",
+      "jersey": "80",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/emmet-sheehan/emmet-sheehan-scouting-report.html",
+      "headshot": "report/emmet-sheehan/headshot.jpg",
+      "pitch": {
+        "g": 23,
+        "gs": 22,
+        "w": 5,
+        "l": 8,
+        "era": "4.57",
+        "whip": "1.18",
+        "so": 132,
+        "ip": "112.1"
+      }
+    },
+    {
+      "id": 660271,
+      "name": "Shohei Ohtani",
+      "pos": "TWP",
+      "jersey": "17",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/shohei-ohtani/shohei-ohtani-scouting-report.html",
+      "headshot": "report/shohei-ohtani/headshot.jpg",
+      "bat": {
+        "g": 139,
+        "avg": ".275",
+        "obp": ".377",
+        "slg": ".512",
+        "ops": ".889",
+        "hr": 30,
+        "rbi": 81,
+        "sb": 11
+      },
+      "pitch": {
+        "g": 14,
+        "gs": 14,
+        "w": 8,
+        "l": 2,
+        "era": "1.79",
+        "whip": "0.95",
+        "so": 95,
+        "ip": "85.2"
+      },
+      "twoWay": true
+    },
+    {
+      "id": 607192,
+      "name": "Tyler Glasnow",
+      "pos": "P",
+      "jersey": "31",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/tyler-glasnow/tyler-glasnow-scouting-report.html",
+      "headshot": "report/tyler-glasnow/headshot.jpg",
+      "pitch": {
+        "g": 13,
+        "gs": 13,
+        "w": 5,
+        "l": 2,
+        "era": "3.53",
+        "whip": "0.95",
+        "so": 98,
+        "ip": "74.0"
+      }
+    },
+    {
+      "id": 641778,
+      "name": "Eric Lauer",
+      "pos": "P",
+      "jersey": "33",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/eric-lauer/eric-lauer-scouting-report.html",
+      "headshot": "report/eric-lauer/headshot.jpg",
+      "pitch": {
+        "g": 14,
+        "gs": 12,
+        "w": 7,
+        "l": 2,
+        "era": "4.50",
+        "whip": "1.22",
+        "so": 46,
+        "ip": "72.0"
+      }
+    },
+    {
+      "id": 669373,
+      "name": "Tarik Skubal",
+      "pos": "P",
+      "jersey": "29",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/tarik-skubal/tarik-skubal-scouting-report.html",
+      "headshot": "report/tarik-skubal/headshot.jpg",
+      "pitch": {
+        "g": 10,
+        "gs": 10,
+        "w": 5,
+        "l": 2,
+        "era": "2.61",
+        "whip": "1.05",
+        "so": 70,
+        "ip": "62.0"
+      }
+    },
+    {
+      "id": 605483,
+      "name": "Blake Snell",
+      "pos": "P",
+      "jersey": "7",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/blake-snell/blake-snell-scouting-report.html",
+      "headshot": "report/blake-snell/headshot.jpg",
+      "pitch": {
+        "g": 9,
+        "gs": 9,
+        "w": 4,
+        "l": 1,
+        "era": "1.90",
+        "whip": "1.10",
+        "so": 55,
+        "ip": "42.2"
+      }
+    }
+  ],
+  "relievers": [
+    {
+      "id": 681911,
+      "name": "Alex Vesia",
+      "pos": "P",
+      "jersey": "51",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/alex-vesia/alex-vesia-scouting-report.html",
+      "headshot": "report/alex-vesia/headshot.jpg",
+      "bat": {
+        "g": 72,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000",
+        "hr": 0,
+        "rbi": 0,
+        "sb": 0
+      },
+      "pitch": {
+        "g": 72,
+        "gs": 0,
+        "w": 3,
+        "l": 1,
+        "era": "2.64",
+        "whip": "1.07",
+        "so": 74,
+        "ip": "58.0"
+      }
+    },
+    {
+      "id": 656945,
+      "name": "Tanner Scott",
+      "pos": "P",
+      "jersey": "66",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/tanner-scott/tanner-scott-scouting-report.html",
+      "headshot": "report/tanner-scott/headshot.jpg",
+      "pitch": {
+        "g": 69,
+        "gs": 0,
+        "w": 1,
+        "l": 6,
+        "era": "2.69",
+        "whip": "0.99",
+        "so": 82,
+        "ip": "63.2"
+      }
+    },
+    {
+      "id": 676263,
+      "name": "Jack Dreyer",
+      "pos": "P",
+      "jersey": "86",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/jack-dreyer/jack-dreyer-scouting-report.html",
+      "headshot": "report/jack-dreyer/headshot.jpg",
+      "bat": {
+        "g": 67,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000",
+        "hr": 0,
+        "rbi": 0,
+        "sb": 0
+      },
+      "pitch": {
+        "g": 67,
+        "gs": 3,
+        "w": 5,
+        "l": 2,
+        "era": "3.20",
+        "whip": "1.10",
+        "so": 73,
+        "ip": "64.2"
+      }
+    },
+    {
+      "id": 683618,
+      "name": "Edgardo Henriquez",
+      "pos": "P",
+      "jersey": "60",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/edgardo-henriquez/edgardo-henriquez-scouting-report.html",
+      "headshot": "report/edgardo-henriquez/headshot.jpg",
+      "bat": {
+        "g": 61,
+        "avg": ".000",
+        "obp": ".000",
+        "slg": ".000",
+        "ops": ".000",
+        "hr": 0,
+        "rbi": 0,
+        "sb": 0
+      },
+      "pitch": {
+        "g": 61,
+        "gs": 1,
+        "w": 4,
+        "l": 1,
+        "era": "2.85",
+        "whip": "1.03",
+        "so": 71,
+        "ip": "60.0"
+      }
+    },
+    {
+      "id": 669165,
+      "name": "Kyle Hurt",
+      "pos": "P",
+      "jersey": "63",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/kyle-hurt/kyle-hurt-scouting-report.html",
+      "headshot": "report/kyle-hurt/headshot.jpg",
+      "pitch": {
+        "g": 44,
+        "gs": 1,
+        "w": 4,
+        "l": 1,
+        "era": "4.14",
+        "whip": "1.34",
+        "so": 58,
+        "ip": "45.2"
+      }
+    },
+    {
+      "id": 694361,
+      "name": "Will Klein",
+      "pos": "P",
+      "jersey": "61",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/will-klein/will-klein-scouting-report.html",
+      "headshot": "report/will-klein/headshot.jpg",
+      "pitch": {
+        "g": 36,
+        "gs": 3,
+        "w": 3,
+        "l": 4,
+        "era": "3.67",
+        "whip": "1.56",
+        "so": 49,
+        "ip": "41.2"
+      }
+    },
+    {
+      "id": 595014,
+      "name": "Blake Treinen",
+      "pos": "P",
+      "jersey": "49",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/blake-treinen/blake-treinen-scouting-report.html",
+      "headshot": "report/blake-treinen/headshot.jpg",
+      "pitch": {
+        "g": 36,
+        "gs": 0,
+        "w": 4,
+        "l": 1,
+        "era": "3.64",
+        "whip": "1.42",
+        "so": 31,
+        "ip": "29.2"
+      }
+    },
+    {
+      "id": 623465,
+      "name": "Evan Phillips",
+      "pos": "P",
+      "jersey": "59",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/evan-phillips/evan-phillips-scouting-report.html",
+      "headshot": "report/evan-phillips/headshot.jpg",
+      "pitch": {
+        "g": 31,
+        "gs": 0,
+        "w": 3,
+        "l": 2,
+        "era": "3.46",
+        "whip": "1.08",
+        "so": 33,
+        "ip": "26.0"
+      }
+    },
+    {
+      "id": 592779,
+      "name": "Brock Stewart",
+      "pos": "P",
+      "jersey": "41",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/brock-stewart/brock-stewart-scouting-report.html",
+      "headshot": "report/brock-stewart/headshot.jpg",
+      "pitch": {
+        "g": 28,
+        "gs": 1,
+        "w": 1,
+        "l": 2,
+        "era": "2.70",
+        "whip": "1.01",
+        "so": 25,
+        "ip": "26.2"
+      }
+    },
+    {
+      "id": 621242,
+      "name": "Edwin Díaz",
+      "pos": "P",
+      "jersey": "3",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/edwin-diaz/edwin-diaz-scouting-report.html",
+      "headshot": "report/edwin-diaz/headshot.jpg",
+      "pitch": {
+        "g": 21,
+        "gs": 0,
+        "w": 2,
+        "l": 2,
+        "era": "8.68",
+        "whip": "1.98",
+        "so": 28,
+        "ip": "18.2"
+      }
+    },
+    {
+      "id": 678020,
+      "name": "Seth Halvorsen",
+      "pos": "P",
+      "jersey": "56",
+      "statusCode": "RM",
+      "status": "小联盟",
+      "reportUrl": "report/seth-halvorsen/seth-halvorsen-scouting-report.html",
+      "headshot": "report/seth-halvorsen/headshot.jpg",
+      "pitch": {
+        "g": 11,
+        "gs": 0,
+        "w": 1,
+        "l": 1,
+        "era": "8.10",
+        "whip": "1.30",
+        "so": 6,
+        "ip": "10.0"
+      }
+    },
+    {
+      "id": 663460,
+      "name": "Kris Bubic",
+      "pos": "P",
+      "jersey": "40",
+      "statusCode": "A",
+      "status": "活跃",
+      "reportUrl": "report/kris-bubic/kris-bubic-scouting-report.html",
+      "headshot": "report/kris-bubic/headshot.jpg",
+      "pitch": {
+        "g": 5,
+        "gs": 0,
+        "w": 1,
+        "l": 0,
+        "era": "0.00",
+        "whip": "0.86",
+        "so": 5,
+        "ip": "4.2"
+      }
+    },
+    {
+      "id": 676508,
+      "name": "Ben Casparius",
+      "pos": "P",
+      "jersey": "78",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/ben-casparius/ben-casparius-scouting-report.html",
+      "headshot": "report/ben-casparius/headshot.jpg",
+      "pitch": {
+        "g": 5,
+        "gs": 0,
+        "w": 0,
+        "l": 1,
+        "era": "9.64",
+        "whip": "2.14",
+        "so": 4,
+        "ip": "4.2"
+      }
+    },
+    {
+      "id": 689017,
+      "name": "Landon Knack",
+      "pos": "P",
+      "jersey": "96",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/landon-knack/landon-knack-scouting-report.html",
+      "headshot": "report/landon-knack/headshot.jpg",
+      "pitch": {
+        "g": 4,
+        "gs": 0,
+        "w": 1,
+        "l": 0,
+        "era": "3.86",
+        "whip": "1.20",
+        "so": 8,
+        "ip": "11.2"
+      }
+    },
+    {
+      "id": 801434,
+      "name": "Paul Gervase",
+      "pos": "P",
+      "jersey": "65",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/paul-gervase/paul-gervase-scouting-report.html",
+      "headshot": "report/paul-gervase/headshot.jpg",
+      "pitch": {
+        "g": 4,
+        "gs": 0,
+        "w": 0,
+        "l": 0,
+        "era": "2.35",
+        "whip": "1.57",
+        "so": 8,
+        "ip": "7.2"
+      }
+    },
+    {
+      "id": 676272,
+      "name": "Bobby Miller",
+      "pos": "P",
+      "jersey": "28",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/bobby-miller/bobby-miller-scouting-report.html",
+      "headshot": "report/bobby-miller/headshot.jpg",
+      "pitch": {
+        "g": 3,
+        "gs": 0,
+        "w": 1,
+        "l": 0,
+        "era": "3.68",
+        "whip": "1.23",
+        "so": 8,
+        "ip": "7.1"
+      }
+    },
+    {
+      "id": 660813,
+      "name": "Brusdar Graterol",
+      "pos": "P",
+      "jersey": "48",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/brusdar-graterol/brusdar-graterol-scouting-report.html",
+      "headshot": "report/brusdar-graterol/headshot.jpg"
+    },
+    {
+      "id": 694813,
+      "name": "Gavin Stone",
+      "pos": "P",
+      "jersey": "35",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/gavin-stone/gavin-stone-scouting-report.html",
+      "headshot": "report/gavin-stone/headshot.jpg"
+    },
+    {
+      "id": 664776,
+      "name": "Jake Cousins",
+      "pos": "P",
+      "jersey": "",
+      "statusCode": "D60",
+      "status": "IL-60",
+      "reportUrl": "report/jake-cousins/jake-cousins-scouting-report.html",
+      "headshot": "report/jake-cousins/headshot.jpg"
+    },
+    {
+      "id": 691947,
+      "name": "Ronan Kopp",
+      "pos": "P",
+      "jersey": "83",
+      "statusCode": "40M",
+      "status": "Forty Man",
+      "reportUrl": "report/ronan-kopp/ronan-kopp-scouting-report.html",
+      "headshot": "report/ronan-kopp/headshot.jpg"
+    }
+  ]
+}

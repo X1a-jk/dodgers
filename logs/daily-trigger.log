@@ -1,0 +1,1400 @@
+2026-08-27 19:11:38 - ===== Daily update started =====
+2026-08-27 19:11:38 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-27 19:14:01 - [Daily roster report] Done
+2026-08-27 19:14:01 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-27 19:16:15 - [Schedule & game hub fetch] Done
+2026-08-27 19:16:15 - ===== Daily update finished =====
+2026-08-28 12:00:02 - ===== Daily update started =====
+2026-08-28 12:00:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-28 12:00:30 - ===== Daily update started =====
+2026-08-28 12:00:30 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-28 12:00:55 - [Daily roster report] Done
+2026-08-28 12:00:55 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-28 12:01:29 - [Daily roster report] Done
+2026-08-28 12:01:29 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-28 12:01:31 - [Schedule & game hub fetch] Done
+2026-08-28 12:01:31 - ===== Daily update finished =====
+2026-08-28 12:02:02 - [Schedule & game hub fetch] Done
+2026-08-28 12:02:02 - ===== Daily update finished =====
+2026-08-29 14:40:45 - ===== Daily update started =====
+2026-08-29 14:40:45 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-29 14:41:36 - ===== Daily update started =====
+2026-08-29 14:41:36 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-29 14:42:28 - [Daily roster report] Done
+2026-08-29 14:42:28 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-29 14:43:44 - [Daily roster report] Done
+2026-08-29 14:43:44 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-29 14:43:59 - [Schedule & game hub fetch] Done
+2026-08-29 14:43:59 - ===== Daily update finished =====
+2026-08-29 14:44:37 - [Schedule & game hub fetch] Done
+2026-08-29 14:44:37 - ===== Daily update finished =====
+2026-08-29 20:49:23 - ===== Daily update started =====
+2026-08-29 20:49:23 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-29 20:51:29 - [Daily roster report] Done
+2026-08-29 20:51:29 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-29 20:54:34 - [Schedule & game hub fetch] Done
+2026-08-29 20:54:34 - ===== Daily update finished =====
+2026-08-30 12:00:03 - ===== Daily update started =====
+2026-08-30 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-30 12:00:12 - ===== Daily update started =====
+2026-08-30 12:00:12 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-30 12:01:56 - [Daily roster report] Done
+2026-08-30 12:01:56 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-30 12:02:16 - [Daily roster report] Done
+2026-08-30 12:02:16 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-30 12:03:05 - [Schedule & game hub fetch] Done
+2026-08-30 12:03:05 - ===== Daily update finished =====
+2026-08-30 12:03:46 - [Schedule & game hub fetch] Done
+2026-08-30 12:03:46 - ===== Daily update finished =====
+2026-08-31 12:00:03 - ===== Daily update started =====
+2026-08-31 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-31 12:00:25 - [Daily roster report] Done
+2026-08-31 12:00:25 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-31 12:00:26 - ===== Daily update started =====
+2026-08-31 12:00:26 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-08-31 12:00:48 - [Schedule & game hub fetch] Done
+2026-08-31 12:00:48 - ===== Daily update finished =====
+2026-08-31 12:00:49 - [Daily roster report] Done
+2026-08-31 12:00:49 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-08-31 12:01:10 - [Schedule & game hub fetch] Done
+2026-08-31 12:01:10 - ===== Daily update finished =====
+2026-09-01 12:00:03 - ===== Daily update started =====
+2026-09-01 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-01 12:00:10 - [Daily roster report] Done
+2026-09-01 12:00:10 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-01 12:00:12 - [Schedule & game hub fetch] Exit code: 1
+2026-09-01 12:00:12 - ===== Daily update finished with errors =====
+2026-09-02 12:00:03 - ===== Daily update started =====
+2026-09-02 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-02 12:00:14 - [Daily roster report] Done
+2026-09-02 12:00:14 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-02 12:00:20 - [Schedule & game hub fetch] Exit code: 1
+2026-09-02 12:00:20 - ===== Daily update finished with errors =====
+2026-09-02 13:16:15 - ===== Daily update started =====
+2026-09-02 13:16:15 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-02 13:16:51 - [Daily roster report] Done
+2026-09-02 13:16:51 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-02 13:17:10 - [Schedule & game hub fetch] Done
+2026-09-02 13:17:10 - ===== Daily update finished =====
+2026-09-03 12:00:03 - ===== Daily update started =====
+2026-09-03 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-03 12:00:56 - [Daily roster report] Done
+2026-09-03 12:00:56 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-03 12:01:30 - [Schedule & game hub fetch] Done
+2026-09-03 12:01:30 - ===== Daily update finished =====
+2026-09-03 13:22:01 - ===== Daily update started =====
+2026-09-03 13:22:01 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-03 13:23:00 - [Daily roster report] Done
+2026-09-03 13:23:00 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-03 13:23:39 - [Schedule & game hub fetch] Exit code: 120
+2026-09-03 13:23:39 - ===== Daily update finished with errors =====
+2026-09-03 16:27:16 - ===== Daily update started =====
+2026-09-03 16:27:16 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-03 16:28:12 - [Daily roster report] Done
+2026-09-03 16:28:12 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-03 16:28:49 - [Schedule & game hub fetch] Done
+2026-09-03 16:28:49 - ===== Daily update finished =====
+2026-09-04 12:00:03 - ===== Daily update started =====
+2026-09-04 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-04 12:00:08 - [Daily roster report] Done
+2026-09-04 12:00:08 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-04 12:00:10 - [Schedule & game hub fetch] Exit code: 1
+2026-09-04 12:00:10 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-04 12:00:13 - [Depth chart fetch] Exit code: 1
+2026-09-04 12:00:13 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-04 12:00:17 - [Injury timeline fetch] Exit code: 1
+2026-09-04 12:00:17 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-04 12:00:24 - ===== Daily update started =====
+2026-09-04 12:00:24 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-04 12:00:29 - [Daily roster report] Done
+2026-09-04 12:00:29 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-04 12:00:32 - [Schedule & game hub fetch] Exit code: 1
+2026-09-04 12:00:32 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-04 12:00:34 - [Depth chart fetch] Exit code: 1
+2026-09-04 12:00:34 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-04 12:00:39 - [Injury timeline fetch] Exit code: 1
+2026-09-04 12:00:39 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-04 12:01:25 - [Farm system fetch] Done
+2026-09-04 12:01:25 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-04 12:01:33 - [Farm system fetch] Done
+2026-09-04 12:01:33 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-04 12:01:37 - [Dashboard data fetch (standings etc.)] Done
+2026-09-04 12:01:37 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-04 12:01:37 - [Portal file index update] Done
+2026-09-04 12:01:37 - ===== Daily update finished with errors =====
+2026-09-04 12:01:46 - [Dashboard data fetch (standings etc.)] Done
+2026-09-04 12:01:46 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-04 12:01:46 - [Portal file index update] Done
+2026-09-04 12:01:46 - ===== Daily update finished with errors =====
+2026-09-04 12:03:54 - ===== Daily update started =====
+2026-09-04 12:03:54 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-04 12:03:59 - [Daily roster report] Done
+2026-09-04 12:03:59 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-04 12:04:02 - [Schedule & game hub fetch] Exit code: 1
+2026-09-04 12:04:02 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-04 12:04:04 - [Depth chart fetch] Exit code: 1
+2026-09-04 12:04:04 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-04 12:04:08 - [Injury timeline fetch] Exit code: 1
+2026-09-04 12:04:08 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-04 12:04:49 - [Farm system fetch] Done
+2026-09-04 12:04:49 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-04 12:05:02 - [Dashboard data fetch (standings etc.)] Done
+2026-09-04 12:05:02 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-04 12:05:02 - [Portal file index update] Done
+2026-09-04 12:05:02 - ===== Daily update finished with errors =====
+2026-09-04 12:05:12 - ===== Daily update started =====
+2026-09-04 12:05:12 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-04 12:05:41 - [Daily roster report] Done
+2026-09-04 12:05:41 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-04 12:06:21 - [Schedule & game hub fetch] Done
+2026-09-04 12:06:21 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-04 12:06:29 - [Depth chart fetch] Done
+2026-09-04 12:06:29 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-04 12:06:33 - [Injury timeline fetch] Done
+2026-09-04 12:06:33 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-04 12:07:31 - [Farm system fetch] Done
+2026-09-04 12:07:31 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-04 12:07:53 - [Dashboard data fetch (standings etc.)] Done
+2026-09-04 12:07:53 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-04 12:07:53 - [Portal file index update] Done
+2026-09-04 12:07:53 - ===== Daily update finished =====
+2026-09-05 12:00:03 - ===== Daily update started =====
+2026-09-05 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-05 12:00:39 - [Daily roster report] Done
+2026-09-05 12:00:39 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-05 12:01:06 - [Schedule & game hub fetch] Done
+2026-09-05 12:01:06 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-05 12:01:17 - [Depth chart fetch] Done
+2026-09-05 12:01:17 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-05 12:01:25 - [Injury timeline fetch] Done
+2026-09-05 12:01:25 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-05 12:07:11 - [Farm system fetch] Done
+2026-09-05 12:07:11 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-05 12:07:29 - [Dashboard data fetch (standings etc.)] Done
+2026-09-05 12:07:29 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-05 12:07:29 - [Portal file index update] Done
+2026-09-05 12:07:29 - ===== Daily update finished =====
+2026-09-05 14:25:19 - ===== Daily update started =====
+2026-09-05 14:25:19 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-05 14:26:18 - [Daily roster report] Done
+2026-09-05 14:26:18 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-05 14:26:43 - [Schedule & game hub fetch] Done
+2026-09-05 14:26:43 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-05 14:26:59 - [Depth chart fetch] Done
+2026-09-05 14:26:59 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-05 14:27:05 - [Injury timeline fetch] Done
+2026-09-05 14:27:05 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-05 14:31:07 - [Farm system fetch] Done
+2026-09-05 14:31:07 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-05 14:31:34 - [Dashboard data fetch (standings etc.)] Done
+2026-09-05 14:31:34 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-05 14:31:34 - [Portal file index update] Done
+2026-09-05 14:31:34 - ===== Daily update finished =====
+2026-09-06 12:00:04 - ===== Daily update started =====
+2026-09-06 12:00:04 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-06 12:00:51 - [Daily roster report] Done
+2026-09-06 12:00:51 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-06 12:01:24 - [Schedule & game hub fetch] Done
+2026-09-06 12:01:24 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-06 12:01:33 - [Depth chart fetch] Done
+2026-09-06 12:01:33 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-06 12:01:40 - [Injury timeline fetch] Done
+2026-09-06 12:01:40 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-06 12:02:34 - [Farm system fetch] Done
+2026-09-06 12:02:34 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-06 12:02:54 - [Dashboard data fetch (standings etc.)] Done
+2026-09-06 12:02:54 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-06 12:02:54 - [Portal file index update] Done
+2026-09-06 12:02:54 - ===== Daily update finished =====
+2026-09-06 13:30:06 - ===== Daily update started =====
+2026-09-06 13:30:06 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-06 13:30:48 - [Daily roster report] Done
+2026-09-06 13:30:48 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-06 13:31:11 - [Schedule & game hub fetch] Done
+2026-09-06 13:31:11 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-06 13:31:19 - [Depth chart fetch] Done
+2026-09-06 13:31:20 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-06 13:31:25 - [Injury timeline fetch] Done
+2026-09-06 13:31:25 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-06 13:32:46 - [Farm system fetch] Done
+2026-09-06 13:32:46 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-06 13:33:01 - [Dashboard data fetch (standings etc.)] Done
+2026-09-06 13:33:01 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-06 13:33:01 - [Portal file index update] Done
+2026-09-06 13:33:01 - ===== Daily update finished =====
+2026-09-07 12:00:02 - ===== Daily update started =====
+2026-09-07 12:00:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-07 12:00:27 - [Daily roster report] Done
+2026-09-07 12:00:27 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-07 12:00:31 - ===== Daily update started =====
+2026-09-07 12:00:31 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-07 12:00:52 - [Schedule & game hub fetch] Done
+2026-09-07 12:00:52 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-07 12:00:55 - [Daily roster report] Done
+2026-09-07 12:00:55 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-07 12:01:03 - [Depth chart fetch] Done
+2026-09-07 12:01:03 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-07 12:01:09 - [Injury timeline fetch] Done
+2026-09-07 12:01:09 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-07 12:01:20 - [Schedule & game hub fetch] Done
+2026-09-07 12:01:20 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-07 12:01:29 - [Depth chart fetch] Done
+2026-09-07 12:01:29 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-07 12:01:35 - [Injury timeline fetch] Done
+2026-09-07 12:01:35 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-07 12:02:20 - [Farm system fetch] Done
+2026-09-07 12:02:20 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-07 12:02:40 - [Dashboard data fetch (standings etc.)] Done
+2026-09-07 12:02:40 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-07 12:02:41 - [Portal file index update] Done
+2026-09-07 12:02:41 - ===== Daily update finished =====
+2026-09-07 12:02:51 - [Farm system fetch] Done
+2026-09-07 12:02:51 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-07 12:03:12 - [Dashboard data fetch (standings etc.)] Done
+2026-09-07 12:03:12 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-07 12:03:12 - [Portal file index update] Done
+2026-09-07 12:03:12 - ===== Daily update finished =====
+2026-09-08 12:00:02 - ===== Daily update started =====
+2026-09-08 12:00:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-08 12:00:36 - ===== Daily update started =====
+2026-09-08 12:00:36 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-08 12:00:42 - [Daily roster report] Done
+2026-09-08 12:00:42 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-08 12:01:03 - [Schedule & game hub fetch] Done
+2026-09-08 12:01:03 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-08 12:01:10 - [Depth chart fetch] Done
+2026-09-08 12:01:10 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-08 12:01:15 - [Injury timeline fetch] Done
+2026-09-08 12:01:15 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-08 12:01:21 - [Daily roster report] Done
+2026-09-08 12:01:21 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-08 12:01:57 - [Schedule & game hub fetch] Done
+2026-09-08 12:01:57 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-08 12:02:05 - [Depth chart fetch] Done
+2026-09-08 12:02:05 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-08 12:02:08 - [Farm system fetch] Done
+2026-09-08 12:02:08 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-08 12:02:21 - [Injury timeline fetch] Done
+2026-09-08 12:02:21 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-08 12:02:33 - [Dashboard data fetch (standings etc.)] Done
+2026-09-08 12:02:33 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-08 12:02:33 - [Portal file index update] Done
+2026-09-08 12:02:33 - ===== Daily update finished =====
+2026-09-08 12:03:14 - [Farm system fetch] Done
+2026-09-08 12:03:14 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-08 12:03:33 - [Dashboard data fetch (standings etc.)] Done
+2026-09-08 12:03:33 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-08 12:03:34 - [Portal file index update] Done
+2026-09-08 12:03:34 - ===== Daily update finished =====
+2026-09-09 12:00:02 - ===== Daily update started =====
+2026-09-09 12:00:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-09 12:00:37 - [Daily roster report] Done
+2026-09-09 12:00:38 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-09 12:01:00 - [Schedule & game hub fetch] Done
+2026-09-09 12:01:00 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-09 12:01:09 - [Depth chart fetch] Done
+2026-09-09 12:01:09 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-09 12:01:16 - [Injury timeline fetch] Done
+2026-09-09 12:01:16 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-09 12:01:55 - [Farm system fetch] Done
+2026-09-09 12:01:55 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-09 12:02:09 - [Dashboard data fetch (standings etc.)] Done
+2026-09-09 12:02:09 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-09 12:02:09 - [Portal file index update] Done
+2026-09-09 12:02:09 - ===== Daily update finished =====
+2026-09-09 12:47:08 - ===== Daily update started =====
+2026-09-09 12:47:08 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-09 12:47:58 - [Daily roster report] Done
+2026-09-09 12:47:58 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-09 12:48:24 - [Schedule & game hub fetch] Done
+2026-09-09 12:48:24 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-09 12:48:35 - [Depth chart fetch] Done
+2026-09-09 12:48:35 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-09 12:48:46 - [Injury timeline fetch] Done
+2026-09-09 12:48:46 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-09 12:49:58 - [Farm system fetch] Done
+2026-09-09 12:49:58 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-09 12:50:21 - [Dashboard data fetch (standings etc.)] Done
+2026-09-09 12:50:21 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-09 12:50:21 - [Portal file index update] Done
+2026-09-09 12:50:21 - ===== Daily update finished =====
+2026-09-10 12:00:02 - ===== Daily update started =====
+2026-09-10 12:00:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-10 12:00:09 - [Daily roster report] Done
+2026-09-10 12:00:09 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-10 12:00:12 - [Schedule & game hub fetch] Exit code: 1
+2026-09-10 12:00:12 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-10 12:00:14 - [Depth chart fetch] Exit code: 1
+2026-09-10 12:00:14 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-10 12:00:19 - [Injury timeline fetch] Exit code: 1
+2026-09-10 12:00:19 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-10 12:00:56 - [Farm system fetch] Done
+2026-09-10 12:00:56 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-10 12:01:08 - [Dashboard data fetch (standings etc.)] Done
+2026-09-10 12:01:08 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-10 12:01:08 - [Portal file index update] Done
+2026-09-10 12:01:08 - ===== Daily update finished with errors =====
+2026-09-10 12:48:39 - ===== Daily update started =====
+2026-09-10 12:48:39 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-10 12:48:44 - [Daily roster report] Done
+2026-09-10 12:48:44 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-10 12:48:47 - [Schedule & game hub fetch] Exit code: 1
+2026-09-10 12:48:47 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-10 12:48:49 - [Depth chart fetch] Exit code: 1
+2026-09-10 12:48:49 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-10 12:48:54 - [Injury timeline fetch] Exit code: 1
+2026-09-10 12:48:54 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-10 12:49:39 - [Farm system fetch] Done
+2026-09-10 12:49:39 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-10 12:49:52 - [Dashboard data fetch (standings etc.)] Done
+2026-09-10 12:49:52 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-10 12:49:52 - [Portal file index update] Done
+2026-09-10 12:49:52 - ===== Daily update finished with errors =====
+2026-09-10 12:49:58 - ===== Daily update started =====
+2026-09-10 12:49:58 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-10 12:50:35 - [Daily roster report] Done
+2026-09-10 12:50:35 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-10 12:50:50 - [Schedule & game hub fetch] Done
+2026-09-10 12:50:50 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-10 12:51:01 - [Depth chart fetch] Done
+2026-09-10 12:51:01 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-10 12:51:09 - [Injury timeline fetch] Done
+2026-09-10 12:51:09 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-10 12:52:18 - [Farm system fetch] Done
+2026-09-10 12:52:18 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-10 12:52:32 - [Dashboard data fetch (standings etc.)] Done
+2026-09-10 12:52:32 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-10 12:52:33 - [Portal file index update] Done
+2026-09-10 12:52:33 - ===== Daily update finished =====
+2026-09-11 12:00:02 - ===== Daily update started =====
+2026-09-11 12:00:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-11 12:00:34 - ===== Daily update started =====
+2026-09-11 12:00:34 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-11 12:00:46 - [Daily roster report] Done
+2026-09-11 12:00:46 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-11 12:01:07 - [Schedule & game hub fetch] Exit code: 1
+2026-09-11 12:01:07 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-11 12:01:18 - [Daily roster report] Done
+2026-09-11 12:01:18 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-11 12:01:29 - [Depth chart fetch] Exit code: 1
+2026-09-11 12:01:29 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-11 12:01:39 - [Schedule & game hub fetch] Exit code: 1
+2026-09-11 12:01:39 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-11 12:02:01 - [Depth chart fetch] Exit code: 1
+2026-09-11 12:02:01 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-11 12:02:11 - [Injury timeline fetch] Exit code: 1
+2026-09-11 12:02:11 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-11 12:02:43 - [Injury timeline fetch] Exit code: 1
+2026-09-11 12:02:43 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-11 12:06:18 - ===== Daily update started =====
+2026-09-11 12:06:18 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-11 12:06:44 - [Farm system fetch] Done
+2026-09-11 12:06:44 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-11 12:07:05 - [Daily roster report] Done
+2026-09-11 12:07:05 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-11 12:07:13 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-11 12:07:13 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-11 12:07:21 - [Farm system fetch] Done
+2026-09-11 12:07:21 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-11 12:07:27 - [Schedule & game hub fetch] Done
+2026-09-11 12:07:27 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-11 12:07:28 - [Transactions / roster moves fetch] Done
+2026-09-11 12:07:28 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-11 12:07:35 - [Depth chart fetch] Done
+2026-09-11 12:07:35 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-11 12:07:40 - [Injury timeline fetch] Done
+2026-09-11 12:07:40 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-11 12:07:47 - [Opponent scout fetch] Done
+2026-09-11 12:07:47 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-11 12:08:02 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-11 12:08:02 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-11 12:08:09 - [Transactions / roster moves fetch] Done
+2026-09-11 12:08:09 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-11 12:08:33 - [Farm system fetch] Done
+2026-09-11 12:08:33 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-11 12:08:39 - [Milestones fetch] Done
+2026-09-11 12:08:39 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-11 12:08:47 - [Opponent scout fetch] Done
+2026-09-11 12:08:47 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-11 12:09:02 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-11 12:09:02 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-11 12:09:15 - [Transactions / roster moves fetch] Done
+2026-09-11 12:09:15 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-11 12:09:32 - [Opponent scout fetch] Done
+2026-09-11 12:09:32 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-11 12:09:35 - [Milestones fetch] Done
+2026-09-11 12:09:35 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-11 12:09:43 - [Postseason simulator fetch] Done
+2026-09-11 12:09:43 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-11 12:09:59 - [Postseason simulator fetch] Done
+2026-09-11 12:09:59 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-11 12:10:03 - [Milestones fetch] Done
+2026-09-11 12:10:03 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-11 12:10:04 - [Dashboard data fetch (standings etc.)] Done
+2026-09-11 12:10:04 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-11 12:10:04 - [Portal file index update] Done
+2026-09-11 12:10:04 - ===== Daily update finished with errors =====
+2026-09-11 12:10:18 - [Dashboard data fetch (standings etc.)] Done
+2026-09-11 12:10:18 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-11 12:10:18 - [Portal file index update] Done
+2026-09-11 12:10:19 - ===== Daily update finished with errors =====
+2026-09-11 12:10:37 - [Postseason simulator fetch] Done
+2026-09-11 12:10:37 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-11 12:11:00 - [Dashboard data fetch (standings etc.)] Done
+2026-09-11 12:11:00 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-11 12:11:00 - [Portal file index update] Done
+2026-09-11 12:11:00 - ===== Daily update finished with errors =====
+2026-09-12 12:00:08 - ===== Daily update started =====
+2026-09-12 12:00:08 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-12 12:00:50 - [Daily roster report] Done
+2026-09-12 12:00:50 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-12 12:01:09 - [Schedule & game hub fetch] Done
+2026-09-12 12:01:09 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-12 12:01:15 - [Depth chart fetch] Done
+2026-09-12 12:01:15 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-12 12:01:20 - [Injury timeline fetch] Done
+2026-09-12 12:01:20 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-12 12:02:48 - [Farm system fetch] Done
+2026-09-12 12:02:48 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-12 12:02:51 - [Pipeline Top 30 prospects fetch] Done
+2026-09-12 12:02:51 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-12 12:02:57 - [Transactions / roster moves fetch] Done
+2026-09-12 12:02:57 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-12 12:03:13 - [Opponent scout fetch] Done
+2026-09-12 12:03:13 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-12 12:03:39 - [Milestones fetch] Done
+2026-09-12 12:03:39 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-12 12:04:02 - [Postseason simulator fetch] Done
+2026-09-12 12:04:02 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-12 12:04:14 - [Dashboard data fetch (standings etc.)] Done
+2026-09-12 12:04:14 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-12 12:04:14 - [Portal file index update] Done
+2026-09-12 12:04:14 - ===== Daily update finished =====
+2026-09-13 15:28:51 - ===== Daily update started =====
+2026-09-13 15:28:52 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-13 15:29:52 - [Daily roster report] Done
+2026-09-13 15:29:52 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-13 15:30:32 - [Schedule & game hub fetch] Done
+2026-09-13 15:30:32 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-13 15:30:42 - [Depth chart fetch] Done
+2026-09-13 15:30:42 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-13 15:30:49 - [Injury timeline fetch] Done
+2026-09-13 15:30:49 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-13 15:32:21 - [Farm system fetch] Exit code: 120
+2026-09-13 15:32:21 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-13 15:32:25 - [Pipeline Top 30 prospects fetch] Exit code: 120
+2026-09-13 15:32:25 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-13 15:32:33 - [Transactions / roster moves fetch] Exit code: 120
+2026-09-13 15:32:33 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-13 15:32:57 - [Opponent scout fetch] Exit code: 120
+2026-09-13 15:32:57 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-13 15:33:34 - [Milestones fetch] Exit code: 120
+2026-09-13 15:33:34 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-13 15:34:02 - [Postseason simulator fetch] Exit code: 120
+2026-09-13 15:34:02 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-13 15:34:18 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-13 15:34:18 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-13 15:34:18 - [Portal file index update] Exit code: 120
+2026-09-13 15:34:18 - ===== Daily update finished with errors =====
+2026-09-14 11:44:09 - ===== Daily update started =====
+2026-09-14 11:44:09 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-14 11:44:14 - [Daily roster report] Done
+2026-09-14 11:44:14 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-14 11:44:17 - [Schedule & game hub fetch] Exit code: 1
+2026-09-14 11:44:17 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-14 11:44:20 - [Depth chart fetch] Exit code: 1
+2026-09-14 11:44:20 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-14 11:44:24 - [Injury timeline fetch] Exit code: 1
+2026-09-14 11:44:24 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-14 11:44:59 - ===== Daily update started =====
+2026-09-14 11:44:59 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-14 11:45:15 - [Farm system fetch] Done
+2026-09-14 11:45:15 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-14 11:45:44 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-14 11:45:44 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-14 11:45:50 - [Daily roster report] Done
+2026-09-14 11:45:50 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-14 11:46:22 - [Schedule & game hub fetch] Done
+2026-09-14 11:46:22 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-14 11:46:31 - [Depth chart fetch] Done
+2026-09-14 11:46:31 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-14 11:46:32 - [Transactions / roster moves fetch] Done
+2026-09-14 11:46:32 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-14 11:46:36 - [Injury timeline fetch] Done
+2026-09-14 11:46:36 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-14 11:47:21 - [Farm system fetch] Done
+2026-09-14 11:47:21 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-14 11:47:50 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-14 11:47:50 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-14 11:47:56 - [Transactions / roster moves fetch] Done
+2026-09-14 11:47:56 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-14 11:49:15 - [Opponent scout fetch] Done
+2026-09-14 11:49:15 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-14 11:51:47 - [Opponent scout fetch] Done
+2026-09-14 11:51:47 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-14 11:52:25 - [Milestones fetch] Done
+2026-09-14 11:52:25 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-14 11:52:53 - [Postseason simulator fetch] Done
+2026-09-14 11:52:53 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 11:53:07 - [Dashboard data fetch (standings etc.)] Done
+2026-09-14 11:53:07 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 11:53:08 - [Portal file index update] Done
+2026-09-14 11:53:08 - ===== Daily update finished with errors =====
+2026-09-14 12:00:14 - ===== Daily update started =====
+2026-09-14 12:00:14 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-14 12:00:19 - [Daily roster report] Done
+2026-09-14 12:00:19 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-14 12:00:21 - [Schedule & game hub fetch] Exit code: 1
+2026-09-14 12:00:21 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-14 12:00:24 - [Depth chart fetch] Exit code: 1
+2026-09-14 12:00:24 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-14 12:00:28 - [Injury timeline fetch] Exit code: 1
+2026-09-14 12:00:28 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-14 12:01:17 - [Farm system fetch] Done
+2026-09-14 12:01:17 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-14 12:01:46 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-14 12:01:46 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-14 12:02:34 - [Transactions / roster moves fetch] Done
+2026-09-14 12:02:34 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-14 12:05:11 - ===== Daily update started =====
+2026-09-14 12:05:11 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-14 12:05:18 - [Opponent scout fetch] Done
+2026-09-14 12:05:18 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-14 12:06:26 - [Daily roster report] Done
+2026-09-14 12:06:26 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-14 12:07:00 - [Schedule & game hub fetch] Done
+2026-09-14 12:07:00 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-14 12:07:14 - [Depth chart fetch] Done
+2026-09-14 12:07:14 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-14 12:07:19 - [Injury timeline fetch] Done
+2026-09-14 12:07:19 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-14 12:08:07 - [Farm system fetch] Done
+2026-09-14 12:08:07 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-14 12:08:36 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-14 12:08:36 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-14 12:09:01 - [Transactions / roster moves fetch] Done
+2026-09-14 12:09:01 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-14 12:09:23 - [Milestones fetch] Done
+2026-09-14 12:09:23 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-14 12:09:38 - [Opponent scout fetch] Done
+2026-09-14 12:09:38 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-14 12:10:04 - [Postseason simulator fetch] Done
+2026-09-14 12:10:04 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 12:10:17 - [Dashboard data fetch (standings etc.)] Done
+2026-09-14 12:10:17 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 12:10:17 - [Portal file index update] Done
+2026-09-14 12:10:17 - ===== Daily update finished with errors =====
+2026-09-14 14:43:03 - [Milestones fetch] Exit code: 120
+2026-09-14 14:43:03 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-14 14:43:03 - [Milestones fetch] Exit code: 120
+2026-09-14 14:43:03 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-14 14:43:48 - [Postseason simulator fetch] Exit code: 120
+2026-09-14 14:43:48 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 14:44:06 - [Postseason simulator fetch] Exit code: 120
+2026-09-14 14:44:06 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 14:44:25 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-14 14:44:25 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 14:44:26 - [Portal file index update] Exit code: 120
+2026-09-14 14:44:26 - ===== Daily update finished with errors =====
+2026-09-14 14:44:30 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-14 14:44:30 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 14:44:31 - [Portal file index update] Exit code: 120
+2026-09-14 14:44:31 - ===== Daily update finished with errors =====
+2026-09-15 09:01:37 - ===== Daily update started =====
+2026-09-15 09:01:37 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-15 09:03:12 - [Daily roster report] Done
+2026-09-15 09:03:12 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-15 09:03:53 - [Schedule & game hub fetch] Done
+2026-09-15 09:03:53 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-15 09:04:05 - [Depth chart fetch] Done
+2026-09-15 09:04:05 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-15 09:04:14 - [Injury timeline fetch] Done
+2026-09-15 09:04:14 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-15 09:05:08 - [Farm system fetch] Done
+2026-09-15 09:05:08 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-15 09:05:36 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-15 09:05:36 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-15 09:05:45 - [Transactions / roster moves fetch] Done
+2026-09-15 09:05:45 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-15 09:06:22 - [Opponent scout fetch] Done
+2026-09-15 09:06:22 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-15 09:07:12 - [Milestones fetch] Done
+2026-09-15 09:07:12 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-15 09:08:02 - [Postseason simulator fetch] Done
+2026-09-15 09:08:02 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-15 09:08:03 - ===== Daily update started =====
+2026-09-15 09:08:03 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-15 09:08:23 - [Dashboard data fetch (standings etc.)] Done
+2026-09-15 09:08:23 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-15 09:08:23 - [Portal file index update] Done
+2026-09-15 09:08:23 - ===== Daily update finished with errors =====
+2026-09-15 09:09:25 - [Daily roster report] Done
+2026-09-15 09:09:25 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-15 09:10:01 - [Schedule & game hub fetch] Done
+2026-09-15 09:10:01 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-15 09:10:11 - [Depth chart fetch] Done
+2026-09-15 09:10:11 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-15 09:10:25 - [Injury timeline fetch] Done
+2026-09-15 09:10:25 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-15 09:11:25 - [Farm system fetch] Done
+2026-09-15 09:11:25 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-15 09:11:43 - ===== Daily update started =====
+2026-09-15 09:11:43 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-15 09:11:54 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-15 09:11:54 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-15 09:12:02 - [Transactions / roster moves fetch] Done
+2026-09-15 09:12:02 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-15 09:12:28 - [Opponent scout fetch] Done
+2026-09-15 09:12:28 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-15 09:12:52 - [Daily roster report] Done
+2026-09-15 09:12:52 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-15 09:13:24 - [Schedule & game hub fetch] Done
+2026-09-15 09:13:24 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-15 09:13:32 - [Milestones fetch] Done
+2026-09-15 09:13:32 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-15 09:13:35 - [Depth chart fetch] Done
+2026-09-15 09:13:35 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-15 09:13:41 - [Injury timeline fetch] Done
+2026-09-15 09:13:41 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-15 09:14:03 - [Postseason simulator fetch] Done
+2026-09-15 09:14:03 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-15 09:14:19 - [Farm system fetch] Done
+2026-09-15 09:14:19 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-15 09:14:33 - [Dashboard data fetch (standings etc.)] Done
+2026-09-15 09:14:33 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-15 09:14:33 - [Portal file index update] Done
+2026-09-15 09:14:33 - ===== Daily update finished with errors =====
+2026-09-15 09:14:48 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-15 09:14:48 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-15 09:14:54 - [Transactions / roster moves fetch] Done
+2026-09-15 09:14:54 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-15 09:15:25 - [Opponent scout fetch] Done
+2026-09-15 09:15:25 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-15 09:16:06 - [Milestones fetch] Done
+2026-09-15 09:16:06 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-15 09:16:44 - [Postseason simulator fetch] Done
+2026-09-15 09:16:44 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-15 09:17:06 - [Dashboard data fetch (standings etc.)] Done
+2026-09-15 09:17:06 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-15 09:17:06 - [Portal file index update] Done
+2026-09-15 09:17:06 - ===== Daily update finished with errors =====
+2026-09-18 21:00:27 - ===== Daily update started =====
+2026-09-18 21:00:27 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-18 21:03:14 - [Daily roster report] Done
+2026-09-18 21:03:14 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-18 21:03:20 - ===== Daily update started =====
+2026-09-18 21:03:20 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-18 21:05:45 - [Daily roster report] Done
+2026-09-18 21:05:45 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-18 21:06:51 - [Schedule & game hub fetch] Done
+2026-09-18 21:06:51 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-18 21:07:34 - [Depth chart fetch] Done
+2026-09-18 21:07:34 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-18 21:07:40 - [Schedule & game hub fetch] Done
+2026-09-18 21:07:40 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-18 21:08:07 - [Depth chart fetch] Done
+2026-09-18 21:08:07 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-18 21:08:30 - [Injury timeline fetch] Done
+2026-09-18 21:08:30 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-18 21:08:42 - [Injury timeline fetch] Done
+2026-09-18 21:08:42 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-18 21:11:12 - [Farm system fetch] Done
+2026-09-18 21:11:12 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-18 21:11:19 - [Farm system fetch] Done
+2026-09-18 21:11:19 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-18 21:11:24 - [Pipeline Top 30 prospects fetch] Done
+2026-09-18 21:11:24 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-18 21:11:31 - [Transactions / roster moves fetch] Done
+2026-09-18 21:11:31 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-18 21:11:33 - [Pipeline Top 30 prospects fetch] Done
+2026-09-18 21:11:33 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-18 21:11:57 - [Transactions / roster moves fetch] Done
+2026-09-18 21:11:57 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-18 21:11:58 - [Opponent scout fetch] Done
+2026-09-18 21:11:58 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-18 21:14:15 - [Milestones fetch] Done
+2026-09-18 21:14:15 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-18 21:14:42 - [Opponent scout fetch] Done
+2026-09-18 21:14:42 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-18 21:14:56 - [Postseason simulator fetch] Done
+2026-09-18 21:14:56 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-18 21:15:27 - [Dashboard data fetch (standings etc.)] Done
+2026-09-18 21:15:27 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-18 21:15:27 - [Portal file index update] Done
+2026-09-18 21:15:27 - ===== Daily update finished =====
+2026-09-18 21:16:27 - [Milestones fetch] Done
+2026-09-18 21:16:27 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-18 21:17:38 - [Postseason simulator fetch] Done
+2026-09-18 21:17:38 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-18 21:18:20 - [Dashboard data fetch (standings etc.)] Done
+2026-09-18 21:18:20 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-18 21:18:21 - [Portal file index update] Done
+2026-09-18 21:18:21 - ===== Daily update finished =====
+2026-09-18 22:28:17 - ===== Daily update started =====
+2026-09-18 22:28:17 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-18 22:30:22 - [Daily roster report] Done
+2026-09-18 22:30:22 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-18 22:31:02 - [Schedule & game hub fetch] Done
+2026-09-18 22:31:02 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-18 22:31:17 - [Depth chart fetch] Done
+2026-09-18 22:31:17 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-18 22:31:32 - [Injury timeline fetch] Done
+2026-09-18 22:31:32 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-18 22:32:56 - [Farm system fetch] Done
+2026-09-18 22:32:56 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-18 22:33:07 - [Pipeline Top 30 prospects fetch] Done
+2026-09-18 22:33:07 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-18 22:33:22 - [Transactions / roster moves fetch] Done
+2026-09-18 22:33:22 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-18 22:34:42 - [Opponent scout fetch] Done
+2026-09-18 22:34:42 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-18 22:36:21 - [Milestones fetch] Done
+2026-09-18 22:36:21 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-18 22:36:57 - [Postseason simulator fetch] Done
+2026-09-18 22:36:57 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-18 22:37:24 - [Dashboard data fetch (standings etc.)] Done
+2026-09-18 22:37:24 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-18 22:37:24 - [Portal file index update] Done
+2026-09-18 22:37:24 - ===== Daily update finished =====
+2026-09-19 23:00:11 - ===== Daily update started =====
+2026-09-19 23:00:11 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-19 23:00:16 - [Daily roster report] Done
+2026-09-19 23:00:16 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-19 23:00:19 - [Schedule & game hub fetch] Exit code: 1
+2026-09-19 23:00:19 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-19 23:00:21 - [Depth chart fetch] Exit code: 1
+2026-09-19 23:00:21 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-19 23:00:26 - [Injury timeline fetch] Exit code: 1
+2026-09-19 23:00:26 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-19 23:01:30 - [Farm system fetch] Done
+2026-09-19 23:01:30 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-19 23:01:59 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-19 23:01:59 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-19 23:02:47 - [Transactions / roster moves fetch] Done
+2026-09-19 23:02:47 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-19 23:04:31 - [Opponent scout fetch] Done
+2026-09-19 23:04:31 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-19 23:05:24 - [Milestones fetch] Done
+2026-09-19 23:05:24 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-19 23:05:25 - ===== Daily update started =====
+2026-09-19 23:05:25 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-19 23:06:18 - [Postseason simulator fetch] Done
+2026-09-19 23:06:18 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-19 23:06:31 - [Daily roster report] Done
+2026-09-19 23:06:31 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-19 23:06:48 - [Dashboard data fetch (standings etc.)] Done
+2026-09-19 23:06:48 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-19 23:06:48 - [Portal file index update] Done
+2026-09-19 23:06:48 - ===== Daily update finished with errors =====
+2026-09-19 23:06:58 - [Schedule & game hub fetch] Done
+2026-09-19 23:06:58 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-19 23:07:12 - [Depth chart fetch] Done
+2026-09-19 23:07:12 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-19 23:07:18 - [Injury timeline fetch] Done
+2026-09-19 23:07:18 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-19 23:08:16 - [Farm system fetch] Done
+2026-09-19 23:08:16 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-19 23:08:34 - [Pipeline Top 30 prospects fetch] Done
+2026-09-19 23:08:34 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-19 23:09:01 - [Transactions / roster moves fetch] Done
+2026-09-19 23:09:01 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-19 23:09:34 - [Opponent scout fetch] Done
+2026-09-19 23:09:34 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-19 23:10:26 - [Milestones fetch] Done
+2026-09-19 23:10:26 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-19 23:10:59 - [Postseason simulator fetch] Done
+2026-09-19 23:10:59 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-19 23:11:28 - [Dashboard data fetch (standings etc.)] Done
+2026-09-19 23:11:28 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-19 23:11:28 - [Portal file index update] Done
+2026-09-19 23:11:28 - ===== Daily update finished =====
+2026-09-20 12:00:07 - ===== Daily update started =====
+2026-09-20 12:00:07 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-20 12:00:20 - [Daily roster report] Done
+2026-09-20 12:00:20 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-20 12:00:25 - [Schedule & game hub fetch] Exit code: 1
+2026-09-20 12:00:25 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-20 12:00:31 - [Depth chart fetch] Exit code: 1
+2026-09-20 12:00:31 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-20 12:00:41 - [Injury timeline fetch] Exit code: 1
+2026-09-20 12:00:41 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-20 12:01:26 - [Farm system fetch] Done
+2026-09-20 12:01:26 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-20 12:02:06 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-20 12:02:06 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-20 12:03:18 - [Transactions / roster moves fetch] Done
+2026-09-20 12:03:18 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-20 12:05:27 - ===== Daily update started =====
+2026-09-20 12:05:27 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-20 12:06:54 - [Daily roster report] Done
+2026-09-20 12:06:54 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-20 12:07:01 - [Schedule & game hub fetch] Done
+2026-09-20 12:07:01 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-20 12:07:20 - [Depth chart fetch] Done
+2026-09-20 12:07:20 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-20 12:07:25 - [Injury timeline fetch] Done
+2026-09-20 12:07:25 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-20 12:07:52 - [Opponent scout fetch] Done
+2026-09-20 12:07:52 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-20 12:08:24 - [Milestones fetch] Done
+2026-09-20 12:08:24 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-20 12:08:31 - [Farm system fetch] Done
+2026-09-20 12:08:31 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-20 12:08:49 - [Postseason simulator fetch] Done
+2026-09-20 12:08:49 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-20 12:08:59 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-20 12:08:59 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-20 12:09:03 - [Dashboard data fetch (standings etc.)] Done
+2026-09-20 12:09:03 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-20 12:09:03 - [Portal file index update] Done
+2026-09-20 12:09:03 - ===== Daily update finished with errors =====
+2026-09-20 12:09:10 - [Transactions / roster moves fetch] Done
+2026-09-20 12:09:10 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-20 12:09:42 - [Opponent scout fetch] Done
+2026-09-20 12:09:42 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-20 12:10:26 - [Milestones fetch] Done
+2026-09-20 12:10:26 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-20 12:11:03 - [Postseason simulator fetch] Done
+2026-09-20 12:11:03 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-20 12:11:33 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-20 12:11:33 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-20 12:11:33 - [Portal file index update] Exit code: 120
+2026-09-20 12:11:33 - ===== Daily update finished with errors =====
+2026-09-21 08:47:37 - ===== Daily update started =====
+2026-09-21 08:47:37 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-21 08:47:58 - [Daily roster report] Done
+2026-09-21 08:47:58 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-21 08:48:10 - [Schedule & game hub fetch] Done
+2026-09-21 08:48:10 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-21 08:48:17 - [Depth chart fetch] Done
+2026-09-21 08:48:17 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-21 08:48:21 - [Injury timeline fetch] Done
+2026-09-21 08:48:21 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-21 08:49:08 - [Farm system fetch] Done
+2026-09-21 08:49:08 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-21 08:49:37 - [Pipeline Top 30 prospects fetch] Exit code: 1
+2026-09-21 08:49:37 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-21 08:49:44 - [Transactions / roster moves fetch] Done
+2026-09-21 08:49:44 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-21 08:49:59 - [Opponent scout fetch] Done
+2026-09-21 08:49:59 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-21 08:50:32 - [Milestones fetch] Done
+2026-09-21 08:50:32 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-21 08:50:55 - [Postseason simulator fetch] Done
+2026-09-21 08:50:55 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-21 08:51:10 - [Dashboard data fetch (standings etc.)] Done
+2026-09-21 08:51:10 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-21 08:51:10 - [Portal file index update] Done
+2026-09-21 08:51:10 - ===== Daily update finished with errors =====
+2026-09-21 12:00:09 - ===== Daily update started =====
+2026-09-21 12:00:09 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-21 12:00:37 - [Daily roster report] Done
+2026-09-21 12:00:37 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-21 12:00:54 - [Schedule & game hub fetch] Done
+2026-09-21 12:00:54 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-21 12:01:02 - [Depth chart fetch] Done
+2026-09-21 12:01:02 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-21 12:01:07 - [Injury timeline fetch] Done
+2026-09-21 12:01:07 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-21 12:01:56 - [Farm system fetch] Done
+2026-09-21 12:01:56 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-21 12:02:03 - [Pipeline Top 30 prospects fetch] Done
+2026-09-21 12:02:03 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-21 12:02:09 - [Transactions / roster moves fetch] Done
+2026-09-21 12:02:09 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-21 12:02:28 - [Opponent scout fetch] Done
+2026-09-21 12:02:28 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-21 12:02:55 - [Milestones fetch] Done
+2026-09-21 12:02:55 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-21 12:03:18 - [Postseason simulator fetch] Done
+2026-09-21 12:03:18 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-21 12:03:30 - [Dashboard data fetch (standings etc.)] Done
+2026-09-21 12:03:30 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-21 12:03:30 - [Portal file index update] Done
+2026-09-21 12:03:30 - ===== Daily update finished =====
+2026-09-23 13:01:47 - ===== Daily update started =====
+2026-09-23 13:01:48 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-23 13:03:35 - [Daily roster report] Done
+2026-09-23 13:03:35 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-23 13:04:07 - [Schedule & game hub fetch] Done
+2026-09-23 13:04:07 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-23 13:04:21 - [Depth chart fetch] Done
+2026-09-23 13:04:21 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-23 13:04:30 - [Injury timeline fetch] Done
+2026-09-23 13:04:30 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-23 13:05:17 - [Farm system fetch] Done
+2026-09-23 13:05:17 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-23 13:05:22 - [Pipeline Top 30 prospects fetch] Done
+2026-09-23 13:05:22 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-23 13:05:37 - [Transactions / roster moves fetch] Done
+2026-09-23 13:05:37 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-23 13:06:01 - [Opponent scout fetch] Done
+2026-09-23 13:06:01 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-23 13:06:48 - [Milestones fetch] Done
+2026-09-23 13:06:48 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-23 13:07:26 - [Postseason simulator fetch] Done
+2026-09-23 13:07:26 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-23 13:07:41 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-23 13:07:41 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-23 13:07:41 - [Portal file index update] Exit code: 120
+2026-09-23 13:07:41 - ===== Daily update finished with errors =====
+2026-09-24 13:35:09 - ===== Daily update started =====
+2026-09-24 13:35:09 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-24 13:35:44 - [Daily roster report] Done
+2026-09-24 13:35:44 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-24 13:36:04 - [Schedule & game hub fetch] Done
+2026-09-24 13:36:04 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-24 13:36:12 - [Depth chart fetch] Done
+2026-09-24 13:36:12 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-24 13:36:17 - [Injury timeline fetch] Done
+2026-09-24 13:36:17 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-24 13:41:27 - [Farm system fetch] Exit code: 120
+2026-09-24 13:41:27 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-24 13:41:52 - [Pipeline Top 30 prospects fetch] Exit code: 120
+2026-09-24 13:41:52 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-24 13:42:00 - [Transactions / roster moves fetch] Exit code: 120
+2026-09-24 13:42:00 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-24 13:42:46 - [Opponent scout fetch] Exit code: 120
+2026-09-24 13:42:46 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-24 13:43:25 - [Milestones fetch] Exit code: 120
+2026-09-24 13:43:25 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-24 13:43:58 - [Postseason simulator fetch] Exit code: 120
+2026-09-24 13:43:58 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-24 13:44:13 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-24 13:44:13 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-24 13:44:13 - [Portal file index update] Exit code: 120
+2026-09-24 13:44:13 - ===== Daily update finished with errors =====
+2026-09-25 17:00:50 - ===== Daily update started =====
+2026-09-25 17:00:50 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-25 17:01:33 - [Daily roster report] Done
+2026-09-25 17:01:33 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-25 17:01:59 - [Schedule & game hub fetch] Done
+2026-09-25 17:01:59 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-25 17:02:06 - [Depth chart fetch] Done
+2026-09-25 17:02:06 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-25 17:02:11 - [Injury timeline fetch] Done
+2026-09-25 17:02:11 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-25 17:02:53 - [Farm system fetch] Done
+2026-09-25 17:02:53 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-25 17:03:06 - [Pipeline Top 30 prospects fetch] Done
+2026-09-25 17:03:06 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-25 17:03:13 - [Transactions / roster moves fetch] Done
+2026-09-25 17:03:13 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-25 17:03:33 - [Opponent scout fetch] Done
+2026-09-25 17:03:33 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-25 17:04:02 - [Milestones fetch] Done
+2026-09-25 17:04:02 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-25 17:04:24 - [Postseason simulator fetch] Done
+2026-09-25 17:04:24 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-25 17:04:37 - [Dashboard data fetch (standings etc.)] Done
+2026-09-25 17:04:37 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-25 17:04:37 - [Portal file index update] Done
+2026-09-25 17:04:37 - ===== Daily update finished =====
+2026-09-26 14:10:17 - ===== Daily update started =====
+2026-09-26 14:10:17 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-26 14:12:12 - [Daily roster report] Done
+2026-09-26 14:12:12 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-26 14:14:29 - [Schedule & game hub fetch] Done
+2026-09-26 14:14:29 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-26 14:15:18 - [Depth chart fetch] Exit code: 1
+2026-09-26 14:15:18 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-26 14:15:37 - [Injury timeline fetch] Done
+2026-09-26 14:15:37 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-26 14:16:38 - [Farm system fetch] Done
+2026-09-26 14:16:38 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-26 14:16:42 - [Pipeline Top 30 prospects fetch] Done
+2026-09-26 14:16:42 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-26 14:16:48 - [Transactions / roster moves fetch] Done
+2026-09-26 14:16:48 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-26 14:17:10 - [Opponent scout fetch] Exit code: 120
+2026-09-26 14:17:10 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-26 14:17:39 - [Milestones fetch] Exit code: 120
+2026-09-26 14:17:39 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-26 14:18:02 - [Postseason simulator fetch] Exit code: 120
+2026-09-26 14:18:02 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-26 14:18:14 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-09-26 14:18:14 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-26 14:18:14 - [Portal file index update] Exit code: 120
+2026-09-26 14:18:14 - ===== Daily update finished with errors =====
+2026-09-28 11:22:46 - ===== Daily update started =====
+2026-09-28 11:22:46 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-28 11:23:09 - [Daily roster report] Done
+2026-09-28 11:23:09 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-28 11:23:15 - [Schedule & game hub fetch] Done
+2026-09-28 11:23:15 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-28 11:23:21 - [Depth chart fetch] Done
+2026-09-28 11:23:21 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-28 11:23:25 - [Injury timeline fetch] Done
+2026-09-28 11:23:25 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-28 11:24:03 - [Farm system fetch] Done
+2026-09-28 11:24:03 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-28 11:24:07 - [Pipeline Top 30 prospects fetch] Done
+2026-09-28 11:24:07 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-28 11:24:12 - [Transactions / roster moves fetch] Done
+2026-09-28 11:24:12 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-28 11:24:28 - [Opponent scout fetch] Done
+2026-09-28 11:24:28 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-28 11:24:57 - [Milestones fetch] Done
+2026-09-28 11:24:57 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-28 11:26:38 - [Postseason simulator fetch] Done
+2026-09-28 11:26:38 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-28 11:26:50 - [Dashboard data fetch (standings etc.)] Done
+2026-09-28 11:26:50 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-28 11:26:50 - [Portal file index update] Done
+2026-09-28 11:26:50 - ===== Daily update finished =====
+2026-09-28 12:00:09 - ===== Daily update started =====
+2026-09-28 12:00:09 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-28 12:00:21 - [Daily roster report] Done
+2026-09-28 12:00:21 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-28 12:00:28 - [Schedule & game hub fetch] Done
+2026-09-28 12:00:28 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-28 12:00:34 - [Depth chart fetch] Done
+2026-09-28 12:00:34 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-28 12:00:39 - [Injury timeline fetch] Done
+2026-09-28 12:00:39 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-28 12:01:15 - [Farm system fetch] Done
+2026-09-28 12:01:15 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-28 12:01:19 - [Pipeline Top 30 prospects fetch] Done
+2026-09-28 12:01:19 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-28 12:01:25 - [Transactions / roster moves fetch] Done
+2026-09-28 12:01:25 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-28 12:01:40 - [Opponent scout fetch] Done
+2026-09-28 12:01:40 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-28 12:02:11 - [Milestones fetch] Done
+2026-09-28 12:02:11 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-28 12:04:01 - [Postseason simulator fetch] Done
+2026-09-28 12:04:01 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-28 12:04:14 - [Dashboard data fetch (standings etc.)] Done
+2026-09-28 12:04:14 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-28 12:04:15 - [Portal file index update] Done
+2026-09-28 12:04:15 - ===== Daily update finished =====
+2026-09-29 12:00:06 - ===== Daily update started =====
+2026-09-29 12:00:06 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-09-29 12:00:20 - [Daily roster report] Done
+2026-09-29 12:00:20 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-09-29 12:00:27 - [Schedule & game hub fetch] Done
+2026-09-29 12:00:27 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-09-29 12:00:34 - [Depth chart fetch] Done
+2026-09-29 12:00:34 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-09-29 12:00:39 - [Injury timeline fetch] Done
+2026-09-29 12:00:39 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-09-29 12:01:48 - [Farm system fetch] Done
+2026-09-29 12:01:48 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-09-29 12:01:51 - [Pipeline Top 30 prospects fetch] Done
+2026-09-29 12:01:51 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-09-29 12:01:57 - [Transactions / roster moves fetch] Done
+2026-09-29 12:01:57 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-09-29 12:02:01 - [Season roster (yearly archive) fetch] Done
+2026-09-29 12:02:01 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-09-29 12:02:17 - [Opponent scout fetch] Done
+2026-09-29 12:02:17 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-09-29 12:02:45 - [Milestones fetch] Done
+2026-09-29 12:02:45 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-09-29 12:04:22 - [Postseason simulator fetch] Done
+2026-09-29 12:04:22 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-09-29 12:04:30 - [Postseason bracket tracker fetch] Done
+2026-09-29 12:04:30 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-29 12:04:43 - [Dashboard data fetch (standings etc.)] Done
+2026-09-29 12:04:43 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-29 12:04:43 - [Portal file index update] Done
+2026-09-29 12:04:43 - ===== Daily update finished =====
+2026-10-04 09:57:01 - ===== Daily update started =====
+2026-10-04 09:57:02 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-04 09:57:37 - [Daily roster report] Done
+2026-10-04 09:57:37 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-04 09:57:51 - [Schedule & game hub fetch] Done
+2026-10-04 09:57:51 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-04 09:57:59 - [Depth chart fetch] Done
+2026-10-04 09:57:59 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-04 09:58:04 - [Injury timeline fetch] Done
+2026-10-04 09:58:04 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-04 09:58:33 - [Farm system fetch] Done
+2026-10-04 09:58:33 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-04 09:58:36 - [Pipeline Top 30 prospects fetch] Done
+2026-10-04 09:58:36 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-04 09:58:42 - [Transactions / roster moves fetch] Done
+2026-10-04 09:58:42 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-04 09:58:48 - [Season roster (yearly archive) fetch] Done
+2026-10-04 09:58:48 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-04 09:59:07 - [Opponent scout fetch] Done
+2026-10-04 09:59:07 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-04 09:59:37 - [Milestones fetch] Done
+2026-10-04 09:59:37 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-04 10:02:35 - [Postseason simulator fetch] Done
+2026-10-04 10:02:35 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-04 10:02:48 - [Postseason bracket tracker fetch] Done
+2026-10-04 10:02:48 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-04 10:03:05 - [Dashboard data fetch (standings etc.)] Done
+2026-10-04 10:03:05 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-04 10:03:05 - [Portal file index update] Done
+2026-10-04 10:03:05 - ===== Daily update finished =====
+2026-10-04 14:57:08 - ===== Daily update started =====
+2026-10-04 14:57:08 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-04 14:57:45 - [Daily roster report] Done
+2026-10-04 14:57:45 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-04 14:58:02 - [Schedule & game hub fetch] Done
+2026-10-04 14:58:02 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-04 14:58:10 - [Depth chart fetch] Done
+2026-10-04 14:58:10 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-04 14:58:16 - [Injury timeline fetch] Done
+2026-10-04 14:58:16 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-04 14:59:06 - [Farm system fetch] Done
+2026-10-04 14:59:06 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-04 14:59:10 - [Pipeline Top 30 prospects fetch] Done
+2026-10-04 14:59:10 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-04 14:59:17 - [Transactions / roster moves fetch] Done
+2026-10-04 14:59:17 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-04 14:59:24 - [Season roster (yearly archive) fetch] Done
+2026-10-04 14:59:24 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-04 14:59:47 - [Opponent scout fetch] Done
+2026-10-04 14:59:47 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-04 15:00:22 - [Milestones fetch] Done
+2026-10-04 15:00:22 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-04 15:03:28 - [Postseason simulator fetch] Done
+2026-10-04 15:03:28 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-04 15:03:38 - [Postseason bracket tracker fetch] Done
+2026-10-04 15:03:38 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-04 15:03:55 - [Dashboard data fetch (standings etc.)] Done
+2026-10-04 15:03:55 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-04 15:03:55 - [Portal file index update] Done
+2026-10-04 15:03:55 - ===== Daily update finished =====
+2026-10-05 12:00:55 - ===== Daily update started =====
+2026-10-05 12:00:55 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-05 12:01:19 - [Daily roster report] Done
+2026-10-05 12:01:19 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-05 12:01:38 - [Schedule & game hub fetch] Done
+2026-10-05 12:01:38 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-05 12:01:44 - [Depth chart fetch] Done
+2026-10-05 12:01:44 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-05 12:01:49 - [Injury timeline fetch] Done
+2026-10-05 12:01:49 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-05 12:02:18 - [Farm system fetch] Done
+2026-10-05 12:02:18 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-05 12:02:24 - [Pipeline Top 30 prospects fetch] Done
+2026-10-05 12:02:24 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-05 12:02:30 - [Transactions / roster moves fetch] Done
+2026-10-05 12:02:30 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-05 12:02:34 - [Season roster (yearly archive) fetch] Done
+2026-10-05 12:02:34 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-05 12:02:54 - [Opponent scout fetch] Done
+2026-10-05 12:02:54 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-05 12:03:25 - [Milestones fetch] Done
+2026-10-05 12:03:25 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-05 12:06:29 - [Postseason simulator fetch] Done
+2026-10-05 12:06:29 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-05 12:06:43 - [Postseason bracket tracker fetch] Done
+2026-10-05 12:06:43 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-05 12:07:18 - [Dashboard data fetch (standings etc.)] Done
+2026-10-05 12:07:18 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-05 12:07:18 - [Portal file index update] Done
+2026-10-05 12:07:18 - ===== Daily update finished =====
+2026-10-07 09:49:58 - ===== Daily update started =====
+2026-10-07 09:49:58 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-07 09:50:56 - [Daily roster report] Done
+2026-10-07 09:50:56 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-07 09:51:24 - [Schedule & game hub fetch] Done
+2026-10-07 09:51:24 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-07 09:51:34 - [Depth chart fetch] Done
+2026-10-07 09:51:34 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-07 09:51:40 - [Injury timeline fetch] Done
+2026-10-07 09:51:40 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-07 09:52:28 - [Farm system fetch] Done
+2026-10-07 09:52:28 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-07 09:52:33 - [Pipeline Top 30 prospects fetch] Done
+2026-10-07 09:52:33 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-07 09:52:42 - [Transactions / roster moves fetch] Done
+2026-10-07 09:52:42 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-07 09:52:47 - [Season roster (yearly archive) fetch] Done
+2026-10-07 09:52:47 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-07 09:53:12 - [Opponent scout fetch] Exit code: 120
+2026-10-07 09:53:12 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-07 09:53:46 - [Milestones fetch] Exit code: 120
+2026-10-07 09:53:46 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-07 09:53:51 - [Postseason simulator fetch] Exit code: 120
+2026-10-07 09:53:51 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-07 09:53:52 - [Postseason bracket tracker fetch] Exit code: 120
+2026-10-07 09:53:52 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-07 09:54:06 - [Dashboard data fetch (standings etc.)] Exit code: 120
+2026-10-07 09:54:06 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-07 09:54:06 - [Portal file index update] Exit code: 120
+2026-10-07 09:54:06 - ===== Daily update finished with errors =====
+2026-10-08 09:35:09 - ===== Daily update started =====
+2026-10-08 09:35:09 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-08 09:35:43 - [Daily roster report] Done
+2026-10-08 09:35:43 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-08 09:35:57 - [Schedule & game hub fetch] Done
+2026-10-08 09:35:57 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-08 09:36:06 - [Depth chart fetch] Done
+2026-10-08 09:36:06 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-08 09:36:13 - [Injury timeline fetch] Done
+2026-10-08 09:36:13 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-08 09:36:46 - [Farm system fetch] Done
+2026-10-08 09:36:46 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-08 09:36:51 - [Pipeline Top 30 prospects fetch] Done
+2026-10-08 09:36:51 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-08 09:36:59 - [Transactions / roster moves fetch] Done
+2026-10-08 09:36:59 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-08 09:37:07 - [Season roster (yearly archive) fetch] Done
+2026-10-08 09:37:07 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-08 09:37:08 - [Opponent scout fetch] Exit code: 1
+2026-10-08 09:37:08 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-08 09:37:54 - [Milestones fetch] Done
+2026-10-08 09:37:54 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-08 09:44:07 - [Postseason simulator fetch] Done
+2026-10-08 09:44:07 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-08 09:44:20 - [Postseason bracket tracker fetch] Done
+2026-10-08 09:44:20 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-08 09:44:40 - [Dashboard data fetch (standings etc.)] Done
+2026-10-08 09:44:40 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-08 09:44:40 - [Portal file index update] Done
+2026-10-08 09:44:40 - ===== Daily update finished with errors =====
+2026-10-12 23:16:32 - ===== Daily update started =====
+2026-10-12 23:16:32 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-12 23:17:17 - [Daily roster report] Done
+2026-10-12 23:17:17 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-12 23:17:44 - [Schedule & game hub fetch] Done
+2026-10-12 23:17:44 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-12 23:17:51 - [Depth chart fetch] Done
+2026-10-12 23:17:51 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-12 23:17:56 - [Injury timeline fetch] Done
+2026-10-12 23:17:56 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-12 23:19:07 - [Farm system fetch] Done
+2026-10-12 23:19:07 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-12 23:19:14 - [Pipeline Top 30 prospects fetch] Done
+2026-10-12 23:19:14 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-12 23:19:20 - [Transactions / roster moves fetch] Done
+2026-10-12 23:19:20 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-12 23:19:25 - [Season roster (yearly archive) fetch] Done
+2026-10-12 23:19:25 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-12 23:19:43 - [Opponent scout fetch] Done
+2026-10-12 23:19:43 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-12 23:20:11 - [Milestones fetch] Done
+2026-10-12 23:20:11 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-12 23:25:36 - [Postseason simulator fetch] Done
+2026-10-12 23:25:36 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-12 23:25:45 - [Postseason bracket tracker fetch] Done
+2026-10-12 23:25:45 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-12 23:25:59 - [Dashboard data fetch (standings etc.)] Done
+2026-10-12 23:25:59 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-12 23:25:59 - [Portal file index update] Done
+2026-10-12 23:25:59 - ===== Daily update finished =====
+2026-10-13 09:27:35 - ===== Daily update started =====
+2026-10-13 09:27:35 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-13 09:28:01 - [Daily roster report] Done
+2026-10-13 09:28:01 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-13 09:28:16 - [Schedule & game hub fetch] Done
+2026-10-13 09:28:16 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-13 09:28:23 - [Depth chart fetch] Done
+2026-10-13 09:28:23 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-13 09:28:29 - [Injury timeline fetch] Done
+2026-10-13 09:28:29 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-13 09:29:00 - [Farm system fetch] Done
+2026-10-13 09:29:00 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-13 09:29:04 - [Pipeline Top 30 prospects fetch] Done
+2026-10-13 09:29:04 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-13 09:29:12 - [Transactions / roster moves fetch] Done
+2026-10-13 09:29:12 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-13 09:29:17 - [Season roster (yearly archive) fetch] Done
+2026-10-13 09:29:17 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-13 09:29:36 - [Opponent scout fetch] Done
+2026-10-13 09:29:36 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-13 09:30:08 - [Milestones fetch] Done
+2026-10-13 09:30:08 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-13 09:35:45 - [Postseason simulator fetch] Done
+2026-10-13 09:35:45 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-13 09:35:56 - [Postseason bracket tracker fetch] Done
+2026-10-13 09:35:56 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-13 09:36:10 - [Dashboard data fetch (standings etc.)] Done
+2026-10-13 09:36:10 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-13 09:36:10 - [Portal file index update] Done
+2026-10-13 09:36:10 - ===== Daily update finished =====
+2026-10-13 12:00:07 - ===== Daily update started =====
+2026-10-13 12:00:07 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-13 12:00:39 - [Daily roster report] Done
+2026-10-13 12:00:39 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-13 12:00:59 - [Schedule & game hub fetch] Done
+2026-10-13 12:00:59 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-13 12:01:05 - [Depth chart fetch] Done
+2026-10-13 12:01:05 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-13 12:01:15 - [Injury timeline fetch] Done
+2026-10-13 12:01:15 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-13 12:01:47 - [Farm system fetch] Done
+2026-10-13 12:01:47 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-13 12:01:53 - [Pipeline Top 30 prospects fetch] Done
+2026-10-13 12:01:53 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-13 12:01:59 - [Transactions / roster moves fetch] Done
+2026-10-13 12:01:59 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-13 12:02:10 - [Season roster (yearly archive) fetch] Done
+2026-10-13 12:02:10 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-13 12:02:39 - [Opponent scout fetch] Done
+2026-10-13 12:02:39 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-13 12:03:09 - [Milestones fetch] Done
+2026-10-13 12:03:09 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-13 12:09:28 - [Postseason simulator fetch] Done
+2026-10-13 12:09:28 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-13 12:09:47 - [Postseason bracket tracker fetch] Done
+2026-10-13 12:09:47 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-13 12:10:20 - [Dashboard data fetch (standings etc.)] Done
+2026-10-13 12:10:20 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-13 12:10:20 - [Portal file index update] Done
+2026-10-13 12:10:20 - ===== Daily update finished =====
+2026-10-13 18:41:37 - ===== Daily update started =====
+2026-10-13 18:41:37 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-13 18:42:04 - [Daily roster report] Done
+2026-10-13 18:42:04 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-13 18:42:21 - [Schedule & game hub fetch] Done
+2026-10-13 18:42:21 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-13 18:42:32 - [Depth chart fetch] Done
+2026-10-13 18:42:32 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-13 18:42:39 - [Injury timeline fetch] Done
+2026-10-13 18:42:39 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-13 18:43:55 - [Farm system fetch] Done
+2026-10-13 18:43:55 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-13 18:43:59 - [Pipeline Top 30 prospects fetch] Done
+2026-10-13 18:43:59 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-13 18:44:09 - [Transactions / roster moves fetch] Done
+2026-10-13 18:44:09 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-13 18:44:14 - [Season roster (yearly archive) fetch] Done
+2026-10-13 18:44:14 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-13 18:44:37 - [Opponent scout fetch] Done
+2026-10-13 18:44:37 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-13 18:45:15 - [Milestones fetch] Done
+2026-10-13 18:45:15 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-13 18:51:15 - [Postseason simulator fetch] Done
+2026-10-13 18:51:15 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-13 18:51:29 - [Postseason bracket tracker fetch] Done
+2026-10-13 18:51:29 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-13 18:51:46 - [Dashboard data fetch (standings etc.)] Done
+2026-10-13 18:51:46 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-13 18:51:46 - [Portal file index update] Done
+2026-10-13 18:51:46 - ===== Daily update finished =====
+2026-10-15 20:52:00 - ===== Daily update started =====
+2026-10-15 20:52:00 - [Daily roster report] Starting: D:\baseball\scripts\daily-report.py
+2026-10-15 20:53:28 - [Daily roster report] Done
+2026-10-15 20:53:28 - [Schedule & game hub fetch] Starting: D:\baseball\scripts\fetch-schedule-hub.py
+2026-10-15 20:53:50 - [Schedule & game hub fetch] Done
+2026-10-15 20:53:50 - [Depth chart fetch] Starting: D:\baseball\scripts\fetch-depth-chart.py
+2026-10-15 20:53:58 - [Depth chart fetch] Done
+2026-10-15 20:53:58 - [Injury timeline fetch] Starting: D:\baseball\scripts\fetch-injuries.py
+2026-10-15 20:54:03 - [Injury timeline fetch] Done
+2026-10-15 20:54:03 - [Farm system fetch] Starting: D:\baseball\scripts\fetch-farm.py
+2026-10-15 20:54:49 - [Farm system fetch] Done
+2026-10-15 20:54:49 - [Pipeline Top 30 prospects fetch] Starting: D:\baseball\scripts\fetch-prospects.py
+2026-10-15 20:54:57 - [Pipeline Top 30 prospects fetch] Done
+2026-10-15 20:54:57 - [Transactions / roster moves fetch] Starting: D:\baseball\scripts\fetch-transactions.py
+2026-10-15 20:55:07 - [Transactions / roster moves fetch] Done
+2026-10-15 20:55:07 - [Season roster (yearly archive) fetch] Starting: D:\baseball\scripts\fetch-season-roster.py
+2026-10-15 20:55:14 - [Season roster (yearly archive) fetch] Done
+2026-10-15 20:55:14 - [Opponent scout fetch] Starting: D:\baseball\scripts\fetch-opponent.py
+2026-10-15 20:55:52 - [Opponent scout fetch] Done
+2026-10-15 20:55:52 - [Milestones fetch] Starting: D:\baseball\scripts\fetch-milestones.py
+2026-10-15 20:57:09 - [Milestones fetch] Done
+2026-10-15 20:57:09 - [Postseason simulator fetch] Starting: D:\baseball\scripts\fetch-playoff.py
+2026-10-15 21:04:05 - [Postseason simulator fetch] Done
+2026-10-15 21:04:05 - [Postseason bracket tracker fetch] Starting: D:\baseball\scripts\fetch-postseason.py
+2026-10-15 21:04:52 - [Postseason bracket tracker fetch] Done
+2026-10-15 21:04:52 - [Dashboard data fetch (standings etc.)] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-10-15 21:05:15 - [Dashboard data fetch (standings etc.)] Done
+2026-10-15 21:05:15 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-10-15 21:05:16 - [Portal file index update] Done
+2026-10-15 21:05:16 - ===== Daily update finished =====

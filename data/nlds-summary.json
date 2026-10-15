@@ -1,0 +1,83 @@
+[
+ {
+  "date": "2026-10-03",
+  "desc": "NLDS 'B' Game 1",
+  "away": "Atlanta Braves",
+  "home": "Los Angeles Dodgers",
+  "a": 3,
+  "h": 5,
+  "W": "Tarik Skubal",
+  "L": "Victor Mederos",
+  "SV": "Evan Phillips",
+  "bats": [
+   "Kyle Tucker: 2/4 1HR 2RBI",
+   "Max Muncy: 1/4 1HR 1RBI",
+   "Teoscar Hernández: 2/4 1HR 2RBI"
+  ],
+  "pitch": [
+   "Tarik Skubal: 6.0IP 1ER 7K 2BB (W, 1-0)",
+   "Evan Phillips: 0.1IP 0ER 0K 1BB (S, 1)"
+  ]
+ },
+ {
+  "date": "2026-10-05",
+  "desc": "NLDS 'B' Game 2",
+  "away": "Atlanta Braves",
+  "home": "Los Angeles Dodgers",
+  "a": 3,
+  "h": 2,
+  "W": "Dylan Lee",
+  "L": "Kris Bubic",
+  "SV": "Raisel Iglesias",
+  "bats": [
+   "Max Muncy: 1/3 1HR 1RBI",
+   "Freddie Freeman: 2/4 1HR 1RBI"
+  ],
+  "pitch": [
+   "Kris Bubic: 0.2IP 1ER 0K 1BB (L, 0-1)",
+   "Blake Snell: 3.2IP 1ER 5K 5BB",
+   "Roki Sasaki: 2.0IP 0ER 1K 2BB"
+  ]
+ },
+ {
+  "date": "2026-10-06",
+  "desc": "NLDS 'B' Game 3",
+  "away": "Los Angeles Dodgers",
+  "home": "Atlanta Braves",
+  "a": 3,
+  "h": 1,
+  "W": "Yoshinobu Yamamoto",
+  "L": "Chris Sale",
+  "SV": "Edwin Díaz",
+  "bats": [
+   "Enrique Hernández: 1/4 1HR 2RBI",
+   "Freddie Freeman: 1/4 1HR 1RBI"
+  ],
+  "pitch": [
+   "Tanner Scott: 1.0IP 0ER 2K 1BB (H, 1)",
+   "Edwin Díaz: 1.0IP 0ER 0K 0BB (S, 1)",
+   "Yoshinobu Yamamoto: 7.0IP 1ER 10K 1BB (W, 1-0)"
+  ]
+ },
+ {
+  "date": "2026-10-07",
+  "desc": "NLDS 'B' Game 4",
+  "away": "Los Angeles Dodgers",
+  "home": "Atlanta Braves",
+  "a": 4,
+  "h": 1,
+  "W": "Edgardo Henriquez",
+  "L": "Tyler Mahle",
+  "SV": "Edwin Díaz",
+  "bats": [
+   "Max Muncy: 1/4 1HR 1RBI",
+   "Andy Pages: 2/3 0HR 2RBI"
+  ],
+  "pitch": [
+   "Tyler Glasnow: 4.2IP 1ER 5K 5BB",
+   "Edgardo Henriquez: 1.2IP 0ER 0K 0BB (W, 1-0)",
+   "Tanner Scott: 1.0IP 0ER 2K 0BB (H, 2)",
+   "Edwin Díaz: 1.0IP 0ER 1K 0BB (S, 2)"
+  ]
+ }
+]

@@ -1,11 +1,11 @@
-#Requires -Version 5.1
+﻿#Requires -Version 5.1
 param(
-    [int]$Port = 8080,
-    [string]$BaseDir = "D:\baseball"
+    [int]$Port = 8080
 )
 
 $ErrorActionPreference = "Continue"
 
+$BaseDir = "D:\baseball"
 Set-Location $BaseDir
 
 # Prefer the Python installation that has statsapi installed
@@ -15,8 +15,23 @@ if (Test-Path "C:\Python314\python.exe") {
     $python = (Get-Command python).Source
 }
 
-& $python portal\update-portal.py
-& $python portal\fetch-dashboard-data.py
+# 刷新门户文件索引（每日阵容/周报列表），失败不阻塞启动
+try {
+    & $python "portal\update-portal.py" | Out-Null
+    Write-Host "[INFO] Portal file index refreshed."
+} catch {
+    Write-Host "[WARN] update-portal.py failed: $_" -ForegroundColor Yellow
+}
+
+# Portal data is now fetched ahead of time by the DodgersWeeklyReport scheduled task
+# and saved as static JSON. The portal only reads this static data on startup,
+# so a bad network will no longer result in all-zero dashboard values.
+$dashboardData = Join-Path $BaseDir "portal\dashboard-data.json"
+if (-not (Test-Path $dashboardData)) {
+    Write-Host "[WARN] Dashboard static data not found: $dashboardData" -ForegroundColor Yellow
+    Write-Host "[INFO] Please run the DodgersWeeklyReport scheduled task first, or execute:"
+    Write-Host "       python D:\baseball\portal\fetch-dashboard-data.py"
+}
 
 # Start server in background, wait for it, then open browser
 Write-Host "[INFO] Starting portal server on port $Port ..."

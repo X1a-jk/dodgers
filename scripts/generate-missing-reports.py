@@ -15,7 +15,7 @@ matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 import numpy as np
 
-SEASON = 2026
+SEASON = datetime.now().year
 REPORT_ROOT = Path("D:/baseball/report")
 
 PLAYERS = [

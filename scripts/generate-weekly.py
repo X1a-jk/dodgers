@@ -53,9 +53,7 @@ def fetch_json(url: str, retries: int = 2) -> dict:
 def get_week_dates() -> dict:
     """Calculate date ranges for this week and last week"""
     today = datetime.now()
-    monday = today - timedelta(days=(today.weekday() + 1) % 7 or 7)
-    if today.weekday() == 0:
-        monday = today
+    monday = today - timedelta(days=today.weekday())
     sunday = monday + timedelta(days=6)
     prev_monday = monday - timedelta(days=7)
     prev_sunday = monday - timedelta(days=1)
@@ -629,6 +627,17 @@ def main():
     print("========== 道奇队周报生成开始 ==========")
     
     dates = get_week_dates()
+
+    # Idempotency guard: if this Monday's report already exists, skip.
+    # Prevents week-number increment (week24 incident) when the script is
+    # triggered twice by overlapping schedulers (Windows task + OpenClaw cron).
+    for existing in sorted(OUTPUT_DIR.glob(f"{dates['monday']}-week*.md")):
+        if re.search(r"week\d+\.md$", existing.name, re.IGNORECASE):
+            print(f"[SKIP] 本周报告已存在: {existing.name}，跳过重複生成")
+            print(f"OUTPUT_FILE: {existing}")
+            print("========== 道奇队周报生成完成 ==========")
+            return
+
     week_number = get_week_number(OUTPUT_DIR)
     print(f"本周: Week {week_number} ({dates['prev_monday']} ~ {dates['prev_sunday']})")
     

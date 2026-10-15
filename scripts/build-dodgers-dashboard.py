@@ -16,7 +16,7 @@ from pathlib import Path
 from datetime import datetime
 
 TEAM_ID = 119
-SEASON = 2026
+SEASON = datetime.now().year
 REPORT_ROOT = Path("D:/baseball/report")
 SCRIPT_ROOT = Path("D:/baseball/scripts")
 MLB_API_ROSTER = f"https://statsapi.mlb.com/api/v1/teams/{TEAM_ID}/roster?rosterType=40Man&season={SEASON}"

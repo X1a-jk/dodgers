@@ -1,0 +1,1213 @@
+{
+ "generatedAt": "2026-10-13T18:44:14.794428",
+ "season": 2026,
+ "summary": {
+  "total": 53,
+  "current": 26,
+  "il": 3,
+  "minors": 1,
+  "departed": 11,
+  "joinedMidseason": 24
+ },
+ "players": [
+  {
+   "id": 663656,
+   "name": "Kyle Tucker",
+   "pos": "RF",
+   "g": 154,
+   "bat": {
+    "avg": ".233",
+    "hr": 17,
+    "rbi": 70,
+    "ops": ".715",
+    "sb": 12,
+    "hits": 126
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-01-21",
+     "text": "签约"
+    }
+   ]
+  },
+  {
+   "id": 518692,
+   "name": "Freddie Freeman",
+   "pos": "1B",
+   "g": 153,
+   "bat": {
+    "avg": ".288",
+    "hr": 16,
+    "rbi": 70,
+    "ops": ".792",
+    "sb": 7,
+    "hits": 167
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 571970,
+   "name": "Max Muncy",
+   "pos": "3B",
+   "g": 149,
+   "bat": {
+    "avg": ".252",
+    "hr": 29,
+    "rbi": 76,
+    "ops": ".838",
+    "sb": 3,
+    "hits": 123
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 660271,
+   "name": "Shohei Ohtani",
+   "pos": "DH",
+   "g": 139,
+   "bat": {
+    "avg": ".275",
+    "hr": 30,
+    "rbi": 81,
+    "ops": ".889",
+    "sb": 11,
+    "hits": 144
+   },
+   "pit": {
+    "w": 8,
+    "l": 2,
+    "era": "1.79",
+    "so": 95,
+    "sv": 0,
+    "ip": "85.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 681624,
+   "name": "Andy Pages",
+   "pos": "CF",
+   "g": 134,
+   "bat": {
+    "avg": ".274",
+    "hr": 23,
+    "rbi": 85,
+    "ops": ".811",
+    "sb": 13,
+    "hits": 140
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 606192,
+   "name": "Teoscar Hernández",
+   "pos": "LF",
+   "g": 125,
+   "bat": {
+    "avg": ".267",
+    "hr": 16,
+    "rbi": 64,
+    "ops": ".759",
+    "sb": 5,
+    "hits": 118
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 605141,
+   "name": "Mookie Betts",
+   "pos": "SS",
+   "g": 123,
+   "bat": {
+    "avg": ".257",
+    "hr": 23,
+    "rbi": 69,
+    "ops": ".780",
+    "sb": 2,
+    "hits": 123
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 500743,
+   "name": "Miguel Rojas",
+   "pos": "2B",
+   "g": 107,
+   "bat": {
+    "avg": ".267",
+    "hr": 4,
+    "rbi": 23,
+    "ops": ".703",
+    "sb": 1,
+    "hits": 60
+   },
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "13.50",
+    "so": 0,
+    "sv": 0,
+    "ip": "4.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 690976,
+   "name": "Alex Freeland",
+   "pos": "2B",
+   "g": 89,
+   "bat": {
+    "avg": ".234",
+    "hr": 4,
+    "rbi": 21,
+    "ops": ".652",
+    "sb": 4,
+    "hits": 54
+   },
+   "pit": null,
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 05/27",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669743,
+   "name": "Alex Call",
+   "pos": "LF",
+   "g": 88,
+   "bat": {
+    "avg": ".233",
+    "hr": 1,
+    "rbi": 20,
+    "ops": ".656",
+    "sb": 1,
+    "hits": 38
+   },
+   "pit": null,
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669242,
+   "name": "Tommy Edman",
+   "pos": "2B",
+   "g": 84,
+   "bat": {
+    "avg": ".247",
+    "hr": 8,
+    "rbi": 42,
+    "ops": ".714",
+    "sb": 7,
+    "hits": 72
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 687221,
+   "name": "Dalton Rushing",
+   "pos": "C",
+   "g": 80,
+   "bat": {
+    "avg": ".246",
+    "hr": 12,
+    "rbi": 36,
+    "ops": ".788",
+    "sb": 0,
+    "hits": 55
+   },
+   "pit": null,
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669257,
+   "name": "Will Smith",
+   "pos": "C",
+   "g": 73,
+   "bat": {
+    "avg": ".260",
+    "hr": 10,
+    "rbi": 34,
+    "ops": ".781",
+    "sb": 0,
+    "hits": 61
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 681911,
+   "name": "Alex Vesia",
+   "pos": "P",
+   "g": 72,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 1,
+    "era": "2.64",
+    "so": 74,
+    "sv": 3,
+    "ip": "58.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 656945,
+   "name": "Tanner Scott",
+   "pos": "P",
+   "g": 69,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 6,
+    "era": "2.69",
+    "so": 82,
+    "sv": 25,
+    "ip": "63.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 676263,
+   "name": "Jack Dreyer",
+   "pos": "P",
+   "g": 67,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 2,
+    "era": "3.20",
+    "so": 73,
+    "sv": 2,
+    "ip": "64.2"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 683618,
+   "name": "Edgardo Henriquez",
+   "pos": "P",
+   "g": 61,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 1,
+    "era": "2.85",
+    "so": 71,
+    "sv": 2,
+    "ip": "60.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669165,
+   "name": "Kyle Hurt",
+   "pos": "P",
+   "g": 44,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 1,
+    "era": "4.14",
+    "so": 58,
+    "sv": 1,
+    "ip": "45.2"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 04/13",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 808975,
+   "name": "Hyeseong Kim",
+   "pos": "SS",
+   "g": 43,
+   "bat": {
+    "avg": ".259",
+    "hr": 1,
+    "rbi": 11,
+    "ops": ".651",
+    "sb": 5,
+    "hits": 30
+   },
+   "pit": null,
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 09/28",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 571771,
+   "name": "Enrique Hernández",
+   "pos": "3B",
+   "g": 41,
+   "bat": {
+    "avg": ".222",
+    "hr": 4,
+    "rbi": 12,
+    "ops": ".671",
+    "sb": 0,
+    "hits": 20
+   },
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "0.00",
+    "so": 0,
+    "sv": 0,
+    "ip": "1.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-02-12",
+     "text": "签约"
+    }
+   ]
+  },
+  {
+   "id": 669289,
+   "name": "Santiago Espinal",
+   "pos": "3B",
+   "g": 36,
+   "bat": {
+    "avg": ".268",
+    "hr": 1,
+    "rbi": 7,
+    "ops": ".651",
+    "sb": 0,
+    "hits": 15
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "签约 05/29",
+   "departed": "Outright 下放 06/18",
+   "moves": [
+    {
+     "date": "2026-02-17",
+     "text": "签约"
+    },
+    {
+     "date": "2026-05-28",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-05-29",
+     "text": "签约"
+    },
+    {
+     "date": "2026-06-18",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 595014,
+   "name": "Blake Treinen",
+   "pos": "P",
+   "g": 36,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 1,
+    "era": "3.64",
+    "so": 31,
+    "sv": 1,
+    "ip": "29.2"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 694361,
+   "name": "Will Klein",
+   "pos": "P",
+   "g": 36,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 4,
+    "era": "3.67",
+    "so": 49,
+    "sv": 2,
+    "ip": "41.2"
+   },
+   "status": "d60",
+   "statusCn": "IL-60",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 676439,
+   "name": "Hunter Feduccia",
+   "pos": "C",
+   "g": 33,
+   "bat": {
+    "avg": ".197",
+    "hr": 1,
+    "rbi": 7,
+    "ops": ".585",
+    "sb": 0,
+    "hits": 15
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 623465,
+   "name": "Evan Phillips",
+   "pos": "P",
+   "g": 31,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 2,
+    "era": "3.46",
+    "so": 33,
+    "sv": 1,
+    "ip": "26.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-02-11",
+     "text": "签约"
+    }
+   ]
+  },
+  {
+   "id": 808967,
+   "name": "Yoshinobu Yamamoto",
+   "pos": "P",
+   "g": 28,
+   "bat": null,
+   "pit": {
+    "w": 14,
+    "l": 9,
+    "era": "2.53",
+    "so": 182,
+    "sv": 0,
+    "ip": "185.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 592779,
+   "name": "Brock Stewart",
+   "pos": "P",
+   "g": 28,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 2,
+    "era": "2.70",
+    "so": 25,
+    "sv": 1,
+    "ip": "26.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 680736,
+   "name": "Justin Wrobleski",
+   "pos": "P",
+   "g": 28,
+   "bat": null,
+   "pit": {
+    "w": 12,
+    "l": 5,
+    "era": "3.66",
+    "so": 118,
+    "sv": 0,
+    "ip": "140.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 808963,
+   "name": "Roki Sasaki",
+   "pos": "P",
+   "g": 26,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 5,
+    "era": "4.49",
+    "so": 123,
+    "sv": 0,
+    "ip": "122.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 686218,
+   "name": "Emmet Sheehan",
+   "pos": "P",
+   "g": 23,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 8,
+    "era": "4.57",
+    "so": 132,
+    "sv": 0,
+    "ip": "112.1"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 08/18",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 621242,
+   "name": "Edwin Díaz",
+   "pos": "P",
+   "g": 21,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 2,
+    "era": "8.68",
+    "so": 28,
+    "sv": 7,
+    "ip": "18.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669899,
+   "name": "Ryan Ward",
+   "pos": "LF",
+   "g": 20,
+   "bat": {
+    "avg": ".218",
+    "hr": 3,
+    "rbi": 12,
+    "ops": ".738",
+    "sb": 0,
+    "hits": 12
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "已离队",
+   "joined": "上调 04/19",
+   "departed": "已离队",
+   "moves": []
+  },
+  {
+   "id": 666163,
+   "name": "Ben Rortvedt",
+   "pos": "C",
+   "g": 16,
+   "bat": {
+    "avg": ".185",
+    "hr": 0,
+    "rbi": 1,
+    "ops": ".370",
+    "sb": 0,
+    "hits": 5
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "交易获得 08/03",
+   "departed": "Outright 下放 09/03",
+   "moves": [
+    {
+     "date": "2026-08-03",
+     "text": "交易获得"
+    },
+    {
+     "date": "2026-09-03",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 642546,
+   "name": "Jonathan Hernández",
+   "pos": "P",
+   "g": 16,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "5.68",
+    "so": 22,
+    "sv": 0,
+    "ip": "25.1"
+   },
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "签约 05/18",
+   "departed": "Outright 下放 08/21",
+   "moves": [
+    {
+     "date": "2026-07-02",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-08-13",
+     "text": "签约"
+    },
+    {
+     "date": "2026-08-13",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-08-21",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 641778,
+   "name": "Eric Lauer",
+   "pos": "P",
+   "g": 14,
+   "bat": null,
+   "pit": {
+    "w": 7,
+    "l": 2,
+    "era": "4.50",
+    "so": 46,
+    "sv": 0,
+    "ip": "72.0"
+   },
+   "status": "d60",
+   "statusCn": "IL-60",
+   "joined": "交易获得 05/17",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-05-17",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 672613,
+   "name": "Eliezer Alfonzo",
+   "pos": "C",
+   "g": 13,
+   "bat": {
+    "avg": ".179",
+    "hr": 0,
+    "rbi": 4,
+    "ops": ".429",
+    "sb": 0,
+    "hits": 5
+   },
+   "pit": null,
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 07/04",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 607192,
+   "name": "Tyler Glasnow",
+   "pos": "P",
+   "g": 13,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 2,
+    "era": "3.53",
+    "so": 98,
+    "sv": 0,
+    "ip": "74.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 800543,
+   "name": "Josue De Paula",
+   "pos": "DH",
+   "g": 11,
+   "bat": {
+    "avg": ".323",
+    "hr": 1,
+    "rbi": 7,
+    "ops": "1.081",
+    "sb": 1,
+    "hits": 10
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 09/11",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 678020,
+   "name": "Seth Halvorsen",
+   "pos": "P",
+   "g": 11,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 1,
+    "era": "8.10",
+    "so": 6,
+    "sv": 0,
+    "ip": "10.0"
+   },
+   "status": "rm",
+   "statusCn": "小联盟",
+   "joined": "上调 08/10",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669373,
+   "name": "Tarik Skubal",
+   "pos": "P",
+   "g": 10,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 2,
+    "era": "2.61",
+    "so": 70,
+    "sv": 0,
+    "ip": "62.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 08/02",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-08-02",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 605483,
+   "name": "Blake Snell",
+   "pos": "P",
+   "g": 9,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 1,
+    "era": "1.90",
+    "so": 55,
+    "sv": 0,
+    "ip": "42.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 642020,
+   "name": "Chuckie Robinson",
+   "pos": "C",
+   "g": 8,
+   "bat": {
+    "avg": ".087",
+    "hr": 0,
+    "rbi": 1,
+    "ops": ".174",
+    "sb": 0,
+    "hits": 2
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "上调 06/11",
+   "departed": "Outright 下放 08/07",
+   "moves": [
+    {
+     "date": "2026-07-07",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-08-07",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 677950,
+   "name": "Alek Thomas",
+   "pos": "CF",
+   "g": 7,
+   "bat": {
+    "avg": ".211",
+    "hr": 0,
+    "rbi": 3,
+    "ops": ".513",
+    "sb": 0,
+    "hits": 4
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "上调 08/22",
+   "departed": "Outright 下放 09/07",
+   "moves": [
+    {
+     "date": "2026-09-07",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 670090,
+   "name": "Wyatt Mills",
+   "pos": "P",
+   "g": 6,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "5.68",
+    "so": 5,
+    "sv": 0,
+    "ip": "6.1"
+   },
+   "status": "departed",
+   "statusCn": "已离队",
+   "joined": "上调 05/10",
+   "departed": "已离队",
+   "moves": []
+  },
+  {
+   "id": 663460,
+   "name": "Kris Bubic",
+   "pos": "P",
+   "g": 5,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 0,
+    "era": "0.00",
+    "so": 5,
+    "sv": 0,
+    "ip": "4.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 08/03",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2026-08-03",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 676508,
+   "name": "Ben Casparius",
+   "pos": "P",
+   "g": 5,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "9.64",
+    "so": 4,
+    "sv": 0,
+    "ip": "4.2"
+   },
+   "status": "d60",
+   "statusCn": "IL-60",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 671109,
+   "name": "Jake Eder",
+   "pos": "P",
+   "g": 4,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 0,
+    "era": "2.25",
+    "so": 1,
+    "sv": 0,
+    "ip": "4.0"
+   },
+   "status": "departed",
+   "statusCn": "已离队",
+   "joined": "上调 04/20",
+   "departed": "已离队",
+   "moves": []
+  },
+  {
+   "id": 801434,
+   "name": "Paul Gervase",
+   "pos": "P",
+   "g": 4,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "2.35",
+    "so": 8,
+    "sv": 0,
+    "ip": "7.2"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 05/08",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 689017,
+   "name": "Landon Knack",
+   "pos": "P",
+   "g": 4,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 0,
+    "era": "3.86",
+    "so": 8,
+    "sv": 1,
+    "ip": "11.2"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 08/12",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 656212,
+   "name": "Charlie Barnes",
+   "pos": "P",
+   "g": 4,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "6.30",
+    "so": 5,
+    "sv": 0,
+    "ip": "10.0"
+   },
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "上调 05/15",
+   "departed": "Outright 下放 08/13",
+   "moves": [
+    {
+     "date": "2026-08-01",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-08-02",
+     "text": "签约"
+    },
+    {
+     "date": "2026-08-13",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2026-08-16",
+     "text": "签约"
+    }
+   ]
+  },
+  {
+   "id": 676272,
+   "name": "Bobby Miller",
+   "pos": "P",
+   "g": 3,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 0,
+    "era": "3.68",
+    "so": 8,
+    "sv": 0,
+    "ip": "7.1"
+   },
+   "status": "40m",
+   "statusCn": "Forty Man",
+   "joined": "上调 09/14",
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 694646,
+   "name": "Chayce McDermott",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "7.71",
+    "so": 1,
+    "sv": 0,
+    "ip": "2.1"
+   },
+   "status": "departed",
+   "statusCn": "已离队",
+   "joined": "交易获得 04/16",
+   "departed": "已离队",
+   "moves": [
+    {
+     "date": "2026-04-16",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 608344,
+   "name": "Cole Irvin",
+   "pos": "P",
+   "g": 1,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "9.00",
+    "so": 5,
+    "sv": 0,
+    "ip": "6.0"
+   },
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "上调 07/31",
+   "departed": "Outright 下放 08/03",
+   "moves": [
+    {
+     "date": "2026-02-03",
+     "text": "签约"
+    },
+    {
+     "date": "2026-08-03",
+     "text": "Outright 下放"
+    }
+   ]
+  }
+ ]
+}

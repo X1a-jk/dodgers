@@ -1,0 +1,118 @@
+{
+  "generatedAt": "2026-10-13T18:45:15.192269",
+  "season": 2026,
+  "players": [
+    {
+      "name": "Shohei Ohtani",
+      "nameCn": "大谷翔平",
+      "seasonLine": ".275/.377/.512",
+      "seasonHr": 30,
+      "seasonSb": 11,
+      "milestones": [
+        {
+          "stat": "本垒打",
+          "seasonValue": 30,
+          "careerValue": 310,
+          "target": 400,
+          "remaining": 90,
+          "progress": 77.5
+        },
+        {
+          "stat": "盗垒",
+          "seasonValue": 11,
+          "careerValue": 176,
+          "target": 200,
+          "remaining": 24,
+          "progress": 88.0
+        },
+        {
+          "stat": "打点",
+          "seasonValue": 81,
+          "careerValue": 750,
+          "target": 800,
+          "remaining": 50,
+          "progress": 93.8
+        },
+        {
+          "stat": "安打",
+          "seasonValue": 144,
+          "careerValue": 1194,
+          "target": 1200,
+          "remaining": 6,
+          "progress": 99.5
+        }
+      ]
+    },
+    {
+      "name": "Mookie Betts",
+      "nameCn": "Mookie Betts",
+      "seasonLine": ".257/.326/.454",
+      "seasonHr": 23,
+      "seasonSb": 2,
+      "milestones": [
+        {
+          "stat": "安打",
+          "seasonValue": 123,
+          "careerValue": 1890,
+          "target": 1900,
+          "remaining": 10,
+          "progress": 99.5
+        },
+        {
+          "stat": "本垒打",
+          "seasonValue": 23,
+          "careerValue": 314,
+          "target": 400,
+          "remaining": 86,
+          "progress": 78.5
+        }
+      ]
+    },
+    {
+      "name": "Freddie Freeman",
+      "nameCn": "Freddie Freeman",
+      "seasonLine": ".288/.362/.430",
+      "seasonHr": 16,
+      "seasonSb": 7,
+      "milestones": [
+        {
+          "stat": "安打",
+          "seasonValue": 167,
+          "careerValue": 2598,
+          "target": 2600,
+          "remaining": 2,
+          "progress": 99.9
+        },
+        {
+          "stat": "本垒打",
+          "seasonValue": 16,
+          "careerValue": 383,
+          "target": 400,
+          "remaining": 17,
+          "progress": 95.8
+        }
+      ]
+    }
+  ],
+  "teamComparison": {
+    "current": {
+      "w": 100,
+      "l": 62,
+      "pct": ".617",
+      "divisionRank": "1",
+      "magicNumber": "-",
+      "gamesBack": "-",
+      "gamesPlayed": 162
+    },
+    "pace162": 100,
+    "y2024ThroughToday": {
+      "w": 103,
+      "l": 69
+    },
+    "y2024Final": {
+      "w": 110,
+      "l": 72
+    },
+    "diffThroughToday": -3
+  }
+}

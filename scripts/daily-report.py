@@ -458,7 +458,7 @@ def parse_existing_roster(path: Path) -> dict:
 def fetch_40man_roster() -> list:
     """Fetch the Dodgers 40-man roster from the MLB Stats API."""
     try:
-        data = statsapi.get("team_roster", {"teamId": 119, "rosterType": "40Man", "season": 2026})
+        data = statsapi.get("team_roster", {"teamId": 119, "rosterType": "40Man", "season": datetime.now().year})
         return data.get("roster", [])
     except Exception as e:
         print(f"[ERROR] Failed to fetch 40-man roster: {e}")

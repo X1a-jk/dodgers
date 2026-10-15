@@ -7,3 +7,99 @@
 2026/8/10 12:00:24
 2026/8/17 12:00:06
 2026/8/24 12:00:03
+2026-08-27 11:34:02 - ===== 每周数据更新开�?=====
+2026-08-27 11:34:02 - [周报生成] 开始执�? D:\baseball\scripts\generate-weekly.py
+2026-08-27 11:34:15 - [周报生成] 完成
+2026-08-27 11:34:15 - [门户大屏数据采集] 开始执�? D:\baseball\portal\fetch-dashboard-data.py
+2026-08-27 11:34:25 - [门户大屏数据采集] 完成
+2026-08-27 11:34:25 - [门户文件索引更新] 开始执�? D:\baseball\portal\update-portal.py
+2026-08-27 11:34:25 - [门户文件索引更新] 完成
+2026-08-27 11:34:25 - ===== 每周数据更新全部完成 =====
+2026-08-27 12:09:14 - ===== Weekly data refresh started =====
+2026-08-27 12:09:14 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-08-27 12:09:21 - [Weekly report] Done
+2026-08-27 12:09:21 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-08-27 12:09:31 - [Dashboard data fetch] Done
+2026-08-27 12:09:31 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-08-27 12:09:31 - [Portal file index update] Done
+2026-08-27 12:09:31 - ===== Weekly data refresh finished =====
+2026-08-31 12:00:02 - ===== Weekly data refresh started =====
+2026-08-31 12:00:02 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-08-31 12:00:10 - [Weekly report] Done
+2026-08-31 12:00:10 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-08-31 12:00:19 - [Dashboard data fetch] Done
+2026-08-31 12:00:19 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-08-31 12:00:19 - [Portal file index update] Done
+2026-08-31 12:00:19 - ===== Weekly data refresh finished =====
+2026-08-31 12:00:35 - ===== Weekly data refresh started =====
+2026-08-31 12:00:35 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-08-31 12:00:40 - [Weekly report] Done
+2026-08-31 12:00:40 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-08-31 12:00:50 - [Dashboard data fetch] Done
+2026-08-31 12:00:50 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-08-31 12:00:50 - [Portal file index update] Done
+2026-08-31 12:00:50 - ===== Weekly data refresh finished =====
+2026-09-07 12:00:01 - ===== Weekly data refresh started =====
+2026-09-07 12:00:01 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-07 12:00:09 - [Weekly report] Done
+2026-09-07 12:00:09 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-07 12:00:26 - [Dashboard data fetch] Done
+2026-09-07 12:00:26 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-07 12:00:27 - [Portal file index update] Done
+2026-09-07 12:00:27 - ===== Weekly data refresh finished =====
+2026-09-07 12:01:53 - ===== Weekly data refresh started =====
+2026-09-07 12:01:53 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-07 12:02:02 - [Weekly report] Done
+2026-09-07 12:02:02 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-07 12:02:21 - [Dashboard data fetch] Done
+2026-09-07 12:02:21 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-07 12:02:21 - [Portal file index update] Done
+2026-09-07 12:02:21 - ===== Weekly data refresh finished =====
+2026-09-13 15:28:53 - ===== Weekly data refresh started =====
+2026-09-13 15:28:53 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-13 15:28:54 - [Weekly report] Done
+2026-09-13 15:28:54 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-13 15:29:17 - [Dashboard data fetch] Done
+2026-09-13 15:29:17 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-13 15:29:17 - [Portal file index update] Done
+2026-09-13 15:29:17 - ===== Weekly data refresh finished =====
+2026-09-14 12:00:12 - ===== Weekly data refresh started =====
+2026-09-14 12:00:12 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-14 12:00:44 - [Weekly report] Done
+2026-09-14 12:00:44 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 12:00:56 - [Dashboard data fetch] Done
+2026-09-14 12:00:56 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 12:00:57 - [Portal file index update] Done
+2026-09-14 12:00:57 - ===== Weekly data refresh finished =====
+2026-09-14 12:01:06 - ===== Weekly data refresh started =====
+2026-09-14 12:01:06 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-14 12:01:06 - [Weekly report] Done
+2026-09-14 12:01:06 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-14 12:01:24 - [Dashboard data fetch] Done
+2026-09-14 12:01:24 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-14 12:01:24 - [Portal file index update] Done
+2026-09-14 12:01:24 - ===== Weekly data refresh finished =====
+2026-09-15 09:04:19 - ===== Weekly data refresh started =====
+2026-09-15 09:04:19 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-15 09:04:20 - [Weekly report] Done
+2026-09-15 09:04:20 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-15 09:04:41 - [Dashboard data fetch] Done
+2026-09-15 09:04:41 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-15 09:04:41 - [Portal file index update] Done
+2026-09-15 09:04:41 - ===== Weekly data refresh finished =====
+2026-09-21 12:00:14 - ===== Weekly data refresh started =====
+2026-09-21 12:00:14 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-21 12:00:21 - [Weekly report] Done
+2026-09-21 12:00:21 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-21 12:00:34 - [Dashboard data fetch] Done
+2026-09-21 12:00:34 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-21 12:00:34 - [Portal file index update] Done
+2026-09-21 12:00:34 - ===== Weekly data refresh finished =====
+2026-09-28 12:00:19 - ===== Weekly data refresh started =====
+2026-09-28 12:00:19 - [Weekly report] Starting: D:\baseball\scripts\generate-weekly.py
+2026-09-28 12:00:24 - [Weekly report] Done
+2026-09-28 12:00:24 - [Dashboard data fetch] Starting: D:\baseball\portal\fetch-dashboard-data.py
+2026-09-28 12:00:39 - [Dashboard data fetch] Done
+2026-09-28 12:00:39 - [Portal file index update] Starting: D:\baseball\portal\update-portal.py
+2026-09-28 12:00:39 - [Portal file index update] Done
+2026-09-28 12:00:39 - ===== Weekly data refresh finished =====
