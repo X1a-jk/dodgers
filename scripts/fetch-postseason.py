@@ -259,6 +259,73 @@ def fetch_team_leaders():
     }
 
 
+def _wins(series, team_id):
+    if not series:
+        return 0
+    return series.get("wins", {}).get(str(team_id), 0)
+
+
+def _series_over(series):
+    """系列赛是否已结束（某队先拿下半数以上胜场）"""
+    if not series:
+        return False
+    need = series.get("bestOf", 0) // 2 + 1
+    return any(v >= need for v in series.get("wins", {}).values())
+
+
+def ws_champion(rounds):
+    ws = (rounds or {}).get("ws")
+    if ws and _series_over(ws):
+        need = ws.get("bestOf", 7) // 2 + 1
+        for tid, w in ws.get("wins", {}).items():
+            if w >= need:
+                return int(tid)
+    return None
+
+
+def dodgers_status(rounds, published):
+    if not published:
+        return "外卡轮轮空，备战分区系列赛"
+    rounds = rounds or {}
+    nl = rounds.get("NL", {})
+    ws = rounds.get("ws")
+    need_cs = 4
+
+    # 世界大赛阶段
+    if _wins(ws, DODGERS_ID) >= 4:
+        return "世界大赛冠军 🏆"
+    if ws and not _series_over(ws):
+        return "国联冠军，世界大赛进行中"
+    if ws and _series_over(ws):
+        # 道奇进了世界大赛但没夺冠
+        nlcs = nl.get("cs")
+        if nlcs and _wins(nlcs, DODGERS_ID) >= 4:
+            return f"世界大赛亚军（WS {_wins(ws, DODGERS_ID)}-4）"
+
+    # 国联冠军赛阶段
+    nlcs = nl.get("cs")
+    if nlcs:
+        w = _wins(nlcs, DODGERS_ID)
+        if w >= need_cs:
+            return "国联冠军，备战世界大赛"
+        if _series_over(nlcs):
+            return f"止步国联冠军赛（NLCS {w}-{need_cs}）"
+        opp_w = max((v for k, v in nlcs.get("wins", {}).items() if int(k) != DODGERS_ID), default=0)
+        return f"国联冠军赛进行中（{w}-{opp_w}）"
+
+    # 分区系列赛阶段
+    for s in nl.get("ds", []):
+        if _wins(s, DODGERS_ID) > 0 or DODGERS_ID in s.get("wins", {}):
+            w = _wins(s, DODGERS_ID)
+            if _series_over(s):
+                opp = max((int(t) for t in s.get("wins", {}) if int(t) != DODGERS_ID), default=None)
+                ow = _wins(s, opp) if opp else need_cs
+                return f"止步分区系列赛（NLDS {w}-{ow}）" if w < need_cs - 1 else f"分区系列赛进行中（{w}-{ow}）"
+            return f"分区系列赛进行中（{w} 胜）"
+
+    return "季后赛进行中"
+
+
 def main():
     today = datetime.now()
     print(f"[postseason] 抓取 {SEASON} 季后赛对阵 {today:%Y-%m-%d %H:%M}", flush=True)
@@ -281,7 +348,8 @@ def main():
         "teamId": DODGERS_ID,
         "seed": dod["seed"] if dod and dod.get("id") == DODGERS_ID else None,
         "record": f"{dod['w']}-{dod['l']}" if dod else None,
-        "status": "外卡轮轮空，备战分区系列赛" if not published else "季后赛进行中",
+        "status": dodgers_status(rounds, published),
+        "champion": ws_champion(rounds),
     }
 
     data = {

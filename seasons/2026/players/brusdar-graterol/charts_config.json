@@ -1,0 +1,61 @@
+{
+  "player_name": "Brusdar Graterol",
+  "player_slug": "brusdar-graterol",
+  "output_dir": "D:\\baseball\\report\\brusdar-graterol",
+  "prefix": "graterol",
+  "info": {
+    "number": "48",
+    "position": "RHP / Ground Ball Specialist"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "2.78"],
+      ["W-L", "11-9"],
+      ["K", "148"],
+      ["IP", "190.2"],
+      ["WHIP", "1.04"],
+      ["AGE", "27"]
+    ]
+  },
+  "pitch_velocities": {
+    "Sinker": {"min": 99, "max": 103},
+    "Slider": {"min": 88, "max": 92},
+    "Changeup": {"min": 90, "max": 93}
+  },
+  "game_trends": [
+    {"label": "2022", "era": 3.26, "ip": 47.1, "k": 42, "bb": 14},
+    {"label": "2023", "era": 1.20, "ip": 30.0, "k": 19, "bb": 4},
+    {"label": "2024", "era": 2.38, "ip": 45.1, "k": 48, "bb": 5},
+    {"label": "2025", "era": 0.0, "ip": 0.0, "k": 0, "bb": 0},
+    {"label": "2026", "era": 0.0, "ip": 0.0, "k": 0, "bb": 0}
+  ],
+  "overall_grades": {
+    "Sinker": 70,
+    "Slider": 50,
+    "Changeup": 40,
+    "Control": 60,
+    "Command": 55,
+    "GB Induce": 70,
+    "Strikeout": 45,
+    "Health": 30
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 2.78, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.04, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 6.99, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 1.98, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.47, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.02, "low": 0.5, "high": 2.0, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 3.26, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.10, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 7.99, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 2.66, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.38, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.03, "low": 0.5, "high": 2.0, "invert": false}
+    }
+  }
+}

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Eliezer Alfonzo 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Eliezer Alfonzo</h1>
+ <p class="subtitle">Los Angeles Dodgers | 捕手 | 右投 / 左右开弓 | 星二代接棒</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="eliezer-alfonzo_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Eliezer Vicente Alfonzo</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1999-09-23（26岁）</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">委内瑞拉巴塞罗那</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5'10" / 155 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 左右开弓</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2026-07-05 (道奇队)</div></div>
+ <div class="info-item"><div class="label">父亲</div><div class="value">Eliezer Alfonzo（前大联盟捕手）</div></div>
+ <div class="info-item"><div class="label">2026状态</div><div class="value">40人名单（7/4 上调）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Eliezer Alfonzo 是<span class="highlight">前大联盟捕手 Eliezer Alfonzo 之子</span>——老 Alfonzo 2006-2011 年效力于巨人、教士、水手与洛矶。2026 年 7 月 5 日，儿子在道奇完成大联盟首秀，相隔约十五年，Alfonzo 这个姓氏重回大联盟本垒板后方。</p>
+ <p style="margin-bottom: 15px;">2026 年他在 Will Smith 伤缺期间被紧急上调，13 场出赛缴出 .179/.179/.250、4 分打点。28 个打席的小样本下，5 支安打中有 2 支二垒打，BABIP 仅 .200——运气成分占相当比例，真实实力尚未展开。</p>
+ <p>26 岁的大联盟菜鸟、40 人名单在身的捕手，他的价值暂时不在打击，而在<span class="highlight">左右开弓的配球弹性与家族的捕手基因</span>。未来一年他需要在 3A 用打击证明自己值得第二次机会。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🚀 2026年7月5日 - 大联盟首秀</h4>
+ <p>在道奇完成 MLB 首秀，成为 Alfonzo 家族第二位大联盟球员。其父亲 2006-2011 年效力巨人、教士、水手与洛矶，以大联盟替补捕手身份生存六年。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🐯 老虎体系六年 - 从 DSL 爬上来</h4>
+ <p>2016 年签约底特律老虎体系，从多米尼加夏季联盟起步，历经 1A、2A（Erie）、3A（Toledo）。2025 年在 2A/3A 出赛 64 场，冬季于委内瑞拉联盟缴出 .298/.372/.415。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💙 2026年 - 道奇救火队员</h4>
+ <p>7 月 4 日被道奇从 3A 上调，顶替伤缺的 Will Smith，出赛 13 场贡献 4 分打点。赛季末留在 40 人名单。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季打击数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">13</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">28</span>
+ <div class="stat-label">打席</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">.179</span>
+ <div class="stat-label">打击率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">.179</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.250</span>
+ <div class="stat-label">长打率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">二垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">4</span>
+ <div class="stat-label">打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">3</span>
+ <div class="stat-label">三振（0保送）</div>
+ </div>
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">小样本警告：13 场 / 28 打席，BABIP .200 远低于联盟平均，数据参考价值有限。</p>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="eliezer-alfonzo_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队层级</th><th>G</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>2B</th><th>RBI</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>老虎 2A Erie（57场）</td>
+ <td>57</td>
+ <td>.247</td>
+ <td>—</td>
+ <td>—</td>
+ <td>—</td>
+ <td>—</td>
+ <td>30（得点圈）</td>
+ </tr>
+ <tr>
+ <td>2026</td>
+ <td>道奇（MLB首秀）</td>
+ <td>13</td>
+ <td>.179</td>
+ <td>.179</td>
+ <td>.250</td>
+ <td>.429</td>
+ <td>2</td>
+ <td>4</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">2025 年为老虎 2A Erie 成绩（56-for-227；对右投 .289、对左投 .131），另有 3A Toledo 7 场、委内瑞拉冬季联盟 .298/.372/.415 作为背景参考。2026 为 MLB 菜鸟赛季，样本极小；3 三振 0 保送显示其现阶段以出手为主、选球尚未展开。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">家族的捕手基因</h3>
+ <p>父亲老 Eliezer Alfonzo 以强壮手臂和防守韧性在大联盟生存六年。小 Alfonzo 继承了本垒板后的直觉：道奇捕手教练组对其接球与传球的基本功评价正面，这是他留在 40 人名单的最大理由。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">打击的残酷现实</h3>
+ <p>.179/.179/.250 的 slash line 意味着他 28 个打席没有获得一次保送，上垒完全依赖安打。左右开弓本是替补捕手的加分项，但若两边都挥不出打击率，优势便无从谈起。唯一亮点是 4 分打点——在有限的得分机会里他把球打进了场地。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">小样本下的正确读法</h3>
+ <p>BABIP .200 说明部分低潮来自运气；但 5 支安打、0 保送的结构问题是真的。2025 年 2A 的 .243/.309/.340 更接近他的真实水平：一名能守备、打击略低于平均的替补捕手。2027 年他需要在 3A 把 OBP 打回 .320 以上，才有机会成为 Smith 身后稳定的二号选择。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>捕手守备基本功扎实，家族传承的本垒板直觉</li>
+ <li>左右开弓，配球弹性大</li>
+ <li>28 打席仅 3 三振，_contact_能力尚可</li>
+ <li>关键时刻有产出（13 场 4 分打点）</li>
+ <li>40 人名单在身，道奇捕手深度稀缺</li>
+ <li>有完整小联盟爬升履历，非揠苗助长</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>28 打席 0 保送，选球纪律是明显短板</li>
+ <li>.179 打击率，进攻端近乎隐形</li>
+ <li>155 磅体格在捕手位置偏轻，长打上限低</li>
+ <li>26 岁才完成首秀，成长曲线陡峭</li>
+ <li>样本极小，真实水平仍需验证</li>
+ <li>前有 Smith、Rushing，排队顺序靠后</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="eliezer-alfonzo_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Hit</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-a">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Arm</div>
+ <span class="grade grade-a">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Clutch</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">守备为骨、进攻待验的替补捕手苗子</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 捕手深度</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Eliezer Alfonzo 的2027赛季目标是在 3A Oklahoma City 站稳，把打击率打回 .250、上垒率 .320 以上，等待 Will Smith 轮休或伤缺时的召唤。他的天花板是合格的二号捕手，地板则是名单边缘的 depth piece。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>7/4 上调、7/5 首秀，13 场 .179/.179/.250、4 分打点；赛季末留在 40 人名单</p>
+ <p><strong>2027：</strong>目标 3A 完整赛季，OPS 回到 .700 区间</p>
+ <p><strong>2028+：</strong>若守备持续获认可，可竞争道奇二号捕手；否则将游走于名单边缘</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>进攻端若不改善，难以挤过 Smith / Rushing 的排序</li>
+ <li>小样本下 BABIP 回升能否兑现为实际产出存疑</li>
+ <li>体格偏轻，整季蹲捕的耐久度待验证</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Eliezer Vicente Alfonzo 1999 年 9 月 23 日出生于委内瑞拉的巴塞罗那（Barcelona, Venezuela）——与西班牙名城同名，却是委内瑞拉东北部的一座工业城市。他的父亲 Eliezer Jesus Alfonzo 是 MLB 2006-2011 年间的替补捕手，效力过旧金山巨人、圣迭戈教士、西雅图水手与科罗拉多洛矶，以强壮的传球手臂著称。</p>
+ <p>小 Alfonzo 2016 年与底特律老虎签约，从多米尼加夏季联盟开启职业生涯。他的爬升不算快：2023 年在 1A West Michigan 打出 13 场连续安打，季末升上 2A Erie；2025 年在 2A/3A 之间度过了完整一年，并连续两年获得老虎春训非名单邀请。2025 年冬季，他在家乡委内瑞拉联盟缴出 .298/.372/.415 的成绩单，这引起了道奇球探的注意。</p>
+ <p>2026 年，道奇给了他一份小联盟合约。7 月 4 日 Will Smith 伤缺，他从 3A 被紧急上调，次日完成大联盟首秀。十五年前父亲蹲过的本垒板，如今轮到儿子——Alfonzo 家族的棒球血脉，在洛杉矶完成了接力。场外的他话不多，队友形容他"带着老派捕手的沉稳"。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-26 | 数据截止日期：2026-10-26（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

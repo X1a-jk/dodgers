@@ -1,0 +1,16 @@
+{
+  "player_name": "Landon Knack",
+  "player_slug": "landon-knack",
+  "output_dir": "D:\\baseball\\report\\landon-knack",
+  "prefix": "knack",
+  "info": {"number": "31", "position": "RHP / Starter"},
+  "cover": {"stats": [["ERA", "9.00"], ["IP", "5.0"], ["K", "4"], ["BB", "2"], ["HR", "4"], ["AGE", "29"]]},
+  "pitch_velocities": {"Four-Seam": {"min": 91, "max": 95}, "Slider": {"min": 82, "max": 86}, "Changeup": {"min": 84, "max": 87}, "Curveball": {"min": 78, "max": 82}},
+  "game_trends": [{"label": "2024", "era": 4.33, "ip": 116.1, "k": 115, "bb": 39}, {"label": "G1 2026", "era": 0.0, "ip": 3.0, "k": 3, "bb": 1}, {"label": "G2 2026", "era": 27.0, "ip": 2.0, "k": 1, "bb": 1}],
+  "overall_grades": {"Fastball": 50, "Slider": 50, "Changeup": 45, "Curveball": 45, "Control": 55, "Command": 50, "Strikeout": 50, "Health": 35},
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {"ERA": {"value": 9.00, "low": 1.0, "high": 12.0, "invert": true}, "WHIP": {"value": 1.60, "low": 0.8, "high": 2.0, "invert": true}, "K/9": {"value": 7.20, "low": 5.0, "high": 13.0, "invert": false}, "BB/9": {"value": 3.60, "low": 1.0, "high": 6.0, "invert": true}, "HR/9": {"value": 7.20, "low": 0.0, "high": 8.0, "invert": true}, "IP/G": {"value": 2.5, "low": 1.0, "high": 6.0, "invert": false}},
+    "previous": {"ERA": {"value": 4.33, "low": 1.0, "high": 12.0, "invert": true}, "WHIP": {"value": 1.23, "low": 0.8, "high": 2.0, "invert": true}, "K/9": {"value": 8.90, "low": 5.0, "high": 13.0, "invert": false}, "BB/9": {"value": 3.02, "low": 1.0, "high": 6.0, "invert": true}, "HR/9": {"value": 2.17, "low": 0.0, "high": 8.0, "invert": true}, "IP/G": {"value": 4.3, "low": 1.0, "high": 6.0, "invert": false}}
+  }
+}

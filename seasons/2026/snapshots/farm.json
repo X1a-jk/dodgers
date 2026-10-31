@@ -1,0 +1,300 @@
+{
+  "generatedAt": "2026-10-15T20:54:49.436393",
+  "season": 2026,
+  "affiliates": [
+    {
+      "id": 238,
+      "name": "Oklahoma City Comets",
+      "level": "AAA",
+      "levelCn": "3A",
+      "sportId": 11,
+      "lastGame": null,
+      "todayGame": null,
+      "highlights": [],
+      "leaders": {
+        "hitters": [
+          {
+            "name": "James Tibbs III",
+            "avg": ".287",
+            "obp": ".409",
+            "slg": ".532",
+            "ops": ".941",
+            "hr": 30,
+            "rbi": 107,
+            "sb": 10,
+            "pa": 643,
+            "callupWatch": true
+          },
+          {
+            "name": "Zach Ehrhard",
+            "avg": ".291",
+            "obp": ".400",
+            "slg": ".472",
+            "ops": ".872",
+            "hr": 20,
+            "rbi": 93,
+            "sb": 28,
+            "pa": 640,
+            "callupWatch": false
+          },
+          {
+            "name": "Ryan Fitzgerald",
+            "avg": ".315",
+            "obp": ".375",
+            "slg": ".485",
+            "ops": ".860",
+            "hr": 16,
+            "rbi": 102,
+            "sb": 14,
+            "pa": 613,
+            "callupWatch": false
+          },
+          {
+            "name": "Ryan Ward",
+            "avg": ".249",
+            "obp": ".349",
+            "slg": ".430",
+            "ops": ".779",
+            "hr": 18,
+            "rbi": 82,
+            "sb": 8,
+            "pa": 475,
+            "callupWatch": false
+          }
+        ],
+        "pitchers": [
+          {
+            "name": "Cole Irvin",
+            "w": 12,
+            "l": 7,
+            "era": "3.33",
+            "whip": "1.46",
+            "so": 85,
+            "ip": "137.2",
+            "callupWatch": false
+          },
+          {
+            "name": "Christian Romero",
+            "w": 11,
+            "l": 5,
+            "era": "4.06",
+            "whip": "1.41",
+            "so": 115,
+            "ip": "135.1",
+            "callupWatch": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 260,
+      "name": "Tulsa Drillers",
+      "level": "AA",
+      "levelCn": "2A",
+      "sportId": 12,
+      "lastGame": null,
+      "todayGame": null,
+      "highlights": [],
+      "leaders": {
+        "hitters": [
+          {
+            "name": "Jake Gelof",
+            "avg": ".271",
+            "obp": ".385",
+            "slg": ".565",
+            "ops": ".950",
+            "hr": 34,
+            "rbi": 103,
+            "sb": 10,
+            "pa": 522,
+            "callupWatch": false
+          },
+          {
+            "name": "Josue De Paula",
+            "avg": ".303",
+            "obp": ".401",
+            "slg": ".547",
+            "ops": ".948",
+            "hr": 27,
+            "rbi": 104,
+            "sb": 31,
+            "pa": 588,
+            "callupWatch": false
+          },
+          {
+            "name": "Zyhir Hope",
+            "avg": ".293",
+            "obp": ".369",
+            "slg": ".530",
+            "ops": ".899",
+            "hr": 23,
+            "rbi": 87,
+            "sb": 18,
+            "pa": 425,
+            "callupWatch": false
+          },
+          {
+            "name": "Elijah Hainline",
+            "avg": ".245",
+            "obp": ".389",
+            "slg": ".395",
+            "ops": ".784",
+            "hr": 13,
+            "rbi": 66,
+            "sb": 18,
+            "pa": 479,
+            "callupWatch": false
+          }
+        ],
+        "pitchers": [
+          {
+            "name": "Adam Serwinowski",
+            "w": 9,
+            "l": 6,
+            "era": "5.31",
+            "whip": "1.43",
+            "so": 150,
+            "ip": "127.0",
+            "callupWatch": false
+          },
+          {
+            "name": "Patrick Copen",
+            "w": 9,
+            "l": 7,
+            "era": "5.90",
+            "whip": "1.55",
+            "so": 136,
+            "ip": "116.0",
+            "callupWatch": false
+          }
+        ]
+      }
+    },
+    {
+      "id": 456,
+      "name": "Great Lakes Loons",
+      "level": "A+",
+      "levelCn": "高阶1A",
+      "sportId": 13,
+      "lastGame": null,
+      "todayGame": null,
+      "highlights": [],
+      "leaders": {
+        "hitters": [
+          {
+            "name": "Eduardo Quintero",
+            "avg": ".309",
+            "obp": ".445",
+            "slg": ".495",
+            "ops": ".940",
+            "hr": 12,
+            "rbi": 68,
+            "sb": 44,
+            "pa": 501,
+            "callupWatch": false
+          },
+          {
+            "name": "Charles Davalan",
+            "avg": ".292",
+            "obp": ".402",
+            "slg": ".535",
+            "ops": ".937",
+            "hr": 24,
+            "rbi": 72,
+            "sb": 17,
+            "pa": 530,
+            "callupWatch": false
+          },
+          {
+            "name": "Emil Morales",
+            "avg": ".281",
+            "obp": ".380",
+            "slg": ".534",
+            "ops": ".914",
+            "hr": 20,
+            "rbi": 84,
+            "sb": 7,
+            "pa": 368,
+            "callupWatch": false
+          },
+          {
+            "name": "Nico Perez",
+            "avg": ".270",
+            "obp": ".380",
+            "slg": ".450",
+            "ops": ".830",
+            "hr": 9,
+            "rbi": 62,
+            "sb": 35,
+            "pa": 358,
+            "callupWatch": false
+          }
+        ],
+        "pitchers": []
+      }
+    },
+    {
+      "id": 6482,
+      "name": "Ontario Tower Buzzers",
+      "level": "A",
+      "levelCn": "1A",
+      "sportId": 14,
+      "lastGame": null,
+      "todayGame": null,
+      "highlights": [],
+      "leaders": {
+        "hitters": [
+          {
+            "name": "Easton Shelton",
+            "avg": ".297",
+            "obp": ".403",
+            "slg": ".644",
+            "ops": "1.047",
+            "hr": 37,
+            "rbi": 112,
+            "sb": 4,
+            "pa": 486,
+            "callupWatch": true
+          },
+          {
+            "name": "Mairo Martinus",
+            "avg": ".317",
+            "obp": ".359",
+            "slg": ".537",
+            "ops": ".896",
+            "hr": 15,
+            "rbi": 64,
+            "sb": 30,
+            "pa": 421,
+            "callupWatch": false
+          },
+          {
+            "name": "Ching-Hsien Ko",
+            "avg": ".260",
+            "obp": ".392",
+            "slg": ".470",
+            "ops": ".862",
+            "hr": 21,
+            "rbi": 85,
+            "sb": 1,
+            "pa": 531,
+            "callupWatch": false
+          },
+          {
+            "name": "Joendry Vargas",
+            "avg": ".293",
+            "obp": ".333",
+            "slg": ".452",
+            "ops": ".785",
+            "hr": 12,
+            "rbi": 84,
+            "sb": 24,
+            "pa": 554,
+            "callupWatch": false
+          }
+        ],
+        "pitchers": []
+      }
+    }
+  ]
+}

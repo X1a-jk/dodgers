@@ -1,0 +1,56 @@
+{
+  "player_name": "Paul Gervase",
+  "player_slug": "paul-gervase",
+  "output_dir": "D:\\baseball\\report\\paul-gervase",
+  "prefix": "gervase",
+  "info": {
+    "number": "38",
+    "position": "RHP / Reliever"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "2.35"],
+      ["W-L", "0-0"],
+      ["K", "8"],
+      ["IP", "7.2"],
+      ["WHIP", "1.57"],
+      ["AGE", "26"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 94, "max": 97},
+    "Slider": {"min": 82, "max": 86},
+    "Changeup": {"min": 86, "max": 89},
+    "Sinker": {"min": 93, "max": 96}
+  },
+  "overall_grades": {
+    "Fastball": 60,
+    "Slider": 55,
+    "Changeup": 45,
+    "Sinker": 50,
+    "Control": 40,
+    "Command": 45,
+    "Mental": 50,
+    "Durability": 55,
+    "Strikeout": 55
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 2.35, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.57, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 9.39, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 5.87, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.0, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.92, "low": 0.5, "high": 2.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 4.26, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.74, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 8.53, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 7.11, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 4.26, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.27, "low": 0.5, "high": 2.5, "invert": false}
+    }
+  }
+}

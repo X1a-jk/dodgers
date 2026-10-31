@@ -12,12 +12,26 @@ import os
 import re
 import urllib.request
 import urllib.error
+# 2026-10-17: 本机注册表代理 127.0.0.1:7892 已失效，全局直连
+urllib.request.install_opener(urllib.request.build_opener(urllib.request.ProxyHandler({})))
+
+# 2026-10-17: 本机 DNS 间歇性挂起（getaddrinfo 无超时），缓存解析结果，每个主机只解析一次
+import socket as _socket
+_real_getaddrinfo = _socket.getaddrinfo
+_DNS_CACHE = {}
+def _cached_getaddrinfo(host, port, *a, **kw):
+    key = (host, port)
+    if key not in _DNS_CACHE:
+        _DNS_CACHE[key] = _real_getaddrinfo(host, port, *a, **kw)
+    return _DNS_CACHE[key]
+_socket.getaddrinfo = _cached_getaddrinfo
 from pathlib import Path
 from datetime import datetime
 
 TEAM_ID = 119
 SEASON = datetime.now().year
-REPORT_ROOT = Path("D:/baseball/report")
+# 2026-10-17: 支持从赛季名单快照生成批次仪表盘（如 players-regular 封存批次）
+REPORT_ROOT = Path(os.environ.get("DASH_REPORT_ROOT", "D:/baseball/report"))
 SCRIPT_ROOT = Path("D:/baseball/scripts")
 MLB_API_ROSTER = f"https://statsapi.mlb.com/api/v1/teams/{TEAM_ID}/roster?rosterType=40Man&season={SEASON}"
 
@@ -45,8 +59,17 @@ def slugify(name: str) -> str:
 
 
 def fetch_json(url: str) -> dict:
-    with urllib.request.urlopen(url, timeout=30) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+    import time
+    last_err = None
+    for attempt in range(5):
+        try:
+            with urllib.request.urlopen(url, timeout=30) as resp:
+                return json.loads(resp.read().decode("utf-8"))
+        except Exception as e:
+            last_err = e
+            print(f"  [retry {attempt + 1}/5] {type(e).__name__}: {e}", flush=True)
+            time.sleep(3 * (attempt + 1))
+    raise last_err
 
 
 def download_headshot(player_id: int, dest_dir: Path) -> str:
@@ -149,8 +172,29 @@ def fetch_player_stats(player_id: int) -> dict:
 
 
 def build_dashboard():
-    roster_data = fetch_json(MLB_API_ROSTER)
-    roster = roster_data.get("roster", [])
+    if os.environ.get("DASH_ROSTER_JSON"):
+        data = json.loads(Path(os.environ["DASH_ROSTER_JSON"]).read_text(encoding="utf-8"))
+        status_map = {"a": "A", "d60": "D60", "rm": "RM", "40m": "RM", "departed": "RM"}
+        roster = []
+        for r in data["players"]:
+            bat, pit = r.get("bat") or {}, r.get("pit") or {}
+            stats = {}
+            if bat:
+                stats.update({"avg": bat.get("avg", "-"), "obp": bat.get("obp", "-"),
+                              "slg": bat.get("slg", "-"), "ops": bat.get("ops", "-"),
+                              "hr": bat.get("hr", "-"), "rbi": bat.get("rbi", "-")})
+            if pit:
+                stats.update({"era": pit.get("era", "-"), "whip": pit.get("whip", "-"),
+                              "w": pit.get("w", "-"), "l": pit.get("l", "-"),
+                              "so": pit.get("so", "-"), "ip": pit.get("ip", "-")})
+            pos_type = "Pitcher" if (pit and not bat) else ("Two-Way Player" if (pit and bat) else "")
+            roster.append({"person": {"id": r["id"], "fullName": r["name"]},
+                           "position": {"abbreviation": r.get("pos", ""), "type": pos_type},
+                           "status": {"code": status_map.get(r.get("status", ""), "RM")},
+                           "jerseyNumber": "", "note": "", "_preset_stats": stats})
+    else:
+        roster_data = fetch_json(MLB_API_ROSTER)
+        roster = roster_data.get("roster", [])
 
     players = []
     for entry in roster:
@@ -174,7 +218,11 @@ def build_dashboard():
             headshot_file = download_headshot(pid, player_dir)
 
         summary = extract_report_summary(html_report) if report_exists else {}
-        stats = fetch_player_stats(pid) if report_exists else {}
+        if entry.get("_preset_stats") is not None:
+            stats = entry["_preset_stats"]
+        else:
+            stats = fetch_player_stats(pid) if report_exists else {}
+        print(f"  [{len(players) + 1}] {name} report={report_exists}", flush=True)
 
         # Determine role group
         role = pos

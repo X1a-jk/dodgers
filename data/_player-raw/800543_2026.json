@@ -1,0 +1,54 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "people": [
+    {
+      "id": 800543,
+      "fullName": "Josue De Paula",
+      "link": "/api/v1/people/800543",
+      "firstName": "Josue",
+      "lastName": "De Paula",
+      "primaryNumber": "95",
+      "birthDate": "2005-05-24",
+      "currentAge": 21,
+      "birthCity": "Brooklyn",
+      "birthStateProvince": "NY",
+      "birthCountry": "USA",
+      "height": "6' 3\"",
+      "weight": 185,
+      "active": true,
+      "primaryPosition": {
+        "code": "10",
+        "name": "Designated Hitter",
+        "type": "Hitter",
+        "abbreviation": "DH"
+      },
+      "useName": "Josue",
+      "useLastName": "De Paula",
+      "boxscoreName": "De Paula, J",
+      "gender": "M",
+      "nameMatrilineal": "Sanders",
+      "isPlayer": true,
+      "isVerified": true,
+      "pronunciation": "ho-SWAY deh-POW-lah",
+      "mlbDebutDate": "2026-09-11",
+      "batSide": {
+        "code": "L",
+        "description": "Left"
+      },
+      "pitchHand": {
+        "code": "L",
+        "description": "Left"
+      },
+      "nameFirstLast": "Josue De Paula",
+      "nameSlug": "josue-de-paula-800543",
+      "firstLastName": "Josue De Paula",
+      "lastFirstName": "De Paula, Josue",
+      "lastInitName": "De Paula, J",
+      "initLastName": "J De Paula",
+      "fullFMLName": "Josue De Paula",
+      "fullLFMName": "De Paula, Josue",
+      "strikeZoneTop": 3.35,
+      "strikeZoneBottom": 1.69
+    }
+  ]
+}

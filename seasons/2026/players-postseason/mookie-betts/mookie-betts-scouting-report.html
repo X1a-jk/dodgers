@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Mookie Betts 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Mookie Betts</h1>
+ <p class="subtitle">Los Angeles Dodgers #50 | 游击手 / 外野 | 右打 | 全能战士</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="betts_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1992-10-07</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">33岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国田纳西州纳什维尔</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5'9" / 180 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右打 / 右投</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2014-06-29 (红袜队)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#50</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Mookie</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Mookie Betts 是当今大联盟<span class="mvp">最全面的球员之一，2018年美联MVP得主</span>，以精英级打击、顶级守备与超高棒球智商著称。</p>
+ <p style="margin-bottom: 15px;">2026年他出赛123场，缴出.257/.326/.454、OPS .780，23轰69打点。长打率从2025年的.406回升至.454，全垒打数创2023年以来新高，证明转型游击手后的打力并未流失。他整季仅58次三振（三振率11.0%），是道奇主力打者中 contact 能力最稳定的。</p>
+ <p>33岁的 Betts 已不再是那个30-30的跑垒威胁（本季仅2盗），但他用选球、守备位置价值与领导能力继续统治比赛。他是道奇内野的定海神针，也是年轻球员的职业标杆。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🏆 2018年 - 美联MVP + 世界大赛冠军（波士顿红袜）</h4>
+ <p>.346/.438/.640、32轰30盗的史诗赛季，MVP票选压倒性胜出，同年夺世界大赛冠军。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💍 2020年 - 转战道奇即夺冠</h4>
+ <p>季中被交易至洛杉矶道奇，当季即随队夺得世界大赛冠军，开启道奇王朝时代。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2023年 - 国联MVP票选前列（.307/.408/.579、39轰）</h4>
+ <p>生涯最佳攻击赛季之一，39轰创下当时个人纪录，确立道奇头牌地位。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💍 2024-2025年 - 道奇连霸世界大赛</h4>
+ <p>作为核心成员连续两年夺冠，2024年起正式转任游击手。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">123</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.257</span>
+ <div class="stat-label">打击率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.326</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.454</span>
+ <div class="stat-label">长打率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.780</span>
+ <div class="stat-label">OPS</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">23</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">69</span>
+ <div class="stat-label">打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">2</span>
+ <div class="stat-label">盗垒</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="betts_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>150</td>
+ <td>.258</td>
+ <td>.326</td>
+ <td>.406</td>
+ <td>.732</td>
+ <td>20</td>
+ <td>82</td>
+ <td>61</td>
+ <td>68</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>123</td>
+ <td>.257</td>
+ <td>.326</td>
+ <td>.454</td>
+ <td>.780</td>
+ <td>23</td>
+ <td>69</td>
+ <td>47</td>
+ <td>58</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">2026 出赛数因伤势与轮休减少27场，但 SLG/OPS 双双回升，单位产出效率反而提升——打点率（RBI/打席）从.131微降至.130，但长打产出显著回温。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">打击机制</h3>
+ <p>Betts 的挥棒紧凑、出手快，擅长把球推到右外野间隙。2026年他的击球仰角与拉打比例明显回升，长打率从.406弹升至.454，23轰是2023年以来最多。他的力量不是靠体格，而是靠 timing 与核心爆发力。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">选球与 contact</h3>
+ <p>整季仅58次三振（三振率11.0%），是道奇主力阵容中最低；47次保送对58次三振，BB/SO 比0.81相当健康。OBP-AVG差距.069，说明上垒贡献稳定。唯一的瑕疵是14次双杀打偏高，与滚地球比例上升有关。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">守备能力</h3>
+ <p>2024年转任游击手后，守备稳定性逐年进步。他的步法与传球的准确性在内野手中属于中上，超强棒球智商让他总能预判击球员与跑者的下一步。速度虽从巅峰期下滑，但守备范围仍高于联盟平均。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季回顾</h3>
+ <p>123场出赛是近五年最低，主要因伤势与球队保护性轮休。但他把每一场的效率都拉满：.780 OPS、23轰、69打点，打点率（每打席.131）优于2025年。这是典型的"减量保质"赛季——Betts 正在从铁人型球星转型为高精度老将核心。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>三振率11.0%全队主力最低，contact 能力顶级</li>
+ <li>长打回升：23轰创2023年以来新高</li>
+ <li>棒球智商顶级，守备站位与预判一流</li>
+ <li>游击/外野双位置守备弹性</li>
+ <li>更衣室领袖，年轻球员导师</li>
+ <li>大场面经验丰富（4枚冠军戒指）</li>
+ <li>选球稳定，BB/SO 比健康</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>出赛123场创近年新低，耐久度下降</li>
+ <li>盗垒几乎归零（2盗3CS），速度工具明显退化</li>
+ <li>14次双杀打偏高，滚地球处理与跑速有关</li>
+ <li>守备范围较巅峰期缩水，深游击球处理能力下降</li>
+ <li>33岁，恢复速度逐年变慢</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="betts_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Arm</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Leadership</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">58</div>
+ <p style="color: #90a4ae; margin-top: 10px;">减量保质的全能核心，contact 与智商仍属联盟顶级</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B+ 级 / 明星级内野手</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2026 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2026 季后赛战绩：NLDS 3-1 晋级、NLCS 0-4 止步。</p>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>8</td><td>35</td><td>.207</td><td>.343</td><td>.207</td><td class="highlight">.550</td><td>0</td><td>0</td><td>6</td><td>4</td>
+ </tr>
+ </tbody>
+ </table>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>8场缴出.207/.343/.207，OPS .550——6支安打全部是 singles，长打率与打击率完全相同，重炮属性完全消失</li>
+ <li>6保送仅4三振，选球与 contact 在季后赛维持水准，上垒率全队前列，但上垒后缺乏推进能力</li>
+ <li>0轰0打点，作为打线核心未能在 NLCS 提供任何长打支援，与常规赛23轰69打点的产出严重脱节</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Mookie Betts 将在2027赛季年满34岁。他的 contract 与地位决定了道奇仍会以他为内野核心，但角色将逐渐从"全能球星"转向"高精度老将"。健康管理会是未来两季的关键词——2026年123场的出赛数说明球队已经开始有意识地保护他。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>123场、.257/.326/.454、23轰69打点——减量保质，SLG 回升</p>
+ <p><strong>2027：</strong>目标维持OPS .750+，出赛数可能进一步压缩至110-115场</p>
+ <p><strong>2028+：</strong>守备位置可能回移外野或二垒，以延长生涯巅峰尾巴</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>耐久度下滑：近年出赛数逐年递减</li>
+ <li>速度退化影响守备范围与跑垒价值</li>
+ <li>季后赛长打失踪（8场0轰）引发打线核心质疑</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Mookie Betts 出生于田纳西州纳什维尔，高中时期就是篮球与棒球双栖明星。2011年，他在选秀第五轮被波士顿红袜选中，2014年登上大联盟，并迅速成长为联盟最全能的球员。</p>
+ <p>在波士顿，他赢下了2018年美联MVP与世界大赛冠军。2020年，他被交易至洛杉矶道奇，当赛季就帮助球队夺得世界大赛冠军，并在2024、2025年随队完成二连霸。</p>
+ <p>2024年起，Betts 正式从外野转任游击手——这一在33岁高龄仍愿意接受新挑战的决定，展现了他对比赛的热爱与 versatility。他同时以职业态度著称，是联盟中最受尊敬的球员之一。场外的 Betts 热爱保龄球，曾多次参加职业保龄球赛事。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-24 | 数据截止日期：2026-10-24（常规赛+季后赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

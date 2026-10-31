@@ -1,0 +1,63 @@
+{
+  "player_name": "Blake Treinen",
+  "player_slug": "blake-treinen",
+  "output_dir": "D:\\baseball\\report\\blake-treinen",
+  "prefix": "treinen",
+  "info": {
+    "number": "49",
+    "position": "RHP / Setup Man"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "3.52"],
+      ["W-L", "4-1"],
+      ["K", "25"],
+      ["IP", "23.0"],
+      ["WHIP", "1.35"],
+      ["AGE", "38"]
+    ]
+  },
+  "pitch_velocities": {
+    "Sinker": {"min": 90, "max": 95},
+    "Slider": {"min": 82, "max": 86},
+    "Four-Seam": {"min": 92, "max": 95},
+    "Changeup": {"min": 84, "max": 87}
+  },
+  "game_trends": [
+    {"label": "05/12\n@COL", "era": 0.0, "ip": 1.0, "k": 1, "bb": 0},
+    {"label": "05/15\n@ARI", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "05/20\nvsSDP", "era": 0.0, "ip": 1.0, "k": 1, "bb": 1},
+    {"label": "06/02\n@NYM", "era": 27.0, "ip": 0.2, "k": 0, "bb": 0},
+    {"label": "06/14\n@SFG", "era": 0.0, "ip": 1.0, "k": 1, "bb": 0}
+  ],
+  "overall_grades": {
+    "Sinker": 60,
+    "Slider": 55,
+    "Fastball": 45,
+    "Changeup": 40,
+    "Control": 55,
+    "Command": 60,
+    "Mental": 70,
+    "Durability": 40,
+    "GB Induce": 65
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 3.52, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.35, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 9.78, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 3.91, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.78, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 0.79, "low": 0.5, "high": 1.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 2.07, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.03, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 8.43, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 2.41, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.86, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 0.90, "low": 0.5, "high": 1.5, "invert": false}
+    }
+  }
+}

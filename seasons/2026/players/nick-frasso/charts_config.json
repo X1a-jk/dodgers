@@ -1,0 +1,56 @@
+{
+  "player_name": "Nick Frasso",
+  "player_slug": "nick-frasso",
+  "output_dir": "D:\\baseball\\report\\nick-frasso",
+  "prefix": "frasso",
+  "info": {
+    "number": "58",
+    "position": "RHP / Starting Prospect"
+  },
+  "cover": {
+    "stats": [
+      ["FB Velo", "95-99"],
+      ["Role", "SP Prospect"],
+      ["Age", "27"],
+      ["Status", "AAA"],
+      ["TJ Recovery", "2026"],
+      ["MLB Debut", "TBD"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 95, "max": 99},
+    "Slider": {"min": 84, "max": 88},
+    "Changeup": {"min": 85, "max": 88},
+    "Cutter": {"min": 90, "max": 93}
+  },
+  "overall_grades": {
+    "Fastball": 65,
+    "Slider": 60,
+    "Changeup": 55,
+    "Cutter": 50,
+    "Control": 45,
+    "Command": 50,
+    "Mental": 50,
+    "Durability": 40,
+    "Strikeout": 60
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 4.50, "low": 2.0, "high": 7.0, "invert": true},
+      "WHIP": {"value": 1.35, "low": 0.9, "high": 1.8, "invert": true},
+      "K/9": {"value": 9.8, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 3.8, "low": 1.5, "high": 6.0, "invert": true},
+      "HR/9": {"value": 1.0, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 4.5, "low": 2.0, "high": 6.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 3.80, "low": 2.0, "high": 7.0, "invert": true},
+      "WHIP": {"value": 1.25, "low": 0.9, "high": 1.8, "invert": true},
+      "K/9": {"value": 10.5, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.2, "low": 1.5, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.9, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 5.0, "low": 2.0, "high": 6.5, "invert": false}
+    }
+  }
+}

@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Emmet Sheehan 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%); border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7; }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Emmet Sheehan</h1>
+ <p class="subtitle">Los Angeles Dodgers #80 | 先发投手 | 右投 / 左打 | 大场面投手</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="emmet-sheehan_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">George Emmet Sheehan</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1999-11-15</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国纽约州纽约市</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'6" / 240 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2023-06-16 (道奇队)</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2021年 第6轮 (道奇)</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Emmet Sheehan 是<span class="highlight">2023 年首秀 6 局无安打震惊联盟的大场面投手，2025 年世界大赛 18 局大战的无名英雄</span>。2026 年他吃下 112.1 局、送出 132 次三振，成为道奇轮值里被低估的硬底子投手。</p>
+ <p style="margin-bottom: 15px;">5胜8败、4.57 ERA 的成绩单看似平庸，但拆开看：K/BB 比 4.00 与 1.18 WHIP 都是轮值顶级水准，唯一的灾难来自 21 支被全垒打（1.68 HR/9）。他的速球三振能力从未消失，只是太常被轰。</p>
+ <p>26岁的 Sheehan 正处于"从潜力股到实力派"的转型期。2027 年他的目标是把 HR/9 压回 1.0 以下——只要做到，他就是道奇轮值的第四号人物。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🚀 2023年6月16日 - 传奇首秀</h4>
+ <p>对旧金山巨人投出 6 局无安打仅 2 保送，随后创下生涯开局连续 8.0 局无安打纪录，震惊全联盟。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 世界大赛英雄</h4>
+ <p>伤愈复出后 73.1 局 2.82 ERA、0.97 WHIP；更在 2025 世界大赛 18 局大战中挺身而出，成为道奇夺冠的无名英雄之一。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔥 2026年 - 首个完整轮值赛季</h4>
+ <p>112.1 局、132 次三振、K/BB 4.00，首次单季承担完整轮值工作量。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">23</span>
+ <div class="stat-label">出赛（22先发）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5-8</span>
+ <div class="stat-label">胜败</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.57</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">1.18</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">112.1</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">132</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">4.00</span>
+ <div class="stat-label">K/BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">21</span>
+ <div class="stat-label">被全垒打</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="emmet-sheehan_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>SO</th><th>BB</th><th>WHIP</th><th>HR</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>12</td>
+ <td>6-3</td>
+ <td>2.82</td>
+ <td>73.1</td>
+ <td>89</td>
+ <td>22</td>
+ <td>0.97</td>
+ <td>7</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>22</td>
+ <td>5-8</td>
+ <td>4.57</td>
+ <td>112.1</td>
+ <td>132</td>
+ <td>33</td>
+ <td>1.18</td>
+ <td>21</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">工作量从 73.1 暴增至 112.1 局，三振率保持 10+，但 HR/9 从 0.86 飙升至 1.68——这是 ERA 暴涨的全部原因。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+
+ <div class="pitch-card">
+ <h3>🔥 四缝线速球 (Four-Seam Fastball)</h3>
+ <p><strong>球速：</strong>95-97 mph</p>
+ <p><strong>评分：A</strong></p>
+ <p>6'6" 巨躯投出的速球带有极佳的 ride，能在好球带上缘制造大量挥空。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>🌪️ 滑球/切球 (Slider/Cutter)</h3>
+ <p><strong>球速：</strong>87-90 mph</p>
+ <p><strong>评分：B+</strong></p>
+ <p>他的主要变化球，位移锐利，与速球形成速度与轨迹的双重差异。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>💫 变速球 (Changeup)</h3>
+ <p><strong>球速：</strong>86-89 mph</p>
+ <p><strong>评分：B</strong></p>
+ <p>对付左打者的配球，品质仍在打磨。</p>
+ </div>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">21 轰之谜</h3>
+ <p>1.68 HR/9 是道奇轮值最差，但 1.18 WHIP 却显示他并不常被上垒——这意味着他的失分几乎全部来自"零星的致命长打"。分析显示他的速球在 deep count 时容易被锁定，而 2026 年他被要求投更多局（workload 暴增 53%），疲劳期的失投球比例上升。这是可以修正的问题，而非天赋的退化。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">被低估的稳定性</h3>
+ <p>K/BB 4.00 在道奇轮值中仅次于山本，2.64 BB/9 的控球同样是顶级。他的每局用球数（17.39）偏高，但这更多是三振型投手的特征而非效率低下。5-8 的战绩掩盖了他多次"优质先发却败投"的遗憾。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季回顾</h3>
+ <p>这是 Sheehan 职业生涯的第一个完整轮值赛季。从"玻璃人"（2024 整季报销）到"铁人"（112.1 局），他完成了职业生涯最重要的身份转换。21 轰是学费，132 次三振是答卷。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>132 次三振、10.58 K/9 顶级三振火力</li>
+ <li>K/BB 4.00 全队第二（仅次山本）</li>
+ <li>112.1 局首个完整赛季，耐久度验证</li>
+ <li>1.18 WHIP 显示 base runner 控制优秀</li>
+ <li>大场面经验（2025 世界大赛英雄）</li>
+ <li>26岁，仍处上升期</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>1.68 HR/9 全队最差，被轰率失控</li>
+ <li>8 场败投，胜投转化率低</li>
+ <li>2024 前臂伤病史，耐久长期存疑</li>
+ <li>速球 deep count 易被锁定</li>
+ <li>缺乏第三球种的深度</li>
+ <li>疲劳期表现下滑明显</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="emmet-sheehan_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Stuff</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">Clutch</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">62</div>
+ <p style="color: #90a4ae; margin-top: 10px;">三振与控球兼备，只差压制被轰率的轮值中坚</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B+ 级 / 轮值第四号</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Emmet Sheehan 的2027赛季目标是降低 HR/9、把 ERA 压回 3.80 以下，坐稳轮值第四号。道奇轮值人才济济，但他的三振能力与大赛气质是独特的竞争优势。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>首个完整赛季 112.1 局、132K、5-8、4.57 ERA</p>
+ <p><strong>2027：</strong>目标 150+ 局、HR/9 ≤1.0、ERA ≤3.80</p>
+ <p><strong>2028+：</strong>若被轰率改善，可竞争轮值第三号或高薪中继</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>2024 前臂伤病可能复发</li>
+ <li>HR/9 若不改善，高 WHIP-free ERA 将持续</li>
+ <li>道奇轮值竞争白热化，位置压力</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>George Emmet Sheehan 出生于纽约市，成长于一个运动家庭——他的母亲 Maureen 曾在 Georgetown 大学打排球。高中毕业后，他进入 Boston College 效力三年，逐渐展现出顶级投手潜质。</p>
+ <p>2021 年 MLB 选秀，道奇在第 6 轮（总第 192 顺位）选中了他。进入职业体系后，他在 2A Tulsa 和 3A Oklahoma City 快速爬升，2023 年在小联盟缴出 2.43 ERA、102 K 的压制级数据。2023 年 6 月 16 日，他完成大联盟首秀——面对旧金山巨人投出 6 局无安打、仅 2 次保送，震惊联盟，更创下生涯开局连续 8.0 局无安打的纪录。</p>
+ <p>2024 年因右前臂炎症整季报销，但 2025 年伤愈复出后不仅用 73.1 局 2.82 ERA 证明实力，更在 2025 世界大赛的 18 局大战中挺身而出，成为道奇夺冠的无名英雄之一。场外的 Sheehan 以低调、专注著称，深受道奇投手教练团信任。他的母亲 Maureen 的排球背景，让他从小就理解"高个子运动员如何运用身体"——这是他 6'6" 身躯仍能维持丝滑投球动作的秘密。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-24 | 数据截止日期：2026-10-24（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

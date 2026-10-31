@@ -1,0 +1,277 @@
+{
+  "generatedAt": "2026-10-29T00:04:00.148359",
+  "season": 2026,
+  "team": {
+    "id": 119,
+    "name": "Los Angeles Dodgers",
+    "abbreviation": "LAD"
+  },
+  "calendar": {
+    "year": 2026,
+    "month": 10,
+    "games": [
+      {
+        "date": "2026-10-11",
+        "day": 11,
+        "opponent": "MIL",
+        "opponentName": "Milwaukee Brewers",
+        "isHome": false,
+        "result": "L",
+        "status": "Final",
+        "score": {
+          "dodgers": 1,
+          "opponent": 2
+        }
+      },
+      {
+        "date": "2026-10-12",
+        "day": 12,
+        "opponent": "MIL",
+        "opponentName": "Milwaukee Brewers",
+        "isHome": false,
+        "result": "L",
+        "status": "Final",
+        "score": {
+          "dodgers": 4,
+          "opponent": 7
+        }
+      },
+      {
+        "date": "2026-10-14",
+        "day": 14,
+        "opponent": "MIL",
+        "opponentName": "Milwaukee Brewers",
+        "isHome": true,
+        "result": "L",
+        "status": "Final",
+        "score": {
+          "dodgers": 2,
+          "opponent": 6
+        }
+      },
+      {
+        "date": "2026-10-15",
+        "day": 15,
+        "opponent": "MIL",
+        "opponentName": "Milwaukee Brewers",
+        "isHome": true,
+        "result": "L",
+        "status": "Final",
+        "score": {
+          "dodgers": 4,
+          "opponent": 6
+        }
+      }
+    ]
+  },
+  "nextGame": null,
+  "lastGame": {
+    "gamePk": 849810,
+    "date": "2026-10-15",
+    "utcTime": "2026-10-16T00:00:00Z",
+    "beijingTime": "2026-10-16 08:00",
+    "status": "Final",
+    "detailedStatus": "Final",
+    "isHome": true,
+    "opponent": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "abbreviation": "MIL"
+    },
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "score": {
+      "dodgers": 4,
+      "opponent": 6
+    },
+    "result": "L",
+    "probablePitcher": "Tyler Glasnow",
+    "opponentProbablePitcher": "Shane Drohan",
+    "linescore": "Final   1 2 3 4 5 6 7 8 9  R   H   E  \nBrewers 0 0 0 2 2 1 0 0 1  6   5   1  \nDodgers 0 4 0 0 0 0 0 0 0  4   8   0  ",
+    "keyMoments": [
+      {
+        "inning": "2局下",
+        "team": "dodgers",
+        "text": "Andy Pages 安打打回1分",
+        "score": "1-0"
+      },
+      {
+        "inning": "2局下",
+        "team": "dodgers",
+        "text": "Shohei Ohtani 三分炮",
+        "score": "4-0"
+      },
+      {
+        "inning": "4局上",
+        "team": "opponent",
+        "text": "Jake Bauers hits a ground-rule double打回2分",
+        "score": "4-2"
+      },
+      {
+        "inning": "5局上",
+        "team": "opponent",
+        "text": "David Hamilton 安打打回1分",
+        "score": "4-3"
+      },
+      {
+        "inning": "5局上",
+        "team": "opponent",
+        "text": "Jake Bauers 保送打回1分",
+        "score": "4-4"
+      },
+      {
+        "inning": "6局上",
+        "team": "opponent",
+        "text": "Garrett Mitchell 阳春炮",
+        "score": "4-5"
+      },
+      {
+        "inning": "9局上",
+        "team": "opponent",
+        "text": "David Hamilton 阳春炮",
+        "score": "4-6"
+      }
+    ]
+  },
+  "series": {
+    "opponent": "Milwaukee Brewers",
+    "opponentAbbreviation": "MIL",
+    "totalGames": 4,
+    "gamesPlayed": 4,
+    "wins": 0,
+    "losses": 4,
+    "nextGameDate": null,
+    "nextGameBeijingTime": null,
+    "games": [
+      {
+        "date": "2026-10-11",
+        "status": "Final",
+        "result": "L",
+        "score": {
+          "dodgers": 1,
+          "opponent": 2
+        },
+        "isHome": false
+      },
+      {
+        "date": "2026-10-12",
+        "status": "Final",
+        "result": "L",
+        "score": {
+          "dodgers": 4,
+          "opponent": 7
+        },
+        "isHome": false
+      },
+      {
+        "date": "2026-10-14",
+        "status": "Final",
+        "result": "L",
+        "score": {
+          "dodgers": 2,
+          "opponent": 6
+        },
+        "isHome": true
+      },
+      {
+        "date": "2026-10-15",
+        "status": "Final",
+        "result": "L",
+        "score": {
+          "dodgers": 4,
+          "opponent": 6
+        },
+        "isHome": true
+      }
+    ]
+  },
+  "recentAndUpcoming": [
+    {
+      "gamePk": 849809,
+      "date": "2026-10-11",
+      "utcTime": "2026-10-12T00:00:00Z",
+      "beijingTime": "2026-10-12 08:00",
+      "status": "Final",
+      "detailedStatus": "Final",
+      "isHome": false,
+      "opponent": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "abbreviation": "MIL"
+      },
+      "venue": "American Family Field",
+      "score": {
+        "dodgers": 1,
+        "opponent": 2
+      },
+      "result": "L",
+      "probablePitcher": "Tarik Skubal",
+      "opponentProbablePitcher": "Jacob Misiorowski"
+    },
+    {
+      "gamePk": 849812,
+      "date": "2026-10-12",
+      "utcTime": "2026-10-12T21:00:00Z",
+      "beijingTime": "2026-10-13 05:00",
+      "status": "Final",
+      "detailedStatus": "Final",
+      "isHome": false,
+      "opponent": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "abbreviation": "MIL"
+      },
+      "venue": "American Family Field",
+      "score": {
+        "dodgers": 4,
+        "opponent": 7
+      },
+      "result": "L",
+      "probablePitcher": "Yoshinobu Yamamoto",
+      "opponentProbablePitcher": "Logan Henderson"
+    },
+    {
+      "gamePk": 849811,
+      "date": "2026-10-14",
+      "utcTime": "2026-10-15T00:00:00Z",
+      "beijingTime": "2026-10-15 08:00",
+      "status": "Final",
+      "detailedStatus": "Final",
+      "isHome": true,
+      "opponent": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "abbreviation": "MIL"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "score": {
+        "dodgers": 2,
+        "opponent": 6
+      },
+      "result": "L",
+      "probablePitcher": "Blake Snell",
+      "opponentProbablePitcher": "Robert Gasser"
+    },
+    {
+      "gamePk": 849810,
+      "date": "2026-10-15",
+      "utcTime": "2026-10-16T00:00:00Z",
+      "beijingTime": "2026-10-16 08:00",
+      "status": "Final",
+      "detailedStatus": "Final",
+      "isHome": true,
+      "opponent": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "abbreviation": "MIL"
+      },
+      "venue": "UNIQLO Field at Dodger Stadium",
+      "score": {
+        "dodgers": 4,
+        "opponent": 6
+      },
+      "result": "L",
+      "probablePitcher": "Tyler Glasnow",
+      "opponentProbablePitcher": "Shane Drohan"
+    }
+  ]
+}

@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Chayce McDermott 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Chayce McDermott</h1>
+ <p class="subtitle">Los Angeles Dodgers #62 | 右投先发 / 长中继 (RHP) | Minors</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="chayce-mcdermott_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Chayce McDermott</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1998-08-22</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">27岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国加利福尼亚州 (California, USA)</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 190 lbs</div></div>
+ <div class="info-item"><div class="label">击球/投球</div><div class="value">左打 / 右投</div></div>
+ <div class="info-item"><div class="label">位置</div><div class="value">右投先发 / 长中继 (RHP)</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024-07-24</div></div>
+ <div class="info-item"><div class="label">大学</div><div class="value">Sam Houston State University</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Chayce</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#62</div></div>
+ <div class="info-item"><div class="label">状态</div><div class="value">Minors</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Chayce McDermott 是一名右投 swingman，2024 年 7 月 24 日于巴尔的摩金莺完成大联盟首秀。2025 年在金莺短暂登板表现挣扎（8.2 局 ERA 15.58），2026 年转战洛杉矶道奇体系，在大联盟出赛 2 场后长住 3A Oklahoma City，季后已不在 40 人名单。</p>
+ <p style="margin-bottom: 15px;">McDermott 的球风属于控球型右投，配球以快速球搭配多种变化球为主。他的身材条件不算突出，但具备吃下局数的能力与比赛智慧。在金莺的小样本（8.2 局 ERA 15.58）不能代表真实实力，反而显示他在适应大联盟节奏时遇到挑战。</p>
+ <p>加盟道奇后，McDermott 的首要任务是在 AAA 找回控球节奏，争取成为道奇轮值深度或长中继选项。他的 下限 是一名可以上下大联盟的 sixth starter / swingman。</p>
+ 
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight"><h4>🎓 Sam Houston State 王牌</h4><p>McDermott 在大学时期是 Sam Houston State 的主力投手，展现出优秀的控球与比赛节奏，为进入职业棒球打下坚实基础。</p></div>
+ <div class="career-highlight"><h4>⚾ 2021年选秀 - 金莺选中</h4><p>McDermott 在 2021 年选秀中被巴尔的摩金莺选中。他在金莺农场体系中逐步攀升，以稳定先发与长局数能力著称。</p></div>
+ <div class="career-highlight"><h4>🌟 2024年 - 大联盟首秀</h4><p>2024 年 7 月 24 日，McDermott 登上大联盟完成首秀。虽然机会有限，但他终于踏上最高舞台，积累了宝贵经验。</p></div>
+ <div class="career-highlight"><h4>🔵 2026年 - 加盟道奇</h4><p>McDermott 加入道奇组织，为球队提供轮值深度。在道奇教练团体系下，他有机会重塑自己的配球策略与球路组合。</p></div>
+<div class="career-highlight"><h4>📋 2026年 - 大联盟 2 场后长住 3A</h4><p>2026 年 4 月登上大联盟后援 2 场（2.1 局、7.71 ERA、1 支被轰），此后在 Oklahoma City 度过剩余赛季，季后不在 40 人名单。</p></div>
+ 
+ </div>
+
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">胜</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">败</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">7.71</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2.1</span>
+ <div class="stat-label">IP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">K</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">BB</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.29</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.86</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0.00</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">被全垒打</div>
+ </div>
+ </div>
+ </div>
+
+
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="chayce-mcdermott_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">📈 上图为近三年核心数据趋势。柱状图高度代表该年度表现，便于快速比较球员状态的上升或下滑。</p>
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>K</th><th>BB</th><th>WHIP</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>4</td>
+ <td>1</td>
+ <td>0-1</td>
+ <td>15.58</td>
+ <td>8.2</td>
+ <td>9</td>
+ <td>12</td>
+ <td>2.77</td>
+ <td>9.35</td>
+ </tr> <tr>
+ <td class="warning">2026</td>
+ <td>2</td>
+ <td>0</td>
+ <td>0-0</td>
+ <td>7.71</td>
+ <td>2.1</td>
+ <td>1</td>
+ <td>0</td>
+ <td>1.29</td>
+ <td>3.86</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="chayce-mcdermott_pitch_velocities.png" alt="投球武器库速度" style="width: 100%; max-width: 900px; border-radius: 10px;">
+            <p style="text-align: center; color: #90a4ae; font-size: 0.95em; margin-top: 10px;">⚾ 上图为各球种球速区间（蓝=最低球速，橙=最高球速，红线=平均值）。球速差与位移差越大，打者越难锁定单一球路。</p>
+ </div>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝快速球 (Four-Seam Fastball)</h3>
+ <p><span class="velocity">91-94 mph</span></p>
+ <p>McDermott 的速球球速不突出，主要依靠控球与角度来压制打者。他需要精准地把球投到好球带边缘，避免被强打者坐待中心球。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>曲球 (Curveball)</h3>
+ <p><span class="velocity">76-79 mph</span></p>
+ <p>他的主要变化球之一，具备不错的大弧度下坠。在两好球后用来诱导追打，但需要更稳定的落点控制。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider)</h3>
+ <p><span class="velocity">83-86 mph</span></p>
+ <p>对付右打者的重要武器，横向位移可制造 软弱击球。2025 年小样本中控球不稳，导致这颗球未能发挥应有效果。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup)</h3>
+ <p><span class="velocity">84-87 mph</span></p>
+ <p>对付左打者的关键变化球。若能改善速度差与放球点一致性，将显著提升他面对左打时的生存能力。</p>
+ </div>
+ </div>
+ </div>
+
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">控球危机是首要问题</h3>
+ <p>2025 年在金莺的 8.2 局中送出 12 次保送，BB/9 高达 12.46，这是他表现崩盘的主因。无论球路品质如何，无法把球投进好球带都会让自己陷入被动。加盟道奇后，重建控球信心是当务之急。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">小样本警示</h3>
+ <p>2025 年 8.2 局与 2026 年 2.1 局的样本都极小，不能据此判定 McDermott 的真实实力。他在小联盟可能有更稳定的数据，只是在大联盟舞台上尚未找到节奏。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">球路组合具备轮换深度价值</h3>
+ <p>McDermott 拥有四缝线、曲球、滑球与变速球四种球路，理论上足以担任后端先发或长中继。问题不在球种数量，而在执行稳定性。道奇的投教团队擅长改造这类控球型投手。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">角色定位</h3>
+ <p>他的最佳角色可能是 swingman：在先发轮值需要深度时顶上，或在牛棚需要 long relief 时吃下 2-3 局。这种角色对控球和体能都有要求，正是 McDermott 需要证明的地方。</p>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>具备先发与长中继的 swingman 身材条件</li>
+ <li>大学时期有良好控球基础</li>
+ <li>四种球路组合增加配球变化</li>
+ <li>2025 年 K/9 9.35 显示三振潜力</li>
+ <li>有过大联盟首秀经验，适应过最高舞台</li>
+ <li>道奇体系擅长改造控球型投手</li>
+ <li>右投身份在轮值深度中具价值</li>
+ <li>能吃局数的潜质</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>2025 年 BB/9 12.46，控球严重失控</li>
+ <li>2025 年 WHIP 2.77，被上垒率极高</li>
+ <li>2025 年 8.2 局被轰 3 支全垒打</li>
+ <li>快速球球速不突出，压制力有限</li>
+ <li>2026 年小联盟/大联盟样本仍极小</li>
+ <li>面对精英打者时配球执行不稳</li>
+ <li>尚未证明自己能在道奇体系中稳定贡献</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="chayce-mcdermott_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Curveball</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">控球</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">控球精准度</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Stamina</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Mental</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">48</div>
+ <p style="color: #90a4ae; margin-top: 10px;">具备多种球路与吃局数能力，但控球在大联盟小样本中崩盘。能否在道奇体系下找回节奏，将决定他是否能在 MLB 站稳脚跟。</p>
+ <p style="margin-top: 15px;"><span class="grade grade-a" style="font-size: 1.2em;">C+ 级 / 轮值深度/长中继候选人</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>McDermott 的 2026 年已收官：大联盟 2 场（2.1 局、7.71 ERA）+ 3A Oklahoma City 的剩余赛季。2027 年他需要在小联盟合约中重新证明控球，任何回大联盟的路径都始于把 BB/9 压回可接受区间。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">发展建议</h3>
+ <ol style="margin-left: 20px; line-height: 2;">
+ <li><strong>重建控球：</strong>把 BB/9 压回 4.0 以下，恢复 首球好球 比例。</li>
+ <li><strong>简化配球：</strong>先以快速球+曲球为主轴，逐步加入滑球与变速球。</li>
+ <li><strong>提升心理韧性：</strong>2025 年崩盘的阴影需要透过稳定出赛来摆脱。</li>
+ <li><strong>定位 swingman：</strong>接受长中继/第六先发的角色，增加球队价值。</li>
+ </ol>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>4 月大联盟 2 场后援 → 长住 3A Oklahoma City → 季后不在 40 人名单</p>
+ <p><strong>2027：</strong>小联盟合约争取春训邀请，目标 AAA 100+ 局、ERA 4.50 以下</p>
+ <p><strong>2028+：</strong>若控球稳定，可成为 swingman 深度；否则逐渐淡出职业体系</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>控球若无法改善，容易被 指定让渡 或退回小联盟</li>
+ <li>球速不足导致面对强打阵容时压制力有限</li>
+ <li>伤病会压缩他在轮换中的机会窗口</li>
+ </ul>
+ </div>
+ 
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Chayce McDermott 出生于美国加州，大学时期是 Sam Houston State University 的当家投手。他在 2021 年选秀中被巴尔的摩金莺选中，在金莺农场体系中逐步成长为具有轮换深度的右投。</p>
+ <p>2024 年 7 月 24 日，McDermott 终于踏上大联盟舞台。然而后续机会有限，表现也未能延续小联盟的稳定性。2026 年他加入洛杉矶道奇，希望在这座以投教闻名的组织中重新证明自己。</p>
+ <p>场外，McDermott 以沉稳与善于学习著称。他积极接受教练团改造，专注于恢复大学时期的控球优势。对道奇而言，他是低风险、可能中回报的轮值深度投资。</p>
+ </div>
+ 
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-28 | 数据截止日期：2026-10-28（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

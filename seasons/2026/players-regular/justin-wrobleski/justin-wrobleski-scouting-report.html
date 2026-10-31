@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Justin Wrobleski 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%); border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7; }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Justin Wrobleski</h1>
+ <p class="subtitle">Los Angeles Dodgers #76 | 左投（先发/长中继） | 左投 / 左打 | 轮值铁人</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="justin-wrobleski_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">2000-07-14</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国德克萨斯州</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 190 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024 (道奇队)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#76</div></div>
+ <div class="info-item"><div class="label">角色</div><div class="value">Swingman</div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Justin Wrobleski 是2026年道奇轮值最大的惊喜，<span class="highlight">从替补长中继一跃成为 140 局的轮值铁人</span>。他以极低的保送率与扎实的四球种体系，稳稳吃下了球队因伤病空出的先发局数。</p>
+ <p style="margin-bottom: 15px;">2026年他28场出赛（22场先发），缴出12胜5败、3.66 ERA、1.14 WHIP，140局118次三振仅31次保送（1.99 BB/9）。胜场数 12 场仅次于山本，是球队二号胜投。</p>
+ <p>26岁的 Wrobleski 已经证明了自己不是"临时顶替"，而是货真价实的轮值成员。他的球速不惊人，但控球与球种搭配让他能一次次通过打线三轮。2027年他的目标是彻底锁定先发身份，并向 180 局迈进。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🚀 2024年 - 登上大联盟</h4>
+ <p>在道奇完成 MLB 首秀，之后于小联盟与大联盟之间来回，等待机会。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔥 2026年 - 轮值铁人年</h4>
+ <p>140局、12胜，从 swingman 转型全职先发，成为道奇轮值伤病潮中的定海神针。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">12-5</span>
+ <div class="stat-label">胜败</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.66</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.14</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">140.0</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">118</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">31</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">22</span>
+ <div class="stat-label">先发</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">21</span>
+ <div class="stat-label">被全垒打</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="justin-wrobleski_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>IP</th><th>SO</th><th>BB</th><th>WHIP</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>24</td>
+ <td>2</td>
+ <td>5-5</td>
+ <td>4.32</td>
+ <td>66.2</td>
+ <td>76</td>
+ <td>17</td>
+ <td>1.23</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>28</td>
+ <td>22</td>
+ <td>12-5</td>
+ <td>3.66</td>
+ <td>140.0</td>
+ <td>118</td>
+ <td>31</td>
+ <td>1.14</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">局数从66.2暴增至140.0，ERA 与 WHIP 双双下降——工作量翻倍、效率反升的罕见案例。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+
+ <div class="pitch-card">
+ <h3>🔥 四缝线速球 (Four-Seam Fastball)</h3>
+ <p><strong>球速：</strong>93-95 mph</p>
+ <p><strong>评分：B</strong></p>
+ <p>不追求速度而追求指令，能在好球带四边精准投放，是他低保送率的根基。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>🌪️ 滑球 (Slider)</h3>
+ <p><strong>球速：</strong>83-86 mph</p>
+ <p><strong>评分：B+</strong></p>
+ <p>对右打者的主要武器，位移晚且锐利，诱导挥空与滚地球。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>💫 变速球 (Changeup)</h3>
+ <p><strong>球速：</strong>84-86 mph</p>
+ <p><strong>评分：B</strong></p>
+ <p>对付左打者的配球，让打者无法专注速球与滑球的两球种猜谜。</p>
+ </div>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">控球大师</h3>
+ <p>1.99 BB/9 是道奇轮值最低之一，K/BB 比 3.81 仅次于山本。他几乎从不白白送打者上垒，这也是他能在被轰21支全垒打的情况下仍维持 3.66 ERA 的原因——大多数全垒打都是 solo shot。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">角色转型</h3>
+ <p>2025年他主要是长中继与偶尔先发，2026年在 Glasnow、Snell 等人轮流伤病的情况下，他 permanent 转入轮值并交出 22 场先发。他的 stamina 与 recovery 能力让教练团敢于让他连续先发。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季回顾</h3>
+ <p>12胜5败、140局，这是典型的"机会留给准备好的人"的故事。他的 ERA 在轮 rotation 中排第三（次于山本与 Glasnow），以第六人的身份交出二号胜投的成绩单，是道奇2026年最成功的内部挖潜。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>1.99 BB/9 全队轮值最低级别，控球精准</li>
+ <li>140局耐久度，22场先发工作量翻倍</li>
+ <li>四球种体系完整，打线难以锁定</li>
+ <li>12胜全队第二，机会把握能力极强</li>
+ <li>26岁，仍有上升空间</li>
+ <li>左投身份对左打阵容有天然优势</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>球速平庸（93-95），缺乏一槌定音的杀球</li>
+ <li>被轰21支全垒打，HR/9 1.35 偏高</li>
+ <li>7.59 K/9 三振率低于顶级先发水准</li>
+ <li>季后赛仅 2.1 局，大赛样本极小</li>
+ <li>左投但滑球为主，极端 platoon split 时会被针对</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="justin-wrobleski_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Stuff</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Stamina</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Mental</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Versatility</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">58</div>
+ <p style="color: #90a4ae; margin-top: 10px;">用控球与耐久度立足的轮值黑马</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B 级 / 轮值中流砥柱</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2026 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2026 季后赛战绩：NLDS 3-1 晋级、NLCS 0-4 止步。</p>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>G</th><th>IP</th><th>ERA</th><th>WHIP</th><th>SO</th><th>BB</th><th>H</th><th>HR</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>1</td><td>2.1</td><td class="highlight">3.86</td><td>1.29</td><td>4</td><td>0</td><td>3</td><td>0</td>
+ </tr>
+ </tbody>
+ </table>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>季后赛仅获得1场登板（NLDS 长中继），2.1局失1分、4三振0保送，表现符合水准</li>
+ <li>教练团在季后赛更信任经验丰富的山本、Glasnow 与 Snell，他的轮值位置在季后赛被压缩</li>
+ <li>0保送延续常规赛的控球本色，新赛季他需要用更多季后赛局数证明自己</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Justin Wrobleski 的2027赛季目标是彻底锁定先发轮值位置。山本、Glasnow、Sasaki、Snell 的竞争激烈，但他2026年的 140 局成绩单足以让教练团无法忽视。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>12-5、3.66 ERA、140IP——从 swingman 到轮值铁人的完美跳跃</p>
+ <p><strong>2027：</strong>目标 170+ 局、ERA 3.50 以下、首次 150K</p>
+ <p><strong>2028+：</strong>若控球持续进化，有望成为道奇轮值的长期三号或四号</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>球速平庸，面对顶级打线时容易被长打惩罚</li>
+ <li>局数暴增后的隔年疲劳效应（IP 140 后的恢复期）</li>
+ <li>道奇轮值人才济济，伤病回归者可能挤压他的位置</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Justin Wrobleski 出生于德克萨斯州，是道奇自家培养的左投——2021年被道奇选中后，他在小联盟系统稳步成长，2024年登上大联盟。他的职业生涯起步并不起眼，以长中继与"第六人"身份在 roster 边缘徘徊。</p>
+ <p>2026年是他的 breakout 之年。当道奇轮值接连遭遇伤病，他抓住机会，用一场又一场的质量先发把"临时顶替"变成了"永久职位"。他的故事是道奇投手开发体系的成功案例——不追求耀眼的球速，而是把控球与耐久度打磨到极致。</p>
+ <p>场外的 Wrobleski 以谦逊与勤奋著称。他的家乡德州背景与道奇的多元化更衣室相得益彰，队友们亲切地称他为"轮值铁人"。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-24 | 数据截止日期：2026-10-24（常规赛+季后赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

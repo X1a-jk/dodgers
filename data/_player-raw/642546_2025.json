@@ -1,0 +1,52 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "people": [
+    {
+      "id": 642546,
+      "fullName": "Jonathan Hernández",
+      "link": "/api/v1/people/642546",
+      "firstName": "Jonathan",
+      "lastName": "Hernández",
+      "primaryNumber": "26",
+      "birthDate": "1996-07-06",
+      "currentAge": 30,
+      "birthCity": "Memphis",
+      "birthStateProvince": "TN",
+      "birthCountry": "USA",
+      "height": "6' 3\"",
+      "weight": 190,
+      "active": true,
+      "primaryPosition": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "useName": "Jonathan",
+      "useLastName": "Hernández",
+      "boxscoreName": "Hernández, J",
+      "gender": "M",
+      "isPlayer": true,
+      "isVerified": true,
+      "mlbDebutDate": "2019-08-21",
+      "batSide": {
+        "code": "R",
+        "description": "Right"
+      },
+      "pitchHand": {
+        "code": "R",
+        "description": "Right"
+      },
+      "nameFirstLast": "Jonathan Hernández",
+      "nameSlug": "jonathan-hernandez-642546",
+      "firstLastName": "Jonathan Hernández",
+      "lastFirstName": "Hernández, Jonathan",
+      "lastInitName": "Hernández, J",
+      "initLastName": "J Hernández",
+      "fullFMLName": "Jonathan Hernández",
+      "fullLFMName": "Hernández, Jonathan",
+      "strikeZoneTop": 3.344,
+      "strikeZoneBottom": 1.688
+    }
+  ]
+}

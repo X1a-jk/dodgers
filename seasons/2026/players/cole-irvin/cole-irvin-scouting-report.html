@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Cole Irvin 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Cole Irvin</h1>
+ <p class="subtitle">Los Angeles Dodgers #38 | 左投 | 轮换深度型 veteran 左投</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="cole-irvin_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Cole Irvin</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-01-31（32岁）</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国加州安纳海姆</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6' 4" / 225 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2019-05-12（费城费城人）</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2016 年 第5轮（费城人）</div></div>
+ <div class="info-item"><div class="label">2026状态</div><div class="value">已离队（8/3 outright 至 3A）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+ <p style="margin-bottom: 15px;">Cole Irvin 是一名<span class="highlight">32 岁的 veteran 左投</span>，生涯 135 场（93 场先发）、28 胜 41 败、4.58 ERA、599 局 439 次三振。他的巅峰在 2021-2022 年的运动家：连续两年单季投满 178+ 局，2022 年更缴出 3.98 ERA、1.16 WHIP 的轮值主力成绩。</p>
+ <p style="margin-bottom: 15px;">2026 年 2 月他与道奇签下小联盟合约，在 3A Oklahoma City 等待了整整五个月，7 月 31 日终于获得一次大联盟机会——后援出赛 6.0 局，被击出 8 支安打（含 1 轰）、失 6 分，吞下败投，ERA 9.00。隔天他就被 DFA，8 月 3 日 outright 回 3A，此后再未回到大联盟。</p>
+ <p>Irvin 的武器库以 90-92 mph 快速球搭配变速球与滑曲球，靠控球与配球而非球速生存。这类"innings eater"型左投的市场在近年急剧萎缩，他的道奇之旅是 2026 年大联盟生态最真实的注脚。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+ <div class="career-highlight">
+ <h4>⭐ 2016-2019 - 费城人体系起步</h4>
+ <p>2016 年选秀第 5 轮被费城人选中，2019 年 5 月 12 日完成大联盟首秀，当年 16 场出赛（3 场先发）。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2021 - 运动家轮值主力（10 胜）</h4>
+ <p>转战奥克兰后首次完整赛季：32 场全部先发，178.1 局、10 胜 15 败、4.24 ERA、125 三振，生涯首个双位数胜场赛季。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔥 2022 - 生涯年（3.98 ERA）</h4>
+ <p>30 场先发、181.0 局（生涯最高）、9 胜 13 败、3.98 ERA、1.16 WHIP、128 三振——生涯最佳 WHIP 与局数，奠定"可靠轮值左投"的市场定位。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔄 2023-2025 - 金莺与双城的中继转型</h4>
+ <p>2023-2024 年在巴尔的摩先发与中继之间摇摆，2024 年季中被送到明尼苏达；2025 年整季未登大联盟，在小联盟寻找机会。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔵 2026 - 道奇的一日高光与告别</h4>
+ <p>2 月签小联盟合约，7 月 31 日登上大联盟投 6 局（9.00 ERA 吞败），8 月 1 日即被 DFA，8 月 3 日 outright 回 3A Oklahoma City，此未再回归。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">1</span><div class="stat-label">出赛</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">6.0</span><div class="stat-label">局数</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">9.00</span><div class="stat-label">ERA</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">1.83</span><div class="stat-label">WHIP</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">5</span><div class="stat-label">三振</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">3</span><div class="stat-label">保送</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">7.5</span><div class="stat-label">K/9</div></div>
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">极小样本：唯一一次登板投满 6 局——大概率是双赛或轮值空缺时的 spot 长中继。8 安 6 失分（含 1 轰）的成绩单直接决定了他的去留。</p>
+ </div>
+
+ <div class="section">
+ <h2>📊 近年投球数据对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="cole-irvin_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">近年投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>GS</th><th>IP</th><th>ERA</th><th>WHIP</th><th>K</th><th>BB</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2022</td>
+ <td>Oakland Athletics</td>
+ <td>30</td>
+ <td>30</td>
+ <td>181.0</td>
+ <td>3.98</td>
+ <td>1.16</td>
+ <td>128</td>
+ <td>36</td>
+ </tr>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>BAL / MIN</td>
+ <td>29</td>
+ <td>16</td>
+ <td>111.0</td>
+ <td>5.11</td>
+ <td>1.45</td>
+ <td>78</td>
+ <td>29</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>Los Angeles Dodgers</td>
+ <td>1</td>
+ <td>0</td>
+ <td>6.0</td>
+ <td>9.00</td>
+ <td>1.83</td>
+ <td>5</td>
+ <td>3</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">从 2022 年的 181 局轮值主力到 2026 年的 6 局后援，Irvin 的四年轨迹是大联盟"控球型 soft-tossing 左投"被市场淘汰的缩影。2025 年零大联盟出赛，2026 年只有这一张 9.00 ERA 的成绩单——他的生涯大概率已接近尾声。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">武器库：控球优先，球速平庸</h3>
+ <p>Irvin 的四缝线快速球 90-92 mph，卡特球与变速球是主要变化球，搭配滑曲球作为配速。他的 K/9 生涯仅 6.6，生存逻辑是让打者击出软弱击球、快速解决局数。这种打法在 2021-2022 年还能吃掉 180 局，但随着联盟火力升级和速球均速通胀，他的边缘越来越薄。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">唯一的 6 局说明了什么</h3>
+ <p>7 月 31 日的登板结构很说明问题：6.0 局、8 安、1 轰、6 失分——这是"innings eater"的标准死法：球进垒点稍偏就被连续击中，没有三振能力脱困。道奇给了他五个月的小联盟耐心，但这 6 局用完即弃，是市场给他的最后评语。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">DFA 后未回归的含义</h3>
+ <p>8 月 3 日 outright 后，Irvin 在 3A 没有再获得召唤。道奇轮值后期由新秀与交易补强的 Snell、Skubal、Bubic 等人填满，深度名单上已没有"控球型老将左投"的位置。32 岁的他若想延续，下一站可能是海外联盟或竞争更小的球队。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>生涯 599 局、93 场先发的大联盟资历</li>
+ <li>2022 年 3.98 ERA / 1.16 WHIP 的完整轮值赛季证明过上限</li>
+ <li>控球尚可：生涯 BB/9 2.2，保送极少</li>
+ <li>左投身份 + 能消化多局数，理论上的轮值保险</li>
+ <li>小联盟合约成本极低，即插即用</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>快速球 90-92 mph，在当今大联盟缺乏威胁</li>
+ <li>生涯 K/9 仅 6.6，无三振脱困能力</li>
+ <li>2024 年 5.11 ERA、2026 年 9.00 ERA，近年成绩持续走低</li>
+ <li>32 岁，运动能力与球速都在下行通道</li>
+ <li>2025 年零出赛、2026 年仅 1 场，市场已给出答案</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="cole-irvin_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">45</span><div class="stat-label">Fastball</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Changeup</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">55</span><div class="stat-label">Control</div><span class="grade grade-b">B</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Durability</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Strikeout Ability</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Velocity Ceiling</div><span class="grade grade-c">C</span></div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">被时代淘汰的控球型轮值左投</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">C+ 级 / 轮值深度</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+ <div style="margin-top: 20px;">
+ <p>Irvin 的 2027 年选择有限：继续小联盟合约等待几乎不会来的电话、转往海外联盟（日韩职棒对这类左投有一定需求）、或考虑退役转型。599 局的大联盟生涯已经是多数投手梦寐以求的成绩单，但 2026 年那 6 局 9.00 ERA 很可能就是终点。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>2/3 小联盟合约加盟；7/31 唯一一次大联盟登板（6.0 局 9.00 ERA 吞败）；8/1 DFA、8/3 outright 回 3A，此未再回归</p>
+ <p><strong>2027：</strong>海外联盟或退役转型，大联盟回归概率极低</p>
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>球速与三振能力的结构性短板无法通过调整弥补</li>
+ <li>32 岁年龄让任何球队都不愿再给机会</li>
+ <li>小联盟合约无保障，随时结束职业生涯</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+ <div style="margin-top: 20px;">
+ <p>Cole Irvin 1994 年 1 月 31 日出生于加州安纳海姆，高中时就读于当地的 Servite High School。2016 年 MLB 选秀，费城费城人在第 5 轮选中了这位 6 尺 4 寸的左投。他在小联盟稳步爬升，2019 年 5 月 12 日完成大联盟首秀。</p>
+ <p>Irvin 的生涯转折点是 2021 年：被交易到奥克兰运动家后，他第一次获得完整轮值机会，当年吃下 178.1 局、10 胜。2022 年更是投出 181 局、3.98 ERA 的生涯最佳成绩——那是控球型左投在"三振至上"时代来临前的最后辉煌。2023 年起他被交易到巴尔的摩金莺，角色在先发与长中继间摇摆；2024 年季中被送到明尼苏达双城，此后便一路下行：2025 年整季未登大联盟，2026 年 2 月接受道奇的小联盟合约时，已是他职业生涯的背水一战。</p>
+ <p>五个月的小联盟等待换来一次 6 局登板——8 支安打、6 分、9.00 ERA、一场败投。隔天，他出现在 DFA 名单上。Irvin 的故事没有奇迹，只有一个职业投手在时代变迁中的安静落幕：他曾是能投满 180 局的可靠左投，而当大联盟不再奖励这种投手时，连告别都只有 6 局。</p>
+ </div>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-27 | 数据截止日期：2026-10-27（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

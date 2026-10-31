@@ -111,56 +111,56 @@
       "name": "2026-10-15.md",
       "label": "2026 · 10/15 阵容快照",
       "date": "2026-10-15",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-13.md",
       "label": "2026 · 10/13 阵容快照",
       "date": "2026-10-13",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-12.md",
       "label": "2026 · 10/12 阵容快照",
       "date": "2026-10-12",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-08.md",
       "label": "2026 · 10/08 阵容快照",
       "date": "2026-10-08",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-07.md",
       "label": "2026 · 10/07 阵容快照",
       "date": "2026-10-07",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-05.md",
       "label": "2026 · 10/05 阵容快照",
       "date": "2026-10-05",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-10-04.md",
       "label": "2026 · 10/04 阵容快照",
       "date": "2026-10-04",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
       "name": "2026-09-29.md",
       "label": "2026 · 09/29 阵容快照",
       "date": "2026-09-29",
-      "folder": "roster",
+      "folder": "seasons/2026/regular/daily",
       "season": "2026"
     },
     {
@@ -789,6 +789,13 @@
   ],
   "postseason": [
     {
+      "name": "2026-10-16-ps-nlcs-g4-final.md",
+      "label": "🍂 NLCS G4 FINAL · 10-16",
+      "date": "2026-10-16",
+      "folder": "seasons/2026/postseason/recaps",
+      "season": "2026"
+    },
+    {
       "name": "2026-10-15-ps-nlcs-g3.md",
       "label": "🍂 NLCS G3 · 10-15",
       "date": "2026-10-15",
@@ -851,10 +858,17 @@
   "currentSeason": "2026",
   "reportEditions": [
     {
-      "label": "2026 当前（实时更新）",
-      "path": "report/index.html",
-      "current": true
+      "label": "2026 赛季总结版",
+      "path": "seasons/2026/players/index.html"
+    },
+    {
+      "label": "2026 季后赛版",
+      "path": "seasons/2026/players-postseason/index.html"
+    },
+    {
+      "label": "2026 常规赛版",
+      "path": "seasons/2026/players-regular/index.html"
     }
   ],
-  "generatedAt": "2026-10-15T21:05:16.015929"
+  "generatedAt": "2026-10-31T22:56:21.343642"
 }

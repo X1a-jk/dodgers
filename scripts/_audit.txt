@@ -1,0 +1,61 @@
+== index.html 静态引用 ==
+  MISSING /api/news/status?v=
+  OK  data/depth-chart.json.bak
+  OK  data/depth-chart.json?v=
+  OK  data/farm.json.bak
+  OK  data/farm.json?v=
+  OK  data/injuries.json.bak
+  OK  data/injuries.json?v=
+  OK  data/milestones.json.bak
+  OK  data/milestones.json?v=
+  OK  data/opponent.json.bak
+  OK  data/opponent.json?v=
+  OK  data/postseason.json
+  OK  data/postseason.json?v=
+  OK  data/prospects.json.bak
+  OK  data/prospects.json?v=
+  OK  data/schedule-game-hub.json.bak
+  OK  data/schedule-game-hub.json?v=
+  OK  data/transactions.json.bak
+  OK  data/transactions.json?v=
+  OK  news/news-cn.json?v=
+  OK  portal/dashboard-data.json
+  OK  portal/dashboard-data.json.bak
+  OK  portal/dashboard-data.json?v=
+  OK  portal/file-index.json?v=
+
+== run-daily-update.ps1 引用的脚本 ==
+  OK  daily-report.py
+  OK  fetch-depth-chart.py
+  OK  fetch-farm.py
+  OK  fetch-injuries.py
+  OK  fetch-milestones.py
+  OK  fetch-opponent.py
+  OK  fetch-playoff.py
+  OK  fetch-postseason.py
+  OK  fetch-prospects.py
+  OK  fetch-schedule-hub.py
+  OK  fetch-season-roster.py
+  OK  fetch-transactions.py
+
+== FILE_INDEX folder 路径 ==
+  OK  seasons/2026/postseason/recaps
+  OK  seasons/2026/regular/daily
+  OK  seasons/2026/regular/weekly
+
+== reportEditions 路径 ==
+  OK  2026 赛季总结版 -> 
+  OK  2026 季后赛版 -> 
+  OK  2026 常规赛版 -> 
+
+== 顶层结构 ==
+  OK  weekly                           0 files
+  OK  roster                           2 files
+  OK  data                             105 files
+  --  report (不存在)
+  OK  seasons/2026/players             598 files
+  OK  seasons/2026/players-regular     478 files
+  OK  seasons/2026/players-postseason  229 files
+  OK  seasons/2026/snapshots           37 files
+  OK  portal                           12 files
+  report\ 不存在 = 已封存，预期

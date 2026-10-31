@@ -1,0 +1,63 @@
+{
+  "player_name": "Jack Dreyer",
+  "player_slug": "jack-dreyer",
+  "output_dir": "D:\\baseball\\report\\jack-dreyer",
+  "prefix": "dreyer",
+  "info": {
+    "number": "86",
+    "position": "LHP / Relief"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "2.83"],
+      ["W-L", "4-1"],
+      ["K", "47"],
+      ["IP", "41.1"],
+      ["WHIP", "0.99"],
+      ["AGE", "27"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 93, "max": 97},
+    "Slider": {"min": 82, "max": 86},
+    "Changeup": {"min": 85, "max": 88},
+    "Curveball": {"min": 78, "max": 81}
+  },
+  "game_trends": [
+    {"label": "05/10\n@CHC", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "05/18\nvsLAA", "era": 0.0, "ip": 1.1, "k": 2, "bb": 0},
+    {"label": "05/30\n@SFG", "era": 81.0, "ip": 0.1, "k": 0, "bb": 1},
+    {"label": "06/15\nvsCOL", "era": 0.0, "ip": 1.0, "k": 1, "bb": 0},
+    {"label": "07/02\n@ARI", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0}
+  ],
+  "overall_grades": {
+    "Fastball": 55,
+    "Slider": 60,
+    "Changeup": 50,
+    "Curveball": 45,
+    "Control": 60,
+    "Command": 55,
+    "Strikeout": 60,
+    "Mental": 55,
+    "Stamina": 55
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 2.83, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 0.99, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 10.23, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 2.18, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 1.31, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.02, "low": 0.5, "high": 2.0, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 4.33, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.35, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 8.31, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 3.12, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 1.21, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.35, "low": 0.5, "high": 2.0, "invert": false}
+    }
+  }
+}

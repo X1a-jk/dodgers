@@ -1,0 +1,63 @@
+{
+  "player_name": "Evan Phillips",
+  "player_slug": "evan-phillips",
+  "output_dir": "D:\\baseball\\report\\evan-phillips",
+  "prefix": "phillips",
+  "info": {
+    "number": "59",
+    "position": "RHP / Closer"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "5.40"],
+      ["W-L", "0-1"],
+      ["K", "7"],
+      ["IP", "5.0"],
+      ["WHIP", "1.40"],
+      ["AGE", "31"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 93, "max": 97},
+    "Slider": {"min": 83, "max": 87},
+    "Changeup": {"min": 86, "max": 89},
+    "Sinker": {"min": 92, "max": 95}
+  },
+  "game_trends": [
+    {"label": "06/20\n@TOR", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "06/23\n@TOR", "era": 0.0, "ip": 1.0, "k": 1, "bb": 0},
+    {"label": "06/27\n@NYY", "era": 18.0, "ip": 1.0, "k": 1, "bb": 0},
+    {"label": "07/02\nvsSDP", "era": 0.0, "ip": 1.0, "k": 2, "bb": 1},
+    {"label": "07/06\nvsCHC", "era": 9.0, "ip": 1.0, "k": 1, "bb": 0}
+  ],
+  "overall_grades": {
+    "Fastball": 55,
+    "Slider": 65,
+    "Changeup": 50,
+    "Sinker": 50,
+    "Control": 60,
+    "Command": 55,
+    "Strikeout": 60,
+    "Mental": 70,
+    "Health": 35
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 5.40, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.40, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 12.60, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 1.80, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 3.60, "low": 0.0, "high": 4.0, "invert": true},
+      "IP/G": {"value": 1.0, "low": 0.5, "high": 1.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 3.62, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.19, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 9.55, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 3.62, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.99, "low": 0.0, "high": 4.0, "invert": true},
+      "IP/G": {"value": 0.90, "low": 0.5, "high": 1.5, "invert": false}
+    }
+  }
+}

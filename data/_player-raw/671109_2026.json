@@ -1,0 +1,55 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "people": [
+    {
+      "id": 671109,
+      "fullName": "Jake Eder",
+      "link": "/api/v1/people/671109",
+      "firstName": "Jacob",
+      "lastName": "Eder",
+      "primaryNumber": "56",
+      "birthDate": "1998-10-09",
+      "currentAge": 28,
+      "birthCity": "Boynton Beach",
+      "birthStateProvince": "FL",
+      "birthCountry": "USA",
+      "height": "6' 4\"",
+      "weight": 225,
+      "active": true,
+      "primaryPosition": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "useName": "Jake",
+      "useLastName": "Eder",
+      "middleName": "Andrew",
+      "boxscoreName": "Eder",
+      "gender": "M",
+      "isPlayer": true,
+      "isVerified": false,
+      "draftYear": 2020,
+      "pronunciation": "EE-der",
+      "mlbDebutDate": "2024-09-17",
+      "batSide": {
+        "code": "L",
+        "description": "Left"
+      },
+      "pitchHand": {
+        "code": "L",
+        "description": "Left"
+      },
+      "nameFirstLast": "Jake Eder",
+      "nameSlug": "jake-eder-671109",
+      "firstLastName": "Jake Eder",
+      "lastFirstName": "Eder, Jake",
+      "lastInitName": "Eder, J",
+      "initLastName": "J Eder",
+      "fullFMLName": "Jacob Andrew Eder",
+      "fullLFMName": "Eder, Jacob Andrew",
+      "strikeZoneTop": 3.388,
+      "strikeZoneBottom": 1.71
+    }
+  ]
+}

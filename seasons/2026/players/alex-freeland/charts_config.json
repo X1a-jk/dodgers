@@ -1,0 +1,50 @@
+{
+  "player_name": "Alex Freeland",
+  "player_slug": "alex-freeland",
+  "output_dir": "D:\\baseball\\report\\alex-freeland",
+  "prefix": "freeland",
+  "info": {
+    "number": "76",
+    "position": "IF / Utility"
+  },
+  "cover": {
+    "stats": [
+      ["AVG", ".232"],
+      ["OBP", ".311"],
+      ["SLG", ".314"],
+      ["OPS", ".625"],
+      ["HR", "3"],
+      ["AGE", "24"]
+    ]
+  },
+  "overall_grades": {
+    "Contact": 40,
+    "Power": 30,
+    "Discipline": 50,
+    "Speed": 45,
+    "2B Defense": 55,
+    "SS Defense": 50,
+    "3B Defense": 50,
+    "Arm": 50,
+    "Versatility": 60
+  },
+  "season_comparison": {
+    "categories": ["AVG", "OBP", "SLG", "OPS", "BB%", "K%"],
+    "current": {
+      "AVG": {"value": 0.232, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.311, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.314, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.625, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 9.9, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 30.2, "low": 10.0, "high": 35.0, "invert": true}
+    },
+    "previous": {
+      "AVG": {"value": 0.210, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.294, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.290, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.584, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 9.7, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 31.9, "low": 10.0, "high": 35.0, "invert": true}
+    }
+  }
+}

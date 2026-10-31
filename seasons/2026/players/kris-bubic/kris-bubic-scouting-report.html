@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Kris Bubic 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%); border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7; }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Kris Bubic</h1>
+ <p class="subtitle">Los Angeles Dodgers #50 | 后援投手 | 左投 / 左打 | 斯坦福左投</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="kris-bubic_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1997-08-19</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">28岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国加州库比蒂诺</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 225 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2020-07-31 (皇家队)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#50</div></div>
+ <div class="info-item"><div class="label">加入道奇</div><div class="value">2026-08-03 交易</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Kris Bubic 是<span class="highlight">从 Stanford 毕业的左投，经历过 Tommy John 手术的全明星反弹者</span>。2026年8月3日，道奇从皇家交易得到这位左投，为季后赛左投牛棚补上深度。</p>
+ <p style="margin-bottom: 15px;">道奇时期他仅出赛5场，但交出 0.00 ERA、0.86 WHIP、4.2局5次三振0保送、2次 hold 的完美成绩。他是典型的"低登场、高效率"型后援，在有限机会里证明了自己的价值。</p>
+ <p>28岁的 Bubic 正处于生涯的成熟期。2027年他的目标是从季后赛边缘后援，升级为道奇牛棚里值得信赖的常规武器。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🎓 2018年 - Stanford 冠军赛季</h4>
+ <p>8胜1败、2.62 ERA、101K，帮助球队夺得 Pac-12 冠军，获 Golden Spikes Award 季中观察提名。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2023-2024年 - Tommy John 复出</h4>
+ <p>2023年 TJ 手术、2024年牛棚复健成功、2025年全明星反弹，成为皇家轮值复兴希望。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💼 2026年8月3日 - 交易加盟道奇</h4>
+ <p>交易截止日翌日加盟，5场 0.00 ERA、2 hold，为季后赛左投深度提供保险。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据（道奇时期）</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0.00</span>
+ <div class="stat-label">ERA</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0.86</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.2</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">5</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2</span>
+ <div class="stat-label">Hold</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">9.64</span>
+ <div class="stat-label">K/9</div>
+ </div>
+ </div>
+ <p style="margin-top: 15px; color: #ff9800;">⚠️ 小样本警告：仅 4.2 局，数据仅供参考。</p>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季回顾（道奇时期）</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kris-bubic_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">Bubic 2026年上半年效力于堪萨斯城皇家（左肘问题仅出赛少数场次），8月3日被交易至道奇，背号改穿 #50。本页图表由脚本根据最终数据自动生成。</p>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">交易的初衷与结果</h3>
+ <p>道奇交易 Bubic 的初衷是为季后赛准备左投后援深度——面对对手左打-heavy 的打线时，需要一个能吃一局的好球左投。Bubic 用 5 场 0 失分、2 hold 回应了这份期待，并在季后赛名单中占据一席之地。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <div class="pitch-arsenal">
+
+ <div class="pitch-card">
+ <h3>🔥 四缝线速球 (Four-Seam Fastball)</h3>
+ <p><strong>球速：</strong>92-95 mph</p>
+ <p><strong>评分：B</strong></p>
+ <p>不以速度取胜，而以尾劲与高度变化干扰打者 timing。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>🌪️ 滑球/切球 (Slider/Cutter)</h3>
+ <p><strong>球速：</strong>84-87 mph</p>
+ <p><strong>评分：B+</strong></p>
+ <p>他的主要三振武器，对付右打者尤其有效。</p>
+ </div>
+
+ <div class="pitch-card">
+ <h3>💫 变速球 (Changeup)</h3>
+ <p><strong>球速：</strong>82-85 mph</p>
+ <p><strong>评分：B</strong></p>
+ <p>对付左打者的配球，让他的左右开弓属性更完整。</p>
+ </div>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">0保送的精准</h3>
+ <p>4.2局0保送在小样本下更显珍贵——它暗示 Bubic 的 mechanical 已经从上一次 TJ 手术中完全恢复，控球没有留下后遗症。对于一名左投后援，"不送保送"是最有价值的能力。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">季后赛的教训</h3>
+ <p>季后赛2场1.1局、13.50 ERA、3.75 WHIP，与常规赛的完美形成刺眼对比。小样本下不应对他过度苛责，但这提醒他：季后赛的强度需要更快的 adjustment。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季回顾</h3>
+ <p>从皇家的伤病疑云到道奇的季后赛名单，Bubic 的2026年完成了一个励志的转折。他的 0.00 ERA 是道奇交易截止日操作中性价比最高的收获之一。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>0.00 ERA、0保送，小样本完美</li>
+ <li>左投身份对左打阵容价值高</li>
+ <li>TJ 手术后完全恢复，机械动作稳定</li>
+ <li>Stanford 背景的棒球智商与 adjustability</li>
+ <li>28岁，仍有上升空间</li>
+ <li>2 hold 证明关键时刻可用</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>季后赛 13.50 ERA，高强度表现存疑</li>
+ <li>仅 4.2 局样本，一切需打问号</li>
+ <li>早年 TJ 手术与左肘问题史</li>
+ <li>球速平庸（92-95），缺乏一槌定音武器</li>
+ <li>角色定位模糊：先发、长中继还是短中继？</li>
+ <li>皇家时期 2022 年 5.58 ERA 的低谷记忆</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kris-bubic_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Stuff</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Mental</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">54</div>
+ <p style="color: #90a4ae; margin-top: 10px;">控球型左投后援，季后赛强度的调整是课题</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B 级 / 功能性左投</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2026 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2026 季后赛战绩：NLDS 3-1 晋级、NLCS 0-4 止步。</p>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>G</th><th>IP</th><th>ERA</th><th>WHIP</th><th>SO</th><th>BB</th><th>H</th><th>HR</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2</td><td>1.1</td><td class="highlight">13.50</td><td>3.75</td><td>2</td><td>2</td><td>3</td><td>1</td>
+ </tr>
+ </tbody>
+ </table>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>季后赛2场仅1.1局失2分，与常规赛的完美形成对比；小样本下不宜过度解读</li>
+ <li>季后赛的强度与压力是道奇2027年春训需要帮他适应的课题</li>
+ <li>能入选季后赛名单本身，证明教练团对他的信任超过数据</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Kris Bubic 的2027赛季目标是成为道奇牛棚的常规武器，而不是季后赛边缘人。他的左投身份与控球能力，让他有机会在 Vesia 之外成为第二个左投选择。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>皇家伤病疑云 → 8/3交易至道奇 → 5场 0.00 ERA → 季后赛名单</p>
+ <p><strong>2027：</strong>目标 40+ 场、ERA 3.50 以下、稳固牛棚位置</p>
+ <p><strong>2028+：</strong>若控球持续稳定，可发展为高价值 setup man</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>左肘伤病史可能复发</li>
+ <li>季后赛强度的适应问题</li>
+ <li>球速平庸在面对顶级打线时的上限</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Kristofer Bubic 出生于加州库比蒂诺，毕业于 Archbishop Mitty High School，2015年进入 Stanford University。2018年大三赛季以8胜1败、2.62 ERA、101次三振帮助 Stanford 夺得 Pac-12 冠军，并获 Golden Spikes Award 季中观察名单提名。</p>
+ <p>2018年选秀，皇家在竞争平衡 A 轮第40顺位选中他。2020年7月31日，Bubic 对 White Sox 完成大联盟首秀，成为皇家史上自2012年 Will Smith 以来最年轻以先发身份登板的左投。2021年他完整先发20场，2022年陷入低潮（5.58 ERA），2023年仅3场先发后因 Tommy John 手术报销。</p>
+ <p>经过2024年的牛棚复健与2025年的全明星反弹，Bubic 一度被视为皇家轮值复兴希望。但2026年左肘问题再起，最终在8月3日被交易至道奇。场外的他以学术背景与冷静著称，队友们称他"斯坦福的大脑，牛棚的心脏"。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-24 | 数据截止日期：2026-10-24（常规赛+季后赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

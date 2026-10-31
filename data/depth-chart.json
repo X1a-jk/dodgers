@@ -18,7 +18,7 @@
           "jersey": "16",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/will-smith/will-smith-scouting-report.html",
+          "reportUrl": "seasons/2026/players/will-smith/will-smith-scouting-report.html",
           "headshot": "report/will-smith/headshot.jpg",
           "bat": {
             "g": 73,
@@ -38,7 +38,7 @@
           "jersey": "46",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/hunter-feduccia/hunter-feduccia-scouting-report.html",
+          "reportUrl": "seasons/2026/players/hunter-feduccia/hunter-feduccia-scouting-report.html",
           "headshot": "report/hunter-feduccia/headshot.jpg",
           "bat": {
             "g": 33,
@@ -58,7 +58,7 @@
           "jersey": "68",
           "statusCode": "40M",
           "status": "Forty Man",
-          "reportUrl": "report/dalton-rushing/dalton-rushing-scouting-report.html",
+          "reportUrl": "seasons/2026/players/dalton-rushing/dalton-rushing-scouting-report.html",
           "headshot": "report/dalton-rushing/headshot.jpg",
           "bat": {
             "g": 80,
@@ -78,7 +78,7 @@
           "jersey": "64",
           "statusCode": "40M",
           "status": "Forty Man",
-          "reportUrl": "report/eliezer-alfonzo/eliezer-alfonzo-scouting-report.html",
+          "reportUrl": "seasons/2026/players/eliezer-alfonzo/eliezer-alfonzo-scouting-report.html",
           "headshot": "report/eliezer-alfonzo/headshot.jpg",
           "bat": {
             "g": 13,
@@ -104,7 +104,7 @@
           "jersey": "5",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/freddie-freeman/freddie-freeman-scouting-report.html",
+          "reportUrl": "seasons/2026/players/freddie-freeman/freddie-freeman-scouting-report.html",
           "headshot": "report/freddie-freeman/headshot.jpg",
           "bat": {
             "g": 153,
@@ -130,7 +130,7 @@
           "jersey": "72",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/miguel-rojas/miguel-rojas-scouting-report.html",
+          "reportUrl": "seasons/2026/players/miguel-rojas/miguel-rojas-scouting-report.html",
           "headshot": "report/miguel-rojas/headshot.jpg",
           "bat": {
             "g": 107,
@@ -160,7 +160,7 @@
           "jersey": "25",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/tommy-edman/tommy-edman-scouting-report.html",
+          "reportUrl": "seasons/2026/players/tommy-edman/tommy-edman-scouting-report.html",
           "headshot": "report/tommy-edman/headshot.jpg",
           "bat": {
             "g": 84,
@@ -180,7 +180,7 @@
           "jersey": "76",
           "statusCode": "40M",
           "status": "Forty Man",
-          "reportUrl": "report/alex-freeland/alex-freeland-scouting-report.html",
+          "reportUrl": "seasons/2026/players/alex-freeland/alex-freeland-scouting-report.html",
           "headshot": "report/alex-freeland/headshot.jpg",
           "bat": {
             "g": 89,
@@ -206,7 +206,7 @@
           "jersey": "13",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/max-muncy/max-muncy-scouting-report.html",
+          "reportUrl": "seasons/2026/players/max-muncy/max-muncy-scouting-report.html",
           "headshot": "report/max-muncy/headshot.jpg",
           "bat": {
             "g": 149,
@@ -226,7 +226,7 @@
           "jersey": "8",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/enrique-hernandez/enrique-hernandez-scouting-report.html",
+          "reportUrl": "seasons/2026/players/enrique-hernandez/enrique-hernandez-scouting-report.html",
           "headshot": "report/enrique-hernandez/headshot.jpg",
           "bat": {
             "g": 41,
@@ -262,7 +262,7 @@
           "jersey": "50",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/mookie-betts/mookie-betts-scouting-report.html",
+          "reportUrl": "seasons/2026/players/mookie-betts/mookie-betts-scouting-report.html",
           "headshot": "report/mookie-betts/headshot.jpg",
           "bat": {
             "g": 123,
@@ -282,7 +282,7 @@
           "jersey": "6",
           "statusCode": "40M",
           "status": "Forty Man",
-          "reportUrl": "report/hyeseong-kim/hyeseong-kim-scouting-report.html",
+          "reportUrl": "seasons/2026/players/hyeseong-kim/hyeseong-kim-scouting-report.html",
           "headshot": "report/hyeseong-kim/headshot.jpg",
           "bat": {
             "g": 43,
@@ -313,7 +313,7 @@
           "jersey": "37",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/teoscar-hernandez/teoscar-hernandez-scouting-report.html",
+          "reportUrl": "seasons/2026/players/teoscar-hernandez/teoscar-hernandez-scouting-report.html",
           "headshot": "report/teoscar-hernandez/headshot.jpg",
           "bat": {
             "g": 125,
@@ -333,7 +333,7 @@
           "jersey": "12",
           "statusCode": "40M",
           "status": "Forty Man",
-          "reportUrl": "report/alex-call/alex-call-scouting-report.html",
+          "reportUrl": "seasons/2026/players/alex-call/alex-call-scouting-report.html",
           "headshot": "report/alex-call/headshot.jpg",
           "bat": {
             "g": 88,
@@ -359,7 +359,7 @@
           "jersey": "44",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/andy-pages/andy-pages-scouting-report.html",
+          "reportUrl": "seasons/2026/players/andy-pages/andy-pages-scouting-report.html",
           "headshot": "report/andy-pages/headshot.jpg",
           "bat": {
             "g": 134,
@@ -385,7 +385,7 @@
           "jersey": "23",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/kyle-tucker/kyle-tucker-scouting-report.html",
+          "reportUrl": "seasons/2026/players/kyle-tucker/kyle-tucker-scouting-report.html",
           "headshot": "report/kyle-tucker/headshot.jpg",
           "bat": {
             "g": 154,
@@ -411,7 +411,7 @@
           "jersey": "17",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/shohei-ohtani/shohei-ohtani-scouting-report.html",
+          "reportUrl": "seasons/2026/players/shohei-ohtani/shohei-ohtani-scouting-report.html",
           "headshot": "report/shohei-ohtani/headshot.jpg",
           "bat": {
             "g": 139,
@@ -442,7 +442,7 @@
           "jersey": "95",
           "statusCode": "A",
           "status": "活跃",
-          "reportUrl": "report/josue-de-paula/josue-de-paula-scouting-report.html",
+          "reportUrl": "seasons/2026/players/josue-de-paula/josue-de-paula-scouting-report.html",
           "headshot": "report/josue-de-paula/headshot.jpg",
           "bat": {
             "g": 11,
@@ -466,7 +466,7 @@
       "jersey": "18",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/yoshinobu-yamamoto/yoshinobu-yamamoto-scouting-report.html",
+      "reportUrl": "seasons/2026/players/yoshinobu-yamamoto/yoshinobu-yamamoto-scouting-report.html",
       "headshot": "report/yoshinobu-yamamoto/headshot.jpg",
       "pitch": {
         "g": 28,
@@ -486,7 +486,7 @@
       "jersey": "11",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/roki-sasaki/roki-sasaki-scouting-report.html",
+      "reportUrl": "seasons/2026/players/roki-sasaki/roki-sasaki-scouting-report.html",
       "headshot": "report/roki-sasaki/headshot.jpg",
       "pitch": {
         "g": 26,
@@ -506,7 +506,7 @@
       "jersey": "70",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/justin-wrobleski/justin-wrobleski-scouting-report.html",
+      "reportUrl": "seasons/2026/players/justin-wrobleski/justin-wrobleski-scouting-report.html",
       "headshot": "report/justin-wrobleski/headshot.jpg",
       "pitch": {
         "g": 28,
@@ -526,7 +526,7 @@
       "jersey": "80",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/emmet-sheehan/emmet-sheehan-scouting-report.html",
+      "reportUrl": "seasons/2026/players/emmet-sheehan/emmet-sheehan-scouting-report.html",
       "headshot": "report/emmet-sheehan/headshot.jpg",
       "pitch": {
         "g": 23,
@@ -546,7 +546,7 @@
       "jersey": "17",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/shohei-ohtani/shohei-ohtani-scouting-report.html",
+      "reportUrl": "seasons/2026/players/shohei-ohtani/shohei-ohtani-scouting-report.html",
       "headshot": "report/shohei-ohtani/headshot.jpg",
       "bat": {
         "g": 139,
@@ -577,7 +577,7 @@
       "jersey": "31",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/tyler-glasnow/tyler-glasnow-scouting-report.html",
+      "reportUrl": "seasons/2026/players/tyler-glasnow/tyler-glasnow-scouting-report.html",
       "headshot": "report/tyler-glasnow/headshot.jpg",
       "pitch": {
         "g": 13,
@@ -597,7 +597,7 @@
       "jersey": "33",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/eric-lauer/eric-lauer-scouting-report.html",
+      "reportUrl": "seasons/2026/players/eric-lauer/eric-lauer-scouting-report.html",
       "headshot": "report/eric-lauer/headshot.jpg",
       "pitch": {
         "g": 14,
@@ -617,7 +617,7 @@
       "jersey": "29",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/tarik-skubal/tarik-skubal-scouting-report.html",
+      "reportUrl": "seasons/2026/players/tarik-skubal/tarik-skubal-scouting-report.html",
       "headshot": "report/tarik-skubal/headshot.jpg",
       "pitch": {
         "g": 10,
@@ -637,7 +637,7 @@
       "jersey": "7",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/blake-snell/blake-snell-scouting-report.html",
+      "reportUrl": "seasons/2026/players/blake-snell/blake-snell-scouting-report.html",
       "headshot": "report/blake-snell/headshot.jpg",
       "pitch": {
         "g": 9,
@@ -659,7 +659,7 @@
       "jersey": "51",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/alex-vesia/alex-vesia-scouting-report.html",
+      "reportUrl": "seasons/2026/players/alex-vesia/alex-vesia-scouting-report.html",
       "headshot": "report/alex-vesia/headshot.jpg",
       "bat": {
         "g": 72,
@@ -689,7 +689,7 @@
       "jersey": "66",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/tanner-scott/tanner-scott-scouting-report.html",
+      "reportUrl": "seasons/2026/players/tanner-scott/tanner-scott-scouting-report.html",
       "headshot": "report/tanner-scott/headshot.jpg",
       "pitch": {
         "g": 69,
@@ -709,7 +709,7 @@
       "jersey": "86",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/jack-dreyer/jack-dreyer-scouting-report.html",
+      "reportUrl": "seasons/2026/players/jack-dreyer/jack-dreyer-scouting-report.html",
       "headshot": "report/jack-dreyer/headshot.jpg",
       "bat": {
         "g": 67,
@@ -739,7 +739,7 @@
       "jersey": "60",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/edgardo-henriquez/edgardo-henriquez-scouting-report.html",
+      "reportUrl": "seasons/2026/players/edgardo-henriquez/edgardo-henriquez-scouting-report.html",
       "headshot": "report/edgardo-henriquez/headshot.jpg",
       "bat": {
         "g": 61,
@@ -769,7 +769,7 @@
       "jersey": "63",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/kyle-hurt/kyle-hurt-scouting-report.html",
+      "reportUrl": "seasons/2026/players/kyle-hurt/kyle-hurt-scouting-report.html",
       "headshot": "report/kyle-hurt/headshot.jpg",
       "pitch": {
         "g": 44,
@@ -789,7 +789,7 @@
       "jersey": "61",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/will-klein/will-klein-scouting-report.html",
+      "reportUrl": "seasons/2026/players/will-klein/will-klein-scouting-report.html",
       "headshot": "report/will-klein/headshot.jpg",
       "pitch": {
         "g": 36,
@@ -809,7 +809,7 @@
       "jersey": "49",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/blake-treinen/blake-treinen-scouting-report.html",
+      "reportUrl": "seasons/2026/players/blake-treinen/blake-treinen-scouting-report.html",
       "headshot": "report/blake-treinen/headshot.jpg",
       "pitch": {
         "g": 36,
@@ -829,7 +829,7 @@
       "jersey": "59",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/evan-phillips/evan-phillips-scouting-report.html",
+      "reportUrl": "seasons/2026/players/evan-phillips/evan-phillips-scouting-report.html",
       "headshot": "report/evan-phillips/headshot.jpg",
       "pitch": {
         "g": 31,
@@ -849,7 +849,7 @@
       "jersey": "41",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/brock-stewart/brock-stewart-scouting-report.html",
+      "reportUrl": "seasons/2026/players/brock-stewart/brock-stewart-scouting-report.html",
       "headshot": "report/brock-stewart/headshot.jpg",
       "pitch": {
         "g": 28,
@@ -869,7 +869,7 @@
       "jersey": "3",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/edwin-diaz/edwin-diaz-scouting-report.html",
+      "reportUrl": "seasons/2026/players/edwin-diaz/edwin-diaz-scouting-report.html",
       "headshot": "report/edwin-diaz/headshot.jpg",
       "pitch": {
         "g": 21,
@@ -889,7 +889,7 @@
       "jersey": "56",
       "statusCode": "RM",
       "status": "小联盟",
-      "reportUrl": "report/seth-halvorsen/seth-halvorsen-scouting-report.html",
+      "reportUrl": "seasons/2026/players/seth-halvorsen/seth-halvorsen-scouting-report.html",
       "headshot": "report/seth-halvorsen/headshot.jpg",
       "pitch": {
         "g": 11,
@@ -909,7 +909,7 @@
       "jersey": "40",
       "statusCode": "A",
       "status": "活跃",
-      "reportUrl": "report/kris-bubic/kris-bubic-scouting-report.html",
+      "reportUrl": "seasons/2026/players/kris-bubic/kris-bubic-scouting-report.html",
       "headshot": "report/kris-bubic/headshot.jpg",
       "pitch": {
         "g": 5,
@@ -929,7 +929,7 @@
       "jersey": "78",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/ben-casparius/ben-casparius-scouting-report.html",
+      "reportUrl": "seasons/2026/players/ben-casparius/ben-casparius-scouting-report.html",
       "headshot": "report/ben-casparius/headshot.jpg",
       "pitch": {
         "g": 5,
@@ -949,7 +949,7 @@
       "jersey": "96",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/landon-knack/landon-knack-scouting-report.html",
+      "reportUrl": "seasons/2026/players/landon-knack/landon-knack-scouting-report.html",
       "headshot": "report/landon-knack/headshot.jpg",
       "pitch": {
         "g": 4,
@@ -969,7 +969,7 @@
       "jersey": "65",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/paul-gervase/paul-gervase-scouting-report.html",
+      "reportUrl": "seasons/2026/players/paul-gervase/paul-gervase-scouting-report.html",
       "headshot": "report/paul-gervase/headshot.jpg",
       "pitch": {
         "g": 4,
@@ -989,7 +989,7 @@
       "jersey": "28",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/bobby-miller/bobby-miller-scouting-report.html",
+      "reportUrl": "seasons/2026/players/bobby-miller/bobby-miller-scouting-report.html",
       "headshot": "report/bobby-miller/headshot.jpg",
       "pitch": {
         "g": 3,
@@ -1009,7 +1009,7 @@
       "jersey": "48",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/brusdar-graterol/brusdar-graterol-scouting-report.html",
+      "reportUrl": "seasons/2026/players/brusdar-graterol/brusdar-graterol-scouting-report.html",
       "headshot": "report/brusdar-graterol/headshot.jpg"
     },
     {
@@ -1019,7 +1019,7 @@
       "jersey": "35",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/gavin-stone/gavin-stone-scouting-report.html",
+      "reportUrl": "seasons/2026/players/gavin-stone/gavin-stone-scouting-report.html",
       "headshot": "report/gavin-stone/headshot.jpg"
     },
     {
@@ -1029,7 +1029,7 @@
       "jersey": "",
       "statusCode": "D60",
       "status": "IL-60",
-      "reportUrl": "report/jake-cousins/jake-cousins-scouting-report.html",
+      "reportUrl": "seasons/2026/players/jake-cousins/jake-cousins-scouting-report.html",
       "headshot": "report/jake-cousins/headshot.jpg"
     },
     {
@@ -1039,7 +1039,7 @@
       "jersey": "83",
       "statusCode": "40M",
       "status": "Forty Man",
-      "reportUrl": "report/ronan-kopp/ronan-kopp-scouting-report.html",
+      "reportUrl": "seasons/2026/players/ronan-kopp/ronan-kopp-scouting-report.html",
       "headshot": "report/ronan-kopp/headshot.jpg"
     }
   ]

@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Angeles Dodgers 2026 Player Reports</title>
+    <style>
+        :root {
+            --dodgers-blue: #005A9C;
+            --dodgers-dark: #1a1a2e;
+            --dodgers-light: #e0e0e0;
+            --accent: #ff9800;
+            --green: #4caf50;
+            --red: #f44336;
+            --gray: #90a4ae;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--dodgers-dark) 0%, #16213e 50%, #0f3460 100%);
+            color: var(--dodgers-light);
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, var(--dodgers-blue) 0%, #1a5490 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        header h1 { font-size: 2.6rem; margin-bottom: 8px; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .stat-pill {
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 0.95rem;
+        }
+        .stat-pill strong { font-size: 1.3rem; margin-right: 5px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px 20px; }
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .controls input, .controls select {
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.07);
+            color: #fff;
+            font-size: 1rem;
+            min-width: 220px;
+        }
+        .controls input::placeholder { color: var(--gray); }
+        .controls select option { background: #1a1a2e; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .player-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .player-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+        .card-link { text-decoration: none; color: inherit; display: block; }
+        .card-disabled { opacity: 0.55; pointer-events: none; }
+        .photo-wrap {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(0,90,156,0.3) 0%, rgba(26,84,144,0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        .no-photo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+        }
+        .card-body { padding: 18px; }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .jersey {
+            background: var(--dodgers-blue);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .status {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-active { background: rgba(76,175,80,0.25); color: #81c784; }
+        .status-minors { background: rgba(144,164,174,0.25); color: #b0bec5; }
+        .status-il { background: rgba(244,67,54,0.25); color: #ef9a9a; }
+        .status-other { background: rgba(255,152,0,0.25); color: #ffcc80; }
+        .card-body h3 { font-size: 1.25rem; margin-bottom: 4px; color: #fff; }
+        .position {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .stat-line {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.4;
+            min-height: 36px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            display: none;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚾ Los Angeles Dodgers</h1>
+        <p>2026 Player Scouting Report Dashboard</p>
+        <div class="stats-bar">
+            <div class="stat-pill"><strong>25</strong> 40-Man Players</div>
+            <div class="stat-pill"><strong>25</strong> Active</div>
+            <div class="stat-pill"><strong>0</strong> Injured List</div>
+            <div class="stat-pill"><strong>0</strong> Minors</div>
+            <div class="stat-pill"><strong>25</strong> Reports Ready</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search player name...">
+            <select id="group-filter">
+                <option value="">All Positions</option>
+                <option value="Pitcher">Pitchers</option>
+                <option value="Catcher">Catchers</option>
+                <option value="Infield">Infielders</option>
+                <option value="Outfield">Outfielders</option>
+                <option value="Two-Way">Two-Way</option>
+            </select>
+            <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="A">Active</option>
+                <option value="D10">IL-10</option>
+                <option value="D15">IL-15</option>
+                <option value="D60">IL-60</option>
+                <option value="RM">Minors</option>
+            </select>
+        </div>
+
+        <div class="grid" id="grid">
+            
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="alex vesia">
+            <a class="card-link" href="alex-vesia/alex-vesia-scouting-report.html" >
+                <div class="photo-wrap"><img src="alex-vesia/headshot.jpg" alt="Alex Vesia" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Alex Vesia</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #51 | P | L/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="blake snell">
+            <a class="card-link" href="blake-snell/blake-snell-scouting-report.html" >
+                <div class="photo-wrap"><img src="blake-snell/headshot.jpg" alt="Blake Snell" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Blake Snell</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #7 | P | L/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="brock stewart">
+            <a class="card-link" href="brock-stewart/brock-stewart-scouting-report.html" >
+                <div class="photo-wrap"><img src="brock-stewart/headshot.jpg" alt="Brock Stewart" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Brock Stewart</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #41 | P | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="edgardo henriquez">
+            <a class="card-link" href="edgardo-henriquez/edgardo-henriquez-scouting-report.html" >
+                <div class="photo-wrap"><img src="edgardo-henriquez/headshot.jpg" alt="Edgardo Henriquez" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Edgardo Henriquez</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #60 | P | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="edwin díaz">
+            <a class="card-link" href="edwin-diaz/edwin-diaz-scouting-report.html" >
+                <div class="photo-wrap"><img src="edwin-diaz/headshot.jpg" alt="Edwin Díaz" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Edwin Díaz</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #3 | P | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="evan phillips">
+            <a class="card-link" href="evan-phillips/evan-phillips-scouting-report.html" >
+                <div class="photo-wrap"><img src="evan-phillips/headshot.jpg" alt="Evan Phillips" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Evan Phillips</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #59 | P | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="justin wrobleski">
+            <a class="card-link" href="justin-wrobleski/justin-wrobleski-scouting-report.html" >
+                <div class="photo-wrap"><img src="justin-wrobleski/headshot.jpg" alt="Justin Wrobleski" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Justin Wrobleski</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #70 | P | L/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="kris bubic">
+            <a class="card-link" href="kris-bubic/kris-bubic-scouting-report.html" >
+                <div class="photo-wrap"><img src="kris-bubic/headshot.jpg" alt="Kris Bubic" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Kris Bubic</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #40 | P | L/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="roki sasaki">
+            <a class="card-link" href="roki-sasaki/roki-sasaki-scouting-report.html" >
+                <div class="photo-wrap"><img src="roki-sasaki/headshot.jpg" alt="Roki Sasaki" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Roki Sasaki</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #11 | P | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="tanner scott">
+            <a class="card-link" href="tanner-scott/tanner-scott-scouting-report.html" >
+                <div class="photo-wrap"><img src="tanner-scott/headshot.jpg" alt="Tanner Scott" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Tanner Scott</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #66 | P | R/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="tarik skubal">
+            <a class="card-link" href="tarik-skubal/tarik-skubal-scouting-report.html" >
+                <div class="photo-wrap"><img src="tarik-skubal/headshot.jpg" alt="Tarik Skubal" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Tarik Skubal</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #29 | P | R/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="tyler glasnow">
+            <a class="card-link" href="tyler-glasnow/tyler-glasnow-scouting-report.html" >
+                <div class="photo-wrap"><img src="tyler-glasnow/headshot.jpg" alt="Tyler Glasnow" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Tyler Glasnow</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #31 | P | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="A" data-name="yoshinobu yamamoto">
+            <a class="card-link" href="yoshinobu-yamamoto/yoshinobu-yamamoto-scouting-report.html" >
+                <div class="photo-wrap"><img src="yoshinobu-yamamoto/headshot.jpg" alt="Yoshinobu Yamamoto" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Yoshinobu Yamamoto</h3>
+                    <p class="position">P</p>
+                    <p class="stat-line">Los Angeles Dodgers #18 | P | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="andy pages">
+            <a class="card-link" href="andy-pages/andy-pages-scouting-report.html" >
+                <div class="photo-wrap"><img src="andy-pages/headshot.jpg" alt="Andy Pages" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Andy Pages</h3>
+                    <p class="position">CF</p>
+                    <p class="stat-line">Los Angeles Dodgers #44 | CF | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="enrique hernández">
+            <a class="card-link" href="enrique-hernandez/enrique-hernandez-scouting-report.html" >
+                <div class="photo-wrap"><img src="enrique-hernandez/headshot.jpg" alt="Enrique Hernández" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Enrique Hernández</h3>
+                    <p class="position">LF</p>
+                    <p class="stat-line">Los Angeles Dodgers #8 | 3B | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="freddie freeman">
+            <a class="card-link" href="freddie-freeman/freddie-freeman-scouting-report.html" >
+                <div class="photo-wrap"><img src="freddie-freeman/headshot.jpg" alt="Freddie Freeman" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Freddie Freeman</h3>
+                    <p class="position">1B</p>
+                    <p class="stat-line">Los Angeles Dodgers #5 | 1B | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="josue de paula">
+            <a class="card-link" href="josue-de-paula/josue-de-paula-scouting-report.html" >
+                <div class="photo-wrap"><img src="josue-de-paula/headshot.jpg" alt="Josue De Paula" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Josue De Paula</h3>
+                    <p class="position">PH</p>
+                    <p class="stat-line">Los Angeles Dodgers #95 | DH | L/L</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="kyle tucker">
+            <a class="card-link" href="kyle-tucker/kyle-tucker-scouting-report.html" >
+                <div class="photo-wrap"><img src="kyle-tucker/headshot.jpg" alt="Kyle Tucker" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Kyle Tucker</h3>
+                    <p class="position">RF</p>
+                    <p class="stat-line">Los Angeles Dodgers #23 | RF | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="max muncy">
+            <a class="card-link" href="max-muncy/max-muncy-scouting-report.html" >
+                <div class="photo-wrap"><img src="max-muncy/headshot.jpg" alt="Max Muncy" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Max Muncy</h3>
+                    <p class="position">3B</p>
+                    <p class="stat-line">Los Angeles Dodgers #13 | 3B | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="miguel rojas">
+            <a class="card-link" href="miguel-rojas/miguel-rojas-scouting-report.html" >
+                <div class="photo-wrap"><img src="miguel-rojas/headshot.jpg" alt="Miguel Rojas" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Miguel Rojas</h3>
+                    <p class="position">3B</p>
+                    <p class="stat-line">Los Angeles Dodgers #72 | 2B | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="mookie betts">
+            <a class="card-link" href="mookie-betts/mookie-betts-scouting-report.html" >
+                <div class="photo-wrap"><img src="mookie-betts/headshot.jpg" alt="Mookie Betts" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Mookie Betts</h3>
+                    <p class="position">SS</p>
+                    <p class="stat-line">Los Angeles Dodgers #50 | SS | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="shohei ohtani">
+            <a class="card-link" href="shohei-ohtani/shohei-ohtani-scouting-report.html" >
+                <div class="photo-wrap"><img src="shohei-ohtani/headshot.jpg" alt="Shohei Ohtani" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Shohei Ohtani</h3>
+                    <p class="position">DH</p>
+                    <p class="stat-line">Los Angeles Dodgers #17 | TWP | L/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="teoscar hernández">
+            <a class="card-link" href="teoscar-hernandez/teoscar-hernandez-scouting-report.html" >
+                <div class="photo-wrap"><img src="teoscar-hernandez/headshot.jpg" alt="Teoscar Hernández" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Teoscar Hernández</h3>
+                    <p class="position">LF</p>
+                    <p class="stat-line">Los Angeles Dodgers #37 | LF | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="tommy edman">
+            <a class="card-link" href="tommy-edman/tommy-edman-scouting-report.html" >
+                <div class="photo-wrap"><img src="tommy-edman/headshot.jpg" alt="Tommy Edman" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Tommy Edman</h3>
+                    <p class="position">2B</p>
+                    <p class="stat-line">Los Angeles Dodgers #25 | 2B | S/R</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="A" data-name="will smith">
+            <a class="card-link" href="will-smith/will-smith-scouting-report.html" >
+                <div class="photo-wrap"><img src="will-smith/headshot.jpg" alt="Will Smith" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-active">Active</span>
+                    </div>
+                    <h3>Will Smith</h3>
+                    <p class="position">C</p>
+                    <p class="stat-line">Los Angeles Dodgers #16 | C | R/R</p>
+                </div>
+            </a>
+        </article>
+        
+        </div>
+        <div class="empty-state" id="empty">No players match your filters.</div>
+    </div>
+
+    <footer>
+        Generated 2026-10-17 20:47 · Data from MLB Stats API · Headshots from MLB.com
+    </footer>
+
+    <script>
+        const search = document.getElementById('search');
+        const groupFilter = document.getElementById('group-filter');
+        const statusFilter = document.getElementById('status-filter');
+        const grid = document.getElementById('grid');
+        const empty = document.getElementById('empty');
+        const cards = Array.from(document.querySelectorAll('.player-card'));
+
+        function filter() {
+            const term = search.value.toLowerCase();
+            const group = groupFilter.value;
+            const status = statusFilter.value;
+            let visible = 0;
+
+            cards.forEach(card => {
+                const nameMatch = card.dataset.name.includes(term);
+                const groupMatch = !group || card.dataset.group === group;
+                const statusMatch = !status || card.dataset.status === status;
+                const show = nameMatch && groupMatch && statusMatch;
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            empty.style.display = visible ? 'none' : 'block';
+        }
+
+        search.addEventListener('input', filter);
+        groupFilter.addEventListener('change', filter);
+        statusFilter.addEventListener('change', filter);
+    </script>
+</body>
+</html>

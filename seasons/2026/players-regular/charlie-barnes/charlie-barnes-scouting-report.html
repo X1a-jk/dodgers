@@ -1,0 +1,1322 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+ <meta charset="utf-8"/>
+ <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+ <title>
+ Charlie Barnes Scouting Report
+ </title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card {
+ background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+ backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+ display: flex; gap: 30px; flex-wrap: wrap;
+ }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section {
+ background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+ }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+ th, td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; }
+ tr:hover { background: rgba(255, 255, 255, 0.05); }
+ blockquote { border-left: 4px solid #4fc3f7; padding-left: 15px; margin: 15px 0; color: #b0bec5; font-style: italic; }
+ strong { color: #4fc3f7; }
+ hr { border: none; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 20px 0; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+ </head>
+ <body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>
+ ⚾ Charlie Barnes
+ </h1>
+ <p class="subtitle">
+ Los Angeles Dodgers #57 | 投手 | 已离队（8/18 后长住 3A，季后离开道奇组织）
+ </p>
+ </div>
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="charlie-barnes_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+<div class="section player-card player-card player-card player-card player-card player-card player-card">
+ <h2>
+ 基本信息
+ </h2>
+ <table>
+ <thead>
+ <tr>
+ <th>
+ 项目
+ </th>
+ <th>
+ 内容
+ </th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>
+ <strong>
+ 全名
+ </strong>
+ </td>
+ <td>
+ Charles Barnes
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 出生日期
+ </strong>
+ </td>
+ <td>
+ 1995-10-01
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 年龄
+ </strong>
+ </td>
+ <td>
+ 30岁
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 出生地
+ </strong>
+ </td>
+ <td>
+ 美国南卡罗来纳州 Sumter
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 身高/体重
+ </strong>
+ </td>
+ <td>
+ 6'2" / 190 lbs
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 投球/击球
+ </strong>
+ </td>
+ <td>
+ 左投 / 左打
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ MLB首秀
+ </strong>
+ </td>
+ <td>
+ 2021-07-17 (双城队)
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 选秀
+ </strong>
+ </td>
+ <td>
+ 2017年 第4轮 (双城，总第114顺位)
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 大学
+ </strong>
+ </td>
+ <td>
+ Clemson University
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 背号
+ </strong>
+ </td>
+ <td>
+ #57
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 状态
+ </strong>
+ </td>
+ <td>
+ 已离队（8/18 后长住 3A，季后离开道奇组织）
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <h3>
+ 球探总评
+ </h3>
+ <p>
+ Charlie Barnes 是一名左投长中继/轮换型投手，以控球与多种变化球为主，而非球速。他的快速球均速约在 88-91 mph，属于典型的 soft-tossing lefty，需要依靠精准的位置与变速球来生存。2021 年在双城队 8 场先发缴出 5.92 ERA 后，他长期在小联盟与联盟边缘徘徊，直到 2026 年与道奇签约并短暂升上大联盟。2026 年他整季 4 场后援出赛、10.0 局，缴出 6.30 ERA、1.70 WHIP、5 三振 4 保送，样本极小且仍挣扎；8 月 18 日后长住 3A Oklahoma City，季后已离开道奇组织。他的上限是 depth starter / long reliever，在道奇轮值深度中扮演应急角色。
+ </p>
+ <hr/>
+ <div class="section">
+ <h2>
+ 📊 2026赛季投球数据
+ </h2>
+ <table>
+ <thead>
+ <tr>
+ <th>
+ 统计项目
+ </th>
+ <th>
+ 数值
+ </th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>
+ <strong>
+ 出赛 (G)
+ </strong>
+ </td>
+ <td>
+ 4
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 先发 (GS)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 胜场 (W)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 败场 (L)
+ </strong>
+ </td>
+ <td>
+ 1
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 救援成功 (SV)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 中继成功 (HLD)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 自责分率 (ERA)
+ </strong>
+ </td>
+ <td>
+ 6.30
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 投球局数 (IP)
+ </strong>
+ </td>
+ <td>
+ 10.0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 被安打 (H)
+ </strong>
+ </td>
+ <td>
+ 13
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 自责分 (ER)
+ </strong>
+ </td>
+ <td>
+ 7
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 全垒打 (HR)
+ </strong>
+ </td>
+ <td>
+ 3
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 三振 (K)
+ </strong>
+ </td>
+ <td>
+ 5
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 保送 (BB)
+ </strong>
+ </td>
+ <td>
+ 4
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ WHIP
+ </strong>
+ </td>
+ <td>
+ 1.70
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ K/9
+ </strong>
+ </td>
+ <td>
+ 4.50
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ BB/9
+ </strong>
+ </td>
+ <td>
+ 3.60
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ K/BB
+ </strong>
+ </td>
+ <td>
+ 1.25
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ HR/9
+ </strong>
+ </td>
+ <td>
+ 2.70
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <blockquote>
+ 注：2026 年仅 4 场、10 局的大联盟样本，数据波动极大，不宜过度解读。
+ </blockquote>
+ <h3>
+ 近年大联盟数据趋势
+ </h3>
+ <table>
+ <thead>
+ <tr>
+ <th>
+ 赛季
+ </th>
+ <th>
+ 球队
+ </th>
+ <th>
+ G
+ </th>
+ <th>
+ GS
+ </th>
+ <th>
+ W-L
+ </th>
+ <th>
+ ERA
+ </th>
+ <th>
+ IP
+ </th>
+ <th>
+ K
+ </th>
+ <th>
+ BB
+ </th>
+ <th>
+ WHIP
+ </th>
+ <th>
+ K/9
+ </th>
+ <th>
+ BB/9
+ </th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>
+ 2021
+ </td>
+ <td>
+ MIN
+ </td>
+ <td>
+ 9
+ </td>
+ <td>
+ 8
+ </td>
+ <td>
+ 0-3
+ </td>
+ <td>
+ 5.92
+ </td>
+ <td>
+ 38.0
+ </td>
+ <td>
+ 20
+ </td>
+ <td>
+ 16
+ </td>
+ <td>
+ 1.63
+ </td>
+ <td>
+ 4.74
+ </td>
+ <td>
+ 3.79
+ </td>
+ </tr>
+ <tr>
+ <td>
+ 2022
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ </tr>
+ <tr>
+ <td>
+ 2023
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ </tr>
+ <tr>
+ <td>
+ 2024
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ </tr>
+ <tr>
+ <td>
+ 2025
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ <td>
+ —
+ </td>
+ </tr>
+ <tr>
+ <td>
+ 2026
+ </td>
+ <td>
+ LAD
+ </td>
+ <td>
+ 4
+ </td>
+ <td>
+ 0
+ </td>
+ <td>
+ 0-1
+ </td>
+ <td>
+ 6.30
+ </td>
+ <td>
+ 10.0
+ </td>
+ <td>
+ 5
+ </td>
+ <td>
+ 4
+ </td>
+ <td>
+ 1.70
+ </td>
+ <td>
+ 4.50
+ </td>
+ <td>
+ 3.60
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <h3>
+ 大联盟生涯数据
+ </h3>
+ <table>
+ <thead>
+ <tr>
+ <th>
+ 统计项目
+ </th>
+ <th>
+ 数值
+ </th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>
+ <strong>
+ 出赛 (G)
+ </strong>
+ </td>
+ <td>
+ 13
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 先发 (GS)
+ </strong>
+ </td>
+ <td>
+ 8
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 胜场 (W)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 败场 (L)
+ </strong>
+ </td>
+ <td>
+ 4
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 救援成功 (SV)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 中继成功 (HLD)
+ </strong>
+ </td>
+ <td>
+ 0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 自责分率 (ERA)
+ </strong>
+ </td>
+ <td>
+ 6.00
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 投球局数 (IP)
+ </strong>
+ </td>
+ <td>
+ 48.0
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 被安打 (H)
+ </strong>
+ </td>
+ <td>
+ 59
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 全垒打 (HR)
+ </strong>
+ </td>
+ <td>
+ 7
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 三振 (K)
+ </strong>
+ </td>
+ <td>
+ 25
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ 保送 (BB)
+ </strong>
+ </td>
+ <td>
+ 20
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ WHIP
+ </strong>
+ </td>
+ <td>
+ 1.65
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ K/9
+ </strong>
+ </td>
+ <td>
+ 4.69
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ BB/9
+ </strong>
+ </td>
+ <td>
+ 3.75
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ K/BB
+ </strong>
+ </td>
+ <td>
+ 1.25
+ </td>
+ </tr>
+ <tr>
+ <td>
+ <strong>
+ HR/9
+ </strong>
+ </td>
+ <td>
+ 1.31
+ </td>
+ </tr>
+ </tbody>
+ </table>
+ <blockquote>
+ 注：生涯大联盟数据极为有限，主要由 2021 年双城先发与 2026 年道奇后援组成。
+ </blockquote>
+ <hr/>
+ <div class="section">
+ <h2>
+ ⚾ 投球武器库
+ </h2>
+ <h3>
+ ⚡ 四缝线快速球 (Four-Seam Fastball)
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ 球速
+ </strong>
+ ：88-91 mph
+ </li>
+ <li>
+ <strong>
+ 评分
+ </strong>
+ ：
+ <strong>
+ C
+ </strong>
+ </li>
+ <li>
+ Barnes 的快速球缺乏 elite 球速，但出手点较高且有一定上飘，能制造一些 飞球。由于球速不突出，他必须精准地投到边角，一旦进红中就容易被长打。2026 年被击出 3 支本垒打，与快速球被掌握 timing 有关。
+ </li>
+ </ul>
+ <h3>
+ 💫 变速球 (Changeup)
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ 球速
+ </strong>
+ ：80-83 mph
+ </li>
+ <li>
+ <strong>
+ 评分：
+ </strong>
+ <strong>
+ B-
+ </strong>
+ </li>
+ <li>
+ Barnes 最重要的变化球与出局武器。与快速球有约 8-10 mph 速差，且下坠幅度明显，是他对抗右打者的关键。当变速球有指挥官时，他能在 count 落后时制造软弱击球。
+ </li>
+ </ul>
+ <h3>
+ 🌪️ 滑球 (Slider)
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ 球速
+ </strong>
+ ：79-82 mph
+ </li>
+ <li>
+ <strong>
+ 评分：
+ </strong>
+ <strong>
+ C+
+ </strong>
+ </li>
+ <li>
+ 对左打者的主要武器，横移幅度中等，用来与快速球形成水平位移差异。由于球速偏低，滑球更像是"大曲球"，主要用于抢好球数与改变节奏。
+ </li>
+ </ul>
+ <h3>
+ 🌀 曲球 (Curveball)
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ 球速
+ </strong>
+ ：74-77 mph
+ </li>
+ <li>
+ <strong>
+ 评分：
+ </strong>
+ <strong>
+ C+
+ </strong>
+ </li>
+ <li>
+ Barnes 的第四种配球，用来打乱打者的上下视线。曲球使用频率不高，主要在需要完全改变节奏或面对同一打者第二次/第三次时出现。
+ </li>
+ </ul>
+ <hr/>
+ <div class="section">
+ <h2>
+ 🔍 球探分析
+ </h2>
+ <h3>
+ 投球机制
+ </h3>
+ <p>
+ Barnes 采用标准四分之三（three-quarters）投球角度，动作简洁、可重复性高。他的身体控制能力不错，6 尺 2 寸的身材让他的出手点具有一定隐蔽性。不过，由于球速不突出，他必须更依赖机制的一致性来制造好球带边缘的 quality pitch；一旦疲劳或节奏失衡，控球会明显下滑。
+ </p>
+ <h3>
+ 球质与配球策略
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ pitch-to-contact 型投手
+ </strong>
+ ：Barnes 不属于三振型，而是依赖让打者击出软弱滚地球或飞球出局
+ </li>
+ <li>
+ <strong>
+ 变速球是核心
+ </strong>
+ ：速差与下坠让他有机会在 MLB 立足
+ </li>
+ <li>
+ <strong>
+ 快速球威胁有限
+ </strong>
+ ：88-91 mph 的均速在现今大联盟中偏低，容易被强力打者攻击
+ </li>
+ <li>
+ <strong>
+ 需要精准控球
+ </strong>
+ ：保送率尚可，但进垒点不够锋利时会被重击
+ </li>
+ <li>
+ <strong>
+ 长中继角色更合适
+ </strong>
+ ：先发面对 打线 第三次时的数据通常下滑，长中继或 opener 后的 bulk role 更能发挥他的价值
+ </li>
+ </ul>
+ <h3>
+ 角色定位
+ </h3>
+ <ul>
+ <li>
+ 当前角色：小联盟深度轮值 / 道奇 40 人名单外的应急投手
+ </li>
+ <li>
+ 特殊价值：左投身份、能消化多局数、作为伤病/双赛时的 spot starter
+ </li>
+ <li>
+ 使用情境：大比分落后时的长中继、双赛第二场 starter、小联盟中的稳定 吃局数投手
+ </li>
+ </ul>
+ <hr/>
+ <div class="section">
+ <h2>
+ ✅ 优势 vs ❌ 劣势
+ </h2>
+ <h3>
+ 优势 (Strengths)
+ </h3>
+ <ul>
+ <li>
+ ✅
+ <strong>
+ 左投稀缺性
+ </strong>
+ ：左投后援/长中继在市场中仍有一定价值
+ </li>
+ <li>
+ ✅
+ <strong>
+ 变化球多样
+ </strong>
+ ：变速球、滑球、曲球三种变化球，能扰乱打者节奏
+ </li>
+ <li>
+ ✅
+ <strong>
+ 控球尚可
+ </strong>
+ ：生涯 BB/9 3.64，不算精英但可接受
+ </li>
+ <li>
+ ✅
+ <strong>
+ 能消化局数
+ </strong>
+ ：大学与生涯以小联盟先发为主，体能可承担 multi-inning role
+ </li>
+ <li>
+ ✅
+ <strong>
+ 经验丰富
+ </strong>
+ ：曾在双城大联盟轮值中先试，能承受大联盟压力
+ </li>
+ <li>
+ ✅
+ <strong>
+ 便宜合约
+ </strong>
+ ：作为 depth arm，薪资压力极小
+ </li>
+ </ul>
+ <h3>
+ 劣势 (Weaknesses)
+ </h3>
+ <ul>
+ <li>
+ ❌
+ <strong>
+ 球速不足
+ </strong>
+ ：快速球 88-91 mph 难以应付 MLB 级打者
+ </li>
+ <li>
+ ❌
+ <strong>
+ 三振能力极低
+ </strong>
+ ：生涯 K/9 仅 4.40，无法在高杠杆局面使用
+ </li>
+ <li>
+ ❌
+ <strong>
+ 本垒打风险
+ </strong>
+ ：HR/9 1.34，容易被重击
+ </li>
+ <li>
+ ❌
+ <strong>
+ 大联盟样本差
+ </strong>
+ ：2021 与 2026 合计 48.0 IP 缴出 6.00 ERA
+ </li>
+ <li>
+ ❌
+ <strong>
+ 对抗右打者吃力
+ </strong>
+ ：左投但没有 dominant 对左武器，右打者容易掌握 timing
+ </li>
+ <li>
+ ❌
+ <strong>
+ 年龄与上升空间
+ </strong>
+ ：30 岁，已非潜力新秀，工具型 depth 上限明显
+ </li>
+ </ul>
+ <hr/>
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="charlie-barnes_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Fastball</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Changeup</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">45</span><div class="stat-label">Slider</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">45</span><div class="stat-label">Curveball</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Control</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">45</span><div class="stat-label">Command</div><span class="grade grade-c">C+</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Mental</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Durability</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #f44336;">35</span><div class="stat-label">Strikeout</div><span class="grade grade-d">D+</span></div>
+ </div>
+ <h3>总体评分：45（C+ 级 / 边缘大联盟 depth arm）</h3>
+ <blockquote>
+ Charlie Barnes 是典型的 organizational depth 左投，能在小联盟稳定吃局数，偶尔作为应急升上大联盟。但在道奇这样竞争激烈的球队中，他需要显著改善球质或快速球球速才能获得更稳定的 MLB 机会。
+ </blockquote>
+ <hr/>
+ <div class="section">
+ <h2>
+ 🔮 未来展望
+ </h2>
+ <h3>
+ 2026 实际轨迹
+</h3>
+<ul>
+<li>
+ 7 月两次、8 月一次进出大联盟（三度入选名单又三度 DFA），8 月 18 日后长住 3A
+</li>
+<li>
+ 大联盟合计 4 场、10.0 局、6.30 ERA、1.70 WHIP——长打问题未解（3 支本垒打）
+</li>
+<li>
+ 季后已离开道奇组织，成为自由球员
+</li>
+</ul>
+ <h3>
+ 2027 年及以后
+ </h3>
+ <ul>
+ <li>
+ 若继续留在道奇体系，可能以 minor-league deal 或 40 人名单外合约继续担任 depth
+ </li>
+ <li>
+ 转型全职 long reliever / spot starter 的概率较高，专职先发上限已较低
+ </li>
+ <li>
+ 在 MLB 级别的竞争力有限，更可能长期在小联盟或海外联盟发展
+ </li>
+ </ul>
+ <h3>
+ 生涯里程碑追踪
+ </h3>
+ <ul>
+ <li>
+ <strong>
+ 生涯大联盟出赛
+ </strong>
+ ：13 场，上升空间有限
+ </li>
+ <li>
+ <strong>
+ 生涯大联盟胜场
+ </strong>
+ ：尚未取得首胜
+ </li>
+ <li>
+ <strong>
+ 生涯三振
+ </strong>
+ ：25 次，突破 50 次需要更多 MLB 机会
+ </li>
+ </ul>
+ <hr/>
+ <div class="section">
+ <h2>
+ 📖 背景故事
+ </h2>
+ <h3>
+ 早年与大学
+ </h3>
+ <p>
+ Charlie Barnes 出生于南卡罗来纳州 Sumter，高中时期是当地备受瞩目的左投。他进入 Clemson University，在大西洋海岸联盟（ACC）中担任先发投手，以沉稳的控球与变速球闻名。2017 年 MLB 选秀中，他在第 4 轮被明尼苏达双城队选中。
+ </p>
+ <h3>
+ 小联盟时期 (2017-2021)
+ </h3>
+ <ul>
+ <li>
+ Barnes 在双城农场体系中稳步爬升，从 新人联盟 一路打到 AAA
+ </li>
+ <li>
+ 2019 年在 AA Pensacola 表现出色，逐渐成为轮值中的稳定存在
+ </li>
+ <li>
+ 2021 年在 AAA St. Paul 表现优异，于 7 月 17 日完成大联盟首秀
+ </li>
+ </ul>
+ <h3>
+ 双城大联盟时期 (2021)
+ </h3>
+ <ul>
+ <li>
+ 2021 年 7 月首秀后， Barnes 在双城队轮值中先发出赛 8 场
+ </li>
+ <li>
+ 38.0 局 5.92 ERA、1.63 WHIP，虽然数据不佳，但展现能吃局数的特性
+ </li>
+ <li>
+ 赛季结束后被释出，开始在各队小联盟之间辗转
+ </li>
+ </ul>
+ <h3>
+ 道奇时期 (2026)
+ </h3>
+ <ul>
+ <li>
+ 2026 年与洛杉矶道奇签下小联盟合约，作为轮值深度储备
+ </li>
+ <li>
+ 因伤病潮获得三次短暂大联盟机会，4 场后援出赛 6.30 ERA
+ </li>
+ <li>
+ 8 月 18 日后长住 3A，季后离开道奇组织
+ </li>
+ </ul>
+ <h3>
+ 个人风格
+ </h3>
+ <p>
+ Barnes 以沉稳、不急不躁的比赛风格著称。他不属于激情型投手，而是依靠节奏与控球来与打者周旋。他的 Clemson 背景让他在面对压力时较为冷静，但大联盟级别的 firepower 确实有限。
+ </p>
+ <hr/>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ </div>
+ <div class="footer">
+ <p>
+ 数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API
+ </p>
+ <p>
+ 报告生成时间：2026-10-27 | 数据截止日期：2026-10-27（常规赛最终数据）
+ </p>
+ <p>
+ ⚾ 洛杉矶道奇队球探报告
+ </p>
+ </div>
+ </div>
+ </body>
+</html>

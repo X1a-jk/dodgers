@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Shohei Ohtani (大谷翔平) 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body {
+ font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+ background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+ color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+ }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header {
+ text-align: center; padding: 40px 0;
+ background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+ border-radius: 15px; margin-bottom: 30px;
+ box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+ }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .section {
+ background: rgba(255,255,255,0.05); border-radius: 15px; padding: 30px;
+ margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.1);
+ }
+ .section h2 {
+ color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+ border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+ }
+ .stats-grid {
+ display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px;
+ }
+ .stat-card {
+ background: linear-gradient(135deg, rgba(0,90,156,0.3) 0%, rgba(26,84,144,0.3) 100%);
+ border-radius: 10px; padding: 20px; text-align: center;
+ border: 1px solid rgba(79,195,247,0.3);
+ }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; margin-top: 5px; }
+ .comparison-table {
+ width: 100%; border-collapse: collapse; margin-top: 20px;
+ }
+ .comparison-table th, .comparison-table td {
+ padding: 15px; text-align: center; border-bottom: 1px solid rgba(255,255,255,0.1);
+ }
+ .comparison-table th {
+ background: rgba(0,90,156,0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase;
+ }
+ .comparison-table tr:hover { background: rgba(255,255,255,0.05); }
+ .pitch-arsenal {
+ display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;
+ }
+ .pitch-card {
+ background: linear-gradient(135deg, rgba(0,90,156,0.2) 0%, rgba(26,84,144,0.2) 100%);
+ border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+ }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+ .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+ .pros-cons {
+ display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;
+ }
+ .pros, .cons {
+ background: rgba(255,255,255,0.05); border-radius: 10px; padding: 20px;
+ }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.1); list-style: none; }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade {
+ display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em;
+ }
+ .grade-a { background: rgba(76,175,80,0.3); color: #4caf50; }
+ .grade-b { background: rgba(79,195,247,0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255,152,0,0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .success { color: #4caf50; font-weight: bold; }
+ .danger { color: #f44336; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ .info-grid {
+ display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px;
+ }
+ .info-item {
+ background: rgba(255,255,255,0.05); padding: 10px; border-radius: 8px;
+ }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .player-card { display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ @media (max-width: 768px) {
+ .header h1 { font-size: 2em; }
+ .stats-grid { grid-template-columns: repeat(2, 1fr); }
+ }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Shohei Ohtani (大谷翔平)</h1>
+ <p class="subtitle">Los Angeles Dodgers #17 | Two-Way Player | L/R | Showtime</p>
+ </div>
+ 
+ <div class="section" style="text-align: center; padding: 0;">
+ <img src="ohtani_report_cover.png" alt="报告封面" style="width: 100%; max-width: 800px; border-radius: 10px;">
+ </div>
+
+ <div class="section">
+ <h2>📋 基本信息</h2>
+ <div class="player-card">
+ <div class="player-info">
+ <div class="info-grid">
+ <div class="info-item">
+ <div class="label">出生日期</div>
+ <div class="value">1994-07-05</div>
+ </div>
+ <div class="info-item">
+ <div class="label">年龄</div>
+ <div class="value">32岁</div>
+ </div>
+ <div class="info-item">
+ <div class="label">出生地</div>
+ <div class="value">日本岩手县奥州市</div>
+ </div>
+ <div class="info-item">
+ <div class="label">身高/体重</div>
+ <div class="value">6'4" / 210 lbs</div>
+ </div>
+ <div class="info-item">
+ <div class="label">投球/击球</div>
+ <div class="value">右投 / 左打</div>
+ </div>
+ <div class="info-item">
+ <div class="label">MLB首秀</div>
+ <div class="value">2018-03-29 (天使队)</div>
+ </div>
+ <div class="info-item">
+ <div class="label">背号</div>
+ <div class="value">#17</div>
+ </div>
+ <div class="info-item">
+ <div class="label">绰号</div>
+ <div class="value">Showtime / 二刀流</div>
+ </div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+ <p style="margin-bottom: 15px;"><strong>大谷翔平是MLB历史上最伟大的双向球员</strong>，百年一遇的棒球天才。他同时拥有赛扬奖级别的投球能力和MVP级别的打击能力，这在现代棒球中绝无仅有。</p>
+ <p style="margin-bottom: 15px;">职业生涯累计<strong>300+全垒打、170+盗垒、700+打点</strong>，同时投球生涯累计55胜24败。他是继贝比·鲁斯之后，唯一能在同一赛季投出10+胜场和击出30+全垒打的球员。</p>
+ <p>2024年成为史上首位<strong>50/50俱乐部成员</strong>（54支全垒打+59次盗垒），2025年再获国联MVP，2024和2025年带领道奇队夺得世界大赛冠军。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点与代表作</h2>
+ <div class="career-highlight"><h4>🌟 2018年 - 大联盟首秀（天使队）</h4><p>2018年3月29日完成大联盟首秀，同年以指定打击身份击出首轰，展现罕见双向天赋。</p></div>
+ <div class="career-highlight"><h4>🏆 2021年 - 美联MVP</h4><p>46轰、100打点、26盗垒，同时投出9胜、3.18 ERA，成为贝比·鲁斯之后首位单季双位數胜投与30轰的球员。</p></div>
+ <div class="career-highlight"><h4>⚾ 2023年 - 二刀流巅峰</h4><p>44轰、95打点、20盗垒；投球10胜、3.14 ERA。开季连续7场先发拿下4胜，展现赛扬级投球与 MVP 级打击。</p></div>
+ <div class="career-highlight"><h4>💍 2024年 - 国联MVP + 50/50俱乐部 + 世界大赛冠军</h4><p>史上首位 50轰+50盗垒（54轰、59盗垒）球员，并带领道奇夺得世界大赛冠军，季后赛多次关键长打。</p></div>
+ <div class="career-highlight"><h4>💍 2025年 - 连霸世界大赛 + 国联MVP</h4><p>再次率领道奇夺冠，个人蝉联国联MVP，成为道奇王朝核心与 MLB 最具商业价值的球星。</p></div>
+ <div class="career-highlight"><h4>🔥 代表作：2024年世界大赛 G2</h4><p>单场双响炮并贡献盗垒，帮助道奇在主场拉开系列赛优势，被誉为近代世界大赛最伟大个人表现之一。</p></div>
+ </div>
+
+2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="ohtani_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ 
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr>
+ <th>赛季</th>
+ <th>GS</th>
+ <th>W-L</th>
+ <th>ERA</th>
+ <th>IP</th>
+ <th>K</th>
+ <th>BB</th>
+ <th>WHIP</th>
+ <th>K/9</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2025</td>
+ <td>14</td>
+ <td>1-1</td>
+ <td class="highlight">2.87</td>
+ <td>47.0</td>
+ <td>62</td>
+ <td>9</td>
+ <td>1.04</td>
+ <td>11.87</td>
+ </tr>
+ <tr>
+ <td>2026</td>
+ <td>14</td>
+ <td>8-2</td>
+ <td class="success">1.79</td>
+ <td>85.2</td>
+ <td>95</td>
+ <td>26</td>
+ <td>0.95</td>
+ <td>9.98</td>
+ </tr>
+ </tbody>
+ </table>
+ 
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr>
+ <th>赛季</th>
+ <th>G</th>
+ <th>AVG</th>
+ <th>HR</th>
+ <th>RBI</th>
+ <th>SB</th>
+ <th>OPS</th>
+ </tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2025</td>
+ <td>147</td>
+ <td>.310</td>
+ <td>54</td>
+ <td>130</td>
+ <td>59</td>
+ <td>1.036</td>
+ </tr>
+ <tr>
+ <td>2026</td>
+ <td>139</td>
+ <td>.275</td>
+ <td>30</td>
+ <td>81</td>
+ <td>11</td>
+ <td>.889</td>
+ </tr>
+ </tbody>
+ </table>
+ </div>
+
+ <div class="section">
+ <h2>🎯 投球武器库</h2>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>🔥 四缝线快速球 (Four-Seam Fastball)</h3>
+ <p class="velocity">96-100 mph</p>
+ <p>大谷的招牌速球，最高可达100mph+。上旋强烈，产生上升效应，打者常常挥空或击出高飞球。速球是他压制对手的基础武器。</p>
+ <p style="margin-top: 10px;"><span class="grade grade-a">A</span> 评分</p>
+ </div>
+ <div class="pitch-card">
+ <h3>💫 指叉球 (Split-Finger)</h3>
+ <p class="velocity">86-89 mph</h3e
+ <p>大谷最致命的出局球。下坠幅度极大，速度落差明显，与速球形成完美搭配。根据Statcast数据，对手面对指叉球打击率极低。</p>
+ <p style="margin-top: 10px;"><span class="grade grade-a">A+</span> 评分</p>
+ </div>
+ <div class="pitch-card">
+ <h3>🌪️ 滑球 (Slider)</h3>
+ <p class="velocity">82-85 mph</p>
+ <p>横向位移明显的滑球，对左打者极具威胁。大谷的滑球品质逐年提升，在2022-2023年曾成为他的主要出局球之一。</p>
+ <p style="margin-top: 10px;"><span class="grade grade-b">B+</span> 评分</p>
+ </div>
+ <div class="pitch-card">
+ <h3>⚡ 曲球 (Curveball)</h3>
+ <p class="velocity">78-81 mph</p>
+ <p>偶尔使用的变化球，用于打乱打者节奏。大谷的曲球旋转效率良好，但使用频率较低，主要用于配球变化。</p>
+ <p style="margin-top: 10px;"><span class="grade grade-b">B</span> 评分</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">投球能力分析</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li><strong>ERA 1.79</strong> — 2026年ERA降至1.79，赛扬奖级别表现，较2025年的2.87显著进步</li>
+ <li><strong>WHIP 0.95</strong> — 上垒率控制极佳，每局平均不到1人上垒</li>
+ <li><strong>K/9 9.98</strong> — 三振能力优秀，接近每局1次三振</li>
+ <li><strong>投球局数大幅提升</strong> — 从2025年47局增至85.2局，展现球队对其信任度提升</li>
+ <li><strong>速球品质</strong> — 速球平均约98mph，最高可达100mph+，转速位于联盟前段</li>
+ <li><strong>指叉球破坏力</strong> — signature pitch，下坠幅度大，是主要出局球</li>
+ </ul>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">打击能力分析</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li><strong>打击率 .275</strong> — 整季维持高档contact能力，作为强力打者实属罕见，唯较上半季.290小幅回落</li>
+ <li><strong>OPS .889</strong> — 综合攻击指数优秀，上垒+长打能力兼具，下半季较上半季.939降温</li>
+ <li><strong>30支全垒打</strong> — 全年30轰81打点，下半季再添10轰，未达季中预期的40+轰仍是联盟顶级火力</li>
+ <li><strong>上垒率 .377</strong> — 选球眼出色，整季81次保送（含16次故意保送）展现极高plate discipline</li>
+ <li><strong>力量与速度兼具</strong> — 2024年创下50/50神迹，现代棒球独一无二</li>
+ <li><strong>大场面表现</strong> — 季后赛11支全垒打，2025年NLCS MVP</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>百年一遇的双向能力，现代棒球独一无二</li>
+ <li>赛扬奖级别投球 + MVP级别打击</li>
+ <li>50/50俱乐部历史第一人（2024年54轰+59盗）</li>
+ <li>3次MVP（2次AL + 1次NL），史上跨联盟第一人</li>
+ <li>大场面心理素质极强，季后赛表现优异</li>
+ <li>商业价值极高，全球影响力巨大</li>
+ <li>2024、2025年世界大赛冠军</li>
+ <li>速球+指叉球+滑球三球种品质均优秀</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</li>
+ <ul>
+ <li>投球频率受限，球队保护其手臂健康</li>
+ <li>年龄32岁，双向球员体能消耗大</li>
+ <li>伤病风险（肘部手术史、斜腹肌伤等）</li>
+ <li>薪资占用大量空间（10年7亿美元）</li>
+ <li>盗垒频率较2024年显著下降（战术调整）</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="ohtani_overall_grades.png" alt="综合评分" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">速球 (Fastball)</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">75</span>
+ <div class="stat-label">指叉球 (Splitter)</div>
+ <span class="grade grade-a">A+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">滑球 (Slider)</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">65</span>
+ <div class="stat-label">控球 (控球)</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">70</span>
+ <div class="stat-label">指挥 (控球精准度)</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">75</span>
+ <div class="stat-label">心理素质 (Mental)</div>
+ <span class="grade grade-a">A+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">打击 (Hitting)</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">75</span>
+ <div class="stat-label">力量 (Power)</div>
+ <span class="grade grade-a">A+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">速度 (Speed)</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">防守 (Defense)</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ 
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #ff9800; font-weight: bold;">75</div>
+ <p style="color: #90a4ae; margin-top: 10px;">MLB史上最强双向球员，名人堂级别超级巨星</p>
+ <p style="margin-top: 15px;">
+ <span class="grade grade-a" style="font-size: 1.2em;">A+ 级 / 历史级超级巨星</span>
+ </p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2026 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2026 季后赛战绩：NLDS 3-1 晋级、NLCS 0-4 止步。大谷 8 场全勤担任指定打击，未登板投球（球队彻底保护其手臂）。</p>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>SB</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>8</td><td>32</td><td>.192</td><td>.323</td><td>.308</td><td class="highlight">.631</td><td>1</td><td>3</td><td>1</td><td>4</td><td>10</td>
+ </tr>
+ </tbody>
+ </table>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>季后赛缴出.192/.323/.308、OPS .631，选球手感仍在（4保送、.323上垒率）但长打完全熄火：26打数仅5安打、10三振，长打率从常规赛的.512暴跌至.308</li>
+ <li>8场仅1轰3打点，与常规赛30轰81打点的联盟顶级火力形成巨大反差，是道奇打线在 NLCS 被横扫的关键因素之一</li>
+ <li>对比2025年季后赛11轰、NLCS MVP 的史诗表现，今年季后赛是他道奇生涯首次真正意义上的季后赛低迷</li>
+ </ul>
+ </div>
+
+<div class="section">
+ <h2>🔮 未来展望</h2>
+ <div style="margin-top: 20px;">
+ <p>大谷翔平仍处于职业生涯巅峰期。2026年投球数据显著提升（ERA从2.87降至1.79，8胜2败），打击端整季缴出.275打击率、30轰、81打点、.889 OPS，较上半季小幅降温但仍是MVP级别。作为32岁的球员，他的身体状态和技术水平均处于最佳时期。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">里程碑追踪</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li><strong>全垒打</strong>：累计330+轰，目标500轰（预计4-5年达成）</li>
+ <li><strong>打点</strong>：累计806打点，目标1000打点</li>
+ <li><strong>盗垒</strong>：累计182次，目标200次盗垒</li>
+ <li><strong>投球胜场</strong>：累计55胜，目标100胜</li>
+ <li><strong>三振</strong>：累计860K，目标1000K</li>
+ </ul>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">预期发展轨迹</h3>
+ <p><strong>2026-2027：</strong>保持双向巅峰，挑战MVP+赛扬双奖，道奇队核心领袖</p>
+ <p><strong>2028-2029：</strong>逐步减少投球频率（保护手臂），重点转向打击DH角色，仍保持顶级表现</p>
+ <p><strong>2030+：</strong>转型全职强打者，继续冲击历史纪录，名人堂笃定入选</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事与历史成就</h2>
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">早期生涯</h3>
+ <p>大谷翔平出生于日本岩手县奥州市。父亲大谷彻是当地三菱重工所属业余棒球队员，母亲大谷加代子则是竞技羽毛球运动员。大谷就读于岩手县花卷东高等学校，2012年入选日本U-18国家队，2013年日本职棒选秀中被北海道日本火腿斗士队第一指名。</p>
+ <p>在火腿队时期，大谷展现了二刀流的惊人天赋。2016年球季，他投出10胜同时击出22支全垒打，成为日本职棒史上首位单季10胜+20轰的球员。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">MLB生涯里程碑</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li><strong>2018</strong>：MLB首秀，成为天使队先发投手+指定打击</li>
+ <li><strong>2021</strong>： unanimous AL MVP（全票MVP），成为继铃木一朗后第二位获MVP的日本球员</li>
+ <li><strong>2023</strong>：再次 unanimous AL MVP，WBC MVP，带领日本队夺得世界棒球经典赛冠军</li>
+ <li><strong>2024</strong>：转会道奇，NL MVP（全票），史上首位50/50球员（54轰+59盗），世界大赛冠军</li>
+ <li><strong>2025</strong>：再次NL MVP，世界大赛冠军，季后赛11轰，NLCS MVP</li>
+ <li><strong>2026</strong>：投球生涯最佳ERA 1.79（8胜2败、95K），打击.275/.889、30轰81打点；道奇NLDS 3-1晋级、NLCS 0-4止步</li>
+ </ul>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">历史纪录</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>史上首位单季50轰+50盗的球员（2024）</li>
+ <li>史上首位两次unanimous MVP的球员（2021、2023 AL；2024 NL）</li>
+ <li>史上首位跨联盟MVP球员（AL+NL）</li>
+ <li>史上首位单季45轰+25盗+10胜的球员</li>
+ <li>道奇队史单季得分纪录保持者（146分，2025）</li>
+ <li>MLB生涯330轰+180盗+55胜（持续累积中）</li>
+ </ul>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">个人生活</h3>
+ <p>大谷翔平于2023年与日本前职业篮球运动员田中真美子结婚。2025年4月，两人迎来了女儿的诞生。田中真美子曾效力于日本富士通红浪女篮（2019-2023），是身高180cm的前锋。</p>
+ <p>大谷以低调谦逊著称，尽管拥有全球最高薪资（10年7亿美元），但他始终保持日本传统运动员的谦逊作风。他在采访中常说"只想帮助球队赢球"，这种态度深受队友和球迷喜爱。</p>
+ </div>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant | MLB Stats API</p>
+ <p>报告生成时间：2026-10-17 | 数据截止日期：2026-10-17（常规赛+季后赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

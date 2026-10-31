@@ -1,0 +1,161 @@
+function renderSchedulePage() {
+            const content = $('#content');
+            content.innerHTML = `<div class="schedule-loading"><div>⏳ 正在加载赛程数据...</div></div>`;
+
+            let data = null;
+            let source = '';
+            try {
+                const res = await fetch('data/schedule-game-hub.json?v=' + Date.now());
+                if (!res.ok) throw new Error('无法读取赛程数据');
+                data = await res.json();
+                source = 'current';
+            } catch (err) {
+                try {
+                    const bak = await fetch('data/schedule-game-hub.json.bak');
+                    if (bak.ok) {
+                        data = await bak.json();
+                        source = 'backup';
+                    }
+                } catch (e) {
+                    // ignore
+                }
+            }
+
+            if (!data) {
+                content.innerHTML = `
+                    <div class="schedule-error">
+                        <strong>赛程数据加载失败</strong><br>
+                        无法读取赛程数据或历史 checkpoint。<br><br>
+                        请先运行 DodgersRosterCheck 定时任务，或手动执行：<br>
+                        <code>python D:\\baseball\\scripts\\fetch-schedule-hub.py</code>
+                    </div>
+                `;
+                return;
+            }
+
+            const next = data.nextGame;
+            const last = data.lastGame;
+            const series = data.series || {};
+            const calendar = data.calendar || {};
+            const generated = data.generatedAt ? new Date(data.generatedAt).toLocaleString('zh-CN') : '未知';
+            const sourceBadge = source === 'backup' ? '<span class="tag tag-red">读取自本地 checkpoint</span>' : '';
+
+            /* ---------- 下一场 ---------- */
+            let nextHtml;
+            if (next) {
+                const homeOrAway = next.isHome ? '主场' : '客场';
+                const venue = next.venue || (next.isHome ? 'Dodger Stadium' : '客场球场');
+                const myAbbr = next.isHome ? 'LAD' : next.opponent.abbreviation;
+                const oppAbbr = next.isHome ? next.opponent.abbreviation : 'LAD';
+                const myTeamName = next.isHome ? '道奇' : next.opponent.name;
+                const oppTeamName = next.isHome ? next.opponent.name : '道奇';
+                const myP = fmtPitcher(next.probablePitcher, next.pitcherStats);
+                const oppP = fmtPitcher(next.opponentProbablePitcher, next.opponentPitcherStats);
+
+                nextHtml = `
+                    <div class="gh-card">
+                        <h3>🔮 下一场比赛 <span class="gh-tag">${homeOrAway}</span></h3>
+                        <div class="gh-matchup">
+                            <div class="gh-team">
+                                <div class="gh-team-abbr">${myAbbr}</div>
+                                <div class="gh-team-name">${myTeamName}</div>
+                            </div>
+                            <div class="gh-vs">VS</div>
+                            <div class="gh-team">
+                                <div class="gh-team-abbr">${oppAbbr}</div>
+                                <div class="gh-team-name">${oppTeamName}</div>
+                            </div>
+                        </div>
+                        <div class="gh-meta">🕐 北京时间 ${next.beijingTime} · 🏟️ ${venue}</div>
+                        <div style="margin-top:16px;">
+                            <div class="gh-pitcher"><span class="gh-pitcher-side">道奇先发</span><span class="gh-pitcher-name">${myP.name}</span><span class="gh-pitcher-stats">${myP.stats}</span></div>
+                            <div class="gh-pitcher"><span class="gh-pitcher-side">对手先发</span><span class="gh-pitcher-name">${oppP.name}</span><span class="gh-pitcher-stats">${oppP.stats}</span></div>
+                        </div>
+                    </div>
+                `;
+            } else {
+                nextHtml = `<div class="gh-card"><h3>🔮 下一场比赛</h3><div class="empty-state"><div>暂无 upcoming 赛程</div></div></div>`;
+            }
+
+            /* ---------- 上一场 ---------- */
+            let lastHtml;
+            if (last) {
+                const win = last.result === 'W';
+                const resultBadge = `<span class="gh-result ${win ? 'win' : 'loss'}">${win ? '胜' : '负'}</span>`;
+                const lsTable = buildLinescoreTable(last.linescore);
+                const momentsRaw = Array.isArray(last.keyMoments) ? last.keyMoments : [];
+                // 兼容旧格式（纯字符串）
+                const moments = momentsRaw.map(m => typeof m === 'string'
+                    ? { inning: '', team: '', text: m, score: '' }
+                    : m);
+                const shown = moments.slice(-6);
+                const hiddenCount = moments.length - shown.length;
+                const momentChips = shown.map(m => `
+                    <div class="moment-chip ${m.team === 'dodgers' ? 'm-dodgers' : 'm-opp'}">
+                        <span class="moment-inning">${m.inning}</span>
+                        <span class="moment-text">${m.text}</span>
+                        <span class="moment-score">${m.score}</span>
+                    </div>
+                `).join('');
+                lastHtml = `
+                    <div class="gh-card">
+                        <h3>📝 上一场复盘 <span class="gh-tag">${last.beijingTime}</span> ${resultBadge}</h3>
+                        <div class="gh-score-row">
+                            <span class="gh-team-abbr">${last.isHome ? 'LAD' : last.opponent.abbreviation}</span>
+                            <span class="gh-score ${win ? 'win' : 'loss'}">${last.score.dodgers} - ${last.score.opponent}</span>
+                            <span class="gh-team-abbr">${last.isHome ? last.opponent.abbreviation : 'LAD'}</span>
+                        </div>
+                        ${lsTable}
+                        ${moments.length ? `<div class="gh-moments-label">关键得分</div><div class="gh-moments">${momentChips}</div>` : ''}
+                        ${hiddenCount > 0 ? `<div class="gh-more">仅显示最后 ${shown.length} 个得分打席（共 ${moments.length} 个）</div>` : ''}
+                    </div>
+                `;
+            } else {
+                lastHtml = `<div class="gh-card"><h3>📝 上一场复盘</h3><div class="empty-state"><div>暂无已赛比赛</div></div></div>`;
+            }
+
+            /* ---------- 系列赛 ---------- */
+            let seriesHtml = '';
+            if (series.opponent) {
+                const pips = (series.games || []).map(g => {
+                    const dateShort = g.date ? g.date.slice(5).replace('-', '/') : '';
+                    if (g.status !== 'Final') {
+                        return `<div class="series-pip upcoming"><span class="pip-dot"></span><span class="pip-score">VS</span><span class="pip-date">${dateShort} 待赛</span></div>`;
+                    }
+                    const w = g.result === 'W';
+                    const sc = g.score || { dodgers: '-', opponent: '-' };
+                    return `<div class="series-pip ${w ? 'win' : 'loss'}"><span class="pip-dot"></span><span class="pip-score">${sc.dodgers}-${sc.opponent}</span><span class="pip-date">${dateShort}</span></div>`;
+                }).join('');
+                const statusText = series.nextGameDate
+                    ? `已赛 ${series.gamesPlayed}/${series.totalGames} 场 · 下一场 ${series.nextGameBeijingTime || series.nextGameDate}`
+                    : `系列赛结束 · 道奇 ${series.wins}-${series.losses} ${series.opponentAbbreviation}`;
+                seriesHtml = `
+                    <div class="gh-card" style="margin-bottom:22px;">
+                        <h3>⚔️ 当前系列赛 · vs ${series.opponentAbbreviation} <span class="gh-tag">${series.totalGames} 场</span></h3>
+                        <div class="gh-series-head">
+                            <span class="gh-series-num">LAD ${series.wins}</span>
+                            <span class="gh-vs">—</span>
+                            <span class="gh-series-num opp">${series.losses} ${series.opponentAbbreviation}</span>
+                        </div>
+                        <div class="series-pips">${pips}</div>
+                        <div class="gh-series-status">${statusText}</div>
+                    </div>
+                `;
+            }
+
+            /* ---------- 日历 ---------- */
+            const today = new Date();
+            const monthDays = new Date(calendar.year, calendar.month, 0).getDate();
+            const firstDay = new Date(calendar.year, calendar.month - 1, 1).getDay();
+            const gameMap = {};
+            (calendar.games || []).forEach(g => { gameMap[g.day] = g; });
+
+            const dayHeaders = ['日','一','二','三','四','五','六'];
+            let cells = '';
+            for (let i = 0; i < firstDay; i++) cells += `<div class="calendar-cell" style="visibility:hidden;"></div>`;
+            for (let d = 1; d <= monthDays; d++) {
+                const g = gameMap[d];
+                let cls = '';
+                let inner = `<span class="calendar-cell-day">${d}</span>`;
+                if (g) {
+                    cls = g.result =

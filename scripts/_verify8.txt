@@ -1,0 +1,67 @@
+===== chuckie-robinson (id=642020) =====
+FS26: G=8 AVG=.087 OBP=.087 SLG=.087 OPS=.174 HR=0 RBI=1 BB=0 SO=5 AB=23 H=2
+OPS identity diff=0.0000
+FS25: YES
+html dates: ['2026-10-27 ']
+  html has avg=.087: True
+  html has obp=.087: True
+  html has slg=.087: True
+
+===== alek-thomas (id=677950) =====
+FS26: G=7 AVG=.211 OBP=.250 SLG=.263 OPS=.513 HR=0 RBI=3 BB=1 SO=4 AB=19 H=4
+OPS identity diff=0.0000
+FS25: no
+html dates: ['2026-10-27 ']
+  html has avg=.211: True
+  html has obp=.250: True
+  html has slg=.263: True
+
+===== charlie-barnes (id=656212) =====
+FS26: G=4 GS=0 W=0 L=1 ERA=6.30 IP=10.0 WHIP=1.70 K=5 BB=4 HR=3 H=13
+FS25: no
+html dates: ['2026-10-27 ']
+  html has ERA=6.30: True
+  html has IP=10.0: True
+  html has WHIP=1.70: True
+
+===== cole-irvin (id=608344) =====
+FS26: G=1 GS=0 W=0 L=1 ERA=9.00 IP=6.0 WHIP=1.83 K=5 BB=3 HR=1 H=8
+FS25: no
+html dates: ['2026-10-27 ']
+  html has ERA=9.00: True
+  html has IP=6.0: True
+  html has WHIP=1.83: True
+
+===== ryan-ward (id=669899) =====
+FS26: G=20 AVG=.218 OBP=.283 SLG=.455 OPS=.738 HR=3 RBI=12 BB=5 SO=17 AB=55 H=12
+OPS identity diff=0.0000
+FS25: no
+html dates: ['2026-10-27 ']
+  html has avg=.218: True
+  html has obp=.283: True
+  html has slg=.455: True
+
+===== wyatt-mills (id=670090) =====
+FS26: G=6 GS=0 W=0 L=0 ERA=5.68 IP=6.1 WHIP=2.21 K=5 BB=9 HR=0 H=5
+FS25: no
+html dates: ['2026-10-27 ']
+  html has ERA=5.68: True
+  html has IP=6.1: True
+  html has WHIP=2.21: True
+
+===== jake-eder (id=671109) =====
+FS26: G=4 GS=0 W=1 L=0 ERA=2.25 IP=4.0 WHIP=1.00 K=1 BB=1 HR=0 H=3
+FS25: no
+html dates: ['2026-10-27 ']
+  html has ERA=2.25: True
+  html has IP=4.0: True
+  html has WHIP=1.00: True
+
+===== chayce-mcdermott (id=694646) =====
+FS26: G=2 GS=0 W=0 L=0 ERA=7.71 IP=2.1 WHIP=1.29 K=1 BB=0 HR=1 H=3
+FS25: no
+html dates: ['2026-07-31 ']
+  html has ERA=7.71: True
+  html has IP=2.1: True
+  html has WHIP=1.29: True
+

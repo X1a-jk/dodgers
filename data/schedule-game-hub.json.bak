@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T18:42:21.523102",
+  "generatedAt": "2026-10-15T20:53:50.807638",
   "season": 2026,
   "team": {
     "id": 119,
@@ -94,9 +94,12 @@
         "opponent": "MIL",
         "opponentName": "Milwaukee Brewers",
         "isHome": true,
-        "result": null,
-        "status": "Preview",
-        "score": null
+        "result": "L",
+        "status": "Final",
+        "score": {
+          "dodgers": 2,
+          "opponent": 6
+        }
       },
       {
         "date": "2026-10-15",
@@ -141,10 +144,10 @@
     ]
   },
   "nextGame": {
-    "gamePk": 849811,
-    "date": "2026-10-14",
-    "utcTime": "2026-10-15T00:00:00Z",
-    "beijingTime": "2026-10-15 08:00",
+    "gamePk": 849810,
+    "date": "2026-10-15",
+    "utcTime": "2026-10-16T00:00:00Z",
+    "beijingTime": "2026-10-16 08:00",
     "status": "Preview",
     "detailedStatus": "Scheduled",
     "isHome": true,
@@ -156,87 +159,75 @@
     "venue": "UNIQLO Field at Dodger Stadium",
     "score": null,
     "result": null,
-    "probablePitcher": null,
-    "opponentProbablePitcher": "Robert Gasser",
-    "pitcherStats": null,
-    "opponentPitcherStats": {
-      "name": "Robert Gasser",
+    "probablePitcher": "Tyler Glasnow",
+    "opponentProbablePitcher": null,
+    "pitcherStats": {
+      "name": "Tyler Glasnow",
       "w": 5,
-      "l": 5,
-      "era": "3.87",
-      "whip": "1.19"
-    }
+      "l": 2,
+      "era": "3.53",
+      "whip": "0.95"
+    },
+    "opponentPitcherStats": null
   },
   "lastGame": {
-    "gamePk": 849812,
-    "date": "2026-10-12",
-    "utcTime": "2026-10-12T21:00:00Z",
-    "beijingTime": "2026-10-13 05:00",
+    "gamePk": 849811,
+    "date": "2026-10-14",
+    "utcTime": "2026-10-15T00:00:00Z",
+    "beijingTime": "2026-10-15 08:00",
     "status": "Final",
     "detailedStatus": "Final",
-    "isHome": false,
+    "isHome": true,
     "opponent": {
       "id": 158,
       "name": "Milwaukee Brewers",
       "abbreviation": "MIL"
     },
-    "venue": "American Family Field",
+    "venue": "UNIQLO Field at Dodger Stadium",
     "score": {
-      "dodgers": 4,
-      "opponent": 7
+      "dodgers": 2,
+      "opponent": 6
     },
     "result": "L",
-    "probablePitcher": "Yoshinobu Yamamoto",
-    "opponentProbablePitcher": "Logan Henderson",
-    "linescore": "Final   1 2 3 4 5 6 7 8 9  R   H   E  \nDodgers 1 0 1 0 2 0 0 0 0  4   3   2  \nBrewers 1 0 2 0 1 1 0 2 0  7   12  2  ",
+    "probablePitcher": "Blake Snell",
+    "opponentProbablePitcher": "Robert Gasser",
+    "linescore": "Final   1 2 3 4 5 6 7 8 9  R   H   E  \nBrewers 1 0 0 0 0 0 3 1 1  6   9   0  \nDodgers 0 0 0 0 0 2 0 0 0  2   5   0  ",
     "keyMoments": [
       {
-        "inning": "3局上",
-        "team": "dodgers",
-        "text": "Teoscar Hernández 滚地球出局打回1分",
-        "score": "2-1"
-      },
-      {
-        "inning": "3局下",
+        "inning": "1局上",
         "team": "opponent",
-        "text": "Christian Yelich 安打打回2分",
-        "score": "2-3"
-      },
-      {
-        "inning": "5局上",
-        "team": "dodgers",
-        "text": "Tommy Edman hits a 牺牲触击打回1分",
-        "score": "3-3"
-      },
-      {
-        "inning": "5局上",
-        "team": "dodgers",
-        "text": "Brewers challenged (tag play), call on the field was upheld: Freddie Freeman 牺牲飞球打回1分",
-        "score": "4-3"
-      },
-      {
-        "inning": "5局下",
-        "team": "opponent",
-        "text": "William Contreras 阳春炮",
-        "score": "4-4"
+        "text": "Jackson Chourio 阳春炮",
+        "score": "0-1"
       },
       {
         "inning": "6局下",
-        "team": "opponent",
-        "text": "William Contreras 安打打回1分",
-        "score": "4-5"
+        "team": "dodgers",
+        "text": "Will Smith 二垒安打打回2分",
+        "score": "2-1"
       },
       {
-        "inning": "8局下",
+        "inning": "7局上",
         "team": "opponent",
-        "text": "Brice Turang 安打打回1分",
-        "score": "4-6"
+        "text": "Jake Bauers 两分炮",
+        "score": "2-3"
       },
       {
-        "inning": "8局下",
+        "inning": "7局上",
         "team": "opponent",
-        "text": "Jake Bauers 安打打回1分",
-        "score": "4-7"
+        "text": "Garrett Mitchell 阳春炮",
+        "score": "2-4"
+      },
+      {
+        "inning": "8局上",
+        "team": "opponent",
+        "text": "Christian Yelich strikes out swingin...",
+        "score": "2-5"
+      },
+      {
+        "inning": "9局上",
+        "team": "opponent",
+        "text": "Joey Ortiz 安打打回1分",
+        "score": "2-6"
       }
     ]
   },
@@ -244,11 +235,11 @@
     "opponent": "Milwaukee Brewers",
     "opponentAbbreviation": "MIL",
     "totalGames": 7,
-    "gamesPlayed": 2,
+    "gamesPlayed": 3,
     "wins": 0,
-    "losses": 2,
-    "nextGameDate": "2026-10-14",
-    "nextGameBeijingTime": "2026-10-15 08:00",
+    "losses": 3,
+    "nextGameDate": "2026-10-15",
+    "nextGameBeijingTime": "2026-10-16 08:00",
     "games": [
       {
         "date": "2026-10-11",
@@ -272,9 +263,12 @@
       },
       {
         "date": "2026-10-14",
-        "status": "Preview",
-        "result": null,
-        "score": null,
+        "status": "Final",
+        "result": "L",
+        "score": {
+          "dodgers": 2,
+          "opponent": 6
+        },
         "isHome": true
       },
       {
@@ -308,50 +302,6 @@
     ]
   },
   "recentAndUpcoming": [
-    {
-      "gamePk": 823897,
-      "date": "2026-09-22",
-      "utcTime": "2026-09-23T02:10:00Z",
-      "beijingTime": "2026-09-23 10:10",
-      "status": "Final",
-      "detailedStatus": "Final",
-      "isHome": true,
-      "opponent": {
-        "id": 135,
-        "name": "San Diego Padres",
-        "abbreviation": "SD"
-      },
-      "venue": "UNIQLO Field at Dodger Stadium",
-      "score": {
-        "dodgers": 7,
-        "opponent": 0
-      },
-      "result": "W",
-      "probablePitcher": "Brock Stewart",
-      "opponentProbablePitcher": "Michael King"
-    },
-    {
-      "gamePk": 823894,
-      "date": "2026-09-23",
-      "utcTime": "2026-09-24T02:10:00Z",
-      "beijingTime": "2026-09-24 10:10",
-      "status": "Final",
-      "detailedStatus": "Final",
-      "isHome": true,
-      "opponent": {
-        "id": 135,
-        "name": "San Diego Padres",
-        "abbreviation": "SD"
-      },
-      "venue": "UNIQLO Field at Dodger Stadium",
-      "score": {
-        "dodgers": 1,
-        "opponent": 5
-      },
-      "result": "L",
-      "probablePitcher": "Yoshinobu Yamamoto",
-      "opponentProbablePitcher": "Robbie Ray"
-    },
     {
       "gamePk": 823895,
       "date": "2026-09-24",
@@ -577,8 +527,8 @@
       "date": "2026-10-14",
       "utcTime": "2026-10-15T00:00:00Z",
       "beijingTime": "2026-10-15 08:00",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
+      "status": "Final",
+      "detailedStatus": "Final",
       "isHome": true,
       "opponent": {
         "id": 158,
@@ -586,24 +536,19 @@
         "abbreviation": "MIL"
       },
       "venue": "UNIQLO Field at Dodger Stadium",
-      "score": null,
-      "result": null,
-      "probablePitcher": null,
-      "opponentProbablePitcher": "Robert Gasser",
-      "pitcherStats": null,
-      "opponentPitcherStats": {
-        "name": "Robert Gasser",
-        "w": 5,
-        "l": 5,
-        "era": "3.87",
-        "whip": "1.19"
-      }
+      "score": {
+        "dodgers": 2,
+        "opponent": 6
+      },
+      "result": "L",
+      "probablePitcher": "Blake Snell",
+      "opponentProbablePitcher": "Robert Gasser"
     },
     {
       "gamePk": 849810,
       "date": "2026-10-15",
-      "utcTime": "2026-10-16T01:00:00Z",
-      "beijingTime": "2026-10-16 09:00",
+      "utcTime": "2026-10-16T00:00:00Z",
+      "beijingTime": "2026-10-16 08:00",
       "status": "Preview",
       "detailedStatus": "Scheduled",
       "isHome": true,
@@ -615,8 +560,16 @@
       "venue": "UNIQLO Field at Dodger Stadium",
       "score": null,
       "result": null,
-      "probablePitcher": null,
-      "opponentProbablePitcher": null
+      "probablePitcher": "Tyler Glasnow",
+      "opponentProbablePitcher": null,
+      "pitcherStats": {
+        "name": "Tyler Glasnow",
+        "w": 5,
+        "l": 2,
+        "era": "3.53",
+        "whip": "0.95"
+      },
+      "opponentPitcherStats": null
     },
     {
       "gamePk": 849808,

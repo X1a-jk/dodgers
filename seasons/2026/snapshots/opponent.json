@@ -1,0 +1,346 @@
+{
+  "generatedAt": "2026-10-15T20:55:52.155188",
+  "season": 2026,
+  "nextGame": {
+    "date": "2026-10-15",
+    "beijingTime": "2026-10-16 08:00",
+    "venue": "UNIQLO Field at Dodger Stadium",
+    "isHome": true,
+    "gamePk": 849810,
+    "dodgersPitcher": "Tyler Glasnow",
+    "dodgersPitcherStats": {
+      "name": "Tyler Glasnow",
+      "w": 5,
+      "l": 2,
+      "era": "3.53",
+      "whip": "0.95"
+    },
+    "opponentPitcher": null,
+    "opponentPitcherStats": null
+  },
+  "opponent": {
+    "id": 158,
+    "name": "Milwaukee Brewers",
+    "abbr": "MIL",
+    "record": {
+      "w": 103,
+      "l": 59,
+      "pct": ".636",
+      "divisionRank": "1",
+      "divisionName": "",
+      "gamesBack": "-"
+    }
+  },
+  "recentForm": {
+    "last10": {
+      "w": 9,
+      "l": 1
+    },
+    "last15": [
+      {
+        "date": "2026-10-15",
+        "r": "W",
+        "score": "6-2",
+        "vs": "Los Angeles Dodgers"
+      },
+      {
+        "date": "2026-10-12",
+        "r": "W",
+        "score": "2-1",
+        "vs": "Los Angeles Dodgers"
+      },
+      {
+        "date": "2026-10-12",
+        "r": "W",
+        "score": "7-4",
+        "vs": "Los Angeles Dodgers"
+      },
+      {
+        "date": "2026-10-08",
+        "r": "W",
+        "score": "3-1",
+        "vs": "San Diego Padres"
+      },
+      {
+        "date": "2026-10-07",
+        "r": "L",
+        "score": "3-4",
+        "vs": "San Diego Padres"
+      },
+      {
+        "date": "2026-10-04",
+        "r": "W",
+        "score": "3-2",
+        "vs": "San Diego Padres"
+      },
+      {
+        "date": "2026-10-04",
+        "r": "W",
+        "score": "4-3",
+        "vs": "San Diego Padres"
+      },
+      {
+        "date": "2026-09-27",
+        "r": "W",
+        "score": "6-4",
+        "vs": "St. Louis Cardinals"
+      },
+      {
+        "date": "2026-09-26",
+        "r": "W",
+        "score": "3-2",
+        "vs": "St. Louis Cardinals"
+      },
+      {
+        "date": "2026-09-25",
+        "r": "W",
+        "score": "8-4",
+        "vs": "St. Louis Cardinals"
+      },
+      {
+        "date": "2026-09-24",
+        "r": "W",
+        "score": "5-1",
+        "vs": "Philadelphia Phillies"
+      },
+      {
+        "date": "2026-09-23",
+        "r": "W",
+        "score": "4-1",
+        "vs": "Philadelphia Phillies"
+      },
+      {
+        "date": "2026-09-22",
+        "r": "L",
+        "score": "4-6",
+        "vs": "Philadelphia Phillies"
+      },
+      {
+        "date": "2026-09-20",
+        "r": "W",
+        "score": "3-0",
+        "vs": "Baltimore Orioles"
+      },
+      {
+        "date": "2026-09-19",
+        "r": "W",
+        "score": "1-0",
+        "vs": "Baltimore Orioles"
+      }
+    ],
+    "streak": {
+      "type": "W",
+      "count": 4
+    }
+  },
+  "keyHitters": [
+    {
+      "name": "Jake Bauers",
+      "avg": ".266",
+      "obp": ".389",
+      "slg": ".484",
+      "ops": ".873",
+      "hr": 26,
+      "rbi": 86,
+      "sb": 11,
+      "pa": 578
+    },
+    {
+      "name": "Jackson Chourio",
+      "avg": ".291",
+      "obp": ".351",
+      "slg": ".487",
+      "ops": ".838",
+      "hr": 25,
+      "rbi": 75,
+      "sb": 23,
+      "pa": 573
+    },
+    {
+      "name": "Andrew Vaughn",
+      "avg": ".306",
+      "obp": ".390",
+      "slg": ".444",
+      "ops": ".834",
+      "hr": 6,
+      "rbi": 43,
+      "sb": 0,
+      "pa": 331
+    },
+    {
+      "name": "Brice Turang",
+      "avg": ".268",
+      "obp": ".366",
+      "slg": ".450",
+      "ops": ".816",
+      "hr": 21,
+      "rbi": 100,
+      "sb": 19,
+      "pa": 680
+    },
+    {
+      "name": "Gary Sánchez",
+      "avg": ".209",
+      "obp": ".349",
+      "slg": ".422",
+      "ops": ".771",
+      "hr": 12,
+      "rbi": 38,
+      "sb": 0,
+      "pa": 275
+    }
+  ],
+  "keyPitchers": {
+    "rotation": [
+      {
+        "name": "Jacob Misiorowski",
+        "era": "1.80",
+        "whip": "0.80",
+        "w": 16,
+        "l": 5,
+        "so": 252,
+        "ip": "174.2",
+        "gs": 30,
+        "sv": 0
+      },
+      {
+        "name": "Logan Henderson",
+        "era": "2.47",
+        "whip": "0.84",
+        "w": 11,
+        "l": 3,
+        "so": 110,
+        "ip": "98.1",
+        "gs": 18,
+        "sv": 0
+      },
+      {
+        "name": "Brandon Woodruff",
+        "era": "2.98",
+        "whip": "0.84",
+        "w": 2,
+        "l": 2,
+        "so": 47,
+        "ip": "45.1",
+        "gs": 9,
+        "sv": 0
+      },
+      {
+        "name": "Chad Patrick",
+        "era": "3.40",
+        "whip": "1.24",
+        "w": 9,
+        "l": 4,
+        "so": 93,
+        "ip": "106.0",
+        "gs": 6,
+        "sv": 6
+      }
+    ],
+    "bullpen": [
+      {
+        "name": "Trevor Megill",
+        "era": "2.63",
+        "whip": "0.89",
+        "w": 3,
+        "l": 3,
+        "so": 69,
+        "ip": "61.2",
+        "gs": 0,
+        "sv": 30
+      },
+      {
+        "name": "Abner Uribe",
+        "era": "1.97",
+        "whip": "1.03",
+        "w": 6,
+        "l": 3,
+        "so": 62,
+        "ip": "59.1",
+        "gs": 0,
+        "sv": 6
+      },
+      {
+        "name": "Chad Patrick",
+        "era": "3.40",
+        "whip": "1.24",
+        "w": 9,
+        "l": 4,
+        "so": 93,
+        "ip": "106.0",
+        "gs": 6,
+        "sv": 6
+      }
+    ]
+  },
+  "headToHead": {
+    "games": [
+      {
+        "date": "2026-10-15",
+        "result": "W",
+        "score": "2-6",
+        "venue": "客场"
+      },
+      {
+        "date": "2026-10-12",
+        "result": "W",
+        "score": "1-2",
+        "venue": "主场"
+      },
+      {
+        "date": "2026-10-12",
+        "result": "W",
+        "score": "4-7",
+        "venue": "主场"
+      },
+      {
+        "date": "2026-08-16",
+        "result": "W",
+        "score": "2-6",
+        "venue": "客场"
+      },
+      {
+        "date": "2026-08-15",
+        "result": "L",
+        "score": "3-1",
+        "venue": "客场"
+      },
+      {
+        "date": "2026-08-15",
+        "result": "W",
+        "score": "1-4",
+        "venue": "客场"
+      },
+      {
+        "date": "2026-08-14",
+        "result": "W",
+        "score": "4-5",
+        "venue": "客场"
+      },
+      {
+        "date": "2026-05-24",
+        "result": "L",
+        "score": "5-1",
+        "venue": "主场"
+      },
+      {
+        "date": "2026-05-23",
+        "result": "L",
+        "score": "11-3",
+        "venue": "主场"
+      },
+      {
+        "date": "2026-05-22",
+        "result": "W",
+        "score": "1-5",
+        "venue": "主场"
+      }
+    ],
+    "dodgersW": 3,
+    "dodgersL": 7
+  },
+  "park": {
+    "name": "UNIQLO Field at Dodger Stadium",
+    "note": "中性球场，暂无特殊备注"
+  }
+}

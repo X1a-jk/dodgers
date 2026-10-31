@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Jake Eder 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Jake Eder</h1>
+ <p class="subtitle">Los Angeles Dodgers #56 | 左投后援 | 曾受 TJ 手术的前顶尖新秀</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="jake-eder_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Jake Eder</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1998-10-09（28岁）</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国佛罗里达州博因顿海滩</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6' 4" / 225 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024-09-17（芝加哥白袜）</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2020 年 第4轮（迈阿密马林鱼）</div></div>
+ <div class="info-item"><div class="label">2026状态</div><div class="value">已离队（7/6 被释出，现打多米尼加冬季联盟）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+ <p style="margin-bottom: 15px;">Jake Eder 的故事是"前顶尖新秀被伤病改写"的标准剧本：2020 年选秀会上他是马林鱼体系的<span class="highlight">头部左投 prospects</span>，95-98 mph 的速球配上锋利滑球，一度是全联盟前 100 大新秀；2021 年 7 月接受 Tommy John 手术，此后四年都在与复健和找回球速作斗争。</p>
+ <p style="margin-bottom: 15px;">2026 年他经历国民（DFA）→ 道奇（4 月 1 日现金交易）→ 4 场后援出赛（1-0、2.25 ERA、1.00 WHIP）→ 7 月 1 日进 7 天伤病名单 → <span class="warning">7 月 6 日被释出</span>。4 局 1 三振的数据说明他的速球再也回不到从前，但 2.25 ERA 证明他仍能用控球与经验在有限局面里制造出局。</p>
+ <p>10 月 17 日他加盟多米尼加冬季联盟 Gigantes del Cibao，28 岁的他还在试图延长职业生涯。生涯 13 场 4.44 ERA 是他目前交出的全部答卷。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+ <div class="career-highlight">
+ <h4>⭐ 2020 - 马林鱼第4轮，飞速崛起</h4>
+ <p>选秀后隔年就在 1A 以三振能力横扫联盟，升上 2A 后速球依旧无解，一度跻身棒球 America 全联盟前 100 大新秀。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🏥 2021 - Tommy John 手术，命运转折</h4>
+ <p>2021 年 7 月韧带重建手术，此后两个完整赛季报销。复出后球速从 96-98 掉到 92-94，三振能力大幅缩水。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🌟 2024 - 大联盟首秀（白袜）</h4>
+ <p>经历马林鱼→白袜（Jake Burger 交易案）的流转后，2024 年 9 月 17 日完成大联盟首秀；2025 年在天使队 8 场后援。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔵 2026 - 道奇的短暂停留</h4>
+ <p>3 月 28 日被国民 DFA，4 月 1 日被卖到道奇；4 场后援 2.25 ERA、1.00 WHIP 拿下生涯首胜；7 月 1 日进伤病名单，7 月 6 日被释出，10 月赴多米尼加冬季联盟。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季投球数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">4</span><div class="stat-label">出赛</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4caf50;">1-0</span><div class="stat-label">胜-败</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4caf50;">2.25</span><div class="stat-label">ERA</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4caf50;">1.00</span><div class="stat-label">WHIP</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">4.0</span><div class="stat-label">IP</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">1</span><div class="stat-label">三振</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">1</span><div class="stat-label">保送</div></div>
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">极小样本：4 局仅 1 三振——TJ 手术前的 Eder 是 K/9 破 10 的三振机器，如今的他完全靠控球与软弱击球生存。ERA 好看，但压制力已不可同日而语。</p>
+ </div>
+
+ <div class="section">
+ <h2>📊 近年投球数据对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="jake-eder_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">近年投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>IP</th><th>ERA</th><th>WHIP</th><th>K</th><th>BB</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>Los Angeles Angels</td>
+ <td>8</td>
+ <td>18.1</td>
+ <td>4.91</td>
+ <td>1.31</td>
+ <td>15</td>
+ <td>9</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>Los Angeles Dodgers</td>
+ <td>4</td>
+ <td>4.0</td>
+ <td>2.25</td>
+ <td>1.00</td>
+ <td>1</td>
+ <td>1</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">对比两年：2025 年他在天使还有 7.4 K/9，2026 年掉到 2.25 K/9——球速与挥空能力的流失是线性的。2.25 ERA 与 1.00 WHIP 说明他学会了用 92 mph 的速球边缘与变速球"偷局数"，但这碗饭能吃多久，取决于左肩与手肘的耐久度。生涯 13 场 4.44 ERA / 1.27 WHIP。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">从三振机器到控球艺术家的被迫转型</h3>
+ <p>TJ 手术前的 Eder 靠 96-98 mph 速球与锋利滑球三振打者；如今的他速球 92-94，滑球锐利度大减。2026 年 4 局 1 三振不是偶然——他的生存策略已经变成"让打者第一球就打成软弱滚地"。这种转型在 28 岁还算成功（2.25 ERA / 1.00 WHIP），但天花板也被彻底锁死。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">伤病是唯一的主题</h3>
+ <p>2021 年 TJ 手术、此后多年复健，2026 年 7 月 1 日又进 7 天伤病名单（道奇 7 月 6 日随即释出）。他的身体已经不允许连续出赛，这是所有球队对他敬而远之的根本原因——不是能力不够，是无法被依赖。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">道奇 4 场的样本价值</h3>
+ <p>4 场出赛拿下生涯首胜，2.25 ERA 是他大联盟生涯最亮的一段。但道奇在伤病名单后直接选择释出而非等待，说明球队评估他的身体风险已大于投球价值。对 Eder 来说，冬季联盟是他向各队球探展示"还能连续出赛"的最后舞台。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>2026 年 2.25 ERA / 1.00 WHIP，转型控球型后援初见成效</li>
+ <li>左投身份，对左打者有 matchup 价值</li>
+ <li>6'4"/225 体格，出手角度有隐蔽性</li>
+ <li>曾是大联盟顶级新秀，底子与球商仍在</li>
+ <li>成本极低，小联盟合约即可拥有</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>TJ 手术后球速掉 3-4 mph，三振能力几乎消失（2026 K/9 2.25）</li>
+ <li>伤病史严重，2026 年 7 月再度进 IL 后被释出</li>
+ <li>28 岁仍在漂泊，四年换四队（马林鱼→白袜→天使→国民→道奇）</li>
+ <li>无法连续出赛，无法承担固定牛棚角色</li>
+ <li>样本太小，真实水平难以评估</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="jake-eder_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">50</span><div class="stat-label">Fastball</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Slider</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">55</span><div class="stat-label">Control</div><span class="grade grade-b">B</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">30</span><div class="stat-label">Health</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">35</span><div class="stat-label">Strikeout Ability</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Mental</div><span class="grade grade-b">B-</span></div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">被伤病改写命运的控球型左投</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">C+ 级 / 名单边缘</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+ <div style="margin-top: 20px;">
+ <p>Eder 的 2027 年取决于多米尼加冬季联盟的表现与体检结果。如果能连续出赛且 ERA 维持在 3 以下，他会得到小联盟合约；任何一次手臂不适都可能是职业生涯的终点。从顶级新秀到冬季联盟，他用了五年。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>3/28 被国民 DFA → 4/1 现金交易到道奇 → 4/20 登上大联盟（4 场 2.25 ERA、生涯首胜）→ 7/1 进 7 天 IL → 7/6 被释出 → 10/17 加盟 Gigantes del Cibao</p>
+ <p><strong>2027：</strong>小联盟合约 + 春训邀请，前提是冬季联盟无伤病</p>
+ <p><strong>2028+：</strong>若身体允许，可长期担任 organizational depth 左投；否则退役</p>
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>TJ 手术史 + 反复伤病，身体是最不可控的变量</li>
+ <li>三振能力流失不可逆，球速继续下滑则失去所有武器</li>
+ <li>小样本下 2.25 ERA 的成色未经完整赛季验证</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+ <div style="margin-top: 20px;">
+ <p>Jake Eder 1998 年 10 月 9 日出生于佛罗里达州博因顿海滩（Boynton Beach, Florida），大学就读佛罗里达大学附近... 实际上他直接从高中进入职业：2020 年 MLB 选秀，迈阿密马林鱼在第 4 轮选中这位 6 尺 4 寸的左投。新秀赛季的他在 1A 投出统治级数据，速球 96-98 mph，滑球被球评誉为"大联盟 Ready"，隔年升上 2A 后依旧无往不利——那时他的名字常与"马林鱼下一个王牌"联系在一起。</p>
+ <p>2021 年 7 月，命运出手了：Tommy John 手术。韧带重建、两年复健、复出后球速掉了三英里。2023 年他被交易到芝加哥白袜（Jake Burger 交易案的一部分），2024 年 9 月 17 日完成大联盟首秀——距离他最后一次健康投球已过去三年。2025 年他在洛杉矶天使找到短暂落脚点，2026 年开季被华盛顿国民捡走又迅速 DFA，4 月 1 日被卖到道奇。</p>
+ <p>在道奇的 4 场出赛是他生涯最亮的一段：2.25 ERA、1.00 WHIP、生涯首胜。但 7 月 1 日的伤病名单让一切戛然而止——五天后他被释出。10 月 17 日，他出现在多米尼加冬季联盟的赛场上。从全联盟前 100 大新秀到冬季联盟，Jake Eder 的故事还没有写下结局，但每一笔都写满了职业棒球的残酷与韧性。</p>
+ </div>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-27 | 数据截止日期：2026-10-27（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Santiago Espinal 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .warning { color: #ff9800; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Santiago Espinal</h1>
+ <p class="subtitle">Los Angeles Dodgers | 内野手 | 右投 / 右打 | 2022 美联全明星</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="santiago-espinal_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">全名</div><div class="value">Santiago Espinal</div></div>
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-11-13（31岁）</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">多米尼加共和国圣地亚哥</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5' 9" / 185 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2020-07-25（多伦多蓝鸟）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#5</div></div>
+ <div class="info-item"><div class="label">2026状态</div><div class="value">已离队（季后于响尾蛇 3A 体系）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+ <p style="margin-bottom: 15px;">Santiago Espinal 是一名<span class="highlight">31 岁的 veteran 多功能内野手</span>，2022 年曾入选美联全明星。他以防守稳定性和接触能力立足大联盟六个赛季，生涯 615 场缴出 .261/.314/.350。</p>
+ <p style="margin-bottom: 15px;">2026 年 2 月他与道奇签下小联盟合约，3 月 18 日入选开季名单，整季为道奇出赛 36 场，缴出 .268/.276/.375、1 轰 7 分打点。打击率尚可，但整季 60 个打席<span class="warning">仅 1 次保送</span>，上垒率几乎与打击率持平，选球纪律是他生涯后期最明显的短板。</p>
+ <p>他赛季中两度被 DFA、直接下放，7 月 2 日转投游骑兵 3A，7 月 28 日被释出，8 月 20 日与响尾蛇 3A Reno 签约打完赛季。2026 结束时他已不在道奇组织。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+ <div class="career-highlight">
+ <h4>⭐ 2022 - 美联全明星（多伦多）</h4>
+ <p>生涯巅峰年：135 场 .267/.322/.370、7 轰 51 分打点，凭借二垒与三垒的精英级防守入选美联全明星阵容，MVP 选票获得第 22 名。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>📈 2021 - 打击率 .311 的惊喜赛季</h4>
+ <p>92 场缴出 .311/.376/.405，一度成为蓝鸟主力二垒手，是生涯进攻数据最好的一个赛季。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔄 2024-2025 - 红人时期的长打新高与低潮</h4>
+ <p>2024 年在辛辛那提打出生涯新高 9 轰、45 分打点；2025 年 114 场却吞下整季 0 全垒打，季后被 outright 成为自由球员。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💙 2026 - 道奇的短暂停留</h4>
+ <p>2 月以小联盟合约加盟道奇并入选开季名单，36 场 .268 后因名单空间两度被 DFA，季中转往游骑兵、响尾蛇体系，赛季末已离队。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季打击数据</h2>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">36</span><div class="stat-label">出赛</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">60</span><div class="stat-label">打席</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.268</span><div class="stat-label">打击率</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">.276</span><div class="stat-label">上垒率</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">.375</span><div class="stat-label">长打率</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">1</span><div class="stat-label">全垒打</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4caf50;">7</span><div class="stat-label">打点</div></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">8</span><div class="stat-label">三振（1保送）</div></div>
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">小样本警告：36 场 / 60 打席。15 支安打中 3 支二垒打，8 三振 1 保送——K/BB 比 8:1，上垒几乎全靠安打。</p>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="santiago-espinal_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>Cincinnati Reds</td>
+ <td>114</td>
+ <td>.243</td>
+ <td>.292</td>
+ <td>.282</td>
+ <td>.574</td>
+ <td>0</td>
+ <td>16</td>
+ </tr>
+ <tr>
+ <td>2026</td>
+ <td>Los Angeles Dodgers</td>
+ <td>36</td>
+ <td>.268</td>
+ <td>.276</td>
+ <td>.375</td>
+ <td>.651</td>
+ <td>1</td>
+ <td>7</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">2025 年 114 场 0 全垒打、SLG 仅 .282，长打能力已明显退化；2026 年 36 场打出 .375 长打率（3 支二垒打）略好于去年，但 60 打席 1 保送让 OBP 几乎与 AVG 持平——这是他连续第二个赛季选球贡献近乎为零。生涯 615 场 .261/.314/.350 是更可靠的实力参考。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">接触尚可，上垒崩塌</h3>
+ <p>56 个打数 15 安、8 三振，14.3% 的三振率在 utility 内野手中属合格水平，.268 打击率也与生涯均值相符。但整季仅 1 次保送让 OBP 停在 .276——比生涯 .314 低了 38 个点。当一个球员的上垒率与打击率差距只有 8 个点时，他对打序的价值就只剩"把球打进场内"这一项。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">防守仍是卖点，但角色越来越小</h3>
+ <p>Espinal 的二、三垒防守曾是大联盟顶级水准（2022 全明星赛季的看家本领），2026 年在道奇主要作为内野 depth 出场。随着道奇内野年轻化（Freeland、Kim 等人排队），他的防守溢价不足以抵消进攻端的空缺，这解释了他为何在季中两度被 DFA。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">赛季轨迹解读</h3>
+ <p>道奇开季给他名额，本质上是买一份"熟悉大联盟环境的保险"。36 场之后保险到期：5 月 25 日首次 DFA、 outright 回 3A；6 月 16 日再次 DFA 后他选择自由身，7 月 2 日加盟游骑兵 3A Round Rock，月底被释出，8 月 20 日转投响尾蛇 3A Reno 打完赛季。31 岁的 veteren 一年内横跨三个组织，是典型的名单边缘人漂流轨迹。</p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>2022 美联全明星，有完整大联盟先发履历</li>
+ <li>二、三、游击多位置防守经验，守备稳定</li>
+ <li>三振率 14.3%，接触能力仍在联盟平均水准</li>
+ <li>36 场贡献 7 分打点，得点圈执行率尚可</li>
+ <li>经验丰富的 veteran，能即插即用</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>整季 60 打席仅 1 保送，选球纪律严重退化</li>
+ <li>0.008 的 OBP-AVG 差，上垒价值趋近于零</li>
+ <li>长打能力退化：2025 年 0 轰、SLG .282</li>
+ <li>31 岁，运动能力进入下行通道</li>
+ <li>赛季中两度被 DFA，已不在道奇组织</li>
+ <li>小样本下 .268 的成色存疑</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="santiago-espinal_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Hit</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Power</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #ff9800;">40</span><div class="stat-label">Discipline</div><span class="grade grade-c">C</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4caf50;">55</span><div class="stat-label">Defense</div><span class="grade grade-b">B</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Speed</div><span class="grade grade-b">B-</span></div>
+ <div class="stat-card"><span class="stat-value" style="color: #4fc3f7;">50</span><div class="stat-label">Versatility</div><span class="grade grade-b">B-</span></div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">防守为骨、选球崩坏的 veteran 内野 depth</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 名单边缘</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+ <div style="margin-top: 20px;">
+ <p>Espinal 的 2027 年大概率仍是小联盟合约加春训邀请的模式。他的防守经验和全明星履历能让各队愿意给他一次竞争名额的机会，但要在开季名单立足，他必须证明 OBP 能回到 .310 以上——过去两个赛季 .292 和 .276 的走势说明这条路越来越窄。</p>
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>2/17 小联盟合约加盟道奇，3/18 入选开季名单；36 场 .268/.276/.375；5/25、6/16 两度 DFA；7/2 游骑兵 3A（7/28 被释出）；8/20 响尾蛇 3A Reno 打完赛季</p>
+ <p><strong>2027：</strong>小联盟合约 + 春训邀请，争取 utility 内野名额</p>
+ <p><strong>2028+：</strong>若无法回大联盟，可能转向海外联盟或教练体系</p>
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>上垒能力连续两季萎缩，进攻端价值所剩无几</li>
+ <li>31 岁 + 一年三队，市场定位持续走低</li>
+ <li>小联盟合约球员无保障，随时可能告别 affiliated 棒球</li>
+ </ul>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+ <div style="margin-top: 20px;">
+ <p>Santiago Espinal 1994 年 11 月 13 日出生于多米尼加共和国的圣地亚哥（Santiago de los Caballeros）。2016 年 7 月，他以业余自由球员身份与波士顿红袜签约，从湾岸联盟起步。2018 年 6 月 28 日，红袜把他交易到多伦多蓝鸟，换回老将 Steve Pearce——这笔交易后来被视为蓝鸟捡宝：Espinal 一路从 2A New Hampshire 打上 3A Buffalo，2020 年 7 月 25 日完成大联盟首秀。</p>
+ <p>2021 年他打出 .311 的打击率，2022 年更上一层楼——135 场 .267、7 轰 51 分打点，凭藉二垒与三垒的精英防守入选美联全明星，还在 MVP 投票中名列第 22。那是他生涯的顶点。此后他的进攻逐年下滑：2023 年 .248，2024 年 3 月被交易到辛辛那提红人后虽然打出生涯新高 9 轰，但 2025 年 114 场吞下整季 0 全垒打，季后被 outright 成为自由球员。</p>
+ <p>2026 年 2 月，道奇给了他一份小联盟合约。他赢得开季名单席位，为道奇打了 36 场比赛，但在球队年轻化的浪潮中两度被 DFA。他没有抱怨，选择自由身后先后披上游骑兵和响尾蛇的 3A 战袍，把赛季打完。从全明星到一年三队，Espinal 的六年大联盟旅程写满了职业棒球残酷而真实的一面。</p>
+ </div>
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-27 | 数据截止日期：2026-10-27（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

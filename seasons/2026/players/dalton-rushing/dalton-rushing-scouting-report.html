@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dalton Rushing 球探报告</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; &#36820;&#22238;&#25253;&#21578;&#21015;&#34920;</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Dalton Rushing</h1>
+ <p class="subtitle">Los Angeles Dodgers #37 | 捕手 | 左打 / 右投 | 顶级新秀捕手</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="dalton-rushing_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">2001-05-14</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">25岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国田纳西州 Franklin</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'1" / 220 lbs</div></div>
+ <div class="info-item"><div class="label">击球/投球</div><div class="value">左打 / 右投</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2025 (道奇队)</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2022年 第2轮 (道奇)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#37</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Dalton Rushing 是<span class="highlight">道奇农场出品的顶级新秀捕手，2026年迎来二年级大爆发：12 轰、.788 OPS，长打率从 .324 暴增至 .460</span>。他正沿着"下一个 Will Smith"的轨迹稳步前进。</p>
+ <p style="margin-bottom: 15px;">80 场出赛缴出 .246/.328/.460 的成绩单，12 支全垒打仅花 18.67 打数/支，这是主力级捕手的火力输出。5 次触身球与 23 次保送显示他的上垒本能也在进步，唯 74 次三振（29.2% 三振率）是需要继续打磨的部分。</p>
+ <p>25岁的 Rushing 是道奇未来五年捕手位置的答案。2027年他的目标是出赛 100+ 场，向 .800 OPS 与 20 轰迈进——道奇捕手接棒的剧本已经写好，剩下的只是时间。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🎓 2022年 - 选秀第2轮（Louisville）</h4>
+ <p>Louisville 大学主力捕手，选秀前被普遍认为是大学最佳打者之一。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🌟 2025年 - 大联盟首秀</h4>
+ <p>53 场初体验，.582 OPS 虽显生涩但展现了接棒主力捕手的潜质。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔥 2026年 - 二年级爆发</h4>
+ <p>12 轰、.788 OPS、SLG .460，全垒打数翻三倍，成为道奇打线最惊喜的成长故事之一。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2026赛季打击数据</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">80</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.246</span>
+ <div class="stat-label">打击率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">.328</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">.460</span>
+ <div class="stat-label">长打率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">.788</span>
+ <div class="stat-label">OPS</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">12</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">36</span>
+ <div class="stat-label">打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">12</span>
+ <div class="stat-label">二垒打</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 vs 2026 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="dalton-rushing_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>2B</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>53</td>
+ <td>.204</td>
+ <td>.258</td>
+ <td>.324</td>
+ <td>.582</td>
+ <td>4</td>
+ <td>24</td>
+ <td>5</td>
+ </tr>
+ <tr>
+ <td class="warning">2026</td>
+ <td>80</td>
+ <td>.246</td>
+ <td>.328</td>
+ <td>.460</td>
+ <td>.788</td>
+ <td>12</td>
+ <td>36</td>
+ <td>12</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">OPS 从 .582 暴增至 .788（+206 点），SLG 提升 136 点——这是"新秀墙后爆发"的教科书曲线。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">18.67 打数/轰的主力级火力</h3>
+ <p>捕手的平均全垒打率通常在 25-30 打数/轰，Rushing 的 18.67 已经是联盟顶级水平。12 轰中有多少来自 "catcher's fatigue" 无法考证，但 .460 SLG 说明他的长打是全面的：12 支二垒打 + 12 轰，extra-base 占比极高。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">三振率的代价与进步空间</h3>
+ <p>29.2% 的三振率（74K/253PA）偏高，这是力量型年轻打者的常见课题。好消息是他的保送率同步提升至 9.1%，BB/SO 比从 0.17 改善至 0.31——只要他保持这个趋势，三振就不会成为致命伤。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季回顾</h3>
+ <p>Rushing 的2026年是"接班剧本"的第一章。当 Will Smith 需要轮休或 DH 时，他用表现让教练组放心地把棒子交给他。80 场的出赛数已接近主力捕手的工作量，而他也用 .788 OPS 证明了自己不是普通的 backup。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>18.67 打数/轰，主力级捕手火力</li>
+ <li>.460 SLG 长打全面（12 轰 + 12 二垒打）</li>
+ <li>左打捕手，platoon 价值高</li>
+ <li>保送率 9.1% 持续进步</li>
+ <li>25岁，上升曲线陡峭</li>
+ <li>道奇体系重点培养对象</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>29.2% 三振率偏高</li>
+ <li>.246 AVG 仍有提升空间</li>
+ <li>捕手守备与配球经验仍在积累</li>
+ <li>80 场出赛后的体能管理待验证</li>
+ <li>Will Smith 在前，出场时间受限</li>
+ <li>BABIP .309 略高于平均，AVG 或有回落</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="dalton-rushing_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Hit</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">45</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Upside</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4caf50; font-weight: bold;">62</div>
+ <p style="color: #90a4ae; margin-top: 10px;">道奇捕手接棒人，二年级爆发只是开始</p>
+ <p style="margin-top: 15px;"><span class="grade grade-a" style="font-size: 1.2em;">A- 级 / 高潜力主力捕手</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Dalton Rushing 的2027赛季目标是坐稳"1B 捕手"位置，向 20 轰与 .800 OPS 迈进。Will Smith 的合约与年龄结构决定了两人的交接只是时间问题，Rushing 需要做的就是持续进步，让教练组的决定变得轻松。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2026赛季实际轨迹</h3>
+ <p><strong>2026：</strong>80 场 12 轰 .788 OPS，接班剧本第一章</p>
+ <p><strong>2027：</strong>目标 100+ 场、20 轰、OPS ≥ .800</p>
+ <p><strong>2028+：</strong>有望接任道奇主力捕手，成为打线核心之一</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>三振率若不改善，面对顶级投手时可能暴露</li>
+ <li>捕手位置伤病风险高于其他位置</li>
+ <li>Smith 若延长巅峰，出场时间可能持续受限</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Dalton Rushing 出生于田纳西州 Franklin，在 Louisville 大学成长为大学棒球界最佳捕手之一。2022 年 MLB 选秀第 2 轮被洛杉矶道奇选中——这个顺位对大学捕手来说相当靠前，足见球团对他打击潜力的期待。</p>
+ <p>农场生涯一帆风顺，2025 年他完成大联盟首秀。53 场的初体验并不完美（.582 OPS），但道奇看到了他长打能力的雏形。2026 年他用 12 轰、.788 OPS 的回击证明：新秀墙只是暂时的，天赋才是永恒的。</p>
+ <p>场外的 Rushing 以沉稳与学习能力强著称，经常向 Will Smith 请教配球与比赛管理。在道奇的 succession plan 里，他是那个被寄予厚望的"下一个"——而他正用自己的方式，把这个未来变成现在。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API</p>
+ <p>报告生成时间：2026-10-24 | 数据截止日期：2026-10-24（常规赛最终数据）</p>
+ <p>⚾ 洛杉矶道奇队球探报告</p>
+ </div>
+ </div>
+</body>
+</html>

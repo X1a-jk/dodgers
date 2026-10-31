@@ -1,0 +1,54 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "people": [
+    {
+      "id": 571771,
+      "fullName": "Enrique Hernández",
+      "link": "/api/v1/people/571771",
+      "firstName": "Enrique",
+      "lastName": "Hernández",
+      "primaryNumber": "8",
+      "birthDate": "1991-08-24",
+      "currentAge": 35,
+      "birthCity": "San Juan",
+      "birthCountry": "Puerto Rico",
+      "height": "5' 10\"",
+      "weight": 195,
+      "active": true,
+      "primaryPosition": {
+        "code": "5",
+        "name": "Third Base",
+        "type": "Infielder",
+        "abbreviation": "3B"
+      },
+      "useName": "Enrique",
+      "useLastName": "Hernández",
+      "middleName": "J.",
+      "boxscoreName": "Hernández, E",
+      "gender": "M",
+      "isPlayer": true,
+      "isVerified": true,
+      "draftYear": 2009,
+      "pronunciation": "KEE-kay",
+      "mlbDebutDate": "2014-07-01",
+      "batSide": {
+        "code": "R",
+        "description": "Right"
+      },
+      "pitchHand": {
+        "code": "R",
+        "description": "Right"
+      },
+      "nameFirstLast": "Enrique Hernández",
+      "nameSlug": "enrique-hernandez-571771",
+      "firstLastName": "Enrique Hernández",
+      "lastFirstName": "Hernández, Enrique",
+      "lastInitName": "Hernández, E",
+      "initLastName": "E Hernández",
+      "fullFMLName": "Enrique J. Hernández",
+      "fullLFMName": "Hernández, Enrique J.",
+      "strikeZoneTop": 3.131,
+      "strikeZoneBottom": 1.58
+    }
+  ]
+}

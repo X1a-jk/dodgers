@@ -26,6 +26,8 @@
 - 门户「🍂 季后赛对阵」页每日自动更新比分，「📜 历年阵容」页照常每日刷新。
 - 周一 12:00 的 **Dodgers Postseason Weekly Report** cron 自动生成系列赛战报到
   `seasons\2026\postseason\weekly\`——检查两次确认格式正常。
+- **球员报告赛季更新**：用 `PLAYER-REPORTS-PLAN.md`（D:\baseball 根目录）做总控表——
+  53 人常规赛批 + 季后赛批人名清单，更新完一个打一个勾，两批全部完成后按下面流程封存。
 - 若用户要重新生成球员报告（含季后赛数据）：
   1. **先留底**：把 `report\` 整个复制为 `seasons\2026\players-regular\`
   2. 再重新生成到 `report\`（实时版）
@@ -33,17 +35,13 @@
   4. 报告页版本选择器应出现「2026 常规赛版」+「2026 当前」两个选项
 
 ### 2. 世界大赛结束后（11 月初）
-- [ ] **封存 2026**：`python D:\baseball\scripts\archive-season.py 2026 --dry-run` 先看计划，确认无误后去掉 `--dry-run` 正式跑。
-  - 效果：当年战报/日报迁入 `seasons\2026\`，data 快照进 `seasons\2026\snapshots\`，球员报告进 `seasons\2026\players\`（成为「2026 赛季总结版」），门户索引自动刷新。
-- [ ] **做年度总结**：素材位置——
-  - 全程比分+球队领袖：`seasons\2026\snapshots\postseason.json`
-  - 最终排名/战绩：`seasons\2026\snapshots\dashboard-data.json`
-  - 战报：15 期常规赛周报 + 每日阵容快照 + 季后赛系列赛战报（都在 seasons\2026\ 下）
-  - 球员报告：`seasons\2026\players\`（+ 可能的 players-regular 等批次）
-  - 人员名单轨迹：`seasons\2026\snapshots\season-roster.json`（53 人出场、中途加入 21、离队 11）
-- [ ] **停用季后赛周报 cron**：等它最后跑一次（会生成赛季告别总结并询问），然后在 OpenClaw 里 disable 或删除该任务。
-  到 2027 年 10 月再重建（或直接复制本任务改描述）。
-- [ ] **日报 cron 保持运行**（休赛期也有 roster/伤病变动，日报照样有价值）。
+- [x] **封存 2026**（✅ 2026-10-28 完成，道奇 NLCS 出局后提前执行）：
+  - 注意：`archive-season.py` 的 `archive_reports` 在 `seasons\YYYY\players` 已存在（哪怕是空目录）时会跳过迁移，需先删掉空目录再跑（本次踩到）。
+  - 结果：日报 97 天 + 阵容快照全部入 `regular\daily\`（8 份季后赛期快照一并归入），36 个数据快照入 `snapshots\`，`report\` 598 文件整体迁入 `players\`，门户自动出现「2026 赛季总结版」。
+- [x] **做年度总结**（✅ 2026-10-28）：`seasons\2026\2026-赛季总结.md`——战绩/分周轨迹/领袖/季后赛全记录/人员流动/存档清单。数据全部从 postseason.json + ps-postseason-final.json + 15 期周报还原核对。
+  - ⚠️ `portal\dashboard-data.json` 在 10-15（常规赛结束后）就已含最终 standings，recap 页无需额外刷数据；重跑 fetch-dashboard-data.py 会清空 last7/赛程（休赛期正常现象）。
+- [x] **停用季后赛周报 cron**（✅ 已是 disabled）。⚠️ 但发现 **三个 cron 全部 disabled**（日报监控、新闻摘要也是）——日报按手册应休赛期继续运行，是否恢复待用户定夺。
+- [ ] **日报 cron 保持运行**——⚠️ 当前 disabled，待用户确认后重新 enable。
 
 ### 3. 休赛期（12 月 - 3 月）
 - 系统全自动运转，无需干预。门户上 2026 年的所有内容已按年归档，可随时翻阅。
@@ -121,6 +119,7 @@ python D:\baseball\scripts\check-portal-js.py          # JS 语法
 node D:\baseball\scripts\_smoke_postseason.js          # 季后赛页+总结页冒烟（断言 SMOKE_OK）
 node D:\baseball\scripts\_smoke_year.js                # 年份选择器冒烟
 node D:\baseball\scripts\_smoke_sr.js                  # 历年阵容冒烟
+node D:\baseball\scripts\_smoke_recap.js               # 总结页存档列表+深度图链接+报告回退键冒烟（2026-10-29 新增）
 # HTTP 探测：Start-Process python portal\server.py 8080 → Invoke-WebRequest 关键 URL → Stop-Process
 ```
 
@@ -133,6 +132,18 @@ node D:\baseball\scripts\_smoke_sr.js                  # 历年阵容冒烟
 3. `scripts\` 目录里有大量一次性脚本（backfill-*/fetch-09xx/check-*），不影响系统，清理时注意别删 `run-daily-update.ps1` 引用的 8 个。
 4. 门户 index.html 是 232KB 单文件，改动一律走「Python 补丁脚本 + 备份 + 三板斧验证」，别手动大改。
 
+## 七、2026-10-29 休赛期补丁（2027 前必读）
+
+1. **`report\` 目录已不存在**（10-28 封存迁往 `seasons\2026\players`）：
+   - `data\depth-chart.json` / `data\injuries.json` 的 `reportUrl` 已全部指向 `seasons\2026\players\<slug>\`（总结版），快照同步更新；**以后生成这两份数据的脚本若再写 `report/` 前缀即为回归**。
+   - 门户所有「在新标签打开球员报告」按钮改走 `reportEditions()[0].path`（运行时解析，跨年自动跟随 currentSeason）。
+   - update-portal.py 的 reportEditions 扫描 `report\` + `seasons\YYYY\players*`——`report\` 不存在时不报错，但 2027 赛季中新报告仍应写到 `report\`（现役），封存时再迁。
+2. **报告页回退键**：三个批次 137 份 `*-scouting-report.html` 已在 `<body>` 后注入固定定位返回按钮（iframe 内 history.back()，新标签页回退到 `../index.html`）。**以后任何报告重生成脚本必须保留/重新注入该按钮**（判断标志：`history.back()`）。
+3. **markdown-body 已改为深色主题变量**（原来是浅色稿：h1 #111827 黑字+浅灰表格，在深色门户上标题全 invisible）。改阅读器样式时以现有 var(--text)/var(--border) 为准。
+4. **let 全局变量不挂 window**：`FILE_INDEX` 是 let 声明，`window.FILE_INDEX` 恒 undefined——10-29 总结页因此恒显示"暂无存档"。门户 JS 里引用一律 `(typeof FILE_INDEX !== 'undefined') ? FILE_INDEX : {}` 写法。
+5. **fetch-postseason.py 状态推导**：dodgers.status 现按 rounds 实际比分推导（止步 NLDS/NLCS、世界大赛亚军/冠军），新增 dodgers.champion 字段（ws 4 胜球队 id 或 null）。世界大赛冠军=酿酒人（4-1 光芒），2026 全部季后赛数据已落 `data\postseason.json` + 快照。
+6. **PowerShell `[IO.File]::WriteAllText UTF8 会写 BOM**——JSON 被写 BOM 后 python json.load 直接炸。写 JSON 用 `utf-8`（无 BOM）或写完跑 _strip-bom 类检查（已并入 _smoke_recap.js 断言）。
+
 ---
 
-*最后更新：2026-09-28（2026 赛季存档完成后请在本手册补记实际情况）*
+*最后更新：2026-10-29（赛季全部结束，季后赛终章+休赛期门户补丁）*

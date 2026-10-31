@@ -1,0 +1,381 @@
+{
+  "generatedAt": "2026-10-15T21:04:05.856750",
+  "season": 2026,
+  "ifSeasonEndedToday": {
+    "bracket": [
+      {
+        "seed": 1,
+        "name": "Brewers",
+        "abbr": "Bre",
+        "w": 103,
+        "l": 59,
+        "pct": 0.636,
+        "isDodgers": false,
+        "division": "?"
+      },
+      {
+        "seed": 2,
+        "name": "Dodgers",
+        "abbr": "Dod",
+        "w": 100,
+        "l": 62,
+        "pct": 0.617,
+        "isDodgers": true,
+        "division": "?"
+      },
+      {
+        "seed": 3,
+        "name": "Braves",
+        "abbr": "Bra",
+        "w": 94,
+        "l": 68,
+        "pct": 0.58,
+        "isDodgers": false,
+        "division": "?"
+      },
+      {
+        "seed": 4,
+        "name": "Padres",
+        "abbr": "Pad",
+        "w": 91,
+        "l": 71,
+        "pct": 0.562,
+        "isDodgers": false,
+        "division": null
+      },
+      {
+        "seed": 5,
+        "name": "Cubs",
+        "abbr": "Cub",
+        "w": 89,
+        "l": 73,
+        "pct": 0.549,
+        "isDodgers": false,
+        "division": null
+      },
+      {
+        "seed": 6,
+        "name": "Phillies",
+        "abbr": "Phi",
+        "w": 88,
+        "l": 74,
+        "pct": 0.543,
+        "isDodgers": false,
+        "division": null
+      }
+    ],
+    "dodgers": {
+      "seed": 2,
+      "record": "100-62",
+      "scenario": "轮空直入分区系列赛，等待外卡战胜者"
+    }
+  },
+  "divisions": [
+    {
+      "name": "?",
+      "teams": [
+        {
+          "id": 144,
+          "name": "Braves",
+          "abbr": "Bra",
+          "w": 94,
+          "l": 68,
+          "pct": 0.58,
+          "gb": "-",
+          "divRank": 1,
+          "wcRank": null,
+          "wcGb": "-",
+          "magic": "-",
+          "elim": "-",
+          "clinch": "y"
+        },
+        {
+          "id": 143,
+          "name": "Phillies",
+          "abbr": "Phi",
+          "w": 88,
+          "l": 74,
+          "pct": 0.543,
+          "gb": "6.0",
+          "divRank": 2,
+          "wcRank": 3,
+          "wcGb": "-",
+          "magic": null,
+          "elim": "E",
+          "clinch": "w"
+        },
+        {
+          "id": 146,
+          "name": "Marlins",
+          "abbr": "Mar",
+          "w": 80,
+          "l": 82,
+          "pct": 0.494,
+          "gb": "14.0",
+          "divRank": 3,
+          "wcRank": 6,
+          "wcGb": "8.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 120,
+          "name": "Nationals",
+          "abbr": "Nat",
+          "w": 77,
+          "l": 85,
+          "pct": 0.475,
+          "gb": "17.0",
+          "divRank": 4,
+          "wcRank": 8,
+          "wcGb": "11.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 121,
+          "name": "Mets",
+          "abbr": "Met",
+          "w": 74,
+          "l": 88,
+          "pct": 0.457,
+          "gb": "20.0",
+          "divRank": 5,
+          "wcRank": 10,
+          "wcGb": "14.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        }
+      ]
+    },
+    {
+      "name": "?",
+      "teams": [
+        {
+          "id": 158,
+          "name": "Brewers",
+          "abbr": "Bre",
+          "w": 103,
+          "l": 59,
+          "pct": 0.636,
+          "gb": "-",
+          "divRank": 1,
+          "wcRank": null,
+          "wcGb": "-",
+          "magic": "-",
+          "elim": "-",
+          "clinch": "z"
+        },
+        {
+          "id": 112,
+          "name": "Cubs",
+          "abbr": "Cub",
+          "w": 89,
+          "l": 73,
+          "pct": 0.549,
+          "gb": "14.0",
+          "divRank": 2,
+          "wcRank": 2,
+          "wcGb": "+1.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": "w"
+        },
+        {
+          "id": 134,
+          "name": "Pirates",
+          "abbr": "Pir",
+          "w": 82,
+          "l": 80,
+          "pct": 0.506,
+          "gb": "21.0",
+          "divRank": 3,
+          "wcRank": 5,
+          "wcGb": "6.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 138,
+          "name": "Cardinals",
+          "abbr": "Car",
+          "w": 77,
+          "l": 85,
+          "pct": 0.475,
+          "gb": "26.0",
+          "divRank": 4,
+          "wcRank": 7,
+          "wcGb": "11.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 113,
+          "name": "Reds",
+          "abbr": "Red",
+          "w": 75,
+          "l": 87,
+          "pct": 0.463,
+          "gb": "28.0",
+          "divRank": 5,
+          "wcRank": 9,
+          "wcGb": "13.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        }
+      ]
+    },
+    {
+      "name": "?",
+      "teams": [
+        {
+          "id": 119,
+          "name": "Dodgers",
+          "abbr": "Dod",
+          "w": 100,
+          "l": 62,
+          "pct": 0.617,
+          "gb": "-",
+          "divRank": 1,
+          "wcRank": null,
+          "wcGb": "-",
+          "magic": "-",
+          "elim": "-",
+          "clinch": "y"
+        },
+        {
+          "id": 135,
+          "name": "Padres",
+          "abbr": "Pad",
+          "w": 91,
+          "l": 71,
+          "pct": 0.562,
+          "gb": "9.0",
+          "divRank": 2,
+          "wcRank": 1,
+          "wcGb": "+3.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": "w"
+        },
+        {
+          "id": 109,
+          "name": "D-backs",
+          "abbr": "D-b",
+          "w": 86,
+          "l": 76,
+          "pct": 0.531,
+          "gb": "14.0",
+          "divRank": 3,
+          "wcRank": 4,
+          "wcGb": "2.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 137,
+          "name": "Giants",
+          "abbr": "Gia",
+          "w": 65,
+          "l": 97,
+          "pct": 0.401,
+          "gb": "35.0",
+          "divRank": 4,
+          "wcRank": 11,
+          "wcGb": "23.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        },
+        {
+          "id": 115,
+          "name": "Rockies",
+          "abbr": "Roc",
+          "w": 58,
+          "l": 104,
+          "pct": 0.358,
+          "gb": "42.0",
+          "divRank": 5,
+          "wcRank": 12,
+          "wcGb": "30.0",
+          "magic": null,
+          "elim": "E",
+          "clinch": null
+        }
+      ]
+    }
+  ],
+  "remainingStrength": [
+    {
+      "id": 158,
+      "name": "Brewers",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 119,
+      "name": "Dodgers",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 144,
+      "name": "Braves",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 135,
+      "name": "Padres",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 112,
+      "name": "Cubs",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 143,
+      "name": "Phillies",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 109,
+      "name": "D-backs",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    },
+    {
+      "id": 134,
+      "name": "Pirates",
+      "gamesLeft": 0,
+      "oppWinPct": null,
+      "home": 0,
+      "away": 0
+    }
+  ]
+}

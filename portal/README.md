@@ -100,8 +100,9 @@ seasons\YYYY\
 2. 赛季末跑一次 `python D:\baseball\scripts\archive-season.py 2027`
 3. 门户阅读器自动多出「2027 赛季」选项
 
-**已预留、待启用**：
-- 历年常规赛总结：renderRecapPage 目前读现役数据文件；将来可按同样思路加年份参数，改读 `seasons/<year>\snapshots\` 里的封存快照
+**已实现（2026-10-28）**：
+- 历年常规赛总结：renderRecapPage 已年份参数化——顶部年份选择器（对齐历年阵容页），当前年读 `portal/dashboard-data.json` + `data/postseason.json`，归档年读 `seasons/<year>\snapshots\` 同名快照（archive-season.py 会自动快照这两份）；周战报/季后赛战报列表按 FILE_INDEX `season` 字段过滤
+- 赛季总结叙事文档：若存在 `seasons/<year>/<year>-赛季总结.md`，recap 页自动出现「📖 阅读赛季总结」入口（如 2026）
 
 ## 历年阵容（Season Roster）
 

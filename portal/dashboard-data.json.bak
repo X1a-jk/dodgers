@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-13T18:51:30.224404",
+  "generatedAt": "2026-10-15T21:04:52.406825",
   "season": 2026,
   "team": {
     "id": 119,
@@ -1171,9 +1171,9 @@
   },
   "schedule": [
     {
-      "gamePk": 849811,
-      "date": "2026-10-14",
-      "time": "2026-10-15T00:00:00Z",
+      "gamePk": 849810,
+      "date": "2026-10-15",
+      "time": "2026-10-16T00:00:00Z",
       "status": "Preview",
       "detailedStatus": "Scheduled",
       "isHome": true,
@@ -1183,21 +1183,7 @@
         "abbreviation": "MIL"
       },
       "venue": "UNIQLO Field at Dodger Stadium",
-      "opponentProbablePitcher": "Robert Gasser"
-    },
-    {
-      "gamePk": 849810,
-      "date": "2026-10-15",
-      "time": "2026-10-16T01:00:00Z",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
-      "isHome": true,
-      "opponent": {
-        "id": 158,
-        "name": "Milwaukee Brewers",
-        "abbreviation": "MIL"
-      },
-      "venue": "UNIQLO Field at Dodger Stadium"
+      "probablePitcher": "Tyler Glasnow"
     },
     {
       "gamePk": 849808,

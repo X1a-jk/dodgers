@@ -58,7 +58,7 @@ def snapshot_data(year: str, dry: bool) -> int:
         targets += [f for f in data_dir.iterdir()
                     if f.is_file() and f.suffix == ".json" and not f.name.endswith(".bak")]
     for name in ("depth-chart.json", "dashboard-data.json", "file-index.json",
-                 "dodgers-roster.md"):
+                 "dodgers-roster.md", "portal/dashboard-data.json"):
         f = BASE_DIR / name
         if f.exists():
             targets.append(f)

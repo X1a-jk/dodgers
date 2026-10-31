@@ -1,0 +1,46 @@
+===== seth-halvorsen =====
+files: headshot.jpg, seth-halvorsen-scouting-report.html, seth-halvorsen-scouting-report.md, seth-halvorsen_overall_grades.png, seth-halvorsen_report_cover.png, seth-halvorsen_season_comparison.png
+charts(2): ['seth-halvorsen_overall_grades.png', 'seth-halvorsen_season_comparison.png']
+  seth-halvorsen_overall_grades.png  mtime=10-27 08:37
+  seth-halvorsen_report_cover.png  mtime=10-18 12:13
+  seth-halvorsen_season_comparison.png  mtime=10-27 08:37
+  html contains era=8.10: True
+  html contains ip=10.0: True
+  html contains whip=1.30: True
+  html contains g=11: True
+  FS: G=11 ERA=8.10 IP=10.0 WHIP=1.30 K=6 BB=2 HR=3 H=11
+
+===== santiago-espinal =====
+files: santiago-espinal-scouting-report.html, santiago-espinal-scouting-report.md, santiago-espinal_overall_grades.png, santiago-espinal_report_cover.png, santiago-espinal_season_comparison.png
+charts(2): ['santiago-espinal_overall_grades.png', 'santiago-espinal_season_comparison.png']
+  santiago-espinal_overall_grades.png  mtime=10-27 08:43
+  santiago-espinal_report_cover.png  mtime=10-18 12:13
+  santiago-espinal_season_comparison.png  mtime=10-27 08:43
+  html contains g=36: True
+  html contains line=.268/.276/.375: True
+  FS: G=36 AVG=.268 OBP=.276 SLG=.375 OPS=.651 HR=1 RBI=7 BB=1 SO=8
+  OPS identity: 0.651 vs OBP+SLG=0.651 diff=0.0000
+
+===== ben-rortvedt =====
+files: ben-rortvedt-scouting-report.html, ben-rortvedt-scouting-report.md, ben-rortvedt_overall_grades.png, ben-rortvedt_report_cover.png, ben-rortvedt_season_comparison.png, headshot.jpg
+charts(2): ['ben-rortvedt_overall_grades.png', 'ben-rortvedt_season_comparison.png']
+  ben-rortvedt_overall_grades.png  mtime=10-27 22:10
+  ben-rortvedt_report_cover.png  mtime=10-18 12:13
+  ben-rortvedt_season_comparison.png  mtime=10-27 22:10
+  html contains g=16: True
+  html contains line=.185/.185/.185: True
+  FS: G=16 AVG=.185 OBP=.185 SLG=.185 OPS=.370 HR=0 RBI=1 BB=0 SO=9
+  OPS identity: 0.370 vs OBP+SLG=0.370 diff=0.0000
+
+===== jonathan-hernandez =====
+files: headshot.jpg, jonathan-hernandez-scouting-report.html, jonathan-hernandez-scouting-report.md, jonathan-hernandez_overall_grades.png, jonathan-hernandez_report_cover.png, jonathan-hernandez_season_comparison.png
+charts(2): ['jonathan-hernandez_overall_grades.png', 'jonathan-hernandez_season_comparison.png']
+  jonathan-hernandez_overall_grades.png  mtime=10-27 22:14
+  jonathan-hernandez_report_cover.png  mtime=10-18 12:13
+  jonathan-hernandez_season_comparison.png  mtime=10-27 22:14
+  html contains era=5.68: True
+  html contains ip=25.1: True
+  html contains whip=1.34: True
+  html contains g=16: True
+  FS: G=16 ERA=5.68 IP=25.1 WHIP=1.34 K=22 BB=13 HR=4 H=21
+

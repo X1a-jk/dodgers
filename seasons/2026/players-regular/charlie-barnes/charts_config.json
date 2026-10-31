@@ -1,0 +1,56 @@
+{
+  "player_name": "Charlie Barnes",
+  "player_slug": "charlie-barnes",
+  "output_dir": "D:\\baseball\\report\\charlie-barnes",
+  "prefix": "barnes",
+  "info": {
+    "number": "57",
+    "position": "LHP / Long Reliever"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "7.00"],
+      ["W-L", "0-1"],
+      ["K", "3"],
+      ["IP", "9.0"],
+      ["WHIP", "1.78"],
+      ["AGE", "30"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 88, "max": 91},
+    "Changeup": {"min": 80, "max": 83},
+    "Slider": {"min": 79, "max": 82},
+    "Curveball": {"min": 74, "max": 77}
+  },
+  "overall_grades": {
+    "Fastball": 40,
+    "Changeup": 50,
+    "Slider": 45,
+    "Curveball": 45,
+    "Control": 50,
+    "Command": 45,
+    "Mental": 50,
+    "Durability": 50,
+    "Strikeout": 35
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 7.00, "low": 1.0, "high": 8.0, "invert": true},
+      "WHIP": {"value": 1.78, "low": 0.8, "high": 2.0, "invert": true},
+      "K/9": {"value": 3.00, "low": 3.0, "high": 12.0, "invert": false},
+      "BB/9": {"value": 3.00, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 3.00, "low": 0.0, "high": 3.5, "invert": true},
+      "IP/G": {"value": 3.00, "low": 0.5, "high": 5.0, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 5.92, "low": 1.0, "high": 8.0, "invert": true},
+      "WHIP": {"value": 1.63, "low": 0.8, "high": 2.0, "invert": true},
+      "K/9": {"value": 4.74, "low": 3.0, "high": 12.0, "invert": false},
+      "BB/9": {"value": 3.79, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.95, "low": 0.0, "high": 3.5, "invert": true},
+      "IP/G": {"value": 4.22, "low": 0.5, "high": 5.0, "invert": false}
+    }
+  }
+}

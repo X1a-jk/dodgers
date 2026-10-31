@@ -1,0 +1,50 @@
+{
+  "player_name": "Alex Call",
+  "player_slug": "alex-call",
+  "output_dir": "D:\\baseball\\report\\alex-call",
+  "prefix": "call",
+  "info": {
+    "number": "12",
+    "position": "OF / Utility"
+  },
+  "cover": {
+    "stats": [
+      ["AVG", ".248"],
+      ["OBP", ".357"],
+      ["SLG", ".316"],
+      ["OPS", ".673"],
+      ["HR", "1"],
+      ["AGE", "31"]
+    ]
+  },
+  "overall_grades": {
+    "Contact": 50,
+    "Power": 35,
+    "Discipline": 60,
+    "Speed": 45,
+    "LF Defense": 55,
+    "CF Defense": 45,
+    "Arm": 45,
+    "Clutch": 50,
+    "Versatility": 60
+  },
+  "season_comparison": {
+    "categories": ["AVG", "OBP", "SLG", "OPS", "BB%", "K%"],
+    "current": {
+      "AVG": {"value": 0.248, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.357, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.316, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.673, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 13.6, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 16.4, "low": 10.0, "high": 30.0, "invert": true}
+    },
+    "previous": {
+      "AVG": {"value": 0.242, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.343, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.340, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.683, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 13.2, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 17.4, "low": 10.0, "high": 30.0, "invert": true}
+    }
+  }
+}

@@ -1,0 +1,127 @@
+{
+ "Will Smith": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Tarik Skubal": {
+  "games": 2,
+  "bat": false,
+  "pit": true
+ },
+ "Alex Vesia": {
+  "games": 4,
+  "bat": false,
+  "pit": true
+ },
+ "Kyle Tucker": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Max Muncy": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Freddie Freeman": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Tanner Scott": {
+  "games": 5,
+  "bat": false,
+  "pit": true
+ },
+ "Tommy Edman": {
+  "games": 6,
+  "bat": true,
+  "pit": false
+ },
+ "Shohei Ohtani": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Teoscar Hernández": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Andy Pages": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Evan Phillips": {
+  "games": 4,
+  "bat": false,
+  "pit": true
+ },
+ "Mookie Betts": {
+  "games": 7,
+  "bat": true,
+  "pit": false
+ },
+ "Brock Stewart": {
+  "games": 3,
+  "bat": false,
+  "pit": true
+ },
+ "Edgardo Henriquez": {
+  "games": 3,
+  "bat": false,
+  "pit": true
+ },
+ "Kris Bubic": {
+  "games": 2,
+  "bat": false,
+  "pit": true
+ },
+ "Edwin Díaz": {
+  "games": 3,
+  "bat": false,
+  "pit": true
+ },
+ "Blake Snell": {
+  "games": 2,
+  "bat": false,
+  "pit": true
+ },
+ "Josue De Paula": {
+  "games": 3,
+  "bat": true,
+  "pit": false
+ },
+ "Miguel Rojas": {
+  "games": 4,
+  "bat": true,
+  "pit": false
+ },
+ "Roki Sasaki": {
+  "games": 3,
+  "bat": false,
+  "pit": true
+ },
+ "Enrique Hernández": {
+  "games": 4,
+  "bat": true,
+  "pit": false
+ },
+ "Yoshinobu Yamamoto": {
+  "games": 2,
+  "bat": false,
+  "pit": true
+ },
+ "Tyler Glasnow": {
+  "games": 1,
+  "bat": false,
+  "pit": true
+ },
+ "Justin Wrobleski": {
+  "games": 2,
+  "bat": false,
+  "pit": true
+ }
+}

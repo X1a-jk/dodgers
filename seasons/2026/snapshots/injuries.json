@@ -1,0 +1,157 @@
+{
+  "generatedAt": "2026-10-15T20:54:03.429526",
+  "season": 2026,
+  "current": [
+    {
+      "id": 660813,
+      "name": "Brusdar Graterol",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "",
+      "listedDate": "2026-03-22",
+      "daysOnIL": 207,
+      "earliestReturn": "2026-07-16",
+      "reportUrl": "seasons/2026/players/brusdar-graterol/brusdar-graterol-scouting-report.html",
+      "headshot": "report/brusdar-graterol/headshot.jpg"
+    },
+    {
+      "id": 694813,
+      "name": "Gavin Stone",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "Right shoulder inflammation",
+      "listedDate": "2026-03-22",
+      "daysOnIL": 207,
+      "earliestReturn": "2026-05-31",
+      "reportUrl": "seasons/2026/players/gavin-stone/gavin-stone-scouting-report.html",
+      "headshot": "report/gavin-stone/headshot.jpg"
+    },
+    {
+      "id": 664776,
+      "name": "Jake Cousins",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "",
+      "listedDate": "2026-03-24",
+      "daysOnIL": 205,
+      "earliestReturn": "2026-05-31",
+      "reportUrl": "seasons/2026/players/jake-cousins/jake-cousins-scouting-report.html",
+      "headshot": "report/jake-cousins/headshot.jpg"
+    },
+    {
+      "id": 676508,
+      "name": "Ben Casparius",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "Right shoulder inflammation",
+      "listedDate": "2026-04-13",
+      "daysOnIL": 185,
+      "earliestReturn": "2026-07-17",
+      "reportUrl": "seasons/2026/players/ben-casparius/ben-casparius-scouting-report.html",
+      "headshot": "report/ben-casparius/headshot.jpg"
+    },
+    {
+      "id": 694361,
+      "name": "Will Klein",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "Right elbow discomfort",
+      "listedDate": "2026-08-01",
+      "daysOnIL": 75,
+      "earliestReturn": "2026-11-01",
+      "reportUrl": "seasons/2026/players/will-klein/will-klein-scouting-report.html",
+      "headshot": "report/will-klein/headshot.jpg"
+    },
+    {
+      "id": 641778,
+      "name": "Eric Lauer",
+      "pos": "P",
+      "listType": "IL-60",
+      "injury": "Left elbow inflammation",
+      "listedDate": "2026-09-02",
+      "daysOnIL": 43,
+      "earliestReturn": "2026-11-10",
+      "reportUrl": "seasons/2026/players/eric-lauer/eric-lauer-scouting-report.html",
+      "headshot": "report/eric-lauer/headshot.jpg"
+    }
+  ],
+  "recentReturns": [
+    {
+      "name": "Edgardo Henriquez",
+      "date": "2026-09-29",
+      "listType": "IL-15",
+      "reportUrl": "seasons/2026/players/edgardo-henriquez/edgardo-henriquez-scouting-report.html"
+    },
+    {
+      "name": "Dalton Rushing",
+      "date": "2026-09-25",
+      "listType": "IL-10",
+      "reportUrl": "seasons/2026/players/dalton-rushing/dalton-rushing-scouting-report.html"
+    },
+    {
+      "name": "Shohei Ohtani",
+      "date": "2026-09-23",
+      "listType": "IL-15",
+      "reportUrl": "seasons/2026/players/shohei-ohtani/shohei-ohtani-scouting-report.html"
+    },
+    {
+      "name": "Andy Pages",
+      "date": "2026-09-21",
+      "listType": "IL-10",
+      "reportUrl": "seasons/2026/players/andy-pages/andy-pages-scouting-report.html"
+    },
+    {
+      "name": "Roki Sasaki",
+      "date": "2026-09-21",
+      "listType": "IL-15",
+      "reportUrl": "seasons/2026/players/roki-sasaki/roki-sasaki-scouting-report.html"
+    },
+    {
+      "name": "Edwin Díaz",
+      "date": "2026-09-18",
+      "listType": "IL-15",
+      "reportUrl": "seasons/2026/players/edwin-diaz/edwin-diaz-scouting-report.html"
+    },
+    {
+      "name": "Kris Bubic",
+      "date": "2026-09-16",
+      "listType": "IL-60",
+      "reportUrl": "seasons/2026/players/kris-bubic/kris-bubic-scouting-report.html"
+    },
+    {
+      "name": "Bobby Miller",
+      "date": "2026-09-05",
+      "listType": "IL-60",
+      "reportUrl": "seasons/2026/players/bobby-miller/bobby-miller-scouting-report.html"
+    },
+    {
+      "name": "Blake Treinen",
+      "date": "2026-09-02",
+      "listType": "IL-60",
+      "reportUrl": "seasons/2026/players/blake-treinen/blake-treinen-scouting-report.html"
+    },
+    {
+      "name": "Will Smith",
+      "date": "2026-09-01",
+      "listType": "IL-60",
+      "reportUrl": "seasons/2026/players/will-smith/will-smith-scouting-report.html"
+    },
+    {
+      "name": "Dalton Rushing",
+      "date": "2026-09-01",
+      "listType": "IL-10",
+      "reportUrl": "seasons/2026/players/dalton-rushing/dalton-rushing-scouting-report.html"
+    },
+    {
+      "name": "Justin Wrobleski",
+      "date": "2026-09-01",
+      "listType": "IL-15",
+      "reportUrl": "seasons/2026/players/justin-wrobleski/justin-wrobleski-scouting-report.html"
+    }
+  ],
+  "seasonTotals": {
+    "placements": 44,
+    "daysLost": 2790,
+    "currentlyOnIL": 6
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-10-15T21:04:52.406825",
+  "generatedAt": "2026-10-28T22:44:40.263818",
   "season": 2026,
   "team": {
     "id": 119,
@@ -1169,65 +1169,7 @@
       }
     }
   },
-  "schedule": [
-    {
-      "gamePk": 849810,
-      "date": "2026-10-15",
-      "time": "2026-10-16T00:00:00Z",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
-      "isHome": true,
-      "opponent": {
-        "id": 158,
-        "name": "Milwaukee Brewers",
-        "abbreviation": "MIL"
-      },
-      "venue": "UNIQLO Field at Dodger Stadium",
-      "probablePitcher": "Tyler Glasnow"
-    },
-    {
-      "gamePk": 849808,
-      "date": "2026-10-16",
-      "time": "2026-10-17T01:00:00Z",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
-      "isHome": true,
-      "opponent": {
-        "id": 158,
-        "name": "Milwaukee Brewers",
-        "abbreviation": "MIL"
-      },
-      "venue": "UNIQLO Field at Dodger Stadium"
-    },
-    {
-      "gamePk": 849806,
-      "date": "2026-10-18",
-      "time": "2026-10-19T00:00:00Z",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
-      "isHome": false,
-      "opponent": {
-        "id": 158,
-        "name": "Milwaukee Brewers",
-        "abbreviation": "MIL"
-      },
-      "venue": "American Family Field"
-    },
-    {
-      "gamePk": 849807,
-      "date": "2026-10-19",
-      "time": "2026-10-20T00:00:00Z",
-      "status": "Preview",
-      "detailedStatus": "Scheduled",
-      "isHome": false,
-      "opponent": {
-        "id": 158,
-        "name": "Milwaukee Brewers",
-        "abbreviation": "MIL"
-      },
-      "venue": "American Family Field"
-    }
-  ],
+  "schedule": [],
   "last7Hitters": [],
   "seasonPitchers": [
     {

@@ -1,0 +1,14 @@
+{
+  "player_name": "Ryan Ward",
+  "player_slug": "ryan-ward",
+  "output_dir": "D:\\baseball\\report\\ryan-ward",
+  "prefix": "ward",
+  "info": {"number": "10", "position": "OF"},
+  "cover": {"stats": [["AVG", ".218"], ["OBP", ".283"], ["SLG", ".455"], ["OPS", ".738"], ["HR", "3"], ["AGE", "28"]]},
+  "overall_grades": {"Contact": 40, "Power": 55, "Discipline": 40, "Speed": 40, "OF Defense": 45, "Arm": 45},
+  "season_comparison": {
+    "categories": ["AVG", "OBP", "SLG", "OPS", "BB%", "K%"],
+    "current": {"AVG": {"value": 0.218, "low": 0.15, "high": 0.35, "invert": false}, "OBP": {"value": 0.283, "low": 0.25, "high": 0.45, "invert": false}, "SLG": {"value": 0.455, "low": 0.25, "high": 0.55, "invert": false}, "OPS": {"value": 0.738, "low": 0.55, "high": 1.0, "invert": false}, "BB%": {"value": 8.3, "low": 5.0, "high": 18.0, "invert": false}, "K%": {"value": 28.3, "low": 10.0, "high": 35.0, "invert": true}},
+    "previous": {"AVG": {"value": 0.240, "low": 0.15, "high": 0.35, "invert": false}, "OBP": {"value": 0.310, "low": 0.25, "high": 0.45, "invert": false}, "SLG": {"value": 0.420, "low": 0.25, "high": 0.55, "invert": false}, "OPS": {"value": 0.730, "low": 0.55, "high": 1.0, "invert": false}, "BB%": {"value": 9.0, "low": 5.0, "high": 18.0, "invert": false}, "K%": {"value": 26.0, "low": 10.0, "high": 35.0, "invert": true}}
+  }
+}

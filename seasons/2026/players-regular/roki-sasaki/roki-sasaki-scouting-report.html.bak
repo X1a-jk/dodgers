@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>
+   佐佐木朗希 (Roki Sasaki) 球探报告
+  </title>
+  <style>
+   * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            color: #e0e0e0; line-height: 1.6; min-height: 100vh;
+        }
+        .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+        .header {
+            text-align: center; padding: 40px 0;
+            background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%);
+            border-radius: 15px; margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+        .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+        .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+        .player-card {
+            background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px;
+            backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex; gap: 30px; flex-wrap: wrap;
+        }
+        .player-info { flex: 1; min-width: 250px; }
+        .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+        .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+        .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+        .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+        .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+        .section {
+            background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px;
+            margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .section h2 {
+            color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em;
+            border-bottom: 2px solid #4fc3f7; padding-bottom: 10px;
+        }
+        .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+        .stat-card {
+            background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%);
+            border-radius: 10px; padding: 20px; text-align: center;
+            border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease;
+        }
+        .stat-card:hover { transform: translateY(-5px); }
+        .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+        .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+        .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .comparison-table th, .comparison-table td { padding: 12px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+        .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+        .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+        .pitch-card {
+            background: linear-gradient(135deg, rgba(0, 90, 156, 0.2) 0%, rgba(26, 84, 144, 0.2) 100%);
+            border-radius: 10px; padding: 20px; border-left: 4px solid #4fc3f7;
+        }
+        .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; }
+        .pitch-card .velocity { font-size: 1.5em; color: #fff; font-weight: bold; }
+        .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+        .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+        .pros h3 { color: #4caf50; margin-bottom: 15px; }
+        .cons h3 { color: #f44336; margin-bottom: 15px; }
+        .pros ul, .cons ul { list-style: none; }
+        .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+        .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+        .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+        .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+        .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+        .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+        .grade-d { background: rgba(244, 67, 54, 0.3); color: #f44336; }
+        .highlight { color: #4fc3f7; font-weight: bold; }
+        .warning { color: #ff9800; font-weight: bold; }
+        .success { color: #4caf50; font-weight: bold; }
+        .danger { color: #f44336; font-weight: bold; }
+        .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+        .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+        .decline-note { background: rgba(255, 152, 0, 0.1); border: 1px solid rgba(255, 152, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+        .decline-note h4 { color: #ff9800; margin-bottom: 10px; }
+        .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+        table { width: 100%; border-collapse: collapse; margin: 15px 0; font-size: 0.95em; }
+        th, td { padding: 12px; text-align: left; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+        th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; }
+        tr:hover { background: rgba(255, 255, 255, 0.05); }
+        blockquote { border-left: 4px solid #4fc3f7; padding-left: 15px; margin: 15px 0; color: #b0bec5; font-style: italic; }
+        strong { color: #4fc3f7; }
+        hr { border: none; border-top: 1px solid rgba(255, 255, 255, 0.1); margin: 20px 0; }
+        @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <!-- 头部 -->
+   <div class="header">
+    <h1>
+     ⚾ 佐佐木朗希 (Roki Sasaki)
+    </h1>
+    <p class="subtitle">
+     Los Angeles Dodgers #— | 投手
+    </p>
+   </div>
+   <!-- 球员基本信息卡片 -->
+   <div class="player-card">
+    <div class="player-info">
+     <h2>
+      基本信息
+     </h2>
+     <div class="info-grid">
+      <div class="info-item">
+       <div class="label">
+        出生日期
+       </div>
+       <div class="value">
+        2001-11-03
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        年龄
+       </div>
+       <div class="value">
+        24岁
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        出生地
+       </div>
+       <div class="value">
+        日本岩手县陆前高田市
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        身高/体重
+       </div>
+       <div class="value">
+        6'2" / 187 lbs
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        投球/击球
+       </div>
+       <div class="value">
+        右投 / 右打
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        MLB首秀
+       </div>
+       <div class="value">
+        2025-03-19
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        背号
+       </div>
+       <div class="value">
+        #11
+       </div>
+      </div>
+      <div class="info-item">
+       <div class="label">
+        绰号
+       </div>
+       <div class="value">
+        令和怪物
+       </div>
+      </div>
+     </div>
+    </div>
+    <div class="player-info">
+     <h2>
+      球探总评
+     </h2>
+     <p style="margin-bottom: 15px;">
+      佐佐木朗希是日本棒球界近年来最具天赋的投手之一，被誉为"令和时代的怪物"。他以惊人的速球和犀利的指叉球闻名，高中时期就曾投出时速101英里的快速球。
+     </p>
+     <p style="margin-bottom: 15px;">
+      2022年4月10日，他在日本职棒投出了完全比赛（Perfect Game），成为日本职棒史上第16位达成此成就投手，单场19次三振、连续13次三振均创下纪录。
+     </p>
+     <p>
+      2025年加入洛杉矶道奇队，成为球队未来轮值的重要一环。
+     </p>
+    </div>
+   </div>
+   <!-- 2026赛季统计 -->
+   <div class="section">
+    <h2>
+     📊 2026赛季投球数据
+    </h2>
+    <div class="stats-grid">
+     <div class="stat-card">
+      <span class="stat-value">
+       3
+      </span>
+      <div class="stat-label">
+       胜场 (W)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       5
+      </span>
+      <div class="stat-label">
+       败场 (L)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       5.33
+      </span>
+      <div class="stat-label">
+       自责分率 (ERA)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       81.0
+      </span>
+      <div class="stat-label">
+       投球局数 (IP)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       80
+      </span>
+      <div class="stat-label">
+       三振 (K)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       33
+      </span>
+      <div class="stat-label">
+       保送 (BB)
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       1.36
+      </span>
+      <div class="stat-label">
+       WHIP
+      </div>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value">
+       8.89
+      </span>
+      <div class="stat-label">
+       K/9
+      </div>
+     </div>
+    </div>
+    <h3 style="margin-top: 30px; color: #4fc3f7;">
+     赛季对比
+    </h3>
+    <table class="comparison-table">
+     <thead>
+      <tr>
+       <th>
+        赛季
+       </th>
+       <th>
+        球队
+       </th>
+       <th>
+        出场
+       </th>
+       <th>
+        先发
+       </th>
+       <th>
+        胜
+       </th>
+       <th>
+        败
+       </th>
+       <th>
+        ERA
+       </th>
+       <th>
+        IP
+       </th>
+       <th>
+        K
+       </th>
+       <th>
+        BB
+       </th>
+       <th>
+        WHIP
+       </th>
+      </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <td>
+        2025
+       </td>
+       <td>
+        LAD
+       </td>
+       <td>
+        10
+       </td>
+       <td>
+        8
+       </td>
+       <td>
+        1
+       </td>
+       <td>
+        1
+       </td>
+       <td class="highlight">
+        4.46
+       </td>
+       <td>
+        36.1
+       </td>
+       <td>
+        28
+       </td>
+       <td>
+        22
+       </td>
+       <td>
+        1.43
+       </td>
+      </tr>
+      <tr>
+       <td>
+        2026
+       </td>
+       <td>
+        LAD
+       </td>
+       <td>
+        16
+       </td>
+       <td>
+        16
+       </td>
+       <td>
+        3
+       </td>
+       <td>
+        5
+       </td>
+       <td class="warning">
+        5.33
+       </td>
+       <td>
+        81.0
+       </td>
+       <td>
+        80
+       </td>
+       <td>
+        33
+       </td>
+       <td>
+        1.36
+       </td>
+      </tr>
+     </tbody>
+    </table>
+   </div>
+   <!-- 报告封面 -->
+   <div class="section" style="text-align: center; padding: 0;">
+    <img alt="报告封面" src="sasaki_report_cover.png" style="width: 100%; max-width: 800px; border-radius: 10px;"/>
+   </div>
+   <!-- 赛季对比 -->
+   <div class="section">
+    <h2>
+     📊 2025 vs 2026 赛季对比
+    </h2>
+    <div style="text-align: center; margin: 20px 0;">
+     <img alt="赛季对比雷达图" src="sasaki_season_comparison.png" style="width: 100%; max-width: 600px; border-radius: 10px;"/>
+    </div>
+    <p style="text-align: center; color: #90a4ae;">
+     2025赛季 vs 2026赛季数据对比雷达图
+    </p>
+   </div>
+   <!-- 投球武器库 -->
+   <div class="section">
+    <h2>
+     ⚾ 投球武器库
+    </h2>
+    <div style="text-align: center; margin: 20px 0;">
+     <img alt="投球武器库速度分布" src="sasaki_pitch_velocities.png" style="width: 100%; max-width: 800px; border-radius: 10px;"/>
+    </div>
+    <p style="text-align: center; color: #90a4ae;">
+     各球种速度分布范围
+    </p>
+    <div class="pitch-arsenal">
+     <div class="pitch-card">
+      <h3>
+       🔥 四缝线快速球 (Four-Seam Fastball)
+      </h3>
+      <p class="velocity">
+       96-101 mph
+      </p>
+      <p>
+       佐佐木的招牌球种，高中时期就达到101mph。球速极快，上旋强烈，具有极佳的上升轨迹，能够制造大量挥空。
+      </p>
+      <p style="margin-top: 10px;">
+       <span class="grade grade-a">
+        A+
+       </span>
+       评分
+      </p>
+     </div>
+     <div class="pitch-card">
+      <h3>
+       💫 指叉球 (Split-Finger)
+      </h3>
+      <p class="velocity">
+       87-91 mph
+      </p>
+      <p>
+       极具破坏力的变化球，下落幅度大，速度落差明显。是佐佐木解决打者的关键武器，能够制造大量三振。
+      </p>
+      <p style="margin-top: 10px;">
+       <span class="grade grade-a">
+        A+
+       </span>
+       评分
+      </p>
+     </div>
+     <div class="pitch-card">
+      <h3>
+       🌪️ 滑球 (Slider)
+      </h3>
+      <p class="velocity">
+       84-88 mph
+      </p>
+      <p>
+       横向位移明显的滑球，对右打者极具威胁。与快速球搭配使用时效果显著。
+      </p>
+      <p style="margin-top: 10px;">
+       <span class="grade grade-b">
+        B+
+       </span>
+       评分
+      </p>
+     </div>
+     <div class="pitch-card">
+      <h3>
+       ⚡ 曲球 (Curveball)
+      </h3>
+      <p class="velocity">
+       78-82 mph
+      </p>
+      <p>
+       偶尔使用的变化球，主要用于打乱打者节奏。仍在开发中，未来有望成为第四球种。
+      </p>
+      <p style="margin-top: 10px;">
+       <span class="grade grade-c">
+        C+
+       </span>
+       评分
+      </p>
+     </div>
+    </div>
+   </div>
+   <!-- 2026赛季比赛日志 -->
+   <!-- 球探分析 -->
+   <div class="section">
+    <h2>
+     🔍 球探分析
+    </h2>
+    <div style="margin-top: 20px;">
+     <h3 style="color: #4fc3f7; margin-bottom: 15px;">
+      投球机制
+     </h3>
+     <p>
+      佐佐木采用高上肩（Over-the-top）的投球机制，出手点高，能够充分运用身高优势制造下坠角度。投球动作流畅，身体协调性出色，虽然投球动作中有些许复杂度，但整体重复性良好。
+     </p>
+     <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">
+      速球品质
+     </h3>
+     <p>
+      四缝线快速球是他的致命武器，平均球速约98mph，最高可达101mph以上。球的旋转效率极高，产生强烈的上升效应，使得打者常常挥空或击出高飞球。根据Statcast数据，他的快速球转速位于联盟前10%。
+     </p>
+     <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">
+      控球能力
+     </h3>
+     <p>
+      控球是佐佐木目前最大的挑战。2026赛季至今保送率（BB/9）为3.67，虽然较2025年的5.45有明显改善，但仍需继续提升。他的指叉球有时会失投，导致保送或触身球。
+     </p>
+     <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">
+      体力与耐力
+     </h3>
+     <p>
+      作为年轻投手，佐佐木的体能管理仍在开发中。目前平均每次先发约5局，随着赛季进行，他的投球局数在逐渐增加。球队对他的使用较为谨慎，避免过度投球。
+     </p>
+    </div>
+   </div>
+   <!-- 优势与劣势 -->
+   <div class="section">
+    <h2>
+     ✅ 优势 vs ❌ 劣势
+    </h2>
+    <div class="pros-cons">
+     <div class="pros">
+      <h3>
+       优势 (Strengths)
+      </h3>
+      <ul>
+       <li>
+        顶级速球，最高可达101mph+
+       </li>
+       <li>
+        指叉球极具破坏力，三振利器
+       </li>
+       <li>
+        投球动作流畅，身体协调性好
+       </li>
+       <li>
+        心理素质强，大场面不怯场
+       </li>
+       <li>
+        年轻，潜力巨大，只有24岁
+       </li>
+       <li>
+        季后赛表现优异，抗压能力强
+       </li>
+       <li>
+        日本职棒完全比赛经验
+       </li>
+      </ul>
+     </div>
+     <div class="cons">
+      <h3>
+       劣势 (Weaknesses)
+      </h3>
+      <ul>
+       <li>
+        控球仍需改善，保送偏多
+       </li>
+       <li>
+        变化球控制不够稳定
+       </li>
+       <li>
+        面对左打者表现略差
+       </li>
+       <li>
+        投球局数需要逐步增加
+       </li>
+       <li>
+        偶尔会出现大比分失分
+       </li>
+       <li>
+        MLB经验相对较少
+       </li>
+       <li>
+        被全垒打率偏高 (HR/9: 2.11)
+       </li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <!-- 综合评分 -->
+   <div class="section">
+    <h2>
+     📊 综合评分
+    </h2>
+    <div style="text-align: center; margin: 20px 0;">
+     <img alt="综合评分雷达图" src="sasaki_overall_grades.png" style="width: 100%; max-width: 600px; border-radius: 10px;"/>
+    </div>
+    <p style="text-align: center; color: #90a4ae; margin-bottom: 20px;">
+     综合评分雷达图 (20-80量表)
+    </p>
+    <div class="stats-grid">
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4caf50;">
+       70
+      </span>
+      <div class="stat-label">
+       速球 (Fastball)
+      </div>
+      <span class="grade grade-a">
+       A
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4caf50;">
+       70
+      </span>
+      <div class="stat-label">
+       指叉球 (Splitter)
+      </div>
+      <span class="grade grade-a">
+       A
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4fc3f7;">
+       55
+      </span>
+      <div class="stat-label">
+       滑球 (Slider)
+      </div>
+      <span class="grade grade-b">
+       B
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #ff9800;">
+       45
+      </span>
+      <div class="stat-label">
+       曲球 (Curveball)
+      </div>
+      <span class="grade grade-c">
+       C
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #ff9800;">
+       45
+      </span>
+      <div class="stat-label">
+       控球 (Control)
+      </div>
+      <span class="grade grade-c">
+       C+
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4fc3f7;">
+       60
+      </span>
+      <div class="stat-label">
+       指挥 (Command)
+      </div>
+      <span class="grade grade-b">
+       B
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4caf50;">
+       65
+      </span>
+      <div class="stat-label">
+       心理素质 (Mental)
+      </div>
+      <span class="grade grade-a">
+       A-
+      </span>
+     </div>
+     <div class="stat-card">
+      <span class="stat-value" style="color: #4fc3f7;">
+       55
+      </span>
+      <div class="stat-label">
+       耐力 (Stamina)
+      </div>
+      <span class="grade grade-b">
+       B
+      </span>
+     </div>
+    </div>
+    <div style="margin-top: 30px; text-align: center;">
+     <h3 style="color: #4fc3f7; margin-bottom: 15px;">
+      总体潜力评分
+     </h3>
+     <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">
+      60
+     </div>
+     <p style="color: #90a4ae; margin-top: 10px;">
+      联盟平均先发投手水平，具有成为王牌投手的潜力
+     </p>
+     <p style="margin-top: 15px;">
+      <span class="grade grade-b" style="font-size: 1.2em;">
+       B+ 级新秀 / 未来轮值核心
+      </span>
+     </p>
+    </div>
+   </div>
+   <!-- 未来展望 -->
+   <div class="section">
+    <h2>
+     🔮 未来展望
+    </h2>
+    <div style="margin-top: 20px;">
+     <p>
+      佐佐木朗希无疑是道奇队未来轮值的重要一环。虽然2026赛季初期表现有所起伏，但他的天赋毋庸置疑。随着MLB经验的积累和体能的增强，他有望在未来2-3年内成为球队的王牌投手。
+     </p>
+     <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">
+      发展建议
+     </h3>
+     <ol style="margin-left: 20px; line-height: 2;">
+      <li>
+       <strong>
+        改善控球：
+       </strong>
+       继续精进控球能力，降低保送率至3.0以下
+      </li>
+      <li>
+       <strong>
+        增加变化球：
+       </strong>
+       开发更稳定的第四球种（曲球或变速球）
+      </li>
+      <li>
+       <strong>
+        面对左打者：
+       </strong>
+       加强对左打者的应对策略
+      </li>
+      <li>
+       <strong>
+        提升耐力：
+       </strong>
+       逐步增加投球局数，目标每场6-7局
+      </li>
+      <li>
+       <strong>
+        减少全垒打：
+       </strong>
+       改善投球位置，降低被长打率
+      </li>
+     </ol>
+     <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">
+      预期发展轨迹
+     </h3>
+     <p>
+      <strong>
+       2026-2027：
+      </strong>
+      稳定轮值成员，ERA目标3.50-4.00，每季150+局
+     </p>
+     <p>
+      <strong>
+       2028-2029：
+      </strong>
+      轮值前段投手，ERA目标3.00-3.50，入选全明星
+     </p>
+     <p>
+      <strong>
+       2030+：
+      </strong>
+      王牌投手候选人，赛扬奖竞争者
+     </p>
+    </div>
+   </div>
+   <!-- 背景故事 -->
+   <div class="section">
+    <h2>
+     📖 背景故事
+    </h2>
+    <div style="margin-top: 20px;">
+     <p>
+      佐佐木朗希的名字源自日本特摄剧《百兽战队牙吠连者》中的反派角色"六鬼"（Rokui）。他有两个兄弟，分别是龙树（Ryuki）和怜树（Reiki）。
+     </p>
+     <p>
+      2011年3月11日，年仅9岁的佐佐木正在陆前高田市立高田小学读三年级。那天，日本发生了里氏9.1级的大地震，随后引发了巨大的海啸。佐佐木在这场灾难中失去了父亲和祖父母。陆前高田市超过1,750名市民在这场灾难中遇难或失踪。
+     </p>
+     <p>
+      这段经历深深影响了佐佐木。在2025年加盟道奇队的记者会上（当时正值洛杉矶山火肆虐），他说道："我也曾经历过灾难，遭受过很多痛苦，但我努力不要忘记始终向前看。"
+     </p>
+     <p>
+      佐佐木在高中时期就被称为"令和时代的怪物"，这个绰号是对前辈松坂大辅（被称为"平成时代的怪物"）的致敬。高中时他的快速球就达到了101mph。
+     </p>
+     <p>
+      2022年4月10日，他在日本职棒投出了完全比赛，成为日本职棒史上第16位达成此成就的投手，也是自1994年牧原成以来首位。那场比赛他三振19人，包括连续13次三振，创下了日本职棒纪录。
+     </p>
+     <p>
+      加盟道奇队后，队友米格尔·罗哈斯（Miguel Rojas）将自己的11号球衣让给了他。作为感谢，佐佐木送给罗哈斯三瓶清酒和一套酒具。
+     </p>
+    </div>
+   </div>
+   <!-- 数据来源 -->
+   <div class="footer">
+    <p>
+     数据来源：MLB.com | Baseball Savant (Statcast) | Fangraphs | MLB Stats API
+    </p>
+    <p>
+     报告生成时间：2026-07-31 | 数据截止日期：2026-07-31
+    </p>
+    <p>
+     ⚾ 洛杉矶道奇队球探报告
+    </p>
+   </div>
+  </div>
+ </body>
+</html>

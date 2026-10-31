@@ -1,0 +1,62 @@
+{
+  "player_name": "Edwin Díaz",
+  "player_slug": "edwin-diaz",
+  "output_dir": "D:\\baseball\\report\\edwin-diaz",
+  "prefix": "diaz",
+  "info": {
+    "number": "3",
+    "position": "RHP / Closer"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "10.50"],
+      ["W-L", "1-0"],
+      ["K", "10"],
+      ["IP", "6.0"],
+      ["SV", "4"],
+      ["AGE", "32"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 98, "max": 102},
+    "Slider": {"min": 88, "max": 92},
+    "Changeup": {"min": 90, "max": 93}
+  },
+  "game_trends": [
+    {"label": "03/31\n@CHC", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "04/03\n@CHC", "era": 27.0, "ip": 0.2, "k": 1, "bb": 1},
+    {"label": "04/06\nvsCOL", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "04/10\n@SDP", "era": 18.0, "ip": 1.0, "k": 2, "bb": 1},
+    {"label": "04/13\nvsSFG", "era": 40.5, "ip": 0.2, "k": 1, "bb": 2}
+  ],
+  "overall_grades": {
+    "Fastball": 75,
+    "Slider": 75,
+    "Changeup": 50,
+    "Control": 50,
+    "Command": 55,
+    "Strikeout": 75,
+    "Mental": 70,
+    "Health": 35,
+    "Closer": 70
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 10.50, "low": 1.0, "high": 12.0, "invert": true},
+      "WHIP": {"value": 2.33, "low": 0.8, "high": 2.5, "invert": true},
+      "K/9": {"value": 15.00, "low": 5.0, "high": 17.0, "invert": false},
+      "BB/9": {"value": 7.50, "low": 1.0, "high": 8.0, "invert": true},
+      "HR/9": {"value": 1.50, "low": 0.0, "high": 3.0, "invert": true},
+      "IP/G": {"value": 0.86, "low": 0.5, "high": 1.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 2.68, "low": 1.0, "high": 12.0, "invert": true},
+      "WHIP": {"value": 1.06, "low": 0.8, "high": 2.5, "invert": true},
+      "K/9": {"value": 12.41, "low": 5.0, "high": 17.0, "invert": false},
+      "BB/9": {"value": 2.68, "low": 1.0, "high": 8.0, "invert": true},
+      "HR/9": {"value": 0.67, "low": 0.0, "high": 3.0, "invert": true},
+      "IP/G": {"value": 0.93, "low": 0.5, "high": 1.5, "invert": false}
+    }
+  }
+}

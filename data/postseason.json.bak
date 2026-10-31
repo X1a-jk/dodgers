@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-15T20:57:15.155131",
+ "generatedAt": "2026-10-29T20:11:30.307670",
  "season": 2026,
  "regularSeasonComplete": true,
  "postseasonPublished": true,
@@ -488,28 +488,28 @@
       "beijing": "10-16 01:00",
       "gameNumber": 3,
       "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
+      "status": "Final",
+      "final": true,
       "away": {
        "id": 139,
        "name": "Tampa Bay Rays",
-       "score": null
+       "score": 2
       },
       "home": {
        "id": 114,
        "name": "Cleveland Guardians",
-       "score": null
+       "score": 3
       },
-      "winnerSide": null
+      "winnerSide": "home"
      },
      {
       "gamePk": 849817,
-      "date": "2026-10-16T22:00:00Z",
-      "beijing": "10-17 06:00",
+      "date": "2026-10-17T00:00:00Z",
+      "beijing": "10-17 08:00",
       "gameNumber": 4,
       "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
+      "status": "Postponed",
+      "final": true,
       "away": {
        "id": 139,
        "name": "Tampa Bay Rays",
@@ -524,70 +524,70 @@
      },
      {
       "gamePk": 849816,
-      "date": "2026-10-18T00:00:00Z",
-      "beijing": "10-18 08:00",
-      "gameNumber": 5,
+      "date": "2026-10-18T00:08:00Z",
+      "beijing": "10-18 08:08",
+      "gameNumber": 4,
       "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
+      "status": "Final",
+      "final": true,
       "away": {
        "id": 139,
        "name": "Tampa Bay Rays",
-       "score": null
+       "score": 7
       },
       "home": {
        "id": 114,
        "name": "Cleveland Guardians",
-       "score": null
+       "score": 3
       },
-      "winnerSide": null
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 849817,
+      "date": "2026-10-18T21:08:00Z",
+      "beijing": "10-19 05:08",
+      "gameNumber": 5,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 139,
+       "name": "Tampa Bay Rays",
+       "score": 3
+      },
+      "home": {
+       "id": 114,
+       "name": "Cleveland Guardians",
+       "score": 1
+      },
+      "winnerSide": "away"
      },
      {
       "gamePk": 849815,
-      "date": "2026-10-19T21:00:00Z",
-      "beijing": "10-20 05:00",
+      "date": "2026-10-20T00:08:00Z",
+      "beijing": "10-20 08:08",
       "gameNumber": 6,
       "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
+      "status": "Final",
+      "final": true,
       "away": {
        "id": 114,
        "name": "Cleveland Guardians",
-       "score": null
+       "score": 3
       },
       "home": {
        "id": 139,
        "name": "Tampa Bay Rays",
-       "score": null
+       "score": 7
       },
-      "winnerSide": null
-     },
-     {
-      "gamePk": 849814,
-      "date": "2026-10-21T00:00:00Z",
-      "beijing": "10-21 08:00",
-      "gameNumber": 7,
-      "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
-      "away": {
-       "id": 114,
-       "name": "Cleveland Guardians",
-       "score": null
-      },
-      "home": {
-       "id": 139,
-       "name": "Tampa Bay Rays",
-       "score": null
-      },
-      "winnerSide": null
+      "winnerSide": "home"
      }
     ],
     "wins": {
-     "114": 1,
-     "139": 1
+     "114": 2,
+     "139": 4
     },
-    "gamesPlayed": 2,
+    "gamesPlayed": 7,
     "hasData": true
    }
   },
@@ -973,89 +973,140 @@
       "beijing": "10-16 08:00",
       "gameNumber": 4,
       "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
+      "status": "Final",
+      "final": true,
       "away": {
        "id": 158,
        "name": "Milwaukee Brewers",
-       "score": null
+       "score": 6
       },
       "home": {
        "id": 119,
        "name": "Los Angeles Dodgers",
-       "score": null
+       "score": 4
       },
-      "winnerSide": null
-     },
-     {
-      "gamePk": 849808,
-      "date": "2026-10-17T01:00:00Z",
-      "beijing": "10-17 09:00",
-      "gameNumber": 5,
-      "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
-      "away": {
-       "id": 158,
-       "name": "Milwaukee Brewers",
-       "score": null
-      },
-      "home": {
-       "id": 119,
-       "name": "Los Angeles Dodgers",
-       "score": null
-      },
-      "winnerSide": null
-     },
-     {
-      "gamePk": 849806,
-      "date": "2026-10-19T00:00:00Z",
-      "beijing": "10-19 08:00",
-      "gameNumber": 6,
-      "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
-      "away": {
-       "id": 119,
-       "name": "Los Angeles Dodgers",
-       "score": null
-      },
-      "home": {
-       "id": 158,
-       "name": "Milwaukee Brewers",
-       "score": null
-      },
-      "winnerSide": null
-     },
-     {
-      "gamePk": 849807,
-      "date": "2026-10-20T00:00:00Z",
-      "beijing": "10-20 08:00",
-      "gameNumber": 7,
-      "gamesInSeries": 7,
-      "status": "Scheduled",
-      "final": false,
-      "away": {
-       "id": 119,
-       "name": "Los Angeles Dodgers",
-       "score": null
-      },
-      "home": {
-       "id": 158,
-       "name": "Milwaukee Brewers",
-       "score": null
-      },
-      "winnerSide": null
+      "winnerSide": "away"
      }
     ],
     "wins": {
-     "158": 3
+     "158": 4
     },
-    "gamesPlayed": 3,
+    "gamesPlayed": 4,
     "hasData": true
    }
   },
-  "ws": null
+  "ws": {
+   "round": "World Series",
+   "bestOf": 7,
+   "games": [
+    {
+     "gamePk": 849805,
+     "date": "2026-10-24T00:00:00Z",
+     "beijing": "10-24 08:00",
+     "gameNumber": 1,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 139,
+      "name": "Tampa Bay Rays",
+      "score": 2
+     },
+     "home": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "score": 3
+     },
+     "winnerSide": "home"
+    },
+    {
+     "gamePk": 849802,
+     "date": "2026-10-25T00:00:00Z",
+     "beijing": "10-25 08:00",
+     "gameNumber": 2,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 139,
+      "name": "Tampa Bay Rays",
+      "score": 4
+     },
+     "home": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "score": 5
+     },
+     "winnerSide": "home"
+    },
+    {
+     "gamePk": 849804,
+     "date": "2026-10-27T00:00:00Z",
+     "beijing": "10-27 08:00",
+     "gameNumber": 3,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "score": 10
+     },
+     "home": {
+      "id": 139,
+      "name": "Tampa Bay Rays",
+      "score": 1
+     },
+     "winnerSide": "away"
+    },
+    {
+     "gamePk": 849803,
+     "date": "2026-10-28T00:00:00Z",
+     "beijing": "10-28 08:00",
+     "gameNumber": 4,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "score": 3
+     },
+     "home": {
+      "id": 139,
+      "name": "Tampa Bay Rays",
+      "score": 4
+     },
+     "winnerSide": "home"
+    },
+    {
+     "gamePk": 849799,
+     "date": "2026-10-29T00:00:00Z",
+     "beijing": "10-29 08:00",
+     "gameNumber": 5,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 158,
+      "name": "Milwaukee Brewers",
+      "score": 4
+     },
+     "home": {
+      "id": 139,
+      "name": "Tampa Bay Rays",
+      "score": 1
+     },
+     "winnerSide": "away"
+    }
+   ],
+   "wins": {
+    "158": 4,
+    "139": 1
+   },
+   "gamesPlayed": 5,
+   "hasData": true
+  }
  },
  "roundCn": {
   "Wild Card Series": "外卡系列赛",

@@ -1,0 +1,52 @@
+{
+  "player_name": "River Ryan",
+  "player_slug": "river-ryan",
+  "output_dir": "D:\\baseball\\report\\river-ryan",
+  "prefix": "ryan",
+  "info": {
+    "number": "77",
+    "position": "RHP / Prospective Starter/Relief"
+  },
+  "cover": {
+    "stats": [
+      ["MLB G", "—"],
+      ["2026 IP", "—"],
+      ["Fastball", "94-97"],
+      ["Level", "AAA"],
+      ["AGE", "27"],
+      ["Debut", "2024"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 94, "max": 97},
+    "Slider": {"min": 83, "max": 87},
+    "Changeup": {"min": 85, "max": 88}
+  },
+  "overall_grades": {
+    "Fastball": 55,
+    "Slider": 50,
+    "Changeup": 45,
+    "Control": 40,
+    "Stamina": 45,
+    "Ceiling": 50
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 4.50, "low": 1.0, "high": 9.0, "invert": true},
+      "WHIP": {"value": 1.40, "low": 0.8, "high": 2.0, "invert": true},
+      "K/9": {"value": 8.50, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.00, "low": 1.0, "high": 8.0, "invert": true},
+      "HR/9": {"value": 1.00, "low": 0.0, "high": 3.0, "invert": true},
+      "IP/G": {"value": 4.50, "low": 3.0, "high": 7.0, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 5.00, "low": 1.0, "high": 9.0, "invert": true},
+      "WHIP": {"value": 1.50, "low": 0.8, "high": 2.0, "invert": true},
+      "K/9": {"value": 8.00, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.50, "low": 1.0, "high": 8.0, "invert": true},
+      "HR/9": {"value": 1.20, "low": 0.0, "high": 3.0, "invert": true},
+      "IP/G": {"value": 4.00, "low": 3.0, "high": 7.0, "invert": false}
+    }
+  }
+}

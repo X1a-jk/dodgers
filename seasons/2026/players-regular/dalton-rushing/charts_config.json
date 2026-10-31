@@ -1,0 +1,50 @@
+{
+  "player_name": "Dalton Rushing",
+  "player_slug": "dalton-rushing",
+  "output_dir": "D:\\baseball\\report\\dalton-rushing",
+  "prefix": "rushing",
+  "info": {
+    "number": "68",
+    "position": "Catcher"
+  },
+  "cover": {
+    "stats": [
+      ["AVG", ".247"],
+      ["OBP", ".338"],
+      ["SLG", ".474"],
+      ["OPS", ".812"],
+      ["HR", "11"],
+      ["AGE", "25"]
+    ]
+  },
+  "overall_grades": {
+    "Contact": 45,
+    "Power": 60,
+    "Discipline": 55,
+    "Speed": 35,
+    "C Defense": 50,
+    "Arm": 55,
+    "Game Calling": 50,
+    "Durability": 50,
+    "Ceiling": 65
+  },
+  "season_comparison": {
+    "categories": ["AVG", "OBP", "SLG", "OPS", "BB%", "K%"],
+    "current": {
+      "AVG": {"value": 0.247, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.338, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.474, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.812, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 10.4, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 27.9, "low": 10.0, "high": 35.0, "invert": true}
+    },
+    "previous": {
+      "AVG": {"value": 0.218, "low": 0.15, "high": 0.35, "invert": false},
+      "OBP": {"value": 0.309, "low": 0.25, "high": 0.45, "invert": false},
+      "SLG": {"value": 0.387, "low": 0.25, "high": 0.55, "invert": false},
+      "OPS": {"value": 0.696, "low": 0.55, "high": 1.0, "invert": false},
+      "BB%": {"value": 10.7, "low": 5.0, "high": 18.0, "invert": false},
+      "K%": {"value": 29.9, "low": 10.0, "high": 35.0, "invert": true}
+    }
+  }
+}

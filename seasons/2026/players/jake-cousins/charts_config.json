@@ -1,0 +1,56 @@
+{
+  "player_name": "Jake Cousins",
+  "player_slug": "jake-cousins",
+  "output_dir": "D:\\baseball\\report\\jake-cousins",
+  "prefix": "cousins",
+  "info": {
+    "number": "—",
+    "position": "RHP / Middle Reliever"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "2.37"],
+      ["W-L", "2-1"],
+      ["K", "53"],
+      ["IP", "38.0"],
+      ["WHIP", "1.05"],
+      ["AGE", "32"]
+    ]
+  },
+  "pitch_velocities": {
+    "Sinker": {"min": 92, "max": 95},
+    "Slider": {"min": 83, "max": 87},
+    "Four-Seam": {"min": 93, "max": 96},
+    "Changeup": {"min": 86, "max": 89}
+  },
+  "overall_grades": {
+    "Sinker": 55,
+    "Slider": 60,
+    "Fastball": 50,
+    "Changeup": 40,
+    "Control": 40,
+    "Command": 45,
+    "Mental": 50,
+    "Durability": 35,
+    "Strikeout": 60
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 2.37, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.05, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 12.55, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.74, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 1.18, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.03, "low": 0.5, "high": 1.5, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 2.70, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.17, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 13.20, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 5.70, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.90, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.00, "low": 0.5, "high": 1.5, "invert": false}
+    }
+  }
+}

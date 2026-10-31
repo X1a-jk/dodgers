@@ -1,0 +1,54 @@
+{
+  "copyright": "Copyright 2026 MLB Advanced Media, L.P.  Use of any content on this page acknowledges agreement to the terms posted here http://gdx.mlb.com/components/copyright.txt",
+  "people": [
+    {
+      "id": 621242,
+      "fullName": "Edwin Díaz",
+      "link": "/api/v1/people/621242",
+      "firstName": "Edwin",
+      "lastName": "Díaz",
+      "primaryNumber": "3",
+      "birthDate": "1994-03-22",
+      "currentAge": 32,
+      "birthCity": "Naguabo",
+      "birthCountry": "Puerto Rico",
+      "height": "6' 3\"",
+      "weight": 165,
+      "active": true,
+      "primaryPosition": {
+        "code": "1",
+        "name": "Pitcher",
+        "type": "Pitcher",
+        "abbreviation": "P"
+      },
+      "useName": "Edwin",
+      "useLastName": "Díaz",
+      "middleName": "Orlando",
+      "boxscoreName": "Díaz",
+      "nickName": "Sugar",
+      "gender": "M",
+      "isPlayer": true,
+      "isVerified": true,
+      "draftYear": 2012,
+      "mlbDebutDate": "2016-06-06",
+      "batSide": {
+        "code": "R",
+        "description": "Right"
+      },
+      "pitchHand": {
+        "code": "R",
+        "description": "Right"
+      },
+      "nameFirstLast": "Edwin Díaz",
+      "nameSlug": "edwin-diaz-621242",
+      "firstLastName": "Edwin Díaz",
+      "lastFirstName": "Díaz, Edwin",
+      "lastInitName": "Díaz, E",
+      "initLastName": "E Díaz",
+      "fullFMLName": "Edwin Orlando Díaz",
+      "fullLFMName": "Díaz, Edwin Orlando",
+      "strikeZoneTop": 3.344,
+      "strikeZoneBottom": 1.688
+    }
+  ]
+}

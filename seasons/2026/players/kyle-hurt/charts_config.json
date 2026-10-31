@@ -1,0 +1,61 @@
+{
+  "player_name": "Kyle Hurt",
+  "player_slug": "kyle-hurt",
+  "output_dir": "D:\\baseball\\report\\kyle-hurt",
+  "prefix": "hurt",
+  "info": {
+    "number": "37",
+    "position": "RHP / Relief"
+  },
+  "cover": {
+    "stats": [
+      ["ERA", "4.59"],
+      ["W-L", "3-1"],
+      ["K", "39"],
+      ["IP", "33.1"],
+      ["WHIP", "1.38"],
+      ["AGE", "28"]
+    ]
+  },
+  "pitch_velocities": {
+    "Four-Seam": {"min": 95, "max": 99},
+    "Slider": {"min": 84, "max": 88},
+    "Changeup": {"min": 87, "max": 90}
+  },
+  "game_trends": [
+    {"label": "05/11\n@PIT", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "05/22\nvsSDP", "era": 0.0, "ip": 1.0, "k": 1, "bb": 1},
+    {"label": "06/04\n@MIL", "era": 18.0, "ip": 1.0, "k": 1, "bb": 2},
+    {"label": "06/17\nvsSFG", "era": 0.0, "ip": 1.0, "k": 2, "bb": 0},
+    {"label": "07/01\n@ARI", "era": 9.0, "ip": 0.2, "k": 0, "bb": 1}
+  ],
+  "overall_grades": {
+    "Fastball": 60,
+    "Slider": 55,
+    "Changeup": 45,
+    "Control": 40,
+    "Command": 45,
+    "Strikeout": 60,
+    "Mental": 50,
+    "Durability": 55
+  },
+  "season_comparison": {
+    "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9", "IP/G"],
+    "current": {
+      "ERA": {"value": 4.59, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.38, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 10.53, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.86, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 0.81, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.03, "low": 0.5, "high": 2.0, "invert": false}
+    },
+    "previous": {
+      "ERA": {"value": 4.24, "low": 1.0, "high": 6.0, "invert": true},
+      "WHIP": {"value": 1.41, "low": 0.8, "high": 1.8, "invert": true},
+      "K/9": {"value": 10.80, "low": 5.0, "high": 13.0, "invert": false},
+      "BB/9": {"value": 4.63, "low": 1.0, "high": 6.0, "invert": true},
+      "HR/9": {"value": 1.16, "low": 0.0, "high": 2.5, "invert": true},
+      "IP/G": {"value": 1.06, "low": 0.5, "high": 2.0, "invert": false}
+    }
+  }
+}
