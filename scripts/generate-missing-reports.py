@@ -186,8 +186,20 @@ def generate_season_comparison(player_dir: Path, name: str, stats_2025: dict, st
                 return max(20, 80 - float(x) * 10)
             except Exception:
                 return 40
-        v2025 = [inv(s25.get('era')), inv(s25.get('whip')), min(80, float(s25.get('strikeOutsPer9Inn', 0) or 0) * 4 + 20), max(20, 80 - float(s25.get('basesOnBallsPer9Inn', 0) or 0) * 8)]
-        v2026 = [inv(s26.get('era')), inv(s26.get('whip')), min(80, float(s26.get('strikeOutsPer9Inn', 0) or 0) * 4 + 20), max(20, 80 - float(s26.get('basesOnBallsPer9Inn', 0) or 0) * 8)]
+        def per9(s, rate_key, so_key='strikeOuts'):
+            """K9/BB9: 优先 API 现成率值；缺失时用 SO/outs 换算 (outs 是真实出局数)"""
+            v = s.get(rate_key)
+            try:
+                if v not in (None, "", "-") and float(v) > 0:
+                    return float(v)
+            except Exception:
+                pass
+            so, outs = s.get(so_key), s.get('outs')
+            if so and outs:
+                return so * 27 / outs
+            return 0.0
+        v2025 = [inv(s25.get('era')), inv(s25.get('whip')), min(80, per9(s25, 'strikeoutsPer9Inn') * 4 + 20), max(20, 80 - per9(s25, 'walksPer9Inn', 'baseOnBalls') * 8)]
+        v2026 = [inv(s26.get('era')), inv(s26.get('whip')), min(80, per9(s26, 'strikeoutsPer9Inn') * 4 + 20), max(20, 80 - per9(s26, 'walksPer9Inn', 'baseOnBalls') * 8)]
     else:
         labels = ['AVG', 'OBP', 'SLG', 'OPS']
         def scale(x):
@@ -279,8 +291,8 @@ def _hitter_grades(s, pos):
 
 def _pitcher_grades(s):
     era = _f(s.get("era")); whip = _f(s.get("whip"))
-    k9 = _f(s.get("strikeOutsPer9Inn")) or _f(s.get("strikeOutsPer9Innings"))
-    bb9 = _f(s.get("basesOnBallsPer9Inn")) or _f(s.get("basesOnBallsPer9Innings"))
+    k9 = _f(s.get("strikeoutsPer9Inn"))
+    bb9 = _f(s.get("walksPer9Inn"))
     ip = _f(s.get("inningsPitched"))
     fb = _tier(k9, [(11, 70), (10, 65), (9, 60), (8, 55), (7, 50), (6, 45)], 40)
     ctl = _tier(bb9, [(0, 70), (1.8, 65), (2.4, 60), (3.0, 55), (3.6, 50), (4.2, 45)], 40) if bb9 is not None else 50
@@ -384,8 +396,8 @@ def _pitcher_bundle(name, s26, s25):
     era = _f(s26.get("era")); whip = _f(s26.get("whip"))
     ip = _f(s26.get("inningsPitched")) or 0
     w = _i(s26.get("wins")); l = _i(s26.get("losses")); so = _i(s26.get("strikeOuts"))
-    k9 = _f(s26.get("strikeOutsPer9Inn")) or _f(s26.get("strikeOutsPer9Innings"))
-    bb9 = _f(s26.get("basesOnBallsPer9Inn")) or _f(s26.get("basesOnBallsPer9Innings"))
+    k9 = _f(s26.get("strikeoutsPer9Inn"))
+    bb9 = _f(s26.get("walksPer9Inn"))
     sv = _i(s26.get("saves")); role = _role_pitcher(s26)
     small = ip < 25
     pts, strengths, weaknesses = [], [], []
@@ -464,8 +476,8 @@ def _hitting_table(s25, s26):
 def _pitching_table(s25, s26):
     return f"""| 赛季 | G | GS | W-L | ERA | IP | H | R | ER | HR | BB | SO | WHIP | K/9 | BB/9 |
 |------|---|---|-----|------|------|---|---|---|---|---|---|------|------|------|
-| 2025 | {fmt(s25.get('gamesPlayed'))} | {fmt(s25.get('gamesStarted'))} | {fmt(s25.get('wins'))}-{fmt(s25.get('losses'))} | {fmt(s25.get('era'))} | {fmt(s25.get('inningsPitched'))} | {fmt(s25.get('hits'))} | {fmt(s25.get('runs'))} | {fmt(s25.get('earnedRuns'))} | {fmt(s25.get('homeRuns'))} | {fmt(s25.get('baseOnBalls'))} | {fmt(s25.get('strikeOuts'))} | {fmt(s25.get('whip'))} | {fmt(s25.get('strikeOutsPer9Inn'))} | {fmt(s25.get('basesOnBallsPer9Inn'))} |
-| 2026 | {fmt(s26.get('gamesPlayed'))} | {fmt(s26.get('gamesStarted'))} | {fmt(s26.get('wins'))}-{fmt(s26.get('losses'))} | {fmt(s26.get('era'))} | {fmt(s26.get('inningsPitched'))} | {fmt(s26.get('hits'))} | {fmt(s26.get('runs'))} | {fmt(s26.get('earnedRuns'))} | {fmt(s26.get('homeRuns'))} | {fmt(s26.get('baseOnBalls'))} | {fmt(s26.get('strikeOuts'))} | {fmt(s26.get('whip'))} | {fmt(s26.get('strikeOutsPer9Inn'))} | {fmt(s26.get('basesOnBallsPer9Inn'))} |"""
+| 2025 | {fmt(s25.get('gamesPlayed'))} | {fmt(s25.get('gamesStarted'))} | {fmt(s25.get('wins'))}-{fmt(s25.get('losses'))} | {fmt(s25.get('era'))} | {fmt(s25.get('inningsPitched'))} | {fmt(s25.get('hits'))} | {fmt(s25.get('runs'))} | {fmt(s25.get('earnedRuns'))} | {fmt(s25.get('homeRuns'))} | {fmt(s25.get('baseOnBalls'))} | {fmt(s25.get('strikeOuts'))} | {fmt(s25.get('whip'))} | {fmt(s25.get('strikeoutsPer9Inn'))} | {fmt(s25.get('walksPer9Inn'))} |
+| 2026 | {fmt(s26.get('gamesPlayed'))} | {fmt(s26.get('gamesStarted'))} | {fmt(s26.get('wins'))}-{fmt(s26.get('losses'))} | {fmt(s26.get('era'))} | {fmt(s26.get('inningsPitched'))} | {fmt(s26.get('hits'))} | {fmt(s26.get('runs'))} | {fmt(s26.get('earnedRuns'))} | {fmt(s26.get('homeRuns'))} | {fmt(s26.get('baseOnBalls'))} | {fmt(s26.get('strikeOuts'))} | {fmt(s26.get('whip'))} | {fmt(s26.get('strikeoutsPer9Inn'))} | {fmt(s26.get('walksPer9Inn'))} |"""
 
 
 def build_analysis(name, info, stats_2025, stats_2026, pos_type):
