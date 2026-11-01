@@ -1,0 +1,2645 @@
+{
+ "alex-vesia": {
+  "name": "Alex Vesia",
+  "pid": 681911,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "94-97 mph",
+    "grade": "A"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "84-87 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "82-85 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 564,
+    "pct": 55.8,
+    "avgSpeed": 92.1
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 305,
+    "pct": 30.2,
+    "avgSpeed": 84.4
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 142,
+    "pct": 14.0,
+    "avgSpeed": 82.8
+   }
+  ],
+  "missingInReport": [],
+  "phantom": []
+ },
+ "ben-casparius": {
+  "name": "Ben Casparius",
+  "pid": 676508,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "94-96 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "85-88 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-88 mph",
+    "grade": "B-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 41,
+    "pct": 41.4,
+    "avgSpeed": 95.8
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 27,
+    "pct": 27.3,
+    "avgSpeed": 87.1
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 16,
+    "pct": 16.2,
+    "avgSpeed": 81.0
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 13,
+    "pct": 13.1,
+    "avgSpeed": 93.0
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 2,
+    "pct": 2.0,
+    "avgSpeed": 90.9
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 27,
+    "pct": 27.3,
+    "avgSpeed": 87.1
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 16,
+    "pct": 16.2,
+    "avgSpeed": 81.0
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 13,
+    "pct": 13.1,
+    "avgSpeed": 93.0
+   }
+  ],
+  "phantom": [
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "85-88 mph",
+    "grade": "B+"
+   }
+  ]
+ },
+ "blake-snell": {
+  "name": "Blake Snell",
+  "pid": 605483,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "95-97 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🌪️ 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "80-83 mph",
+    "grade": "A"
+   },
+   {
+    "name": "⚡ 滑球/切球 (Slider/Cutter)",
+    "code": null,
+    "vel": "87-90 mph",
+    "grade": "B+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 367,
+    "pct": 49.5,
+    "avgSpeed": 96.0
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 162,
+    "pct": 21.9,
+    "avgSpeed": 79.9
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 132,
+    "pct": 17.8,
+    "avgSpeed": 84.8
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 80,
+    "pct": 10.8,
+    "avgSpeed": 88.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 132,
+    "pct": 17.8,
+    "avgSpeed": 84.8
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 80,
+    "pct": 10.8,
+    "avgSpeed": 88.8
+   }
+  ],
+  "phantom": []
+ },
+ "blake-treinen": {
+  "name": "Blake Treinen",
+  "pid": 595014,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 伸卡球/下沉速球 (Sinker)",
+    "code": "SI",
+    "vel": "94-96 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🌋 Vulcan Change（火山变速球）",
+    "code": null,
+    "vel": "86-89 mph",
+    "grade": "A"
+   },
+   {
+    "name": "⚡ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-91 mph",
+    "grade": "B+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 197,
+    "pct": 39.9,
+    "avgSpeed": 84.0
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 181,
+    "pct": 36.6,
+    "avgSpeed": 95.2
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 60,
+    "pct": 12.1,
+    "avgSpeed": 94.8
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 54,
+    "pct": 10.9,
+    "avgSpeed": 91.4
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 2,
+    "pct": 0.4,
+    "avgSpeed": 90.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 197,
+    "pct": 39.9,
+    "avgSpeed": 84.0
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 60,
+    "pct": 12.1,
+    "avgSpeed": 94.8
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 54,
+    "pct": 10.9,
+    "avgSpeed": 91.4
+   }
+  ],
+  "phantom": [
+   {
+    "name": "⚡ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-91 mph",
+    "grade": "B+"
+   }
+  ]
+ },
+ "bobby-miller": {
+  "name": "Bobby Miller",
+  "pid": 676272,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "96-100 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🌀 滑球 (Slider)",
+    "code": "SL",
+    "vel": "85-89 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-90 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-82 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 57,
+    "pct": 40.1,
+    "avgSpeed": 79.8
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 49,
+    "pct": 34.5,
+    "avgSpeed": 97.2
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 19,
+    "pct": 13.4,
+    "avgSpeed": 96.0
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 10,
+    "pct": 7.0,
+    "avgSpeed": 89.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 7,
+    "pct": 4.9,
+    "avgSpeed": 87.9
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 19,
+    "pct": 13.4,
+    "avgSpeed": 96.0
+   }
+  ],
+  "phantom": []
+ },
+ "brock-stewart": {
+  "name": "Brock Stewart",
+  "pid": 592779,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "93-96 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-81 mph",
+    "grade": "B"
+   },
+   {
+    "name": "⚡ 卡特球 (Cutter)",
+    "code": "FC",
+    "vel": "88-91 mph",
+    "grade": "B-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 141,
+    "pct": 36.9,
+    "avgSpeed": 95.9
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 95,
+    "pct": 24.9,
+    "avgSpeed": 83.8
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 57,
+    "pct": 14.9,
+    "avgSpeed": 89.3
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 55,
+    "pct": 14.4,
+    "avgSpeed": 94.6
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 34,
+    "pct": 8.9,
+    "avgSpeed": 92.2
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 95,
+    "pct": 24.9,
+    "avgSpeed": 83.8
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 57,
+    "pct": 14.9,
+    "avgSpeed": 89.3
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 55,
+    "pct": 14.4,
+    "avgSpeed": 94.6
+   }
+  ],
+  "phantom": [
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-81 mph",
+    "grade": "B"
+   }
+  ]
+ },
+ "brusdar-graterol": {
+  "name": "Brusdar Graterol",
+  "pid": 660813,
+  "season": null,
+  "current": [
+   {
+    "name": "伸卡球 / 二缝线快速球 (Sinker)",
+    "code": "SI",
+    "vel": "99-103 mph",
+    "grade": "A"
+   },
+   {
+    "name": "滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-92 mph",
+    "grade": "B"
+   },
+   {
+    "name": "变速球 (Changeup)",
+    "code": "CH",
+    "vel": "90-93 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [],
+  "missingInReport": [],
+  "phantom": [
+   {
+    "name": "伸卡球 / 二缝线快速球 (Sinker)",
+    "code": "SI",
+    "vel": "99-103 mph",
+    "grade": "A"
+   },
+   {
+    "name": "滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-92 mph",
+    "grade": "B"
+   },
+   {
+    "name": "变速球 (Changeup)",
+    "code": "CH",
+    "vel": "90-93 mph",
+    "grade": "C+"
+   }
+  ]
+ },
+ "charlie-barnes": {
+  "name": "Charlie Barnes",
+  "pid": 656212,
+  "season": 2026,
+  "current": [],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 67,
+    "pct": 33.3,
+    "avgSpeed": 89.3
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 43,
+    "pct": 21.4,
+    "avgSpeed": 89.2
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 42,
+    "pct": 20.9,
+    "avgSpeed": 83.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 36,
+    "pct": 17.9,
+    "avgSpeed": 82.4
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 13,
+    "pct": 6.5,
+    "avgSpeed": 78.2
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 67,
+    "pct": 33.3,
+    "avgSpeed": 89.3
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 43,
+    "pct": 21.4,
+    "avgSpeed": 89.2
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 42,
+    "pct": 20.9,
+    "avgSpeed": 83.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 36,
+    "pct": 17.9,
+    "avgSpeed": 82.4
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 13,
+    "pct": 6.5,
+    "avgSpeed": 78.2
+   }
+  ],
+  "phantom": []
+ },
+ "chayce-mcdermott": {
+  "name": "Chayce Mcdermott",
+  "pid": 694646,
+  "season": 2026,
+  "current": [],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 64,
+    "pct": 41.3,
+    "avgSpeed": 95.3
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 60,
+    "pct": 38.7,
+    "avgSpeed": 89.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 24,
+    "pct": 15.5,
+    "avgSpeed": 82.9
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 7,
+    "pct": 4.5,
+    "avgSpeed": 86.0
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 64,
+    "pct": 41.3,
+    "avgSpeed": 95.3
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 60,
+    "pct": 38.7,
+    "avgSpeed": 89.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 24,
+    "pct": 15.5,
+    "avgSpeed": 82.9
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 7,
+    "pct": 4.5,
+    "avgSpeed": 86.0
+   }
+  ],
+  "phantom": []
+ },
+ "edgardo-henriquez": {
+  "name": "Edgardo Henriquez",
+  "pid": 683618,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "98-101 mph",
+    "grade": "A"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "86-89 mph",
+    "grade": "B+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 333,
+    "pct": 34.4,
+    "avgSpeed": 100.7
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 241,
+    "pct": 24.9,
+    "avgSpeed": 100.9
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 212,
+    "pct": 21.9,
+    "avgSpeed": 87.4
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 141,
+    "pct": 14.6,
+    "avgSpeed": 94.7
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 41,
+    "pct": 4.2,
+    "avgSpeed": 82.1
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 241,
+    "pct": 24.9,
+    "avgSpeed": 100.9
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 141,
+    "pct": 14.6,
+    "avgSpeed": 94.7
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 41,
+    "pct": 4.2,
+    "avgSpeed": 82.1
+   }
+  ],
+  "phantom": []
+ },
+ "edwin-diaz": {
+  "name": "Edwin Díaz",
+  "pid": 621242,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "96-100 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "86-90 mph",
+    "grade": "A"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 220,
+    "pct": 55.7,
+    "avgSpeed": 96.5
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 172,
+    "pct": 43.5,
+    "avgSpeed": 89.4
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 3,
+    "pct": 0.8,
+    "avgSpeed": 98.1
+   }
+  ],
+  "missingInReport": [],
+  "phantom": []
+ },
+ "emmet-sheehan": {
+  "name": "Emmet Sheehan",
+  "pid": 686218,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "95-97 mph",
+    "grade": "A"
+   },
+   {
+    "name": "🌪️ 滑球/切球 (Slider/Cutter)",
+    "code": null,
+    "vel": "87-90 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 836,
+    "pct": 42.8,
+    "avgSpeed": 94.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 573,
+    "pct": 29.3,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 304,
+    "pct": 15.6,
+    "avgSpeed": 85.5
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 241,
+    "pct": 12.3,
+    "avgSpeed": 77.7
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 573,
+    "pct": 29.3,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 241,
+    "pct": 12.3,
+    "avgSpeed": 77.7
+   }
+  ],
+  "phantom": []
+ },
+ "eric-lauer": {
+  "name": "Eric Lauer",
+  "pid": 641778,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "92-94 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-86 mph",
+    "grade": "B"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "84-86 mph",
+    "grade": "B-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 763,
+    "pct": 42.1,
+    "avgSpeed": 91.1
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 411,
+    "pct": 22.7,
+    "avgSpeed": 87.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 269,
+    "pct": 14.8,
+    "avgSpeed": 84.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 223,
+    "pct": 12.3,
+    "avgSpeed": 75.9
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 148,
+    "pct": 8.2,
+    "avgSpeed": 82.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 411,
+    "pct": 22.7,
+    "avgSpeed": 87.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 223,
+    "pct": 12.3,
+    "avgSpeed": 75.9
+   }
+  ],
+  "phantom": []
+ },
+ "evan-phillips": {
+  "name": "Evan Phillips",
+  "pid": 623465,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 伸卡球 (Sinker)",
+    "code": "SI",
+    "vel": "93-96 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-86 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 193,
+    "pct": 45.6,
+    "avgSpeed": 96.9
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 157,
+    "pct": 37.1,
+    "avgSpeed": 86.2
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 43,
+    "pct": 10.2,
+    "avgSpeed": 92.4
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 30,
+    "pct": 7.1,
+    "avgSpeed": 96.6
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 193,
+    "pct": 45.6,
+    "avgSpeed": 96.9
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 157,
+    "pct": 37.1,
+    "avgSpeed": 86.2
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 43,
+    "pct": 10.2,
+    "avgSpeed": 92.4
+   }
+  ],
+  "phantom": [
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-86 mph",
+    "grade": "B"
+   }
+  ]
+ },
+ "gavin-stone": {
+  "name": "Gavin Stone",
+  "pid": 694813,
+  "season": null,
+  "current": [
+   {
+    "name": "四缝线快速球",
+    "code": "FF",
+    "vel": "92-95 mph",
+    "grade": "B"
+   },
+   {
+    "name": "滑球",
+    "code": "SL",
+    "vel": "82-86 mph",
+    "grade": "B"
+   },
+   {
+    "name": "变速球",
+    "code": "CH",
+    "vel": "84-87 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "曲球",
+    "code": "CB",
+    "vel": "77-81 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [],
+  "missingInReport": [],
+  "phantom": [
+   {
+    "name": "四缝线快速球",
+    "code": "FF",
+    "vel": "92-95 mph",
+    "grade": "B"
+   },
+   {
+    "name": "滑球",
+    "code": "SL",
+    "vel": "82-86 mph",
+    "grade": "B"
+   },
+   {
+    "name": "变速球",
+    "code": "CH",
+    "vel": "84-87 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "曲球",
+    "code": "CB",
+    "vel": "77-81 mph",
+    "grade": "C+"
+   }
+  ]
+ },
+ "jack-dreyer": {
+  "name": "Jack Dreyer",
+  "pid": 676263,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "93-95 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "84-87 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "85-88 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 494,
+    "pct": 47.6,
+    "avgSpeed": 94.0
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 373,
+    "pct": 36.0,
+    "avgSpeed": 88.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 170,
+    "pct": 16.4,
+    "avgSpeed": 80.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 170,
+    "pct": 16.4,
+    "avgSpeed": 80.8
+   }
+  ],
+  "phantom": [
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "85-88 mph",
+    "grade": "B"
+   }
+  ]
+ },
+ "jake-cousins": {
+  "name": "Jake Cousins",
+  "pid": 664776,
+  "season": null,
+  "current": [
+   {
+    "name": "伸卡球 / 二缝线快速球 (Sinker / Two-Seam Fastball)",
+    "code": "SI",
+    "vel": "92-95 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-87 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "四缝线快速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "93-96 mph",
+    "grade": "B-"
+   },
+   {
+    "name": "变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [],
+  "missingInReport": [],
+  "phantom": [
+   {
+    "name": "伸卡球 / 二缝线快速球 (Sinker / Two-Seam Fastball)",
+    "code": "SI",
+    "vel": "92-95 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-87 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "四缝线快速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "93-96 mph",
+    "grade": "B-"
+   },
+   {
+    "name": "变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "C+"
+   }
+  ]
+ },
+ "justin-wrobleski": {
+  "name": "Justin Wrobleski",
+  "pid": 680736,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "93-95 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "83-86 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "84-86 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 1049,
+    "pct": 49.1,
+    "avgSpeed": 94.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 601,
+    "pct": 28.1,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 177,
+    "pct": 8.3,
+    "avgSpeed": 94.0
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 106,
+    "pct": 5.0,
+    "avgSpeed": 85.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 98,
+    "pct": 4.6,
+    "avgSpeed": 75.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 73,
+    "pct": 3.4,
+    "avgSpeed": 84.9
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 32,
+    "pct": 1.5,
+    "avgSpeed": 91.4
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 1,
+    "pct": 0.0,
+    "avgSpeed": 83.3
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 177,
+    "pct": 8.3,
+    "avgSpeed": 94.0
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 98,
+    "pct": 4.6,
+    "avgSpeed": 75.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 73,
+    "pct": 3.4,
+    "avgSpeed": 84.9
+   }
+  ],
+  "phantom": []
+ },
+ "kris-bubic": {
+  "name": "Kris Bubic",
+  "pid": 663460,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "92-95 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🌪️ 滑球/切球 (Slider/Cutter)",
+    "code": null,
+    "vel": "84-87 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "82-85 mph",
+    "grade": "B"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 365,
+    "pct": 41.4,
+    "avgSpeed": 91.9
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 181,
+    "pct": 20.5,
+    "avgSpeed": 85.9
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 148,
+    "pct": 16.8,
+    "avgSpeed": 82.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 113,
+    "pct": 12.8,
+    "avgSpeed": 91.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 75,
+    "pct": 8.5,
+    "avgSpeed": 85.4
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 148,
+    "pct": 16.8,
+    "avgSpeed": 82.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 113,
+    "pct": 12.8,
+    "avgSpeed": 91.4
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 75,
+    "pct": 8.5,
+    "avgSpeed": 85.4
+   }
+  ],
+  "phantom": []
+ },
+ "kyle-hurt": {
+  "name": "Kyle Hurt",
+  "pid": 669165,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "96-99 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "86-89 mph",
+    "grade": "A-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 409,
+    "pct": 55.1,
+    "avgSpeed": 96.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 263,
+    "pct": 35.4,
+    "avgSpeed": 88.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 70,
+    "pct": 9.4,
+    "avgSpeed": 88.0
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 263,
+    "pct": 35.4,
+    "avgSpeed": 88.7
+   }
+  ],
+  "phantom": []
+ },
+ "landon-knack": {
+  "name": "Landon Knack",
+  "pid": 689017,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "91-95 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🌀 滑球 (Slider)",
+    "code": "SL",
+    "vel": "82-86 mph",
+    "grade": "B"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "84-87 mph",
+    "grade": "B-"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-82 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 84,
+    "pct": 44.9,
+    "avgSpeed": 93.7
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 45,
+    "pct": 24.1,
+    "avgSpeed": 85.2
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 31,
+    "pct": 16.6,
+    "avgSpeed": 86.8
+   },
+   {
+    "code": "KC",
+    "desc": "Knuckle Curve",
+    "cn": "曲球（指关节型）",
+    "count": 27,
+    "pct": 14.4,
+    "avgSpeed": 79.9
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "KC",
+    "desc": "Knuckle Curve",
+    "cn": "曲球（指关节型）",
+    "count": 27,
+    "pct": 14.4,
+    "avgSpeed": 79.9
+   }
+  ],
+  "phantom": [
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-82 mph",
+    "grade": "C+"
+   }
+  ]
+ },
+ "nick-frasso": {
+  "name": "Nick Frasso",
+  "pid": 693308,
+  "season": 2026,
+  "current": [
+   {
+    "name": "四缝线快速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "95-99 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "滑球 (Slider)",
+    "code": "SL",
+    "vel": "84-88 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "变速球 (Changeup)",
+    "code": "CH",
+    "vel": "85-88 mph",
+    "grade": "B"
+   },
+   {
+    "name": "🔪 切球 (Cutter)",
+    "code": "FC",
+    "vel": "90-93 mph",
+    "grade": "B-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 217,
+    "pct": 55.6,
+    "avgSpeed": 95.5
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 96,
+    "pct": 24.6,
+    "avgSpeed": 82.8
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 47,
+    "pct": 12.1,
+    "avgSpeed": 90.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 30,
+    "pct": 7.7,
+    "avgSpeed": 84.9
+   }
+  ],
+  "missingInReport": [],
+  "phantom": []
+ },
+ "paul-gervase": {
+  "name": "Paul Gervase",
+  "pid": 801434,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "94-97 mph",
+    "grade": "B+"
+   },
+   {
+    "name": "🌀 滑球 (Slider)",
+    "code": "SL",
+    "vel": "82-86 mph",
+    "grade": "B"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 55,
+    "pct": 44.4,
+    "avgSpeed": 92.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 49,
+    "pct": 39.5,
+    "avgSpeed": 83.0
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 19,
+    "pct": 15.3,
+    "avgSpeed": 90.2
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 1,
+    "pct": 0.8,
+    "avgSpeed": 87.1
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 19,
+    "pct": 15.3,
+    "avgSpeed": 90.2
+   }
+  ],
+  "phantom": [
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "C+"
+   }
+  ]
+ },
+ "river-ryan": {
+  "name": "River Ryan",
+  "pid": 689981,
+  "season": 2026,
+  "current": [
+   {
+    "name": "四缝线快速球",
+    "code": "FF",
+    "vel": "94-97 mph",
+    "grade": "B"
+   },
+   {
+    "name": "滑球",
+    "code": "SL",
+    "vel": "83-87 mph",
+    "grade": "B-"
+   },
+   {
+    "name": "变速球",
+    "code": "CH",
+    "vel": "85-88 mph",
+    "grade": "C+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 32,
+    "pct": 39.0,
+    "avgSpeed": 96.8
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 15,
+    "pct": 18.3,
+    "avgSpeed": 90.6
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 10,
+    "pct": 12.2,
+    "avgSpeed": 89.7
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 9,
+    "pct": 11.0,
+    "avgSpeed": 93.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 8,
+    "pct": 9.8,
+    "avgSpeed": 82.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 8,
+    "pct": 9.8,
+    "avgSpeed": 94.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 9,
+    "pct": 11.0,
+    "avgSpeed": 93.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 8,
+    "pct": 9.8,
+    "avgSpeed": 82.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 8,
+    "pct": 9.8,
+    "avgSpeed": 94.8
+   }
+  ],
+  "phantom": []
+ },
+ "roki-sasaki": {
+  "name": "Roki Sasaki",
+  "pid": 808963,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "98-102 mph",
+    "grade": "A+"
+   },
+   {
+    "name": "🌪️ 滑球/绝浮游球 (Slider)",
+    "code": "SL",
+    "vel": "85-89 mph",
+    "grade": "A"
+   },
+   {
+    "name": "💫 指叉球 (Forkball)",
+    "code": "FO",
+    "vel": "88-91 mph",
+    "grade": "B+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 881,
+    "pct": 42.0,
+    "avgSpeed": 97.9
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 613,
+    "pct": 29.2,
+    "avgSpeed": 90.2
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 454,
+    "pct": 21.6,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "FO",
+    "desc": "Forkball",
+    "cn": "分叉快速球",
+    "count": 152,
+    "pct": 7.2,
+    "avgSpeed": 85.3
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 613,
+    "pct": 29.2,
+    "avgSpeed": 90.2
+   }
+  ],
+  "phantom": []
+ },
+ "ronan-kopp": {
+  "name": "Ronan Kopp",
+  "pid": 691947,
+  "season": null,
+  "current": [],
+  "truth": [],
+  "missingInReport": [],
+  "phantom": []
+ },
+ "seth-halvorsen": {
+  "name": "Seth Halvorsen",
+  "pid": 678020,
+  "season": 2026,
+  "current": [],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 313,
+    "pct": 60.0,
+    "avgSpeed": 98.9
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 151,
+    "pct": 28.9,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 47,
+    "pct": 9.0,
+    "avgSpeed": 90.7
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 10,
+    "pct": 1.9,
+    "avgSpeed": 98.0
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 313,
+    "pct": 60.0,
+    "avgSpeed": 98.9
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 151,
+    "pct": 28.9,
+    "avgSpeed": 86.6
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 47,
+    "pct": 9.0,
+    "avgSpeed": 90.7
+   }
+  ],
+  "phantom": []
+ },
+ "shohei-ohtani": {
+  "name": "Shohei Ohtani",
+  "pid": 660271,
+  "season": 2026,
+  "current": [],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 602,
+    "pct": 45.1,
+    "avgSpeed": 98.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 393,
+    "pct": 29.4,
+    "avgSpeed": 85.0
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 133,
+    "pct": 10.0,
+    "avgSpeed": 75.2
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 114,
+    "pct": 8.5,
+    "avgSpeed": 89.0
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 69,
+    "pct": 5.2,
+    "avgSpeed": 96.5
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 15,
+    "pct": 1.1,
+    "avgSpeed": 88.0
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 9,
+    "pct": 0.7,
+    "avgSpeed": 92.4
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 602,
+    "pct": 45.1,
+    "avgSpeed": 98.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 393,
+    "pct": 29.4,
+    "avgSpeed": 85.0
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 133,
+    "pct": 10.0,
+    "avgSpeed": 75.2
+   },
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 114,
+    "pct": 8.5,
+    "avgSpeed": 89.0
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 69,
+    "pct": 5.2,
+    "avgSpeed": 96.5
+   }
+  ],
+  "phantom": []
+ },
+ "tanner-scott": {
+  "name": "Tanner Scott",
+  "pid": 656945,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 伸卡球 (Sinker)",
+    "code": "SI",
+    "vel": "96-99 mph",
+    "grade": "A"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "86-89 mph",
+    "grade": "A-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 490,
+    "pct": 50.9,
+    "avgSpeed": 89.3
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 473,
+    "pct": 49.1,
+    "avgSpeed": 96.9
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 473,
+    "pct": 49.1,
+    "avgSpeed": 96.9
+   }
+  ],
+  "phantom": [
+   {
+    "name": "🔥 伸卡球 (Sinker)",
+    "code": "SI",
+    "vel": "96-99 mph",
+    "grade": "A"
+   }
+  ]
+ },
+ "tarik-skubal": {
+  "name": "Tarik Skubal",
+  "pid": 669373,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "96-99 mph",
+    "grade": "A"
+   },
+   {
+    "name": "💫 变速球 (Changeup)",
+    "code": "CH",
+    "vel": "86-89 mph",
+    "grade": "A+"
+   },
+   {
+    "name": "🌪️ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-91 mph",
+    "grade": "A-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 896,
+    "pct": 38.0,
+    "avgSpeed": 96.8
+   },
+   {
+    "code": "CH",
+    "desc": "Changeup",
+    "cn": "变速球",
+    "count": 603,
+    "pct": 25.6,
+    "avgSpeed": 87.7
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 412,
+    "pct": 17.5,
+    "avgSpeed": 96.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 327,
+    "pct": 13.9,
+    "avgSpeed": 89.7
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 118,
+    "pct": 5.0,
+    "avgSpeed": 80.4
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 412,
+    "pct": 17.5,
+    "avgSpeed": 96.7
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 118,
+    "pct": 5.0,
+    "avgSpeed": 80.4
+   }
+  ],
+  "phantom": []
+ },
+ "tyler-glasnow": {
+  "name": "Tyler Glasnow",
+  "pid": 607192,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "97-100 mph",
+    "grade": "A"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "82-85 mph",
+    "grade": "A+"
+   },
+   {
+    "name": "⚡ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-91 mph",
+    "grade": "A-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 398,
+    "pct": 34.6,
+    "avgSpeed": 95.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 245,
+    "pct": 21.3,
+    "avgSpeed": 95.8
+   },
+   {
+    "code": "KC",
+    "desc": "Knuckle Curve",
+    "cn": "曲球（指关节型）",
+    "count": 245,
+    "pct": 21.3,
+    "avgSpeed": 80.7
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 204,
+    "pct": 17.8,
+    "avgSpeed": 89.9
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 57,
+    "pct": 5.0,
+    "avgSpeed": 83.8
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 245,
+    "pct": 21.3,
+    "avgSpeed": 95.8
+   },
+   {
+    "code": "KC",
+    "desc": "Knuckle Curve",
+    "cn": "曲球（指关节型）",
+    "count": 245,
+    "pct": 21.3,
+    "avgSpeed": 80.7
+   }
+  ],
+  "phantom": []
+ },
+ "will-klein": {
+  "name": "Will Klein",
+  "pid": 694361,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "96-99 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "81-84 mph",
+    "grade": "A-"
+   },
+   {
+    "name": "⚡ 滑球 (Slider)",
+    "code": "SL",
+    "vel": "88-91 mph",
+    "grade": "B+"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 388,
+    "pct": 50.9,
+    "avgSpeed": 97.5
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 216,
+    "pct": 28.3,
+    "avgSpeed": 88.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 123,
+    "pct": 16.1,
+    "avgSpeed": 85.0
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 35,
+    "pct": 4.6,
+    "avgSpeed": 91.3
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 216,
+    "pct": 28.3,
+    "avgSpeed": 88.6
+   }
+  ],
+  "phantom": []
+ },
+ "wyatt-mills": {
+  "name": "Wyatt Mills",
+  "pid": 670090,
+  "season": 2026,
+  "current": [],
+  "truth": [
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 44,
+    "pct": 29.5,
+    "avgSpeed": 83.0
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 42,
+    "pct": 28.2,
+    "avgSpeed": 90.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 40,
+    "pct": 26.8,
+    "avgSpeed": 90.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 23,
+    "pct": 15.4,
+    "avgSpeed": 81.0
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 44,
+    "pct": 29.5,
+    "avgSpeed": 83.0
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 42,
+    "pct": 28.2,
+    "avgSpeed": 90.5
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 40,
+    "pct": 26.8,
+    "avgSpeed": 90.1
+   },
+   {
+    "code": "ST",
+    "desc": "Sweeper",
+    "cn": "横扫滑球",
+    "count": 23,
+    "pct": 15.4,
+    "avgSpeed": 81.0
+   }
+  ],
+  "phantom": []
+ },
+ "yoshinobu-yamamoto": {
+  "name": "Yoshinobu Yamamoto",
+  "pid": 808967,
+  "season": 2026,
+  "current": [
+   {
+    "name": "🔥 四缝线速球 (Four-Seam Fastball)",
+    "code": "FF",
+    "vel": "97-100 mph",
+    "grade": "A+"
+   },
+   {
+    "name": "💫 指叉球 (Forkball)",
+    "code": "FO",
+    "vel": "87-90 mph",
+    "grade": "A+"
+   },
+   {
+    "name": "🎯 曲球 (Curveball)",
+    "code": "CU",
+    "vel": "78-81 mph",
+    "grade": "A-"
+   }
+  ],
+  "truth": [
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 728,
+    "pct": 26.6,
+    "avgSpeed": 91.5
+   },
+   {
+    "code": "FF",
+    "desc": "Four-seam FB",
+    "cn": "四缝线速球",
+    "count": 716,
+    "pct": 26.2,
+    "avgSpeed": 96.1
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 406,
+    "pct": 14.9,
+    "avgSpeed": 91.6
+   },
+   {
+    "code": "CU",
+    "desc": "Curveball",
+    "cn": "曲球",
+    "count": 360,
+    "pct": 13.2,
+    "avgSpeed": 76.9
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 358,
+    "pct": 13.1,
+    "avgSpeed": 95.5
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 166,
+    "pct": 6.1,
+    "avgSpeed": 86.9
+   }
+  ],
+  "missingInReport": [
+   {
+    "code": "FS",
+    "desc": "Splitter",
+    "cn": "快速指叉球",
+    "count": 728,
+    "pct": 26.6,
+    "avgSpeed": 91.5
+   },
+   {
+    "code": "FC",
+    "desc": "Cutter",
+    "cn": "卡特球",
+    "count": 406,
+    "pct": 14.9,
+    "avgSpeed": 91.6
+   },
+   {
+    "code": "SI",
+    "desc": "Sinker",
+    "cn": "伸卡球（二缝线）",
+    "count": 358,
+    "pct": 13.1,
+    "avgSpeed": 95.5
+   },
+   {
+    "code": "SL",
+    "desc": "Slider",
+    "cn": "滑球",
+    "count": 166,
+    "pct": 6.1,
+    "avgSpeed": 86.9
+   }
+  ],
+  "phantom": [
+   {
+    "name": "💫 指叉球 (Forkball)",
+    "code": "FO",
+    "vel": "87-90 mph",
+    "grade": "A+"
+   }
+  ]
+ }
+}
