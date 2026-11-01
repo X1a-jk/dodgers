@@ -147,3 +147,11 @@ node D:\baseball\scripts\_smoke_recap.js               # 总结页存档列表+�
 ---
 
 *最后更新：2026-10-29（赛季全部结束，季后赛终章+休赛期门户补丁）*
+
+
+## 八、GitHub Pages 发布（2026-11-01 开通）
+
+- 站点地址: https://x1a-jk.github.io/dodgers/ （仓库根 index.html 即门户入口，main 分支 push 后自动重新部署，约 1-2 分钟生效）
+- 前提: 仓库必须 public（免费版 Pages 不支持私有库）
+- 验证方式: 用 web_fetch 或手机网络；本机直连 github.io 被墙，curl/Invoke-WebRequest 都会超时，不代表站点挂了
+- 注意: 门户内所有 fetch 都是相对路径（portal/、data/、seasons/...），新增内容目录时保持相对引用即可，禁止写死本地绝对路径
