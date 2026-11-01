@@ -1,0 +1,16 @@
+{
+ "player_name": "Will Smith",
+ "slug": "will-smith",
+ "prefix": "smith",
+ "info": {"number": "16", "position_cn": "捕手", "position": "C"},
+ "cover": {
+  "tagline": "MLB 捕手群打击率与上垒率双冠王，十年长约核心",
+  "stats": [["AVG", ".296"], ["OBP", ".404"], ["OPS", ".901"], ["HR", 17], ["RBI", 61], ["BB", 64], ["Age", 30], ["2024 AVG", ".248"]]
+ },
+ "grades": {"Contact": 60, "Power": 55, "Discipline": 65, "Speed": 35, "Defense": 55, "Arm": 55, "Leadership": 55},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.248, 0.327, 0.433, 0.760],
+  "y2025": [0.296, 0.404, 0.497, 0.901]
+ }
+}

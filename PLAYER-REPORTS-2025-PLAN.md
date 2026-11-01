@@ -64,11 +64,11 @@
 
 - [x] mookie-betts（663 PA）✅ 2026-11-01
 - [x] freddie-freeman（627 PA）✅ 2026-11-01
-- [ ] andy-pages（624 PA）
-- [ ] teoscar-hernandez（546 PA）
-- [ ] michael-conforto（486 PA）
-- [ ] will-smith（436 PA）
-- [ ] max-muncy（388 PA）
+- [x] andy-pages（624 PA）✅ 2026-11-01
+- [x] teoscar-hernandez（546 PA）✅ 2026-11-01
+- [x] michael-conforto（486 PA）✅ 2026-11-01
+- [x] will-smith（436 PA）✅ 2026-11-01
+- [x] max-muncy（388 PA）✅ 2026-11-01
 - [ ] tommy-edman（377 PA）
 - [ ] miguel-rojas（317 PA，另有 5 IP 垃圾时间登板）
 - [ ] enrique-hernandez（256 PA，另有 5.1 IP mopup）

@@ -1,0 +1,16 @@
+{
+ "player_name": "Teoscar Hernández",
+ "slug": "teoscar-hernandez",
+ "prefix": "hernandez",
+ "info": {"number": "37", "position_cn": "左外野手", "position": "LF"},
+ "cover": {
+  "tagline": "短约重炮的第二年，季后赛完成自我救赎",
+  "stats": [["AVG", ".247"], ["OPS", ".738"], ["HR", 25], ["RBI", 89], ["2B", 29], ["OBP", ".284"], ["Age", 33], ["2024 HR", 33]]
+ },
+ "grades": {"Contact": 45, "Power": 60, "Discipline": 35, "Speed": 45, "Defense": 45, "Arm": 55, "Leadership": 50},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.272, 0.339, 0.501, 0.840],
+  "y2025": [0.247, 0.284, 0.454, 0.738]
+ }
+}

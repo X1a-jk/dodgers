@@ -1,0 +1,16 @@
+{
+ "player_name": "Michael Conforto",
+ "slug": "michael-conforto",
+ "prefix": "conforto",
+ "info": {"number": "30", "position_cn": "左外野手", "position": "LF"},
+ "cover": {
+  "tagline": "左打深度签迷失在率值里，选球仍是招牌",
+  "stats": [["AVG", ".199"], ["OPS", ".638"], ["HR", 12], ["RBI", 36], ["BB", 56], ["OBP", ".305"], ["Age", 32], ["2024 HR", 20]]
+ },
+ "grades": {"Contact": 35, "Power": 40, "Discipline": 55, "Speed": 40, "Defense": 45, "Arm": 50, "Leadership": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.237, 0.309, 0.450, 0.759],
+  "y2025": [0.199, 0.305, 0.333, 0.638]
+ }
+}

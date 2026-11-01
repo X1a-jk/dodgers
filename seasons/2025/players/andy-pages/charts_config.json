@@ -1,0 +1,16 @@
+{
+ "player_name": "Andy Pagés",
+ "slug": "andy-pages",
+ "prefix": "pages",
+ "info": {"number": "44", "position_cn": "中外野手", "position": "CF"},
+ "cover": {
+  "tagline": "古巴重炮二年级生，扛起中外野主力",
+  "stats": [["AVG", ".272"], ["OPS", ".774"], ["HR", 27], ["RBI", 86], ["SB", 14], ["OBP", ".313"], ["Age", 24], ["2024 OPS", ".712"]]
+ },
+ "grades": {"Contact": 45, "Power": 55, "Discipline": 35, "Speed": 55, "Defense": 55, "Arm": 60, "Leadership": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.248, 0.305, 0.407, 0.712],
+  "y2025": [0.272, 0.313, 0.461, 0.774]
+ }
+}

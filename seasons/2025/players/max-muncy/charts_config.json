@@ -1,0 +1,16 @@
+{
+ "player_name": "Max Muncy",
+ "slug": "max-muncy",
+ "prefix": "muncy",
+ "info": {"number": "13", "position_cn": "三垒手", "position": "3B"},
+ "cover": {
+  "tagline": "得点圈怪兽与选球机器，伤病是唯一对手",
+  "stats": [["AVG", ".243"], ["OBP", ".376"], ["OPS", ".846"], ["HR", 19], ["RBI", 67], ["BB", 64], ["Age", 35], ["2024 G", 73]]
+ },
+ "grades": {"Contact": 40, "Power": 60, "Discipline": 65, "Speed": 30, "Defense": 45, "Arm": 50, "Leadership": 55},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.232, 0.358, 0.494, 0.852],
+  "y2025": [0.243, 0.376, 0.470, 0.846]
+ }
+}
