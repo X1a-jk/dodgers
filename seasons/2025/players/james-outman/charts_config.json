@@ -1,0 +1,16 @@
+{
+ "player_name": "James Outman",
+ "slug": "james-outman",
+ "prefix": "outman",
+ "info": {"number": "43", "position_cn": "中外野手", "position": "CF"},
+ "cover": {
+  "tagline": "从新人王候选到截止日筹码：道奇生涯的最后一章",
+  "stats": [["AVG", ".103"], ["OPS", ".487"], ["HR", 2], ["RBI", 4], ["R", 8], ["BB", 4], ["Age", 28], ["2023 HR", 23]]
+ },
+ "grades": {"Contact": 30, "Power": 55, "Discipline": 35, "Speed": 50, "Defense": 60, "Arm": 55, "Leadership": 40},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.147, 0.256, 0.265, 0.521],
+  "y2025": [0.103, 0.205, 0.282, 0.487]
+ }
+}

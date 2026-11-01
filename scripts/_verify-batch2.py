@@ -2,7 +2,7 @@
 """批次2报告验证：文件齐全 + 无2026泄漏 + OPS 恒等式"""
 import io, re, os, sys
 
-slugs = ['tommy-edman', 'miguel-rojas', 'enrique-hernandez', 'dalton-rushing', 'hyeseong-kim']
+slugs = ['alex-freeland', 'alex-call', 'ben-rortvedt', 'austin-barnes', 'james-outman']
 base = r'D:\baseball\seasons\2025\players'
 errors = []
 
@@ -41,4 +41,4 @@ if errors:
     for e in errors:
         print(' ', e)
     sys.exit(1)
-print('BATCH3 VERIFY: ALL PASS (5 players x files / no-2026-leak / OPS identity / headshot size)')
+print('BATCH4 VERIFY: ALL PASS (5 players x files / no-2026-leak / OPS identity / headshot size)')

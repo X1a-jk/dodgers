@@ -1,0 +1,16 @@
+{
+ "player_name": "Ben Rortvedt",
+ "slug": "ben-rortvedt",
+ "prefix": "rortvedt",
+ "info": {"number": "47", "position_cn": "捕手", "position": "C"},
+ "cover": {
+  "tagline": "截止日 quietly 的关键补强：三捕手体系的保险栓",
+  "stats": [["AVG", ".224"], ["OPS", ".636"], ["HR", 1], ["RBI", 4], ["2B", 2], ["BB", 4], ["Age", 28], ["2024 G", 112]]
+ },
+ "grades": {"Contact": 40, "Power": 35, "Discipline": 40, "Speed": 35, "Defense": 50, "Arm": 60, "Leadership": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.228, 0.317, 0.303, 0.620],
+  "y2025": [0.224, 0.309, 0.327, 0.636]
+ }
+}

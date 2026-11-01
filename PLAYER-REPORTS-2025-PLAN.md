@@ -74,11 +74,11 @@
 - [x] enrique-hernandez（256 PA，另有 5.1 IP mopup）✅ 2026-11-01
 - [x] dalton-rushing（155 PA）✅ 2026-11-01
 - [x] hyeseong-kim（170 PA）✅ 2026-11-01
-- [ ] alex-freeland（97 PA）
-- [ ] alex-call（85 PA）
-- [ ] ben-rortvedt（58 PA）
-- [ ] austin-barnes（44 PA）
-- [ ] james-outman（44 PA）
+- [x] alex-freeland（97 PA）✅ 2026-11-01
+- [x] alex-call（85 PA，8/1 自国民交易激活）✅ 2026-11-01
+- [x] ben-rortvedt（58 PA，9/4 自 3A 选入，7/31 自光芒交易获得）✅ 2026-11-01
+- [x] austin-barnes（44 PA，5/14 DFA → 5/20 释出，十年老兵谢幕）✅ 2026-11-01
+- [x] james-outman（44 PA，7/31 被交易至双城换 Brock Stewart）✅ 2026-11-01
 - [ ] chris-taylor（35 PA）
 - [ ] esteury-ruiz（23 PA）
 - [ ] buddy-kennedy（18 PA）

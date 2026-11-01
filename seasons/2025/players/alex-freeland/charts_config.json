@@ -1,0 +1,16 @@
+{
+ "player_name": "Alex Freeland",
+ "slug": "alex-freeland",
+ "prefix": "freeland",
+ "info": {"number": "76", "position_cn": "内野手（2B/SS）", "position": "INF"},
+ "cover": {
+  "tagline": "道奇自家新秀的第一步：从小联盟跳级到冠军阵容",
+  "stats": [["AVG", ".190"], ["OPS", ".602"], ["HR", 2], ["RBI", 6], ["BB", 11], ["SB", 1], ["Age", 24], ["2024 AA OPS", ".792"]]
+ },
+ "grades": {"Contact": 40, "Power": 45, "Discipline": 45, "Speed": 50, "Defense": 50, "Arm": 50, "Leadership": 40},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.245, 0.370, 0.422, 0.792],
+  "y2025": [0.190, 0.292, 0.310, 0.602]
+ }
+}

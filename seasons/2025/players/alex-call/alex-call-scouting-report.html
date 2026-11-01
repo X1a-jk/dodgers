@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Alex Call 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Alex Call</h1>
+ <p class="subtitle">Los Angeles Dodgers #12 | 外野手（LF/RF） | 右打 | 截止日补强</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="call_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-09-27</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">31岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国明尼苏达州伯恩斯维尔</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5'11" / 189 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右打 / 左投</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2022-07-11</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#12</div></div>
+ <div class="info-item"><div class="label">来队方式</div><div class="value">2025-07-31 自国民交易（送出 Liñan、Swan）</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">⚠️ <strong>小样本警告：</strong>本报告的 2025 道奇数据仅覆盖交易后的 38 场 / 85 个打席。</p>
+ <p style="margin-bottom: 15px;">7 月 31 日交易截止日，道奇从华盛顿国民换来 Alex Call，付出两名小联盟投手（Sean Paul Liñan、Eriq Swan）。这是一次典型的「冠军队补外野深度」操作：Conforto 状态不稳、外野需要能打左投的右打补丁。Call 交出的答卷是 .247/.333/.384——<span class="highlight">.333 的上垒率</span>在 85 个打席里是及格的替补产出。</p>
+ <p>他的生涯轨迹是典型的 journeyman：2022 年才登上大联盟，2024 年在国民打出 .343/.425/.525 的小样本高峰（30 场），2025 年被纳入冠军阵容。他不在道奇 2026 年的计划中心，但他是那种每支冠军队都需要过的人物：能在九月替你把一个打席走满的职业球员。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🌟 2024年 - 小样本生涯年（华盛顿国民）</h4>
+ <p>30 场 .343/.425/.525、OPS .950、3 轰 5 盗——出场时间有限但效率惊人，这是他进入冠军队雷达的开始。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🔁 2025年7月31日 - 截止日加盟道奇</h4>
+ <p>冠军队用两名小联盟投手换来即战力外野；次日即激活入队，38 场出赛守过左外野与右外野。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计（道奇段）</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">38</span>
+ <div class="stat-label">出赛（8/1 后）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.247</span>
+ <div class="stat-label">打击率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">.333</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.384</span>
+ <div class="stat-label">长打率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.717</span>
+ <div class="stat-label">OPS</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4</span>
+ <div class="stat-label">二垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">10</span>
+ <div class="stat-label">保送</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="call_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比（⚠️ 2024 为国民队 30 场小样本）</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th><th>SB</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024 (国民)</td>
+ <td>30</td>
+ <td>113</td>
+ <td>.343</td>
+ <td>.425</td>
+ <td>.525</td>
+ <td>.950</td>
+ <td>3</td>
+ <td>14</td>
+ <td>12</td>
+ <td>19</td>
+ <td>5</td>
+ </tr>
+ <tr>
+ <td>2025 (道奇)</td>
+ <td>38</td>
+ <td>85</td>
+ <td>.247</td>
+ <td>.333</td>
+ <td>.384</td>
+ <td>.717</td>
+ <td>2</td>
+ <td>5</td>
+ <td>10</td>
+ <td>19</td>
+ <td>1</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">.950 → .717 的落差首先要用样本解释：2024 年的 30 场本身就是 career-year 级别的波动。剥离噪音后，Call 的真实水平更接近 2025 道奇段的 .247/.333：能打、能选、长打有限。值得肯定的是 19 次三振对 85 PA（22.4%）的纪律性，以及加盟后立刻可用的防守——冠军队买的就是这个确定性。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">定位：外野深度的保险单</h3>
+ <p>Call 不是明星，但他是 roster construction 里的正确答案：右打、能守左右外野、上垒能力在线。道奇在截止日选择他而不是更贵的选项，本身就是一种评价——「够用、立刻能用、不破坏化学反应」。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2025赛季回顾</h3>
+ <p>8 月 1 日激活后到常规赛结束，他主要作为platoon 补钉与代打出现。没有季后赛出场记录——在 Pages、Teoscar、Conforto 都在健康名单的十月，他的位置就是深度。冠军戒指是他职业生涯的第一枚。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>上垒能力在线（2025 道奇段 OBP .333）</li>
+ <li>左右外野均可守，platoon 即插即用</li>
+ <li>职业素养型球员，零适应期</li>
+ <li>三振纪律好（22.4%）</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>长打威胁有限（.384 SLG）</li>
+ <li>31 岁，上升空间关闭</li>
+ <li>小样本波动大，真实水平介于两年数据之间</li>
+ <li>非季后赛轮换成员</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="call_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Arm</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Leadership</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #ff9800; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">冠军队的标准外野补丁，价值在确定性而非上限</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 / 替补外野（小样本警告）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛之路：外卡轮 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟（二连霸）。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>未进入季后赛出场名单——外野深度的定位在十月被压缩</li>
+ <li>随队获得职业生涯首枚冠军戒指</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Alex Call 将在休赛期进入自由球员市场（或球队选项的讨论桌）。31 岁的他最好的前景是继续以「能立即上场的第四/第五外野」身份留在争冠队边缘；对他而言，2025 年已经从冠军队领到了最好的一份简历背书。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>短期：</strong>争取留队或签约新的争冠队，定位不变</p>
+ <p><strong>中期：</strong>作为 veteran depth 延续生涯</p>
+ <p><strong>长期：</strong>生涯后期向 coaching 转型是常见路径</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Alex Call 出生于明尼苏达州伯恩斯维尔，2016 年选秀进入职业棒球，2022 年 7 月 11 日才完成大联盟首秀——六年小联盟的坚持换来的六天或者六年，这是大多数职业球员的真实故事。2024 年他在华盛顿国民打出 .950 OPS 的小样本高峰，2025 年 7 月 31 日，他被交易到正在卫冕的道奇。</p>
+ <p>从重建队到冠军队只用了一个电话。他的故事提醒我们：roster 的每一块拼图都有自己的旅程。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 世界大赛二连霸成员</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Alex Freeland 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Alex Freeland</h1>
+ <p class="subtitle">Los Angeles Dodgers #76 | 内野手（2B/SS） | 左右开弓 | 道奇自家新秀</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="freeland_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">2001-08-24</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">24岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国肯塔基州路易斯维尔</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5'11" / 200 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左右开弓 / 右投</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2025-07-30 (道奇)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#76</div></div>
+ <div class="info-item"><div class="label">选秀</div><div class="value">2022 年被道奇选中</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">⚠️ <strong>小样本警告：</strong>本报告基于 97 个大联盟打席的新秀数据。</p>
+ <p style="margin-bottom: 15px;">Alex Freeland 的 2025 年是道奇农场体系的 standard success story：7 月 29 日合同被选入 40 人名单，次日完成大联盟首秀，成为这支冠军球队在伤病潮中最信任的内野补丁——二垒、游击、三垒都有他的身影。97 个打席缴出 .190/.292/.310，率值不好看，但 <span class="highlight">11 次保送（保送率 11.3%）</span>是这份成绩单里最亮的信号：他的选球纪律从小联盟一路带上了大联盟。</p>
+ <p>9 月 4 日他被下放回 3A，9 月 29 日赛季收官前又被召回——出现在冠军队的外卡轮名单里。对一位 24 岁、2022 年才被选中的左右开弓内野手来说，第一年就能在十月名单上拥有名字，这比任何率值都更有分量。他的模板就穿在同一件更衣室里：Miguel Rojas。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🏅 2024年 - 2A Tulsa 的完整赛季</h4>
+ <p>74 场 .245/.370/.422、11 轰 35 打点，外加 3A Oklahoma City 39 场——全年横跨两个级别，守备覆盖二垒/游击/三垒，入选道奇 40 人名单的讨论从那时开始。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🚀 2025年7月30日 - 大联盟首秀</h4>
+ <p>对亚利桑那完成首秀；从被选入名单到站上大联盟场地只用了一天。首秀月交出 4 支二垒打级长打中的第一支三分打点关键时刻。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💍 2025年9月29日 - 进入冠军队十月名单</h4>
+ <p>赛季最后一周被召回，进入外卡轮名单——新秀年就成为世界大赛冠军队的阵容深度一员。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">29</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.190</span>
+ <div class="stat-label">打击率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.292</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.310</span>
+ <div class="stat-label">长打率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">11</span>
+ <div class="stat-label">保送（11.3%）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">全垒打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">6</span>
+ <div class="stat-label">打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">三垒打</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 小联盟(2024) vs 大联盟(2025) 对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="freeland_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比（⚠️ 2024 为 2A 小联盟数据）</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季/级别</th><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024 (2A Tulsa)</td>
+ <td>74</td>
+ <td>-</td>
+ <td>.245</td>
+ <td>.370</td>
+ <td>.422</td>
+ <td>.792</td>
+ <td>11</td>
+ <td>35</td>
+ <td>-</td>
+ <td>-</td>
+ </tr>
+ <tr>
+ <td>2025 (MLB)</td>
+ <td>29</td>
+ <td>97</td>
+ <td>.190</td>
+ <td>.292</td>
+ <td>.310</td>
+ <td>.602</td>
+ <td>2</td>
+ <td>6</td>
+ <td>11</td>
+ <td>35</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">从 2A 跳级大联盟，AVG 下滑 55 点是正常的翻译损耗。重点看结构性指标：保送率从小联盟的 elite 水准（2024 年 2A 约 14%）维持到大联盟的 11.3%，说明他的 eye 是真实工具；35 次三振（36%）则是跳级的代价，与大联盟投手的高速球和变化球还需要一个完整赛季的适应。2A 的 11 轰 power 在 97 个打席里只兑现 2 支，但他的挥棒轨迹和体型（5'11"/200）暗示 power 会回来。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">左右开弓的即插即用性</h3>
+ <p>Freeland 是道奇体系最看重的类型：switch-hitter + 三个内野位置都能守。这使得他在一支老年化的冠军阵容里是天然的 roster 粘合剂——Rojas 需要休息时他守游击，Edman 外移时他守二垒。97 个打席的小样本下守备没有出现任何失误记录层面的争议，action 干净。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">选球是最先翻译的工具</h3>
+ <p>11.3% 的保送率在 2025 届新秀里名列前茅。他的打击策略清晰：先把自己送上垒，再靠速度（小联盟每年都有两位数盗垒潜力）制造压力。当 contact 跟上 eye 的时候，他会是一个 league-average 以上的进攻型内野。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">2025赛季回顾</h3>
+ <p>7/30 首秀 → 8 月作为内野主要轮换出赛 → 9/4 随名单收缩下放 → 9/29 为十月召回。这条曲线本身就是道奇对他的评价：常规时间能用，关键时刻敢带。他没有出现在任何一场季后赛里，但外卡轮名单上的名字意味着教练组已经把「Freeland 可用」写进了明年的计划书。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>左右开弓 + 二垒/游击/三垒三位置弹性</li>
+ <li>选球纪律 elite（11.3% 保送率），eye 是真实工具</li>
+ <li>道奇自家养成， roster 成本极低</li>
+ <li>新秀年即进入十月名单，教练组信任度高</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>36% 三振率，contact 工具落后 eye 一个身位</li>
+ <li>power 尚未翻译（97 PA 仅 2 轰）</li>
+ <li>97 PA 小样本，一切结论待检验</li>
+ <li>大联盟守备样本太小，蹲守范围待验证</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="freeland_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">45</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Arm</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Leadership</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #ff9800; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">eye 先行的新秀内野；contact 追上来就是下一个 Rojas</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 / 新秀观察期（小样本警告）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛之路：外卡轮 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟（二连霸）。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>进入外卡轮名单，但未获得出场机会——他的角色是内野应急深度</li>
+ <li>冠军戒指到手；对 24 岁新秀而言，这是最好的带薪学习</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Alex Freeland 的 2026 年路径清晰：从 3A Oklahoma City 开始，等 Rojas 选项年的任何风吹草动。他是道奇内野 succession plan 里的第一顺位候补——左右开弓、三位置、eye 已验证，剩下的只是让 contact 跟上。如果进步曲线正常，他会是 2027 年道奇二游轮换的常规成员。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>短期：</strong>3A 打磨 contact，目标三振率降到 25% 以下</p>
+ <p><strong>中期：</strong>进入大联盟内野轮换，年出赛 80+ 场</p>
+ <p><strong>长期：</strong>Rojas 角色的继承人——冠军队的多功能内野答案</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>三振率若不降，eye 的价值会被 AVG 黑洞抵消</li>
+ <li>2A→MLB 跳级路径意味着每个小坑都被放大</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Alex Freeland 出生于肯塔基州路易斯维尔，2022 年被道奇选中后从 rookie ball 一路稳扎稳打：2023 年高阶 1A，2024 年 2A Tulsa 打满 74 场并升上 3A，2025 年 7 月 29 日，他的名字第一次出现在道奇 40 人名单上——第二天，他就站上了大联盟的内野。</p>
+ <p>在这支拥有 Rojas、Edman、金惠成的冠军内野里，Freeland 的机会窗口很小，但他抓住了每一次：守过三个位置，交出了全队新秀里最老成的保送率。九月底的召回是他新秀年的句点，也是下一章的冒号。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 世界大赛二连霸成员</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

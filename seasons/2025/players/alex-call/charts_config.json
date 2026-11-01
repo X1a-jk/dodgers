@@ -1,0 +1,16 @@
+{
+ "player_name": "Alex Call",
+ "slug": "alex-call",
+ "prefix": "call",
+ "info": {"number": "12", "position_cn": "外野手（LF/RF）", "position": "OF"},
+ "cover": {
+  "tagline": "截止日来投：国联外卡冲刺段的即战力补丁",
+  "stats": [["AVG", ".247"], ["OPS", ".717"], ["HR", 2], ["RBI", 5], ["BB", 10], ["SB", 1], ["Age", 31], ["2024 OPS", ".950"]]
+ },
+ "grades": {"Contact": 45, "Power": 45, "Discipline": 55, "Speed": 45, "Defense": 45, "Arm": 45, "Leadership": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.343, 0.425, 0.525, 0.950],
+  "y2025": [0.247, 0.333, 0.384, 0.717]
+ }
+}
