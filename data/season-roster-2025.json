@@ -1,0 +1,645 @@
+{
+ "season": 2025,
+ "players": [
+  {
+   "id": 669257,
+   "name": "Will Smith",
+   "hit": {
+    "g": 110,
+    "pa": 436,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 518692,
+   "name": "Freddie Freeman",
+   "hit": {
+    "g": 147,
+    "pa": 627,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 660271,
+   "name": "Shohei Ohtani",
+   "hit": {
+    "g": 158,
+    "pa": 727,
+    "ip": null
+   },
+   "pit": {
+    "g": 14,
+    "pa": null,
+    "ip": "47.0"
+   }
+  },
+  {
+   "id": 808975,
+   "name": "Hyeseong Kim",
+   "hit": {
+    "g": 71,
+    "pa": 170,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 681624,
+   "name": "Andy Pages",
+   "hit": {
+    "g": 156,
+    "pa": 624,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 500743,
+   "name": "Miguel Rojas",
+   "hit": {
+    "g": 114,
+    "pa": 317,
+    "ip": null
+   },
+   "pit": {
+    "g": 4,
+    "pa": null,
+    "ip": "5.0"
+   }
+  },
+  {
+   "id": 605141,
+   "name": "Mookie Betts",
+   "hit": {
+    "g": 150,
+    "pa": 663,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 592696,
+   "name": "Eddie Rosario",
+   "hit": {
+    "g": 2,
+    "pa": 4,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 669743,
+   "name": "Alex Call",
+   "hit": {
+    "g": 38,
+    "pa": 85,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 606192,
+   "name": "Teoscar Hernández",
+   "hit": {
+    "g": 134,
+    "pa": 546,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 571970,
+   "name": "Max Muncy",
+   "hit": {
+    "g": 100,
+    "pa": 388,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 669242,
+   "name": "Tommy Edman",
+   "hit": {
+    "g": 97,
+    "pa": 377,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 666163,
+   "name": "Ben Rortvedt",
+   "hit": {
+    "g": 18,
+    "pa": 58,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 605131,
+   "name": "Austin Barnes",
+   "hit": {
+    "g": 13,
+    "pa": 44,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 687221,
+   "name": "Dalton Rushing",
+   "hit": {
+    "g": 53,
+    "pa": 155,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 571771,
+   "name": "Enrique Hernández",
+   "hit": {
+    "g": 93,
+    "pa": 256,
+    "ip": null
+   },
+   "pit": {
+    "g": 5,
+    "pa": null,
+    "ip": "5.1"
+   }
+  },
+  {
+   "id": 621035,
+   "name": "Chris Taylor",
+   "hit": {
+    "g": 28,
+    "pa": 35,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 624424,
+   "name": "Michael Conforto",
+   "hit": {
+    "g": 138,
+    "pa": 486,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 690976,
+   "name": "Alex Freeland",
+   "hit": {
+    "g": 29,
+    "pa": 97,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 665923,
+   "name": "Esteury Ruiz",
+   "hit": {
+    "g": 19,
+    "pa": 23,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 681546,
+   "name": "James Outman",
+   "hit": {
+    "g": 22,
+    "pa": 44,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 671083,
+   "name": "Buddy Kennedy",
+   "hit": {
+    "g": 7,
+    "pa": 18,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 607455,
+   "name": "Anthony Banda",
+   "hit": {
+    "g": 71,
+    "pa": 0,
+    "ip": null
+   },
+   "pit": {
+    "g": 71,
+    "pa": null,
+    "ip": "65.0"
+   }
+  },
+  {
+   "id": 681909,
+   "name": "Justin Dean",
+   "hit": {
+    "g": 18,
+    "pa": 2,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 676439,
+   "name": "Hunter Feduccia",
+   "hit": {
+    "g": 2,
+    "pa": 3,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 642020,
+   "name": "Chuckie Robinson",
+   "hit": {
+    "g": 1,
+    "pa": 2,
+    "ip": null
+   },
+   "pit": null
+  },
+  {
+   "id": 656945,
+   "name": "Tanner Scott",
+   "hit": {
+    "g": 61,
+    "pa": 0,
+    "ip": null
+   },
+   "pit": {
+    "g": 61,
+    "pa": null,
+    "ip": "57.0"
+   }
+  },
+  {
+   "id": 623465,
+   "name": "Evan Phillips",
+   "hit": null,
+   "pit": {
+    "g": 7,
+    "pa": null,
+    "ip": "5.2"
+   }
+  },
+  {
+   "id": 694361,
+   "name": "Will Klein",
+   "hit": null,
+   "pit": {
+    "g": 14,
+    "pa": null,
+    "ip": "15.1"
+   }
+  },
+  {
+   "id": 605483,
+   "name": "Blake Snell",
+   "hit": null,
+   "pit": {
+    "g": 11,
+    "pa": null,
+    "ip": "61.1"
+   }
+  },
+  {
+   "id": 683618,
+   "name": "Edgardo Henriquez",
+   "hit": null,
+   "pit": {
+    "g": 22,
+    "pa": null,
+    "ip": "19.0"
+   }
+  },
+  {
+   "id": 656629,
+   "name": "Michael Kopech",
+   "hit": null,
+   "pit": {
+    "g": 14,
+    "pa": null,
+    "ip": "11.0"
+   }
+  },
+  {
+   "id": 808967,
+   "name": "Yoshinobu Yamamoto",
+   "hit": null,
+   "pit": {
+    "g": 30,
+    "pa": null,
+    "ip": "173.2"
+   }
+  },
+  {
+   "id": 686218,
+   "name": "Emmet Sheehan",
+   "hit": null,
+   "pit": {
+    "g": 15,
+    "pa": null,
+    "ip": "73.1"
+   }
+  },
+  {
+   "id": 676263,
+   "name": "Jack Dreyer",
+   "hit": null,
+   "pit": {
+    "g": 67,
+    "pa": null,
+    "ip": "76.1"
+   }
+  },
+  {
+   "id": 570632,
+   "name": "José Ureña",
+   "hit": null,
+   "pit": {
+    "g": 2,
+    "pa": null,
+    "ip": "3.0"
+   }
+  },
+  {
+   "id": 681911,
+   "name": "Alex Vesia",
+   "hit": null,
+   "pit": {
+    "g": 68,
+    "pa": null,
+    "ip": "59.2"
+   }
+  },
+  {
+   "id": 607192,
+   "name": "Tyler Glasnow",
+   "hit": null,
+   "pit": {
+    "g": 18,
+    "pa": null,
+    "ip": "90.1"
+   }
+  },
+  {
+   "id": 477132,
+   "name": "Clayton Kershaw",
+   "hit": null,
+   "pit": {
+    "g": 23,
+    "pa": null,
+    "ip": "112.2"
+   }
+  },
+  {
+   "id": 642152,
+   "name": "Lou Trivino III",
+   "hit": null,
+   "pit": {
+    "g": 26,
+    "pa": null,
+    "ip": "26.1"
+   }
+  },
+  {
+   "id": 680736,
+   "name": "Justin Wrobleski",
+   "hit": null,
+   "pit": {
+    "g": 24,
+    "pa": null,
+    "ip": "66.2"
+   }
+  },
+  {
+   "id": 808963,
+   "name": "Roki Sasaki",
+   "hit": null,
+   "pit": {
+    "g": 10,
+    "pa": null,
+    "ip": "36.1"
+   }
+  },
+  {
+   "id": 801434,
+   "name": "Paul Gervase",
+   "hit": null,
+   "pit": {
+    "g": 1,
+    "pa": null,
+    "ip": "2.0"
+   }
+  },
+  {
+   "id": 676508,
+   "name": "Ben Casparius",
+   "hit": null,
+   "pit": {
+    "g": 46,
+    "pa": null,
+    "ip": "77.2"
+   }
+  },
+  {
+   "id": 669160,
+   "name": "Dustin May",
+   "hit": null,
+   "pit": {
+    "g": 19,
+    "pa": null,
+    "ip": "104.0"
+   }
+  },
+  {
+   "id": 689017,
+   "name": "Landon Knack",
+   "hit": null,
+   "pit": {
+    "g": 10,
+    "pa": null,
+    "ip": "42.1"
+   }
+  },
+  {
+   "id": 592779,
+   "name": "Brock Stewart",
+   "hit": null,
+   "pit": {
+    "g": 4,
+    "pa": null,
+    "ip": "3.2"
+   }
+  },
+  {
+   "id": 664747,
+   "name": "Alexis Díaz",
+   "hit": null,
+   "pit": {
+    "g": 9,
+    "pa": null,
+    "ip": "9.0"
+   }
+  },
+  {
+   "id": 664062,
+   "name": "Tony Gonsolin",
+   "hit": null,
+   "pit": {
+    "g": 7,
+    "pa": null,
+    "ip": "36.0"
+   }
+  },
+  {
+   "id": 489446,
+   "name": "Kirby Yates",
+   "hit": null,
+   "pit": {
+    "g": 50,
+    "pa": null,
+    "ip": "41.1"
+   }
+  },
+  {
+   "id": 472610,
+   "name": "Luis García",
+   "hit": null,
+   "pit": {
+    "g": 28,
+    "pa": null,
+    "ip": "27.1"
+   }
+  },
+  {
+   "id": 595014,
+   "name": "Blake Treinen",
+   "hit": null,
+   "pit": {
+    "g": 32,
+    "pa": null,
+    "ip": "26.2"
+   }
+  },
+  {
+   "id": 669193,
+   "name": "Jack Little",
+   "hit": null,
+   "pit": {
+    "g": 2,
+    "pa": null,
+    "ip": "3.0"
+   }
+  },
+  {
+   "id": 669422,
+   "name": "Matt Sauer",
+   "hit": null,
+   "pit": {
+    "g": 10,
+    "pa": null,
+    "ip": "29.2"
+   }
+  },
+  {
+   "id": 608717,
+   "name": "Chris Stratton",
+   "hit": null,
+   "pit": {
+    "g": 3,
+    "pa": null,
+    "ip": "4.0"
+   }
+  },
+  {
+   "id": 642759,
+   "name": "Julian Fernández",
+   "hit": null,
+   "pit": {
+    "g": 1,
+    "pa": null,
+    "ip": "2.0"
+   }
+  },
+  {
+   "id": 676272,
+   "name": "Bobby Miller",
+   "hit": null,
+   "pit": {
+    "g": 2,
+    "pa": null,
+    "ip": "5.0"
+   }
+  },
+  {
+   "id": 656420,
+   "name": "J.P. Feyereisen",
+   "hit": null,
+   "pit": {
+    "g": 2,
+    "pa": null,
+    "ip": "2.0"
+   }
+  },
+  {
+   "id": 571760,
+   "name": "Andrew Heaney",
+   "hit": null,
+   "pit": {
+    "g": 1,
+    "pa": null,
+    "ip": "2.0"
+   }
+  },
+  {
+   "id": 672782,
+   "name": "Yoendrys Gómez",
+   "hit": null,
+   "pit": {
+    "g": 3,
+    "pa": null,
+    "ip": "4.1"
+   }
+  },
+  {
+   "id": 702795,
+   "name": "Ryan Loutos",
+   "hit": null,
+   "pit": {
+    "g": 2,
+    "pa": null,
+    "ip": "3.0"
+   }
+  },
+  {
+   "id": 663562,
+   "name": "Noah Davis",
+   "hit": null,
+   "pit": {
+    "g": 5,
+    "pa": null,
+    "ip": "6.0"
+   }
+  }
+ ]
+}
