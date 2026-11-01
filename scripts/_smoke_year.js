@@ -10,10 +10,10 @@ for (const block of m) {
 let captured = '';
 const contentStub = { set innerHTML(v) { captured = v; }, get innerHTML() { return captured; } };
 const elStub = () => ({ textContent: '', innerHTML: '', disabled: false, onclick: null, value: '', style: {}, dataset: {}, classList: { toggle(){}, add(){} } });
-global.$ = sel => (sel === '#content' ? contentStub : elStub());
+global.$ = sel => (sel === '#content' ? contentStub : elStub(sel));
 global.$$ = () => [];
 global.document = {
-  getElementById: () => null, querySelector: sel => (sel === '#content' ? contentStub : null),
+  getElementById: () => null, querySelector: sel => (sel === '#content' ? contentStub : elStub(sel)),
   querySelectorAll: () => [], addEventListener: () => {},
   createElement: () => ({ style: {}, classList: { add(){}, toggle(){} }, appendChild(){}, setAttribute(){}, parentNode: { insertBefore(){} } }),
   getElementsByTagName: () => [{ parentNode: { insertBefore(){} } }],

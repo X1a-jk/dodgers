@@ -1,0 +1,255 @@
+{
+ "generatedAt": "2026-11-01T10:18:27",
+ "window": {
+  "start": "2026-10-28",
+  "end": "2026-11-01"
+ },
+ "dodgers": {
+  "moves": [
+   {
+    "id": 947419,
+    "name": "Kris Bubic",
+    "personId": 663460,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "LHP Kris Bubic elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947347,
+    "name": "Miguel Rojas",
+    "personId": 500743,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "SS Miguel Rojas elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947391,
+    "name": "Enrique Hernández",
+    "personId": 571771,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "CF Enrique Hernández elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947321,
+    "name": "Blake Treinen",
+    "personId": 595014,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "RHP Blake Treinen elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947325,
+    "name": "Alex Vesia",
+    "personId": 681911,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "LHP Alex Vesia elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947340,
+    "name": "Tarik Skubal",
+    "personId": 669373,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "LHP Tarik Skubal elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947361,
+    "name": "Evan Phillips",
+    "personId": 623465,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "RHP Evan Phillips elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947298,
+    "name": "Brusdar Graterol",
+    "personId": 660813,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "RHP Brusdar Graterol elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947302,
+    "name": "Eric Lauer",
+    "personId": 641778,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "LHP Eric Lauer elected free agency.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947196,
+    "name": "Alberto Santos",
+    "personId": 843387,
+    "date": "2026-10-28",
+    "type": "signed_milb",
+    "typeCn": "小联盟签约",
+    "desc": "Los Angeles Dodgers signed free agent RHP Alberto Santos to a minor league contract.",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   }
+  ],
+  "roster40": {
+   "count": 37,
+   "list": [
+    "Alex Call",
+    "Alex Freeland",
+    "Andy Pages",
+    "Ben Casparius",
+    "Blake Snell",
+    "Bobby Miller",
+    "Brock Stewart",
+    "Dalton Rushing",
+    "Edgardo Henriquez",
+    "Edwin Díaz",
+    "Eliezer Alfonzo",
+    "Emmet Sheehan",
+    "Freddie Freeman",
+    "Gavin Stone",
+    "Hunter Feduccia",
+    "Hyeseong Kim",
+    "Jack Dreyer",
+    "Jake Cousins",
+    "Josue De Paula",
+    "Justin Wrobleski",
+    "Kyle Hurt",
+    "Kyle Tucker",
+    "Landon Knack",
+    "Max Muncy",
+    "Mookie Betts",
+    "Paul Gervase",
+    "Roki Sasaki",
+    "Ronan Kopp",
+    "Seth Halvorsen",
+    "Shohei Ohtani",
+    "Tanner Scott",
+    "Teoscar Hernández",
+    "Tommy Edman",
+    "Tyler Glasnow",
+    "Will Klein",
+    "Will Smith",
+    "Yoshinobu Yamamoto"
+   ],
+   "added": [
+    "Gavin Stone",
+    "Jake Cousins",
+    "Ronan Kopp"
+   ],
+   "removed": [
+    "Alek Thomas",
+    "Alex Vesia",
+    "Ben Rortvedt",
+    "Blake Treinen",
+    "Charlie Barnes",
+    "Chayce McDermott",
+    "Chuckie Robinson",
+    "Cole Irvin",
+    "Enrique Hernández",
+    "Eric Lauer",
+    "Evan Phillips",
+    "Jake Eder",
+    "Jonathan Hernández",
+    "Kris Bubic",
+    "Miguel Rojas",
+    "Ryan Ward",
+    "Santiago Espinal",
+    "Tarik Skubal",
+    "Wyatt Mills"
+   ]
+  }
+ },
+ "league": {
+  "signings": [
+   {
+    "id": 947273,
+    "name": "Jareth Rayo / Nate Eaton",
+    "date": "2026-10-29",
+    "kind": "trade",
+    "desc": "Athletics traded RHP Jareth Rayo to Boston Red Sox for LF Nate Eaton.",
+    "fromTeam": "Athletics",
+    "toTeam": "Boston Red Sox",
+    "exDodger": false
+   },
+   {
+    "id": 947461,
+    "name": "Tsung-Che Cheng",
+    "date": "2026-10-29",
+    "kind": "trade",
+    "desc": "Boston Red Sox traded SS Tsung-Che Cheng to Detroit Tigers for cash.",
+    "fromTeam": "Boston Red Sox",
+    "toTeam": "Detroit Tigers",
+    "exDodger": false
+   }
+  ]
+ },
+ "fa": {
+  "pending": [
+   {
+    "name": "Kris Bubic",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Miguel Rojas",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Enrique Hernández",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Blake Treinen",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Alex Vesia",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Tarik Skubal",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Evan Phillips",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Brusdar Graterol",
+    "date": "2026-10-29"
+   },
+   {
+    "name": "Eric Lauer",
+    "date": "2026-10-29"
+   }
+  ],
+  "reSigned": [],
+  "declaredCount": 9
+ }
+}

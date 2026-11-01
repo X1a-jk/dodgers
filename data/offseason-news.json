@@ -1,0 +1,14 @@
+{
+ "generatedAt": "2026-11-01T10:20:00",
+ "note": "流言/传闻维护文件。助手应用户要求搜索后追加条目；已官宣的由 fetch-offseason.py 抓取的 transactions 坐实后可删。可信度：rumor=传闻 / solid=较可靠 / official=已官宣",
+ "items": [
+  {
+   "date": "2026-11-01",
+   "player": "示例条目",
+   "text": "这是格式示例，正式使用时删除本条目。",
+   "source": "https://example.com",
+   "sourceName": "示例来源",
+   "credibility": "rumor"
+  }
+ ]
+}

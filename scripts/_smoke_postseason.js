@@ -19,15 +19,15 @@ global.$ = sel => (sel === '#content' ? contentStub
   : sel === '#rc-year' ? { value: '2026' }
   : sel === '#rc-body' ? rcBodyStub
   : sel === '#rc-hint' ? { textContent: '' }
-  : null);
+  : { textContent: '', innerHTML: '', style: {}, classList: { add(){}, toggle(){} } });
 global.$$ = () => [];
 global.document = {
-  getElementById: () => null,
+  getElementById: id => ({ textContent: '', innerHTML: '', style: {}, classList: { add(){}, toggle(){} } }),
   querySelector: sel => (sel === '#content' ? contentStub
     : sel === '#rc-year' ? { value: '2026' }
     : sel === '#rc-body' ? rcBodyStub
     : sel === '#rc-hint' ? { textContent: '' }
-    : null),
+    : { textContent: '', innerHTML: '', style: {}, classList: { add(){}, toggle(){} } }),
   querySelectorAll: () => [],
   addEventListener: () => {},
   createElement: () => ({ style: {}, classList: { add(){}, toggle(){} }, appendChild(){}, setAttribute(){}, parentNode: { insertBefore(){} } }),
