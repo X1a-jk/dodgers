@@ -1,0 +1,16 @@
+{
+ "player_name": "Shohei Ohtani",
+ "slug": "shohei-ohtani",
+ "prefix": "ohtani",
+ "info": {"number": "17", "position_cn": "二刀流", "position": "TWP"},
+ "cover": {
+  "tagline": "55轰+季後赛8轰的二刀流神话",
+  "stats": [["AVG", ".282"], ["OPS", "1.014"], ["HR", 55], ["RBI", 102], ["SB", 20], ["ERA", "2.87"], ["K", 62], ["Age", 31]]
+ },
+ "grades": {"Hitting": 80, "Power": 80, "Speed": 60, "Fastball": 75, "Offspeed": 70, "Control": 55, "Durability": 60},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.310, 0.390, 0.646, 1.036],
+  "y2025": [0.282, 0.392, 0.622, 1.014]
+ }
+}

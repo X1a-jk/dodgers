@@ -1,0 +1,16 @@
+{
+ "player_name": "Freddie Freeman",
+ "slug": "freddie-freeman",
+ "prefix": "freeman",
+ "info": {"number": "5", "position_cn": "一垒手", "position": "1B"},
+ "cover": {
+  "tagline": "36岁逆龄反弹的打线支柱",
+  "stats": [["AVG", ".295"], ["OPS", ".869"], ["HR", 24], ["RBI", 90], ["2B", 39], ["OBP", ".367"], ["Age", 36], ["2024 OPS", ".854"]]
+ },
+ "grades": {"Contact": 55, "Power": 60, "Discipline": 60, "Speed": 40, "Defense": 55, "Arm": 50, "Leadership": 65},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.282, 0.378, 0.476, 0.854],
+  "y2025": [0.295, 0.367, 0.502, 0.869]
+ }
+}

@@ -1,0 +1,16 @@
+{
+ "player_name": "Mookie Betts",
+ "slug": "mookie-betts",
+ "prefix": "betts",
+ "info": {"number": "50", "position_cn": "游击手", "position": "SS"},
+ "cover": {
+  "tagline": "四枚冠军戒指的全能战士",
+  "stats": [["AVG", ".258"], ["OPS", ".732"], ["HR", 20], ["RBI", 82], ["SB", 8], ["OBP", ".326"], ["Age", 33], ["2024 OPS", ".863"]]
+ },
+ "grades": {"Contact": 60, "Power": 50, "Discipline": 60, "Speed": 50, "Defense": 55, "Arm": 55, "Leadership": 65},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.289, 0.372, 0.491, 0.863],
+  "y2025": [0.258, 0.326, 0.406, 0.732]
+ }
+}

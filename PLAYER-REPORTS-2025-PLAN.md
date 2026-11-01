@@ -20,8 +20,8 @@
 
 ### 投手（37 人）
 
-- [ ] yoshinobu-yamamoto（山本由伸，173.2 IP，王牌）
-- [ ] clayton-kershaw（112.2 IP）
+- [x] yoshinobu-yamamoto（山本由伸，173.2 IP，王牌）✅ 2026-11-01
+- [x] clayton-kershaw（112.2 IP）✅ 2026-11-01
 - [ ] dustin-may（104 IP）
 - [ ] tyler-glasnow（90.1 IP）
 - [ ] ben-casparius（77.2 IP）
@@ -58,10 +58,12 @@
 - [ ] julian-fernandez（2 IP）
 - [ ] paul-gervase（2 IP）
 
+**第一批（5人）✅ 2026-11-01 完成**：mookie-betts / freddie-freeman / clayton-kershaw / yoshinobu-yamamoto / shohei-ohtani。下一批从这里继续：andy-pages
+
 ### 打者（24 人 + 二刀流 1 人）
 
-- [ ] mookie-betts（663 PA）
-- [ ] freddie-freeman（627 PA）
+- [x] mookie-betts（663 PA）✅ 2026-11-01
+- [x] freddie-freeman（627 PA）✅ 2026-11-01
 - [ ] andy-pages（624 PA）
 - [ ] teoscar-hernandez（546 PA）
 - [ ] michael-conforto（486 PA）
@@ -84,7 +86,7 @@
 - [ ] hunter-feduccia（3 PA）
 - [ ] chuckie-robinson（2 PA）
 - [ ] justin-dean（2 PA）
-- [ ] **shohei-ohtani（727 PA + 47 IP，二刀流：打击+投球双区同报）**
+- [x] **shohei-ohtani（727 PA + 47 IP，二刀流：打击+投球双区同报）** ✅ 2026-11-01
 
 > 注：37 投 + 24 打 + Ohtani = 62，与 `data\season-roster-2025.json` 完全一致（slug 以 JSON 为准，勿手改）。
 
@@ -123,11 +125,13 @@
 | 生涯亮点 | `/people/{id}/stats?stats=career` + 历年 season |
 | 合同/选项状态 | `/transactions?teamId=119`（2025-10-26 起窗口，官宣事实才用） |
 
-**管线（新脚本 `scripts\gen-2025-reports.py`）**：
-1. 每人独立 try/except，一人失败不中断全批（10-15 教训）
-2. 生成顺序：数据抓取 → build_analysis(2024/2025) → HTML+md → 图表（matplotlib，微软雅黑）→ 封面 → 回退键
-3. 全部跑完后 `verify` 子命令：62 人查文件齐全 + G/ERA 对 season-roster-2025.json 抽查
-4. 分批跑（每 10 人一批），每批后人工抽查 2 人目验，没问题再继续
+**管线（2026-11-01 修订：用户裁定纯手工逐人，禁用批量脚本）**
+1. 每批 5 人，一个一个做：抓数 → 手写 HTML/md → 单人图表 → 验证 → 计划文档打勾
+2. 图表仍用单人 matplotlib 小脚本（update-player-charts.py 的 2025 变体），报告内容一律手写
+3. 数据铁律：只喂 2024/2025；生成后 grep "2026" 自检（只允许出现在历年趋势表）
+4. 2026 版报告 HTML 作骨架模板（结构照抄，年份平移，分析重写）
+
+~~原管线（已废止）：批量 gen-2025-reports.py...~~
 
 ## 五、门户集成与年份切换验证
 

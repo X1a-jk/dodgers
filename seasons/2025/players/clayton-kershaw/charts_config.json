@@ -1,0 +1,18 @@
+{
+ "player_name": "Clayton Kershaw",
+ "slug": "clayton-kershaw",
+ "prefix": "kershaw",
+ "info": {"number": "22", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "时代左投的第十八季",
+  "stats": [["ERA", "3.36"], ["WHIP", "1.22"], ["K", 84], ["IP", "112.2"], ["W-L", "11-2"], ["K/9", "6.7"], ["BB/9", "2.8"], ["Age", 37]]
+ },
+ "grades": {"Fastball": 45, "Slider": 65, "Curve": 60, "Control": 60, "Command": 65, "Strikeout": 45, "Health": 40},
+ "comparison_p": {
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 11.0, 6.0, 7.0],
+  "y2024": [4.50, 1.50, 7.20, 2.70, 4.3],
+  "y2025": [3.36, 1.22, 6.71, 2.80, 5.1]
+ }
+}

@@ -1,0 +1,18 @@
+{
+ "player_name": "Yoshinobu Yamamoto",
+ "slug": "yoshinobu-yamamoto",
+ "prefix": "yamamoto",
+ "info": {"number": "18", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "日本王牌的美职第二年",
+  "stats": [["ERA", "2.49"], ["WHIP", "0.99"], ["K", 201], ["IP", "173.2"], ["W-L", "12-8"], ["K/9", "10.4"], ["BB/9", "3.1"], ["Age", 27]]
+ },
+ "grades": {"Fastball": 70, "Splitter": 70, "Curve": 60, "Cutter": 55, "Control": 60, "Command": 65, "Durability": 65},
+ "comparison_p": {
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 11.0, 6.0, 7.0],
+  "y2024": [3.00, 1.11, 10.50, 2.20, 5.0],
+  "y2025": [2.49, 0.99, 10.42, 3.06, 5.8]
+ }
+}
