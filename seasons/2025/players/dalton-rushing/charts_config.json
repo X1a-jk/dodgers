@@ -1,0 +1,16 @@
+{
+ "player_name": "Dalton Rushing",
+ "slug": "dalton-rushing",
+ "prefix": "rushing",
+ "info": {"number": "68", "position_cn": "捕手/一垒", "position": "C/1B"},
+ "cover": {
+  "tagline": "顶级新秀捕手的交学费之年，110 迈首安预示天花板",
+  "stats": [["AVG", ".204"], ["OPS", ".582"], ["HR", 4], ["RBI", 24], ["BB", 10], ["SB", 0], ["Age", 24], ["2024 AA OPS", ".890"]]
+ },
+ "grades": {"Contact": 30, "Power": 50, "Discipline": 45, "Speed": 35, "Defense": 45, "Arm": 55, "Leadership": 40},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.270, 0.378, 0.512, 0.890],
+  "y2025": [0.204, 0.258, 0.324, 0.582]
+ }
+}

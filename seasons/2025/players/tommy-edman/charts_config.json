@@ -1,0 +1,16 @@
+{
+ "player_name": "Tommy Edman",
+ "slug": "tommy-edman",
+ "prefix": "edman",
+ "info": {"number": "25", "position_cn": "二垒手/超级工具人", "position": "2B/CF/3B"},
+ "cover": {
+  "tagline": "从 NLCS MVP 到全能工具人，脚踝是唯一变量",
+  "stats": [["AVG", ".225"], ["OPS", ".656"], ["HR", 13], ["RBI", 49], ["2B", 13], ["SB", 3], ["Age", 30], ["2024 OPS", ".711"]]
+ },
+ "grades": {"Contact": 45, "Power": 50, "Discipline": 40, "Speed": 55, "Defense": 60, "Arm": 55, "Leadership": 55},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.237, 0.294, 0.417, 0.711],
+  "y2025": [0.225, 0.274, 0.382, 0.656]
+ }
+}

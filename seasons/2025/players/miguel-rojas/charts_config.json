@@ -1,0 +1,16 @@
+{
+ "player_name": "Miguel Rojas",
+ "slug": "miguel-rojas",
+ "prefix": "rojas",
+ "info": {"number": "72", "position_cn": "内野手 (SS/2B/3B)", "position": "INF"},
+ "cover": {
+  "tagline": "更衣室领袖的世界大赛 G7 一轰，为 12 年生涯加冕",
+  "stats": [["AVG", ".262"], ["OPS", ".715"], ["HR", 7], ["RBI", 27], ["2B", 18], ["SB", 5], ["Age", 36], ["2024 OPS", ".747"]]
+ },
+ "grades": {"Contact": 50, "Power": 35, "Discipline": 45, "Speed": 40, "Defense": 65, "Arm": 55, "Leadership": 70},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.283, 0.337, 0.410, 0.747],
+  "y2025": [0.262, 0.318, 0.397, 0.715]
+ }
+}

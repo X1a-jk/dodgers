@@ -1,0 +1,16 @@
+{
+ "player_name": "Enrique Hernández",
+ "slug": "enrique-hernandez",
+ "prefix": "e-hernandez",
+ "info": {"number": "8", "position_cn": "工具人（内野/外野）", "position": "UTL"},
+ "cover": {
+  "tagline": "快乐能量包：一天内得分、守多位置、登板投球三项全能",
+  "stats": [["AVG", ".203"], ["OPS", ".621"], ["HR", 10], ["RBI", 35], ["2B", 8], ["SB", 0], ["Age", 34], ["2024 OPS", ".654"]]
+ },
+ "grades": {"Contact": 40, "Power": 45, "Discipline": 35, "Speed": 40, "Defense": 50, "Arm": 50, "Leadership": 60},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.229, 0.281, 0.373, 0.654],
+  "y2025": [0.203, 0.255, 0.366, 0.621]
+ }
+}

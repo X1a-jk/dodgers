@@ -72,11 +72,11 @@ def postseason(pid):
     return out
 
 PLAYERS = [
-    (681624, 'andy-pages', 'Andy Pagés'),
-    (606192, 'teoscar-hernandez', 'Teoscar Hernández'),
-    (624424, 'michael-conforto', 'Michael Conforto'),
-    (669257, 'will-smith', 'Will Smith'),
-    (571970, 'max-muncy', 'Max Muncy'),
+    (669242, 'tommy-edman', 'Tommy Edman'),
+    (500743, 'miguel-rojas', 'Miguel Rojas'),
+    (571771, 'enrique-hernandez', 'Enrique Hernández'),
+    (687221, 'dalton-rushing', 'Dalton Rushing'),
+    (808975, 'hyeseong-kim', 'Hyeseong Kim'),
 ]
 
 if __name__ == '__main__':
@@ -94,7 +94,7 @@ if __name__ == '__main__':
         }
         result[slug] = entry
         time.sleep(0.5)
-    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), '_batch2-data.json')
+    out = os.path.join(os.path.dirname(os.path.abspath(__file__)), '_batch3-data.json')
     with open(out, 'w', encoding='utf-8') as f:
         json.dump(result, f, ensure_ascii=False, indent=1)
     print('written', out)

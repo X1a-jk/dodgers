@@ -69,11 +69,11 @@
 - [x] michael-conforto（486 PA）✅ 2026-11-01
 - [x] will-smith（436 PA）✅ 2026-11-01
 - [x] max-muncy（388 PA）✅ 2026-11-01
-- [ ] tommy-edman（377 PA）
-- [ ] miguel-rojas（317 PA，另有 5 IP 垃圾时间登板）
-- [ ] enrique-hernandez（256 PA，另有 5.1 IP mopup）
-- [ ] dalton-rushing（155 PA）
-- [ ] hyeseong-kim（170 PA）
+- [x] tommy-edman（377 PA）✅ 2026-11-01
+- [x] miguel-rojas（317 PA，另有 5 IP 垃圾时间登板）✅ 2026-11-01
+- [x] enrique-hernandez（256 PA，另有 5.1 IP mopup）✅ 2026-11-01
+- [x] dalton-rushing（155 PA）✅ 2026-11-01
+- [x] hyeseong-kim（170 PA）✅ 2026-11-01
 - [ ] alex-freeland（97 PA）
 - [ ] alex-call（85 PA）
 - [ ] ben-rortvedt（58 PA）

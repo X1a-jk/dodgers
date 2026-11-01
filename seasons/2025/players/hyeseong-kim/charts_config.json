@@ -1,0 +1,16 @@
+{
+ "player_name": "Hyeseong Kim",
+ "slug": "hyeseong-kim",
+ "prefix": "kim",
+ "info": {"number": "3", "position_cn": "二垒手/外野", "position": "2B/CF"},
+ "cover": {
+  "tagline": "彗星降临：KBO 盗垒王的大联盟元年",
+  "stats": [["AVG", ".280"], ["OPS", ".699"], ["HR", 3], ["SB", 13], ["RBI", 17], ["BB", 7], ["Age", 26], ["KBO 2024 AVG", ".326"]]
+ },
+ "grades": {"Contact": 55, "Power": 40, "Discipline": 35, "Speed": 65, "Defense": 55, "Arm": 50, "Leadership": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.335, 0.396, 0.446, 0.842],
+  "y2025": [0.280, 0.314, 0.385, 0.699]
+ }
+}
