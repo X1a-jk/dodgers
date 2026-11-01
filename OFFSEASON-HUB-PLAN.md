@@ -1,7 +1,7 @@
 # 休赛期转会中心 · 设计方案
 
 > 建立：2026-11-01。用户已确认三项决策：**范围 = 道奇 + 全联盟重磅**；**流言板块 = 做**；**自动化 = 不做 cron，用户喊一声才抓**（"我喊你抓"）。
-> 状态：设计定稿，待开工。
+> 状态：**v1 已上线（2026-11-01，commit 2bf8161）**。页面 + fetch-offseason.py + 冒烟测试 _smoke_offseason.js 全部就绪并验证。
 
 ---
 
@@ -81,5 +81,11 @@ GET https://statsapi.mlb.com/api/v1/teams/119/roster?rosterType=40Man&season=202
 | 流言 json 手工维护漏更新 | 用户驱动（喊我抓），不背自动时效债 |
 
 ---
+
+### 实现偏差记录（2026-11-01 v1 施工后更新）
+1. **分类基于 description 而非 typeDesc**：小联盟/大联盟合约区分只存在于 description 字段（Santos 案例：typeDesc 同为 "Signed as Free Agent"）。classify() 入参 = description or typeDesc。
+2. **流言独立文件**：`data\offseason-news.json` 与 offseason.json 分离（原计划倾向合并）——无 cron 模式下，只更流言不必重跑抓取脚本。
+3. **全联盟交易合并**：API 对同一交易按球员各记一条且 from/to 方向相反（Rayo: OAK→BOS / Eaton: BOS→OAK），按 date+无序两队 frozenset 合并；无 person 的现金对价记录丢弃。
+4. **40 人首跑基线**：用 2026 出场名单（53 人）近似，removed 会偏噪；第二次抓取起以上次 40Man 快照为基线，自动精确。
 
 *开工前重读本文 + SEASON-PLAYBOOK.md。*
