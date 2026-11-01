@@ -68,17 +68,97 @@ TX_CN = {
     'contract_purchased': '合约购入', 'other': '其他',
 }
 
+# ---------- 中文化 ----------
+TEAM_CN = {
+    'Los Angeles Dodgers': '道奇', 'Arizona Diamondbacks': '响尾蛇', 'Atlanta Braves': '勇士',
+    'Baltimore Orioles': '金莺', 'Boston Red Sox': '红袜', 'Chicago Cubs': '小熊',
+    'Chicago White Sox': '白袜', 'Cincinnati Reds': '红人', 'Cleveland Guardians': '守护者',
+    'Colorado Rockies': '洛矶', 'Detroit Tigers': '老虎', 'Houston Astros': '太空人',
+    'Kansas City Royals': '皇家', 'Los Angeles Angels': '天使', 'Miami Marlins': '马林鱼',
+    'Milwaukee Brewers': '酿酒人', 'Minnesota Twins': '双城', 'New York Mets': '大都会',
+    'New York Yankees': '洋基', 'Athletics': '运动家', 'Philadelphia Phillies': '费城人',
+    'Pittsburgh Pirates': '海盗', 'San Diego Padres': '教士', 'San Francisco Giants': '巨人',
+    'Seattle Mariners': '水手', 'St. Louis Cardinals': '红雀', 'Tampa Bay Rays': '光芒',
+    'Texas Rangers': '游骑兵', 'Toronto Blue Jays': '蓝鸟', 'Washington Nationals': '国民',
+}
+
+POS_CN = {
+    'RHP': '右投', 'LHP': '左投', 'P': '投手', 'C': '捕手', '1B': '一垒手', '2B': '二垒手',
+    '3B': '三垒手', 'SS': '游击手', 'LF': '左外野手', 'CF': '中外野手', 'RF': '右外野手',
+    'OF': '外野手', 'IF': '内野手', 'INF': '内野手', 'DH': '指定打击', 'UT': '工具人', 'TWP': '二刀流',
+}
+
+
+def _t(name):
+    return TEAM_CN.get(name, name)
+
+
+def _pos_abbr(tok):
+    return POS_CN.get(tok, tok)
+
+
+def parse_pos(desc):
+    """从描述开头提取位置缩写，如 'LHP Kris Bubic elected...' -> ('LHP', 'Kris Bubic')"""
+    import re
+    m = re.match(r'^([A-Z]{1,3})\s+([A-Z][a-zA-Z\'\-]+(?: [A-Z][a-zA-Z\'\-]+)+)', desc or '')
+    if m and m.group(1) in POS_CN:
+        return m.group(1), m.group(2)
+    return None, None
+
+
+def cn_desc(desc):
+    """把官方英文操作描述改写为中文；不认识的格式原样返回。"""
+    import re
+    d = desc or ''
+    m = re.match(r"^(.*?) signed free agent ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) to a (?:minor|major) league contract", d)
+    if m:
+        lvl = '小联盟' if 'minor' in d else '大联盟'
+        return '%s以%s合约签下%s %s' % (_t(m.group(1)), lvl, _pos_abbr(m.group(2)), m.group(3))
+    m = re.match(r"^([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) (?:elected|declared) free agency", d)
+    if m:
+        return '%s %s 选择成为自由球员，可与任何球队签约' % (_pos_abbr(m.group(1)), m.group(2))
+    m = re.match(r"^(.*?) traded ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) to (.*?) for (?:cash considerations|cash)", d)
+    if m:
+        return '%s将%s %s交易至%s，换取现金' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3), _t(m.group(4)))
+    m = re.match(r"^(.*?) traded ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) to (.*?) for ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?)$", d)
+    if m:
+        return '%s将%s %s交易至%s，换回%s %s' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3), _t(m.group(4)), _pos_abbr(m.group(5)), m.group(6).rstrip('.'))
+    m = re.match(r"^(.*?) designated ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) for assignment", d)
+    if m:
+        return '%s指定让渡%s %s（7 天内可交易、下放或释出）' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3))
+    m = re.match(r"^(.*?) released ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?)$", d)
+    if m:
+        return '%s释出%s %s' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3))
+    m = re.match(r"^(.*?) selected the contract of ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) from (.*?)$", d)
+    if m:
+        return '%s从%s调入%s %s，进入 40 人名单' % (_t(m.group(1)), _t(m.group(4)), _pos_abbr(m.group(2)), m.group(3))
+    m = re.match(r"^(.*?) sent ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) outright to (.*?)$", d)
+    if m:
+        return '%s将%s %s直接下放至%s（不占 40 人名额）' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3), _t(m.group(4)))
+    m = re.match(r"^(.*?) (?:activated|recalled) ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) (?:from|of) (.*?)$", d)
+    if m:
+        return '%s从%s激活/上调%s %s' % (_t(m.group(1)), _t(m.group(4)), _pos_abbr(m.group(2)), m.group(3))
+    m = re.match(r"^(.*?) (?:optioned|assigned) ([A-Z]{1,3}) ([^ ]+(?: [^ ]+)*?) to (.*?)$", d)
+    if m:
+        return '%s将%s %s下放至%s' % (_t(m.group(1)), _pos_abbr(m.group(2)), m.group(3), _t(m.group(4)))
+    return d
+
 
 def norm_move(t):
     person = t.get('person') or {}
+    desc = t.get('description', '')
+    pos, _ = parse_pos(desc)
     return {
         'id': t.get('id'),
         'name': person.get('fullName', '?'),
         'personId': person.get('id'),
         'date': t.get('effectiveDate') or t.get('date'),
-        'type': classify(t.get('description') or t.get('typeDesc')),
-        'typeCn': TX_CN.get(classify(t.get('description') or t.get('typeDesc')), t.get('typeDesc')),
-        'desc': t.get('description', ''),
+        'type': classify(desc or t.get('typeDesc')),
+        'typeCn': TX_CN.get(classify(desc or t.get('typeDesc')), t.get('typeDesc')),
+        'desc': desc,
+        'cn': cn_desc(desc),
+        'pos': pos,
+        'posCn': _pos_abbr(pos) if pos else None,
         'fromTeam': (t.get('fromTeam') or {}).get('name'),
         'toTeam': (t.get('toTeam') or {}).get('name'),
     }
@@ -116,12 +196,17 @@ def fetch_league(start, end, dodger_ids, ex_names):
         person = t.get('person') or {}
         if not person.get('fullName'):
             continue  # 现金/待定对象对应记录，无人名，跳过
+        desc = t.get('description', '')
+        pos, _ = parse_pos(desc)
         keep.append({
             'id': t.get('id'),
             'name': person.get('fullName', '?'),
             'date': t.get('effectiveDate') or t.get('date'),
             'kind': 'trade' if is_trade else 'signing',
-            'desc': t.get('description', ''),
+            'desc': desc,
+            'cn': cn_desc(desc),
+            'pos': pos,
+            'posCn': _pos_abbr(pos) if pos else None,
             'fromTeam': (t.get('fromTeam') or {}).get('name'),
             'toTeam': (t.get('toTeam') or {}).get('name'),
             'exDodger': person.get('fullName') in ex_names,
@@ -205,19 +290,35 @@ def main():
     removed = sorted(base - set(roster))
     print('40 人对比（%s）：新增 %d，移除 %d' % (base_label, len(added), len(removed)))
 
-    # FA 追踪（v1：从道奇流推导）
+    # FA 追踪（v1：从道奇流推导），附位置与 2026 赛季数据
+    sr_by_name = {}
+    if os.path.exists(SEASON_ROSTER):
+        sr = json.load(open(SEASON_ROSTER, encoding='utf-8'))
+        sr_by_name = {p.get('name'): p for p in sr.get('players', [])}
+
+    def _fa_card(m):
+        p = sr_by_name.get(m['name']) or {}
+        raw_pos = p.get('pos')
+        pit_pos = raw_pos in ('P', 'RHP', 'LHP', 'TWP')
+        bat = p.get('bat') or {}
+        pit = p.get('pit') or {}
+        card = {'name': m['name'], 'date': m['date'], 'posCn': POS_CN.get(raw_pos, raw_pos)}
+        if pit_pos or (pit and not bat):
+            card['stats'] = '%s 场 · ERA %s · %s K' % (p.get('g', '-'), pit.get('era', '-'), pit.get('so', '-'))
+        elif bat:
+            card['stats'] = '打击率 %s · %s 轰 · %s 打点 · %s 盗垒' % (bat.get('avg', '-'), bat.get('hr', '-'), bat.get('rbi', '-'), bat.get('sb', '-'))
+        return card
+
     declared = [m for m in moves if m['type'] == 'declared_fa']
-    resigned_ids = set()
     fa = {'pending': [], 'reSigned': []}
     for m in declared:
         later = [x for x in moves if x['personId'] == m['personId']
                  and x['type'] in ('signed_mlb', 'signed_milb', 'extension')
                  and (x['date'] or '') >= (m['date'] or '')]
         if later:
-            resigned_ids.add(m['personId'])
-            fa['reSigned'].append({'name': m['name'], 'date': later[0]['date'], 'note': later[0]['desc']})
+            fa['reSigned'].append(dict(_fa_card(m), note=later[0]['cn'] or later[0]['desc']))
         else:
-            fa['pending'].append({'name': m['name'], 'date': m['date']})
+            fa['pending'].append(_fa_card(m))
     fa['declaredCount'] = len(declared)
 
     out = {

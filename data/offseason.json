@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-11-01T10:18:27",
+ "generatedAt": "2026-11-01T10:50:07",
  "window": {
   "start": "2026-10-28",
   "end": "2026-11-01"
@@ -14,6 +14,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "LHP Kris Bubic elected free agency.",
+    "cn": "左投 Kris Bubic 选择成为自由球员，可与任何球队签约",
+    "pos": "LHP",
+    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -25,6 +28,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "SS Miguel Rojas elected free agency.",
+    "cn": "游击手 Miguel Rojas 选择成为自由球员，可与任何球队签约",
+    "pos": "SS",
+    "posCn": "游击手",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -36,6 +42,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "CF Enrique Hernández elected free agency.",
+    "cn": "中外野手 Enrique Hernández 选择成为自由球员，可与任何球队签约",
+    "pos": "CF",
+    "posCn": "中外野手",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -47,6 +56,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "RHP Blake Treinen elected free agency.",
+    "cn": "右投 Blake Treinen 选择成为自由球员，可与任何球队签约",
+    "pos": "RHP",
+    "posCn": "右投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -58,6 +70,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "LHP Alex Vesia elected free agency.",
+    "cn": "左投 Alex Vesia 选择成为自由球员，可与任何球队签约",
+    "pos": "LHP",
+    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -69,6 +84,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "LHP Tarik Skubal elected free agency.",
+    "cn": "左投 Tarik Skubal 选择成为自由球员，可与任何球队签约",
+    "pos": "LHP",
+    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -80,6 +98,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "RHP Evan Phillips elected free agency.",
+    "cn": "右投 Evan Phillips 选择成为自由球员，可与任何球队签约",
+    "pos": "RHP",
+    "posCn": "右投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -91,6 +112,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "RHP Brusdar Graterol elected free agency.",
+    "cn": "右投 Brusdar Graterol 选择成为自由球员，可与任何球队签约",
+    "pos": "RHP",
+    "posCn": "右投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -102,6 +126,9 @@
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
     "desc": "LHP Eric Lauer elected free agency.",
+    "cn": "左投 Eric Lauer 选择成为自由球员，可与任何球队签约",
+    "pos": "LHP",
+    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -113,6 +140,9 @@
     "type": "signed_milb",
     "typeCn": "小联盟签约",
     "desc": "Los Angeles Dodgers signed free agent RHP Alberto Santos to a minor league contract.",
+    "cn": "道奇以小联盟合约签下右投 Alberto Santos",
+    "pos": null,
+    "posCn": null,
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    }
@@ -158,32 +188,8 @@
     "Will Smith",
     "Yoshinobu Yamamoto"
    ],
-   "added": [
-    "Gavin Stone",
-    "Jake Cousins",
-    "Ronan Kopp"
-   ],
-   "removed": [
-    "Alek Thomas",
-    "Alex Vesia",
-    "Ben Rortvedt",
-    "Blake Treinen",
-    "Charlie Barnes",
-    "Chayce McDermott",
-    "Chuckie Robinson",
-    "Cole Irvin",
-    "Enrique Hernández",
-    "Eric Lauer",
-    "Evan Phillips",
-    "Jake Eder",
-    "Jonathan Hernández",
-    "Kris Bubic",
-    "Miguel Rojas",
-    "Ryan Ward",
-    "Santiago Espinal",
-    "Tarik Skubal",
-    "Wyatt Mills"
-   ]
+   "added": [],
+   "removed": []
   }
  },
  "league": {
@@ -194,6 +200,9 @@
     "date": "2026-10-29",
     "kind": "trade",
     "desc": "Athletics traded RHP Jareth Rayo to Boston Red Sox for LF Nate Eaton.",
+    "cn": "运动家将右投 Jareth Rayo交易至红袜，换回左外野手 Nate Eaton",
+    "pos": null,
+    "posCn": null,
     "fromTeam": "Athletics",
     "toTeam": "Boston Red Sox",
     "exDodger": false
@@ -204,6 +213,9 @@
     "date": "2026-10-29",
     "kind": "trade",
     "desc": "Boston Red Sox traded SS Tsung-Che Cheng to Detroit Tigers for cash.",
+    "cn": "红袜将游击手 Tsung-Che Cheng交易至老虎，换取现金",
+    "pos": null,
+    "posCn": null,
     "fromTeam": "Boston Red Sox",
     "toTeam": "Detroit Tigers",
     "exDodger": false
@@ -214,39 +226,56 @@
   "pending": [
    {
     "name": "Kris Bubic",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "5 场 · ERA 0.00 · 5 K"
    },
    {
     "name": "Miguel Rojas",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "二垒手",
+    "stats": "打击率 .267 · 4 轰 · 23 打点 · 1 盗垒"
    },
    {
     "name": "Enrique Hernández",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "三垒手",
+    "stats": "打击率 .222 · 4 轰 · 12 打点 · 0 盗垒"
    },
    {
     "name": "Blake Treinen",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "36 场 · ERA 3.64 · 31 K"
    },
    {
     "name": "Alex Vesia",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "72 场 · ERA 2.64 · 74 K"
    },
    {
     "name": "Tarik Skubal",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "10 场 · ERA 2.61 · 70 K"
    },
    {
     "name": "Evan Phillips",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "31 场 · ERA 3.46 · 33 K"
    },
    {
     "name": "Brusdar Graterol",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": null
    },
    {
     "name": "Eric Lauer",
-    "date": "2026-10-29"
+    "date": "2026-10-29",
+    "posCn": "投手",
+    "stats": "14 场 · ERA 4.50 · 46 K"
    }
   ],
   "reSigned": [],
