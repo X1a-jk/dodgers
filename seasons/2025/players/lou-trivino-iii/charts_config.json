@@ -1,0 +1,19 @@
+{
+ "player_name": "Lou Trivino III",
+ "slug": "lou-trivino-iii",
+ "prefix": "trivino",
+ "info": {"number": "58", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "阔别两年后归来，一季辗转三队的流浪中继",
+  "stats": [["ERA", "3.76"], ["WHIP", "1.41"], ["K", 18], ["G", 26], ["IP", "26.1"], ["BB/9", "2.73"], ["HLD", 4], ["Age", 34]]
+ },
+ "grades": {"Sinker": 60, "Cutter": 55, "Sweeper": 50, "Changeup": 50, "Control": 50, "Durability": 35},
+ "comparison_p": {
+  "labels": ["2025全季", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 4.0, 1.5, 0.0],
+  "high": [6.0, 1.8, 11.0, 5.0, 2.0],
+  "y2024": [3.97, 1.34, 6.99, 3.40, 1.13],
+  "y2025": [3.76, 1.41, 6.15, 2.73, 0.68]
+ }
+}

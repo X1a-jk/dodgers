@@ -1,0 +1,19 @@
+{
+ "player_name": "Alex Vesia",
+ "slug": "alex-vesia",
+ "prefix": "vesia",
+ "info": {"number": "51", "position_cn": "布局投手", "position": "SU"},
+ "cover": {
+  "tagline": "26 中继全队之最，第八局的火球左腕",
+  "stats": [["ERA", "3.02"], ["WHIP", "0.99"], ["HLD", 26], ["G", 68], ["K/9", "12.07"], ["IP", "59.2"], ["SV", 5], ["Age", 29]]
+ },
+ "grades": {"Fastball": 60, "Slider": 60, "Changeup": 50, "Control": 55, "Strikeout": 65, "Composure": 60},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/G"],
+  "low": [1.0, 0.8, 5.0, 1.0, 0.5],
+  "high": [5.0, 1.8, 13.0, 6.0, 2.0],
+  "y2024": [1.76, 0.99, 11.80, 4.48, 1.0],
+  "y2025": [3.02, 0.99, 12.07, 3.32, 0.9]
+ }
+}

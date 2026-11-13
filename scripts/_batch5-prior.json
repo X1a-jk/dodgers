@@ -1,0 +1,42 @@
+{
+ "dustin-may": {
+  "2023": {
+   "gamesPlayed": 9,
+   "gamesStarted": 9,
+   "wins": 4,
+   "losses": 1,
+   "era": "2.63",
+   "whip": "0.94",
+   "inningsPitched": "48.0",
+   "strikeOuts": 34,
+   "baseOnBalls": 16,
+   "homeRuns": 1
+  },
+  "2022": {
+   "gamesPlayed": 6,
+   "gamesStarted": 6,
+   "wins": 2,
+   "losses": 3,
+   "era": "4.50",
+   "whip": "1.17",
+   "inningsPitched": "30.0",
+   "strikeOuts": 29,
+   "baseOnBalls": 14,
+   "homeRuns": 3
+  }
+ },
+ "emmet-sheehan": {
+  "2023": {
+   "gamesPlayed": 13,
+   "gamesStarted": 11,
+   "wins": 4,
+   "losses": 1,
+   "era": "4.92",
+   "whip": "1.19",
+   "inningsPitched": "60.1",
+   "strikeOuts": 64,
+   "baseOnBalls": 26,
+   "homeRuns": 11
+  }
+ }
+}

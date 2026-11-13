@@ -175,6 +175,13 @@ def build_index() -> dict:
     # 可用年份清单（新→旧），供门户年份选择器使用；新赛季归档后自动出现
     years = sorted({i["season"] for k in ("weekly", "daily", "postseason")
                     for i in index_data[k]}, reverse=True)
+    # 报告批次所在年份也纳入选择器（如 2025 仅有球员报告、无周报存档，切换后列表为空属预期）
+    import re as _re
+    for ed in scan_report_editions():
+        m = _re.search(r"seasons/(\d{4})/", ed.get("path", ""))
+        if m and m.group(1) not in years:
+            years.append(m.group(1))
+    years.sort(reverse=True)
     index_data["years"] = years
     index_data["currentSeason"] = years[0] if years else str(datetime.now().year)
     index_data["reportEditions"] = scan_report_editions()

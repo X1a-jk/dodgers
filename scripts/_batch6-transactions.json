@@ -1,0 +1,362 @@
+[
+ {
+  "id": 874055,
+  "person": {
+   "id": 835025,
+   "fullName": "Nick Putnam",
+   "link": "/api/v1/people/835025",
+   "nameSlug": "nick-putnam-835025"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-10-27",
+  "effectiveDate": "2025-10-27",
+  "resolutionDate": "2025-10-27",
+  "typeCode": "SFA",
+  "typeDesc": "Signed as Free Agent",
+  "description": "Los Angeles Dodgers signed free agent RHP Nick Putnam to a minor league contract."
+ },
+ {
+  "id": 874454,
+  "person": {
+   "id": 676508,
+   "fullName": "Ben Casparius",
+   "link": "/api/v1/people/676508",
+   "nameSlug": "ben-casparius-676508"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated RHP Ben Casparius."
+ },
+ {
+  "id": 874449,
+  "person": {
+   "id": 665923,
+   "fullName": "Esteury Ruiz",
+   "link": "/api/v1/people/665923",
+   "nameSlug": "esteury-ruiz-665923"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated LF Esteury Ruiz."
+ },
+ {
+  "id": 874358,
+  "person": {
+   "id": 656629,
+   "fullName": "Michael Kopech",
+   "link": "/api/v1/people/656629",
+   "nameSlug": "michael-kopech-656629"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "RHP Michael Kopech elected free agency."
+ },
+ {
+  "id": 874447,
+  "person": {
+   "id": 656945,
+   "fullName": "Tanner Scott",
+   "link": "/api/v1/people/656945",
+   "nameSlug": "tanner-scott-656945"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated LHP Tanner Scott."
+ },
+ {
+  "id": 874450,
+  "person": {
+   "id": 676272,
+   "fullName": "Bobby Miller",
+   "link": "/api/v1/people/676272",
+   "nameSlug": "bobby-miller-676272"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated RHP Bobby Miller."
+ },
+ {
+  "id": 874354,
+  "person": {
+   "id": 477132,
+   "fullName": "Clayton Kershaw",
+   "link": "/api/v1/people/477132",
+   "nameSlug": "clayton-kershaw-477132"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "LHP Clayton Kershaw elected free agency."
+ },
+ {
+  "id": 874452,
+  "person": {
+   "id": 801434,
+   "fullName": "Paul Gervase",
+   "link": "/api/v1/people/801434",
+   "nameSlug": "paul-gervase-801434"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated RHP Paul Gervase."
+ },
+ {
+  "id": 874451,
+  "person": {
+   "id": 689017,
+   "fullName": "Landon Knack",
+   "link": "/api/v1/people/689017",
+   "nameSlug": "landon-knack-689017"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated RHP Landon Knack."
+ },
+ {
+  "id": 874353,
+  "person": {
+   "id": 571771,
+   "fullName": "Enrique Hernández",
+   "link": "/api/v1/people/571771",
+   "nameSlug": "enrique-hernandez-571771"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "1B Enrique Hernández elected free agency."
+ },
+ {
+  "id": 874357,
+  "person": {
+   "id": 571760,
+   "fullName": "Andrew Heaney",
+   "link": "/api/v1/people/571760",
+   "nameSlug": "andrew-heaney-571760"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "LHP Andrew Heaney elected free agency."
+ },
+ {
+  "id": 874448,
+  "person": {
+   "id": 687221,
+   "fullName": "Dalton Rushing",
+   "link": "/api/v1/people/687221",
+   "nameSlug": "dalton-rushing-687221"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated C Dalton Rushing."
+ },
+ {
+  "id": 874356,
+  "person": {
+   "id": 624424,
+   "fullName": "Michael Conforto",
+   "link": "/api/v1/people/624424",
+   "nameSlug": "michael-conforto-624424"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "LF Michael Conforto elected free agency."
+ },
+ {
+  "id": 874453,
+  "person": {
+   "id": 690976,
+   "fullName": "Alex Freeland",
+   "link": "/api/v1/people/690976",
+   "nameSlug": "alex-freeland-690976"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated SS Alex Freeland."
+ },
+ {
+  "id": 874359,
+  "person": {
+   "id": 489446,
+   "fullName": "Kirby Yates",
+   "link": "/api/v1/people/489446",
+   "nameSlug": "kirby-yates-489446"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "RHP Kirby Yates elected free agency."
+ },
+ {
+  "id": 874355,
+  "person": {
+   "id": 500743,
+   "fullName": "Miguel Rojas",
+   "link": "/api/v1/people/500743",
+   "nameSlug": "miguel-rojas-500743"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "DFA",
+  "typeDesc": "Declared Free Agency",
+  "description": "2B Miguel Rojas elected free agency."
+ },
+ {
+  "id": 874446,
+  "person": {
+   "id": 592779,
+   "fullName": "Brock Stewart",
+   "link": "/api/v1/people/592779",
+   "nameSlug": "brock-stewart-592779"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated RHP Brock Stewart."
+ },
+ {
+  "id": 874445,
+  "person": {
+   "id": 681911,
+   "fullName": "Alex Vesia",
+   "link": "/api/v1/people/681911",
+   "nameSlug": "alex-vesia-681911"
+  },
+  "toTeam": {
+   "id": 119,
+   "name": "Los Angeles Dodgers",
+   "link": "/api/v1/teams/119"
+  },
+  "date": "2025-11-02",
+  "effectiveDate": "2025-11-02",
+  "resolutionDate": "2025-11-02",
+  "typeCode": "SC",
+  "typeDesc": "Status Change",
+  "description": "Los Angeles Dodgers activated LHP Alex Vesia."
+ }
+]

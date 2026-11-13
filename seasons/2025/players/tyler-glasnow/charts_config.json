@@ -1,0 +1,19 @@
+{
+ "player_name": "Tyler Glasnow",
+ "slug": "tyler-glasnow",
+ "prefix": "glasnow",
+ "info": {"number": "31", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "伤愈归来的 6-8 长颈鹿，三振依旧精英",
+  "stats": [["ERA", "3.19"], ["WHIP", "1.10"], ["K", 106], ["IP", "90.1"], ["W-L", "4-3"], ["K/9", "10.56"], ["BB/9", "4.28"], ["Age", 32]]
+ },
+ "grades": {"Fastball": 75, "Curve": 70, "Slider": 60, "Control": 45, "Command": 50, "Strikeout": 75, "Health": 35},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 11.0, 6.0, 7.0],
+  "y2024": [3.49, 0.95, 11.28, 2.35, 6.1],
+  "y2025": [3.19, 1.10, 10.56, 4.28, 5.0]
+ }
+}

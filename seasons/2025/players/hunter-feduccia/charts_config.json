@@ -1,0 +1,16 @@
+{
+ "player_name": "Hunter Feduccia",
+ "slug": "hunter-feduccia",
+ "prefix": "feduccia",
+ "info": {"number": "46", "position_cn": "捕手", "position": "C"},
+ "cover": {
+  "tagline": "三人包裹换回的农场捕手：两周 MLB 窗口，然后西进光芒",
+  "stats": [["G", 2], ["PA", 3], ["AVG", ".000"], ["OBP", ".333"], ["BB", 1], ["2024 首秀场数", 5], ["3A HR", 9], ["Age", 28]]
+ },
+ "grades": {"Contact": 30, "Power": 35, "Discipline": 45, "Speed": 30, "Defense": 45, "Game-calling": 40},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.333, 0.429, 0.333, 0.762],
+  "y2025": [0.000, 0.333, 0.000, 0.333]
+ }
+}

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Buddy Kennedy 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Buddy Kennedy</h1>
+ <p class="subtitle">Los Angeles Dodgers #46 | 内野手 | 右打 | 一年三队的内野补丁，Millville 走出的追梦人</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="kennedy_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1998-10-05</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">27岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国新泽西州 Millville</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">5'10" / 213 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2022-06-17（响尾蛇）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">46</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">⚠️ <strong>小样本警告：</strong>本报告基于 7 场 / 18 个打席的道奇段数据。</p>
+ <p style="margin-bottom: 15px;">Buddy Kennedy 的 2025 年是 roster 高速公路上的连续追尾：费城人开季（4 场 8 PA、0 安打）→ 蓝鸟（2 场）→ <span class="mvp">8 月 15 日被道奇自 waiver 认领</span> → 10 天后（8/25）被 DFA → 8/28 被 outright 到 3A。一年三队、三次名单状态变更，最终留在洛杉矶的履历是 7 场、18 个打席、1 支安打、1 分打点、.059 的打击率。</p>
+ <p style="margin-bottom: 15px;">数字层面没有辩护的空间：18 PA 里 17 个打数只敲出 1 安（外加 1 次触身），三振 5 次、保送 0 次—— BABIP .083 固然有运气成分，但「打不到球」是这 7 场最诚实注脚。值得记录的是他的轨迹：在道奇的 7 场全部集中在 8 月中旬，承担的是三垒/一垒的应急补丁，完成任务后即被更优先的 roster 选项替换——标准的「深度选项」生命周期。</p>
+ <p>从 2025 年 11 月的视角看，27 岁的 Kennedy 是 3A 名单上最常见的名字类型：能守内野两个角落、偶尔客串外野、右打 platoon 选项。他的大联盟故事还没写完，但笔墨已经不多——下一次机会，大概率还是某支球队的 waiver 线。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🌟 2022 年 - 大联盟首秀（响尾蛇）</h4>
+ <p>2022 年 6 月 17 日在亚利桑那登上大联盟，首个赛季 30 场 .217/.287/.325、12 打点——新秀年的表现让球迷短暂记住了这个敦实的新泽西内野手。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🚗 2024 年 - 第一次双城记</h4>
+ <p>老虎（6 场）与费城人（8 场）合计 14 场——那是他第一次体验「一年两队」，为 2025 年更疯狂的「一年三队」做了预演。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🚗 2025 年 - 一年三队的公路电影</h4>
+ <p>费城人 → 蓝鸟 → 道奇：单季三支球队、两次 waiver 操作。8 月 15 日道奇认领他的那天，他正在多伦多机场等一班永远取消的航班。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计（道奇段）</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">7</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">.059</span>
+ <div class="stat-label">打击率（1-for-17）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">.111</span>
+ <div class="stat-label">上垒率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">.059</span>
+ <div class="stat-label">长打率（0 长打）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">安打</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">26</span>
+ <div class="stat-label">年龄（生涯第 4 季）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">3</span>
+ <div class="stat-label">全年效力球队数</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（老虎+费城人）vs 2025（道奇）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kennedy_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>队</th><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2022</td>
+ <td>ARI</td>
+ <td>30</td>
+ <td>94</td>
+ <td>.217</td>
+ <td>.287</td>
+ <td>.325</td>
+ <td>.612</td>
+ <td>1</td>
+ <td>12</td>
+ <td>8</td>
+ <td>23</td>
+ </tr>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>DET+PHI</td>
+ <td>14</td>
+ <td>26</td>
+ <td>.190</td>
+ <td>.308</td>
+ <td>.381</td>
+ <td>.689</td>
+ <td>1</td>
+ <td>6</td>
+ <td>4</td>
+ <td>7</td>
+ </tr>
+ <tr>
+ <td>2025</td>
+ <td>PHI+TOR</td>
+ <td>6</td>
+ <td>14</td>
+ <td>.083</td>
+ <td>.214</td>
+ <td>.167</td>
+ <td>.381</td>
+ <td>0</td>
+ <td>0</td>
+ <td>2</td>
+ <td>3</td>
+ </tr>
+ <tr>
+ <td class="mvp">2025</td>
+ <td>LAD</td>
+ <td>7</td>
+ <td>18</td>
+ <td>.059</td>
+ <td>.111</td>
+ <td>.059</td>
+ <td>.170</td>
+ <td>0</td>
+ <td>1</td>
+ <td>0</td>
+ <td>5</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">四行数据是一条持续四年的下滑直线：OPS 从 .612（2022）→ .689（2024 小样本反弹）→ .381（2025 上半季）→ .170（道奇段）。需要公道地说，2025 全年合计 32 PA 的样本连「评估」都谈不上，只能算「目击」；但有一个信号值得警惕——保送从 2022 年的 8.5% 掉到 2025 年的 2/32（6.3% 里道奇段为 0），当一位本就不以力量见长的打者连选球都开始迷失，他的 MLB 地板正在松动。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">「深度选项」的准确生命周期</h3>
+ <p>Kennedy 的 2025 年是「40 人名单经济学」的完美教材：费城人需要他是因为春天名单有洞；蓝鸟捡他是因为 waiver 顺位刚好；道奇认领他是因为 8 月中内野出现伤病真空；10 天后 DFA 是因为 Muncy 复出、更优选项激活。每一步都不是对他个人的评价，而是 roster 缺口的函数。这类球员的价值不在数字，在「随时能上场守一个你不敢让主力去守的位置」——他今年做到了，仅此而已，也恰如其分。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">Millville 的第二梦想</h3>
+ <p>他的家乡 Millville, NJ 以出产 Mike Trout 闻名——那里每个孩子打球的第一个偶像都是同一个人。Kennedy 的身体条件（5'10"、213 磅的矮壮型）与 Trout 完全不同，他的路也注定不同：不是天选之子的直梯，而是 waiver 线上的旋转门。2022 年首秀年他曾让 Millville 的第二个 MLB 梦想看起来触手可及；2025 年，这个梦想缩水为「再被认领一次」。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">8/28 之后的隐形赛季</h3>
+ <p>被 outright 到奥克拉荷马城之后，Kennedy 在 3A 打完了赛季尾声——那段没有聚光灯的日子里，他的角色从「大联盟补丁」变回「3A 老將」。对 27 岁的他来说，这不是降级宣判，而是常态：2026 年的电话只会在两种情况下响起——某队内野伤病潮，或者九月扩编。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>三垒/一野双角落 + 外野应急的守备弹性</li>
+ <li>2022 年 94 PA 的 MLB 新秀年证明过 floor</li>
+ <li>右打 platoon 选项</li>
+ <li>27 岁，仍处在内野手的「经验青年」区间</li>
+ <li>一年三队的环境适应力—— anywhere, anytime</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>2025 全年 MLB 合计 32 PA、.071 打击率</li>
+ <li>保送率从 8.5% 跌到 6.3%，选球技能退化</li>
+ <li>零长打输出（道奇段 TB=1）</li>
+ <li>无速度、无臂力工具，守备无溢价</li>
+ <li>在 waiver 线上已是「已读不回」的老面孔</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="kennedy_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">30</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">30</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">40</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">45</span>
+ <div class="stat-label">Versatility</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">30</div>
+ <p style="color: #90a4ae; margin-top: 10px;">waiver 线上的内野补丁，电话永远开机</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C 级 / 3A 主力与 MLB 第 27 人</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Kennedy 与这条夺冠路无关——8 月 28 日之后，他就是奥克拉荷马城 3A 名单上的一个普通名字。冠军之夜的道奇更衣室 spray 香槟时，他可能正坐在 3A 更衣室的长凳上看转播。这并不悲伤：一年三队的球员懂一个道理——能出现在 MLB 的 7 场 boxscore 里，本身就是对 Millville 那个在沙地练习内野接地滚球的少年的回答。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：7 场、18 PA、1 安打、1 打点</li>
+ <li>8/25 DFA → 8/28 outright 至 3A，赛季在 OKC 收官</li>
+ <li>季后赛未登场</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Kennedy 的 2026 年将从春训的非名单邀请开始——他熟悉这个流程，就像熟悉机场贵宾室的咖啡机。两条路摆在面前：在 3A 打出 .280/.360 的「老将反弹年」，重新挤进某支球队的五月名单；或者接受「职业 3A 球员」的身份，在奥克拉荷马城、糖地、雷诺这些城市之间完成职业生涯的后半段。两条路都不丢人，但 Millville 出生的孩子大多希望是第一条。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>3A 反弹 + 九月扩编，再蹭一年 MLB 履历</p>
+ <p><strong>现实基准：</strong>3A 主力内野，全年等待 waiver 线电话</p>
+ <p><strong>下行可能：</strong>27 岁后的「老将」标签让机会窗口持续收窄</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>contact 与 discipline 双降趋势未止</li>
+ <li>无突出工具，天花板就是「第 27 人」</li>
+ <li>新泽西小城的棒球梦第二代，市场关注度趋近于零</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Buddy Kennedy 来自新泽西州的 Millville——全美最出名的「棒球小城」之一，因为 Mike Trout 从这里走向了历史。Kennedy 比 Trout 小八岁，同一座球场、同一批教练、同一个梦想。他的身体模版与 Trout 截然不同（5'10" 的敦实内野手），所以他从第一天就知道：自己的路不会是直梯，而是 waiver 线上的旋转门。</p>
+ <p>2022 年在响尾蛇首秀后，他的职业生涯进入了典型的「深度选项」循环：每年春天竞争一个工具人位置，夏天在 3A 与大联盟之间穿梭，秋天收拾行李去下一个城市。2024 年他第一次一年穿两队球衣，2025 年把这个纪录刷到三队——费城人的开季名单、蓝鸟的 waiver 清单、道奇的 8 月补丁，每一段都短得像机场转机。</p>
+ <p>2025 年 11 月的 Buddy Kennedy 是奥克拉荷马城 3A 名单上的一个名字。从 Millville 到洛杉矶，他走了八年，大部分路程在巴士上。但那个在新泽西沙地球场练习双杀配合的少年不会后悔——一年三队听起来狼狈，可全世界只有几百个人能穿哪怕一天的 MLB 球衣。他已经累积了 67 场大联盟出赛——每一场都靠自己的手套挣来。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| waiver 线上的内野补丁，电话永远开机</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

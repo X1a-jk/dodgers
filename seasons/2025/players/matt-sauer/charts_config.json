@@ -1,0 +1,19 @@
+{
+ "player_name": "Matt Sauer",
+ "slug": "matt-sauer",
+ "prefix": "sauer",
+ "info": {"number": "—", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "五球种深度拼图，保送率腰斩的进步",
+  "stats": [["ERA", "6.37"], ["WHIP", "1.45"], ["K", 24], ["IP", "29.2"], ["G", 10], ["BB/9", "2.43"], ["SV", 1], ["Age", 26]]
+ },
+ "grades": {"Fastball": 55, "Cutter": 55, "Slider": 50, "Sinker": 50, "Control": 50, "Strikeout": 45},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [4.0, 1.2, 3.0, 1.0, 0.0],
+  "high": [9.0, 2.2, 10.0, 7.0, 3.0],
+  "y2024": [7.71, 2.08, 4.96, 6.06, 1.65],
+  "y2025": [6.37, 1.45, 7.28, 2.43, 1.82]
+ }
+}

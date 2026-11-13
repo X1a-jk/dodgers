@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Ryan Loutos 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Ryan Loutos</h1>
+ <p class="subtitle">Los Angeles Dodgers #65 | 后援投手 | 右投 | 被现金交易与 waiver 认领定义的一年，95 mph 火球找不到出口</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="loutos_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1999-02-28</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国伊利诺伊州埃尔克格罗夫村</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'7" / 260 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024-06-01</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">65</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Ryan Loutos 的 2025 年是被「资产流动」定义的：5 月 1 日圣路易斯红雀把他以现金卖给道奇，5 月 16 日首次被拉上 MLB，6 月 2 日再来一次，6 月 6 日被 DFA，6 月 10 日被华盛顿国民认领——40 天内两次易主。两段道奇经历合计：2 场、3 局、自责分率 15.00。</p>
+ <p style="margin-bottom: 15px;">但拆开 15.00 的外衣，硬件故事完全不同：6'7" 260 磅的巨塔体格，<span class="mvp">95.4 mph 的四缝线均速</span>，五球种配球结构。他的问题在于把 95 mph 的火球转化为出局的能力——3 局里 4 支安打 2 次保送 1 支全垒打，只有 2 次三振。国民认领他后给了他 10 场出赛机会，ERA 12.00——同样的故事在华盛顿重演：球速惊人，结果伤人。</p>
+ <p>从 2025 年 11 月的视角看，Loutos 站在职业生涯的十字路口：26 岁、6'7"、95+ mph——这三个数字保证他永远会有下一支球队打来电话；但如果 2026 年他还不能把触球率压下来，这些电话将永远以「临时救火」开头、以「DFA」结尾。他的天花板是 Tyler Glasnow 式的巨塔 power arm，地板是 waiver 线上的常客——之间的差距，只在于控制。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2024年 - 大联盟首秀</h4>
+ <p>2024 年 6 月 1 日在圣路易斯红雀登上大联盟，首秀季 3 场 2.1 局零失分——那是他的棒球生涯第一次被世界看见，也是至今唯一一段无失分的 MLB 记忆。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-05-01 自红雀现金交易获得，6/6 DFA、6/10 被国民认领）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">15.00</span>
+ <div class="stat-label">自责分率（3 局样本）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">2.00</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">95.4</span>
+ <div class="stat-label">速球均速 (mph)</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.0</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">26</span>
+ <div class="stat-label">年龄</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">全年效力球队数</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（红雀）vs 2025（道奇）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="loutos_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>STL</td>
+ <td>3</td>
+ <td>0.00</td>
+ <td>1.29</td>
+ <td>2.1</td>
+ <td>0</td>
+ <td>1</td>
+ </tr>
+ <tr>
+ <td>2025（道奇）</td>
+ <td>LAD</td>
+ <td>2</td>
+ <td>15.00</td>
+ <td>2.00</td>
+ <td>3.0</td>
+ <td>2</td>
+ <td>2</td>
+ </tr>
+ <tr>
+ <td>2025（国民）</td>
+ <td>WSH</td>
+ <td>10</td>
+ <td>12.00</td>
+ <td>2.61</td>
+ <td>9.0</td>
+ <td>9</td>
+ <td>8</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">两个赛季的差距大到几乎不像同一个投手——但有一个共同点贯穿始终：他的三振产出始终低于球速应有的水平（2024 年 0 三振、2025 年 13 局 11 三振）。国民段的 10 场虽然 ERA 难看，但 9 次三振（K/9 9.0）是他 MLB 生涯里第一次展现出与 95 mph 球速匹配的三振能力——这是黑暗中唯一的光。BB/9 同时高达 8.0，再次印证他的瓶颈从来不是 stuff，而是 strike one。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，道奇+国民汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 95.4 mph · 占比 46.3%</div>
+ <p>接近半数使用率的火球，6'7" 出手带来夸张的俯角——这是他所有价值的物理基础，也是每支球队打电话的原因。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 87.0 mph · 占比 22.5%</div>
+ <p>8.4 mph 速差，对付右打的主武器；若能提高进垒率，将成为速球的最佳搭档。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 89.0 mph · 占比 16.9%</div>
+ <p>6.4 mph 速差，左打解方；与伸卡/速球形成速球系三叉。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡/横扫滑 (Sweeper/Two-Seam) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">87.6 / 94.0 mph · 合计 14.3%</div>
+ <p>零星使用的变化组合——五球种结构意味着每颗球的打磨时间都有限。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">现金交易的价格标签</h3>
+ <p>红雀以现金把他卖给道奇——这是 MLB 里最便宜的交易形式，相当于一句「我们不要了，但祝你找到下家」。道奇用 40 天验证了他，然后以 waiver 形式送给国民。两次流转，两次「不值一个球员」的定价。但对 26 岁的 6'7" power arm 来说，定价从来不是问题，找到愿意给 repetitions 的环境才是——国民的 10 场出赛就是他在道奇从未得到的礼物。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">三振率与球速的错位</h3>
+ <p>95.4 mph 的速球应该对应 K/9 10+，Loutos 的 MLB 生涯 K/9 只有 7 出头。这个错位只有一个解释：速球进垒位置不够好。打者不是被他三振，而是把球打进场内——生涯 WHIP 2.0+ 说明触球质量糟糕。好消息是这通常不是不可逆的：很多巨塔投手在 26-27 岁经历机械微调后突然开窍（球速已经在，只需要把 strike one 率提高 10 个百分点）。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">十字路口的 2026</h3>
+ <p>从 11 月的视角看，Loutos 的 2026 年将决定他是「Tyler Glasnow 故事」还是「waiver 浮萍故事」。国民的重建牛棚给了他位置，但需要他在春训里证明两件事：能把 BB/9 压到 4 以下，能把速球 first-pitch strike 率提到 60%。做到了，他会突然成为某支球队交易deadline上的抢手货；做不到，26 岁 6'7" 的身体也会慢慢失去市场的耐心。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>95.4 mph 速球，6'7" 260 磅巨塔体格，物理天赋顶级</li>
+ <li>五球种结构，先发/后援都有模板可套</li>
+ <li>26 岁，改善窗口仍在</li>
+ <li>国民段 K/9 9.0，三振潜力初现</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>生涯 MLB WHIP 2.0+，触球控制灾难级</li>
+ <li>BB/9 长期高于 5，strike one 是致命伤</li>
+ <li>三振产出与 95 mph 球速严重不匹配</li>
+ <li>两赛季内被交易+认领，无稳定开发环境</li>
+ <li>样本虽小，趋势一致——问题不在运气</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="loutos_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">stuff 已到、控制未至的巨塔浮萍</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 / 高风险高回报 power arm</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Loutos 与这条夺冠路无关——6 月 10 日他已披上国民球衣，而国民连季后赛的门槛都没摸到。他的 2025 年在华盛顿九月的牛棚里结束，ERA 12.00 的 10 场出赛是他留给国联东部的全部作品。十月不属于他，但 2026 年的春训会再次属于他——只要 95 mph 还在。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：2 场 3 局 15.00（两段一天游）</li>
+ <li>国民段：10 场 9 局 12.00，但 K/9 9.0 初现三振潜力</li>
+ <li>全年 40 天两易主：现金交易（红雀→道奇）→ waiver 认领（道奇→国民）</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Loutos 的 2026 年从国民的牛棚竞争开始：他需要把「火球巨塔」的标签从球探报告翻译成实际出局数。国民乐于给机会，但机会有保质期——如果上半年 BB/9 仍高于 5，waiver 线会再次张开。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>机械微调见效，K/9 冲到 11+，成为国民牛棚亮点并被竞争者盯上</p>
+ <p><strong>现实基准：</strong>继续在 waiver 边缘浮沉，间或交出亮眼小段</p>
+ <p><strong>上行惊喜：</strong>转型长中继/盗局者，用球速和体格吃下 60+ 局</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>控制问题若持续，26 岁后市场耐心将快速衰减</li>
+ <li>6'7" 巨塔的机械稳定性历史上就是硬币两面</li>
+ <li>频繁流转导致无固定投手教练长期跟进</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Ryan Loutos 来自伊利诺伊州埃尔克格罗夫村——有趣的是，这和队友 Bobby Miller 的家乡是同一个芝加哥郊区小镇。两个 6'3"+ 的火球手从同一片高中棒球场走进大联盟，在 2025 年的道奇牛棚里短暂地成为了同乡队友。</p>
+ <p>他的职业之路从圣路易斯开始：2024 年 6 月 1 日在红雀完成 MLB 首秀，3 场零失分给了他一个完美的开头。但 2025 年 5 月 1 日，红雀以现金把他送到洛杉矶——职业棒球用最干脆的方式告诉他：你还不够好。道奇给了他两次机会，6 月 10 日国民认领了他——给了他 10 场机会。</p>
+ <p>2025 年 11 月的 Ryan Loutos 手中握着一份矛盾的履历：95.4 mph 的速球说他是大联盟材料，2.0+ 的 WHIP 说他不是。2026 年春天，他要在华盛顿的投手丘上亲手解开这个矛盾——答案只有两个字：好球。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| stuff 已到、控制未至的巨塔浮萍</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+ "player_name": "José Ureña",
+ "slug": "jose-urena",
+ "prefix": "urena",
+ "info": {"number": "47", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "一年五队的漂流之王，道奇只留了他七天",
+  "stats": [["ERA", "3.00"], ["WHIP", "1.67"], ["K", 2], ["G", 2], ["IP", "3.0"], ["Age", 34]]
+ },
+ "grades": {"Sinker": 60, "Changeup": 55, "Slider": 50, "Control": 40, "Durability": 55, "Composure": 45},
+ "comparison_p": {
+  "labels": ["2024游骑兵", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 4.0, 2.0, 0.0],
+  "high": [6.0, 1.9, 8.0, 4.5, 1.5],
+  "y2024": [3.80, 1.32, 5.78, 3.22, 1.07],
+  "y2025": [3.00, 1.67, 6.00, 3.00, 0.00]
+ }
+}

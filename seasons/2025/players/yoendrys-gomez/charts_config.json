@@ -1,0 +1,19 @@
+{
+ "player_name": "Yoendrys Gómez",
+ "slug": "yoendrys-gomez",
+ "prefix": "gomez",
+ "info": {"number": "94", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "四月中转站的 4.1 局，七球种速度与失控并存",
+  "stats": [["ERA", "14.54"], ["WHIP", "2.77"], ["K", 6], ["G", 3], ["IP", "4.1"], ["SV", 1], ["Age", 26]]
+ },
+ "grades": {"Fastball": 55, "Sweeper": 50, "Curveball": 50, "Control": 35, "Strikeout": 55, "Composure": 35},
+ "comparison_p": {
+  "labels": ["2024扬基", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 5.0, 2.0, 0.0],
+  "high": [15.0, 3.0, 13.0, 9.0, 5.0],
+  "y2024": [3.97, 1.59, 7.94, 5.56, 1.59],
+  "y2025": [14.54, 2.77, 12.46, 4.15, 4.15]
+ }
+}

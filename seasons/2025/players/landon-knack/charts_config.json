@@ -1,0 +1,19 @@
+{
+ "player_name": "Landon Knack",
+ "slug": "landon-knack",
+ "prefix": "knack",
+ "info": {"number": "96", "position_cn": "投手（先发/长中继）", "position": "P"},
+ "cover": {
+  "tagline": "四球种轮值候选，被伤病截断的第二季",
+  "stats": [["ERA", "4.89"], ["WHIP", "1.39"], ["K", 42], ["IP", "42.1"], ["GS", 7], ["K/9", "8.93"], ["W-L", "3-2"], ["Age", 28]]
+ },
+ "grades": {"Fastball": 55, "Changeup": 60, "Curve": 55, "Slider": 50, "Control": 45, "Strikeout": 50},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.0],
+  "high": [7.0, 1.8, 13.0, 6.0, 3.0],
+  "y2024": [3.65, 1.10, 9.00, 2.35, 1.83],
+  "y2025": [4.89, 1.39, 8.93, 4.04, 2.13]
+ }
+}

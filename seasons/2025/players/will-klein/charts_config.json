@@ -1,0 +1,19 @@
+{
+ "player_name": "Will Klein",
+ "slug": "will-klein",
+ "prefix": "klein",
+ "info": {"number": "61", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "被交易来的高角度火球手，世界大赛 G3 四局救火拿下胜投",
+  "stats": [["ERA", "2.35"], ["WHIP", "1.57"], ["K", 21], ["G", 14], ["IP", "15.1"], ["K/9", "12.33"], ["HLD", 2], ["Age", 25]]
+ },
+ "grades": {"Fastball": 65, "Curveball": 60, "Cutter": 50, "Control": 35, "Strikeout": 60, "Composure": 50},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 6.0, 3.0, 0.0],
+  "high": [12.0, 2.6, 14.0, 8.0, 1.5],
+  "y2024": [11.05, 2.45, 8.59, 7.36, 0.00],
+  "y2025": [2.35, 1.57, 12.33, 5.87, 0.00]
+ }
+}

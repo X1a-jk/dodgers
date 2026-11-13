@@ -1,0 +1,1223 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los Angeles Dodgers 2026 Player Reports</title>
+    <style>
+        :root {
+            --dodgers-blue: #005A9C;
+            --dodgers-dark: #1a1a2e;
+            --dodgers-light: #e0e0e0;
+            --accent: #ff9800;
+            --green: #4caf50;
+            --red: #f44336;
+            --gray: #90a4ae;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body {
+            font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+            background: linear-gradient(135deg, var(--dodgers-dark) 0%, #16213e 50%, #0f3460 100%);
+            color: var(--dodgers-light);
+            min-height: 100vh;
+        }
+        header {
+            background: linear-gradient(90deg, var(--dodgers-blue) 0%, #1a5490 100%);
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        }
+        header h1 { font-size: 2.6rem; margin-bottom: 8px; }
+        header p { opacity: 0.9; font-size: 1.1rem; }
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 25px;
+        }
+        .stat-pill {
+            background: rgba(255,255,255,0.1);
+            border-radius: 50px;
+            padding: 10px 22px;
+            font-size: 0.95rem;
+        }
+        .stat-pill strong { font-size: 1.3rem; margin-right: 5px; }
+        .container { max-width: 1400px; margin: 0 auto; padding: 30px 20px; }
+        .controls {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .controls input, .controls select {
+            padding: 12px 16px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.2);
+            background: rgba(255,255,255,0.07);
+            color: #fff;
+            font-size: 1rem;
+            min-width: 220px;
+        }
+        .controls input::placeholder { color: var(--gray); }
+        .controls select option { background: #1a1a2e; }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+            gap: 22px;
+        }
+        .player-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .player-card:hover { transform: translateY(-5px); box-shadow: 0 12px 30px rgba(0,0,0,0.4); }
+        .card-link { text-decoration: none; color: inherit; display: block; }
+        .card-disabled { opacity: 0.55; pointer-events: none; }
+        .photo-wrap {
+            height: 220px;
+            background: linear-gradient(135deg, rgba(0,90,156,0.3) 0%, rgba(26,84,144,0.3) 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .photo-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 30%;
+        }
+        .no-photo {
+            font-size: 3rem;
+            font-weight: bold;
+            color: rgba(255,255,255,0.25);
+            text-transform: uppercase;
+        }
+        .card-body { padding: 18px; }
+        .card-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+        .jersey {
+            background: var(--dodgers-blue);
+            color: #fff;
+            padding: 3px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.85rem;
+        }
+        .status {
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        .status-active { background: rgba(76,175,80,0.25); color: #81c784; }
+        .status-minors { background: rgba(144,164,174,0.25); color: #b0bec5; }
+        .status-il { background: rgba(244,67,54,0.25); color: #ef9a9a; }
+        .status-other { background: rgba(255,152,0,0.25); color: #ffcc80; }
+        .card-body h3 { font-size: 1.25rem; margin-bottom: 4px; color: #fff; }
+        .position {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+        .stat-line {
+            font-size: 0.85rem;
+            color: var(--gray);
+            line-height: 1.4;
+            min-height: 36px;
+        }
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: var(--gray);
+            font-size: 0.9rem;
+        }
+        .empty-state {
+            text-align: center;
+            padding: 60px 20px;
+            color: var(--gray);
+            display: none;
+        }
+        @media (max-width: 600px) {
+            header h1 { font-size: 1.8rem; }
+            .grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚾ Los Angeles Dodgers</h1>
+        <p>2026 Player Scouting Report Dashboard</p>
+        <div class="stats-bar">
+            <div class="stat-pill"><strong>62</strong> 40-Man Players</div>
+            <div class="stat-pill"><strong>0</strong> Active</div>
+            <div class="stat-pill"><strong>0</strong> Injured List</div>
+            <div class="stat-pill"><strong>62</strong> Minors</div>
+            <div class="stat-pill"><strong>62</strong> Reports Ready</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="controls">
+            <input type="text" id="search" placeholder="Search player name...">
+            <select id="group-filter">
+                <option value="">All Positions</option>
+                <option value="Pitcher">Pitchers</option>
+                <option value="Catcher">Catchers</option>
+                <option value="Infield">Infielders</option>
+                <option value="Outfield">Outfielders</option>
+                <option value="Two-Way">Two-Way</option>
+            </select>
+            <select id="status-filter">
+                <option value="">All Statuses</option>
+                <option value="A">Active</option>
+                <option value="D10">IL-10</option>
+                <option value="D15">IL-15</option>
+                <option value="D60">IL-60</option>
+                <option value="RM">Minors</option>
+            </select>
+        </div>
+
+        <div class="grid" id="grid">
+            
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="alex vesia">
+            <a class="card-link" href="alex-vesia/alex-vesia-scouting-report.html" >
+                <div class="photo-wrap"><img src="alex-vesia/headshot.jpg" alt="Alex Vesia" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Alex Vesia</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Alex Vesia 是 2025 年道奇牛棚最可靠的那座桥：26 次中继成功全队最高，68 场出赛仅次于 Banda，把第七、第八局守得像上了锁。当终结者 Scott 陷入挣扎、季末又伤停时，是 Vesia 把「比赛最后六道出局数」的尊严扛在了左肩上。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="anthony banda">
+            <a class="card-link" href="anthony-banda/anthony-banda-scouting-report.html" >
+                <div class="photo-wrap"><img src="anthony-banda/headshot.jpg" alt="Anthony Banda" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Anthony Banda</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Anthony Banda 是 2025 年道奇牛棚的「出勤王」：71 场出赛全队最高，比任何人都更频繁地听到牛棚电话响起。这位 32 岁的左投用了九年时间、辗转多支球队，终于在洛杉矶找到了最适合自己的角色——左打者专项与中段布局的双重任务。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="ben casparius">
+            <a class="card-link" href="ben-casparius/ben-casparius-scouting-report.html" >
+                <div class="photo-wrap"><img src="ben-casparius/headshot.jpg" alt="Ben Casparius" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Ben Casparius</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Ben Casparius 是道奇牛棚里最典型的「瑞士军刀」：46 场出赛横跨长中继、短中继、布局与终结，甚至紧急先发——教练组把他放在哪里，他就能给出哪个位置的答案。2024 年 8 月底才完成大联盟首秀的他，用一个完整赛季就把自己写进了道奇牛棚的长期计划。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="blake snell">
+            <a class="card-link" href="blake-snell/blake-snell-scouting-report.html" >
+                <div class="photo-wrap"><img src="blake-snell/headshot.jpg" alt="Blake Snell" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Blake Snell</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Blake Snell 是这份名单上荣誉最重的名字：2018 年美联赛扬、2023 年国联赛扬，两届赛扬得主。当他的肩膀健康、他的变速球落在好球带边缘时，他仍然是这个星球上最难对付的左投之一——2025 年 11 场先发的 2.35 ERA 就是证据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="blake treinen">
+            <a class="card-link" href="blake-treinen/blake-treinen-scouting-report.html" >
+                <div class="photo-wrap"><img src="blake-treinen/headshot.jpg" alt="Blake Treinen" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Blake Treinen</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Blake Treinen 的 2025 年是一个老兵的最后一章还是中场休息，现在没人知道。4 月 19 日前臂紧绷进入伤兵名单，直接躺到 7 月 27 日；复出后 32 场、5.40 自责分率、1.84 WHIP、BB/9 6.41——但同期 K/9 12.15 却是生涯最高的一档。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="clayton kershaw">
+            <a class="card-link" href="clayton-kershaw/clayton-kershaw-scouting-report.html" >
+                <div class="photo-wrap"><img src="clayton-kershaw/headshot.jpg" alt="Clayton Kershaw" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Clayton Kershaw</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Clayton Kershaw 是三届赛扬奖得主（2011/2013/2014）、2014年国联MVP，道奇队史最伟大的投手，没有之一。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="dustin may">
+            <a class="card-link" href="dustin-may/dustin-may-scouting-report.html" >
+                <div class="photo-wrap"><img src="dustin-may/headshot.jpg" alt="Dustin May" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Dustin May</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Dustin May 是道奇 2016 年选中的红发巨人，2019 年登上大联盟，2020 年随队夺得世界大赛冠军。他的大联盟生涯始终被同一条主线牵引：天赋足以统治打线，身体却一次次按下暂停键。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="edgardo henriquez">
+            <a class="card-link" href="edgardo-henriquez/edgardo-henriquez-scouting-report.html" >
+                <div class="photo-wrap"><img src="edgardo-henriquez/headshot.jpg" alt="Edgardo Henriquez" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Edgardo Henriquez</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Edgardo Henriquez 的 2025 年是道奇牛棚最动人的成长故事之一：春训左脚骨折、3 月中躺进伤兵名单一路待到 6 月底，23 岁的他没有让伤病定义赛季——复出后 22 场、2.37 自责分率、1.16 WHIP，还有一颗全季均速 100.9 mph 的四缝线速球。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="emmet sheehan">
+            <a class="card-link" href="emmet-sheehan/emmet-sheehan-scouting-report.html" >
+                <div class="photo-wrap"><img src="emmet-sheehan/headshot.jpg" alt="Emmet Sheehan" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Emmet Sheehan</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Emmet Sheehan 在 2025 年完成了道奇球迷等待了两年的回归：手肘手术缺席整个 2024 赛季后，他带着 2.82 自责分率、0.97 WHIP、10.92 K/9 的成绩单回到轮值——三振率全队先发第一，甚至比伤前更凶猛。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="jack dreyer">
+            <a class="card-link" href="jack-dreyer/jack-dreyer-scouting-report.html" >
+                <div class="photo-wrap"><img src="jack-dreyer/headshot.jpg" alt="Jack Dreyer" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Jack Dreyer</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Jack Dreyer 的 2025 年故事有一个梦幻开场：大联盟首秀发生在东京巨蛋——2025 赛季开幕战的舞台——而这只是他菜鸟季 67 场出赛的第一页。这个数字领先全队牛棚，也让所有人才评估报告上「尚需观察」的标签被他亲手撕掉。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="justin wrobleski">
+            <a class="card-link" href="justin-wrobleski/justin-wrobleski-scouting-report.html" >
+                <div class="photo-wrap"><img src="justin-wrobleski/headshot.jpg" alt="Justin Wrobleski" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Justin Wrobleski</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Justin Wrobleski 的 2025 年是一份「教科书式二年级飞跃」：从新人年的 5.70 自责分率到 4.32，从 K/BB 1.63 到 4.47 全队第一——这个左投摇摆人在长中继与先发之间无缝切换，24 场出赛（2 场先发）吃下 66.2 局，成了道奇牛棚最被低估的稳定器。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="kirby yates">
+            <a class="card-link" href="kirby-yates/kirby-yates-scouting-report.html" >
+                <div class="photo-wrap"><img src="kirby-yates/headshot.jpg" alt="Kirby Yates" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Kirby Yates</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Kirby Yates 的 2025 年是职业生涯最陡峭的一次过山车：从 2024 年 1.17 自责分率的 全明星巅峰，到 5.23 的生涯最差——38 岁的他站在职业生涯的暮色里，迎来了一个充满问号的休赛期。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="landon knack">
+            <a class="card-link" href="landon-knack/landon-knack-scouting-report.html" >
+                <div class="photo-wrap"><img src="landon-knack/headshot.jpg" alt="Landon Knack" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Landon Knack</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Landon Knack 的 2025 年原本承载着道奇轮值的重要期待——赛季初他牢牢占据着先发位置，10 场出赛 7 场先发。但伤病在年中截断了一切：42.1 局之后赛季报销，季末伤病名单一直挂到 11 月 2 日才激活。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="lou trivino iii">
+            <a class="card-link" href="lou-trivino-iii/lou-trivino-iii-scouting-report.html" >
+                <div class="photo-wrap"><img src="lou-trivino-iii/headshot.jpg" alt="Lou Trivino III" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Lou Trivino III</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Lou Trivino 的 2025 年是一部压缩版的职业生涯：开季在巨人投出 5.84 被释出，5 月 11 日与道奇签下小联盟合约，5 月 18 日升上大联盟，在洛杉矶交出 26 场、3.76 自责分率、1.41 WHIP 的中段好球——然后在 7 月 21 日被指定让渡、7 月 27 日释出；费城人在截止日后捡走他，他再用 10 场 2.00 为费城人的季后赛冲刺收尾。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="luis garcía">
+            <a class="card-link" href="luis-garcia/luis-garcia-scouting-report.html" >
+                <div class="photo-wrap"><img src="luis-garcia/headshot.jpg" alt="Luis García" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Luis García</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Luis García 的 2025 年是一条堪称离奇的曲线：在道奇的 28 场里，他交出 5.27 自责分率、1.83 WHIP、BB/9 5.27——然后在 7 月 4 日被释出；身披天使球衣 20 场自责分率 2.00，转投国民又是 10 场 0.90。离开洛杉矶之后，他合计 1.61 自责分率。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="matt sauer">
+            <a class="card-link" href="matt-sauer/matt-sauer-scouting-report.html" >
+                <div class="photo-wrap"><img src="matt-sauer/headshot.jpg" alt="Matt Sauer" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Matt Sauer</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Matt Sauer 是道奇 2025 年牛棚里最低调的一名拼图：10 场出赛、29.2 局、6.37 自责分率的表面数字并不好看，但隐藏着一个清晰的技术进步信号——BB/9 从 6.06 腰斩到 2.43，K/BB 从 0.82 升到 3.00。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="michael kopech">
+            <a class="card-link" href="michael-kopech/michael-kopech-scouting-report.html" >
+                <div class="photo-wrap"><img src="michael-kopech/headshot.jpg" alt="Michael Kopech" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Michael Kopech</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Michael Kopech 的 2025 年可以浓缩成一句话：他的投球内容配得上一份大合约，他的身体没有给他投出这份合约的机会。开季就因右肩撞击缺席，6 月底右膝炎症又把他送进 60 天伤兵名单，9 月短暂回归后再度触礁——全年只投了 11 局。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="roki sasaki">
+            <a class="card-link" href="roki-sasaki/roki-sasaki-scouting-report.html" >
+                <div class="photo-wrap"><img src="roki-sasaki/headshot.jpg" alt="Roki Sasaki" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Roki Sasaki</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">佐佐木朗希的 2025 年 MLB 处子季，是一个被劈成两半的故事。上半章叫「成长的代价」：BB/9 5.45、三振率仅 6.94，八场先发里他屡次在好球带边缘迷失，完全比赛神童的光环被现实的配球落差敲得粉碎。下半章叫「十月的惊奇」：转入牛棚的他随队打完整段季后赛，18 次登板、3 次救援成功、0.84 自责分率——包括世界大赛舞台。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="tanner scott">
+            <a class="card-link" href="tanner-scott/tanner-scott-scouting-report.html" >
+                <div class="photo-wrap"><img src="tanner-scott/headshot.jpg" alt="Tanner Scott" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Tanner Scott</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Tanner Scott 带着 2024 年 1.75 自责分率、22/24 救援成功与全明星光环，在休赛期与道奇签下四年合约，被寄予厚望成为第九局的标准答案。2025 年 61 场、23 次救援成功仍是全队之最，但 4.74 自责分率与 33 次救援机会中 10 次失手，让这第一年的风评褒贬参半。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="tony gonsolin">
+            <a class="card-link" href="tony-gonsolin/tony-gonsolin-scouting-report.html" >
+                <div class="photo-wrap"><img src="tony-gonsolin/headshot.jpg" alt="Tony Gonsolin" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Tony Gonsolin</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Tony Gonsolin 的 2025 年是一首 comeback 的半首歌。经历了 2023 赛季末的肘部手术与 2024 年整季的缺席后，他在 2025 年 5 月重新回到大联盟轮值——7 场先发、3 胜 2 负、K/9 9.50 创生涯新高。好消息是三振能力回来了，而且比以前更锋利；坏消息是那份熟悉的「猫王」式压制力还没有完全归位。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="tyler glasnow">
+            <a class="card-link" href="tyler-glasnow/tyler-glasnow-scouting-report.html" >
+                <div class="photo-wrap"><img src="tyler-glasnow/headshot.jpg" alt="Tyler Glasnow" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Tyler Glasnow</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Tyler Glasnow 是现役身材最吓人的先发投手之一：6 尺 8 寸的身高配上 95+ mph 的上旋速球与落差惊人的曲球，当健康时，他是联盟三振能力最强的轮值投手之一。生涯 1050 次三振、10.9 的生涯 K/9，数据背后是「可惜了」三个字——如果能完整投一个赛季，他会是什么样子？</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="will klein">
+            <a class="card-link" href="will-klein/will-klein-scouting-report.html" >
+                <div class="photo-wrap"><img src="will-klein/headshot.jpg" alt="Will Klein" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Will Klein</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">2025 年 6 月 2 日，道奇用水手不需要的左投 Joe Jacques 换来了 Will Klein——一笔当时无人注意的小交易。五个月后，这笔交易在世界大赛第三场兑现：Klein 在道奇 6-5 击败蓝鸟的经典战役里吃下 4 局零失分、5 次三振，拿下世界大赛胜投。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Pitcher" data-status="RM" data-name="yoshinobu yamamoto">
+            <a class="card-link" href="yoshinobu-yamamoto/yoshinobu-yamamoto-scouting-report.html" >
+                <div class="photo-wrap"><img src="yoshinobu-yamamoto/headshot.jpg" alt="Yoshinobu Yamamoto" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Yoshinobu Yamamoto</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">山本由伸是日本职棒史上最伟大的投手之一：欧力士时期三届泽村赏得主、2023 年率队夺日本一，2024 年以 12 年 3.25 亿美元加盟道奇，创下当时投手最大合约纪录。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Two-Way" data-status="RM" data-name="shohei ohtani">
+            <a class="card-link" href="shohei-ohtani/shohei-ohtani-scouting-report.html" >
+                <div class="photo-wrap"><img src="shohei-ohtani/headshot.jpg" alt="Shohei Ohtani" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Shohei Ohtani</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">大谷翔平是两届美联MVP（2021/2023）、2024年国联MVP，史上第一位以二刀流身份包揽多个MVP的球员——贝比·鲁斯之后百年来唯一真正的大联盟二刀流。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="alex call">
+            <a class="card-link" href="alex-call/alex-call-scouting-report.html" >
+                <div class="photo-wrap"><img src="alex-call/headshot.jpg" alt="Alex Call" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Alex Call</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告的 2025 道奇数据仅覆盖交易后的 38 场 / 85 个打席。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="alex freeland">
+            <a class="card-link" href="alex-freeland/alex-freeland-scouting-report.html" >
+                <div class="photo-wrap"><img src="alex-freeland/headshot.jpg" alt="Alex Freeland" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Alex Freeland</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 97 个大联盟打席的新秀数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="alexis díaz">
+            <a class="card-link" href="alexis-diaz/alexis-diaz-scouting-report.html" >
+                <div class="photo-wrap"><img src="alexis-diaz/headshot.jpg" alt="Alexis Díaz" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Alexis Díaz</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Alexis Díaz 的 2025 年是一场信心危机的巡回演出：红人开季 6 场、自责分率 12.00，5 月 29 日被交易到道奇；在洛杉矶的 9 场、自责分率 5.00；9 月 4 日被指定让渡，勇士捡走后再投 3 场 10.13。一年三队，从 2023 年 37 救援的国联全明星到 waiver wire 常客，只用了两年。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="andrew heaney">
+            <a class="card-link" href="andrew-heaney/andrew-heaney-scouting-report.html" >
+                <div class="photo-wrap"><img src="andrew-heaney/headshot.jpg" alt="Andrew Heaney" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Andrew Heaney</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Andrew Heaney 的 2025 年写成一行字就是：海盗 26 场先发 5.39 → 九月被释 → 9 月 1 日与道奇签下小联盟合约 → 9 月 27 日名单扩编选入 → 9 月 29 日大联盟登板 2 局 → 11 月 2 日选择成为自由球员。两局，13.50，一件 33 号球衣——这是三十四岁左投职业生涯最简短的一章，却也是最富戏剧性的一章。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="andy pages">
+            <a class="card-link" href="andy-pages/andy-pages-scouting-report.html" >
+                <div class="photo-wrap"><img src="andy-pages/headshot.jpg" alt="Andy Pages" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Andy Pages</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Andy Pagés 是道奇 2025 赛季最大的内部惊喜之一——这位 24 岁的古巴外野手在第二个大联盟赛季就坐稳中外野主力，缴出.272/.313/.461、27 轰 86 分打点的全面成绩单，OPS .774 较新秀年的 .712 再上一层。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="austin barnes">
+            <a class="card-link" href="austin-barnes/austin-barnes-scouting-report.html" >
+                <div class="photo-wrap"><img src="austin-barnes/headshot.jpg" alt="Austin Barnes" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Austin Barnes</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 13 场 / 44 个打席的告别赛季数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="ben rortvedt">
+            <a class="card-link" href="ben-rortvedt/ben-rortvedt-scouting-report.html" >
+                <div class="photo-wrap"><img src="ben-rortvedt/headshot.jpg" alt="Ben Rortvedt" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Ben Rortvedt</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 18 场 / 58 个打席的道奇段数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="bobby miller">
+            <a class="card-link" href="bobby-miller/bobby-miller-scouting-report.html" >
+                <div class="photo-wrap"><img src="bobby-miller/headshot.jpg" alt="Bobby Miller" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Bobby Miller</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Bobby Miller 的 2025 年只持续了 5 局：3 月 12 日被下放 3A 后，他在俄克拉荷马城度过了整整六个月，直到 9 月底扩编才被想起——2 场出赛（含 1 场先发）、自责分率 12.60，11 月 2 日重新被激活回 40 人名单。数字冰冷，但名单操作说明道奇还没有放弃他。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="brock stewart">
+            <a class="card-link" href="brock-stewart/brock-stewart-scouting-report.html" >
+                <div class="photo-wrap"><img src="brock-stewart/headshot.jpg" alt="Brock Stewart" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Brock Stewart</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Brock Stewart 的 2025 年是一条完美的 V 形曲线：在双城投出生涯最好的 39 场 2.38 ERA、14 次中继成功，然后在 7 月 31 日交易截止日被换回梦开始的地方——道奇用 James Outman 从双城把他换了回来。九年前他穿着道奇球衣登上大联盟（2016-06-29），九年后他穿着道奇球衣拿到世界大赛戒指的入场券。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="buddy kennedy">
+            <a class="card-link" href="buddy-kennedy/buddy-kennedy-scouting-report.html" >
+                <div class="photo-wrap"><img src="buddy-kennedy/headshot.jpg" alt="Buddy Kennedy" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Buddy Kennedy</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 7 场 / 18 个打席的道奇段数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="chris stratton">
+            <a class="card-link" href="chris-stratton/chris-stratton-scouting-report.html" >
+                <div class="photo-wrap"><img src="chris-stratton/headshot.jpg" alt="Chris Stratton" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Chris Stratton</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Chris Stratton 的道奇生涯可以精确到星期：5 月 25 日以自由球员身份签约，6 月 2 日被指定让渡，6 月 5 日被下放，6 月 6 日再签，6 月 7 日再被 DFA，6 月 9 日再下放——两周内两签两走，最终留在俄克拉荷马城直到赛季结束。大联盟段：3 场、4 局、自责分率 6.75。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="chris taylor">
+            <a class="card-link" href="chris-taylor/chris-taylor-scouting-report.html" >
+                <div class="photo-wrap"><img src="chris-taylor/headshot.jpg" alt="Chris Taylor" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Chris Taylor</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于道奇告别段的 28 场 / 35 个打席。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="chuckie robinson">
+            <a class="card-link" href="chuckie-robinson/chuckie-robinson-scouting-report.html" >
+                <div class="photo-wrap"><img src="chuckie-robinson/headshot.jpg" alt="Chuckie Robinson" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Chuckie Robinson</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 极小样本警告：本报告基于 1 场 / 2 个打席的道奇段数据——这是 62 人名单中赛季数据最薄的报告，叙事价值远大于评估价值。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="dalton rushing">
+            <a class="card-link" href="dalton-rushing/dalton-rushing-scouting-report.html" >
+                <div class="photo-wrap"><img src="dalton-rushing/headshot.jpg" alt="Dalton Rushing" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Dalton Rushing</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 155 个大联盟打席的新秀赛季数据，结论仅供方向参考。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="eddie rosario">
+            <a class="card-link" href="eddie-rosario/eddie-rosario-scouting-report.html" >
+                <div class="photo-wrap"><img src="eddie-rosario/headshot.jpg" alt="Eddie Rosario" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Eddie Rosario</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 极小样本警告：本报告基于 2 场 / 4 个打席的道奇段数据——这是 62 人名单中叙事重于数据的极端案例。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="enrique hernández">
+            <a class="card-link" href="enrique-hernandez/enrique-hernandez-scouting-report.html" >
+                <div class="photo-wrap"><img src="enrique-hernandez/headshot.jpg" alt="Enrique Hernández" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Enrique Hernández</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Enrique "Kiké" Hernández 是那种数据表装不下的球员：.203/.255/.366 的常规赛打击成绩是生涯最差之一，但他今年依然创造了历史——4 月 29 日对马林鱼，他成为现代棒球史上唯一一场「未先发却得分 2+、守备多个位置、且无失分登板投球」的球员（Opta 认证）。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="esteury ruiz">
+            <a class="card-link" href="esteury-ruiz/esteury-ruiz-scouting-report.html" >
+                <div class="photo-wrap"><img src="esteury-ruiz/headshot.jpg" alt="Esteury Ruiz" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Esteury Ruiz</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 19 场 / 23 个打席的道奇段数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="evan phillips">
+            <a class="card-link" href="evan-phillips/evan-phillips-scouting-report.html" >
+                <div class="photo-wrap"><img src="evan-phillips/headshot.jpg" alt="Evan Phillips" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Evan Phillips</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Evan Phillips 的 2025 年从 3 月 17 日就结束了——至少看起来是：右肩旋转肌袖拉伤让他直接从开幕名单躺进 60 天伤兵名单，一整季的康复反复，直到秋天才重新站上投手板。全年 7 场出赛、5.2 局、零失分——这是他 2025 年的全部，也是他的全部宣言。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="freddie freeman">
+            <a class="card-link" href="freddie-freeman/freddie-freeman-scouting-report.html" >
+                <div class="photo-wrap"><img src="freddie-freeman/headshot.jpg" alt="Freddie Freeman" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Freddie Freeman</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Freddie Freeman 是2018年国联MVP、2020年世界大赛MVP，这个时代最稳定的一垒手与最可靠的打点机器之一。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="hunter feduccia">
+            <a class="card-link" href="hunter-feduccia/hunter-feduccia-scouting-report.html" >
+                <div class="photo-wrap"><img src="hunter-feduccia/headshot.jpg" alt="Hunter Feduccia" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Hunter Feduccia</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 2 场 / 3 个打席的道奇段数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="hyeseong kim">
+            <a class="card-link" href="hyeseong-kim/hyeseong-kim-scouting-report.html" >
+                <div class="photo-wrap"><img src="hyeseong-kim/headshot.jpg" alt="Hyeseong Kim" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Hyeseong Kim</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 170 个大联盟打席的旅美元年数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="j.p. feyereisen">
+            <a class="card-link" href="jp-feyereisen/jp-feyereisen-scouting-report.html" >
+                <div class="photo-wrap"><img src="jp-feyereisen/headshot.jpg" alt="J.P. Feyereisen" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>J.P. Feyereisen</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">J.P. Feyereisen 的名字在 2025 年 11 月听起来像一句咒语——只要你还记得 2022 年那个数字：24.1 局、0 自责分、0.49 WHIP。那是现代棒球历史上最不可思议的后援赛季之一，而今年他穿着两件球衣合计 4 场、自责分率 13.50 与 9.00，在 5 月 25 日被道奇 DFA、5 月 27 日被 outright 到小联盟，赛季最后的四个月在奥克拉荷马城度过。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="jack little">
+            <a class="card-link" href="jack-little/jack-little-scouting-report.html" >
+                <div class="photo-wrap"><img src="jack-little/headshot.jpg" alt="Jack Little" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Jack Little</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">2025 年 6 月 19 日，27 岁的 Jack Little 从俄克拉荷马城被拉上洛杉矶——这是他职业生涯第一次穿上 MLB 球衣。首秀日之后他只在 7 月 5 日再被召回一次，8 月 4 日被指定让渡，8 月 6 日被匹兹堡海盗认领。两段大联盟经历合计：2 场、3 局、自责分率 6.00。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="james outman">
+            <a class="card-link" href="james-outman/james-outman-scouting-report.html" >
+                <div class="photo-wrap"><img src="james-outman/headshot.jpg" alt="James Outman" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>James Outman</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 22 场 / 44 个打席的道奇告别段数据。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="josé ureña">
+            <a class="card-link" href="jose-urena/jose-urena-scouting-report.html" >
+                <div class="photo-wrap"><img src="jose-urena/headshot.jpg" alt="José Ureña" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>José Ureña</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">José Ureña 的 2025 年是 MLB 流浪投手的吉尼斯纪录级剧本：大都会开季（1 场、15.00、1 救援成功）→ 蓝鸟（6 场）→ 道奇（6 月 3 日签约、6 月 10 日被 DFA、6 月 13 日选择自由球员——整整七天）→ 双城（4 场、3 场先发）→ 天使（6 场）。一年五队，六件球衣。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="julian fernández">
+            <a class="card-link" href="julian-fernandez/julian-fernandez-scouting-report.html" >
+                <div class="photo-wrap"><img src="julian-fernandez/headshot.jpg" alt="Julian Fernández" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Julian Fernández</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Julián Fernández 的 2025 年只有 10 场大联盟出赛，却浓缩了一部完整的体育电影：1 月 6 日与道奇签下小联盟合约（三年手术后的第一张合约）→ 7 月 7 日选入大联盟 → 一场 2 局 → 8 月 15 日被 DFA → 8 月 17 日被国民认领 → 在华盛顿拿下生涯首胜。从博卡奇卡到库尔斯再到道奇与国民，29 岁的他今年投的每一局都是"第二次人生"的注脚。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="justin dean">
+            <a class="card-link" href="justin-dean/justin-dean-scouting-report.html" >
+                <div class="photo-wrap"><img src="justin-dean/headshot.jpg" alt="Justin Dean" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Justin Dean</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">⚠️ 小样本警告：本报告基于 18 场出赛、但仅 2 个打席的数据——他 2025 年的价值几乎全部写在守备栏和跑垒栏里。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="max muncy">
+            <a class="card-link" href="max-muncy/max-muncy-scouting-report.html" >
+                <div class="photo-wrap"><img src="max-muncy/headshot.jpg" alt="Max Muncy" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Max Muncy</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Max Muncy 的 2025 年可以用一句话概括：只要他在场上，他就是联盟最好的三垒打者之一——问题是这一年他只有 100 场在场上。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="michael conforto">
+            <a class="card-link" href="michael-conforto/michael-conforto-scouting-report.html" >
+                <div class="photo-wrap"><img src="michael-conforto/headshot.jpg" alt="Michael Conforto" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Michael Conforto</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Michael Conforto 的 2025 年是「期望值」与「现实」差距最大的道奇故事之一。这份一年合约原本被寄望为左打轮值的即插即用火力，最终交出的却是.199/.305/.333、OPS .638的生涯最差率值赛季。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="miguel rojas">
+            <a class="card-link" href="miguel-rojas/miguel-rojas-scouting-report.html" >
+                <div class="photo-wrap"><img src="miguel-rojas/headshot.jpg" alt="Miguel Rojas" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Miguel Rojas</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Miguel Rojas 的 2025 年是一部好莱坞剧本：常规赛他是道奇的更衣室心脏——746 个守备局只犯 4 次错误，代打 14 打席 1.252 OPS 含一支代打全垒打，还在 4 场比赛里客串投手（最后 2 局无失分）。然后是世界大赛第 7 场，他把整个季后赛仅有的一发全垒打（387 英尺）留在了最重要的那个夜晚。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="mookie betts">
+            <a class="card-link" href="mookie-betts/mookie-betts-scouting-report.html" >
+                <div class="photo-wrap"><img src="mookie-betts/headshot.jpg" alt="Mookie Betts" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Mookie Betts</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Mookie Betts 是当今大联盟最全面的球员之一，2018年美联MVP得主，以精英级打击、顶级守备与超高棒球智商著称。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="noah davis">
+            <a class="card-link" href="noah-davis/noah-davis-scouting-report.html" >
+                <div class="photo-wrap"><img src="noah-davis/headshot.jpg" alt="Noah Davis" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Noah Davis</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Noah Davis 的 2025 年很短，也很残酷：3 月 27 日道奇用现金从红袜把他买来，6 月被叫上大联盟——5 场出赛、自责分率 19.50、WHIP 2.50，7 月 5 日被下放，7 月 11 日被指定让渡，7 月 14 日被送到双城；在明尼苏达再投 4 场 16.20 之后，他的 2025 年提前落幕。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="paul gervase">
+            <a class="card-link" href="paul-gervase/paul-gervase-scouting-report.html" >
+                <div class="photo-wrap"><img src="paul-gervase/headshot.jpg" alt="Paul Gervase" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Paul Gervase</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Paul Gervase 进大联盟的第一年就被写进了两条历史：6 月 21 日他以光芒投手身份完成 MLB 首秀，成为大联盟现役最高的投手（6'10"，史上最高纪录是 6'11" 的 Jon Rauch）；7 月 31 日，他被交易到刚刚卫冕在即的洛杉矶道奇——一支刚在世界大赛连冠路上狂奔的卫冕冠军牛棚。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="ryan loutos">
+            <a class="card-link" href="ryan-loutos/ryan-loutos-scouting-report.html" >
+                <div class="photo-wrap"><img src="ryan-loutos/headshot.jpg" alt="Ryan Loutos" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Ryan Loutos</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Ryan Loutos 的 2025 年是被「资产流动」定义的：5 月 1 日圣路易斯红雀把他以现金卖给道奇，5 月 16 日首次被拉上 MLB，6 月 2 日再来一次，6 月 6 日被 DFA，6 月 10 日被华盛顿国民认领——40 天内两次易主。两段道奇经历合计：2 场、3 局、自责分率 15.00。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="teoscar hernández">
+            <a class="card-link" href="teoscar-hernandez/teoscar-hernandez-scouting-report.html" >
+                <div class="photo-wrap"><img src="teoscar-hernandez/headshot.jpg" alt="Teoscar Hernández" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Teoscar Hernández</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Teoscar Hernández 是道奇过去两个赛季最划算的签约之一——连续两份一年短约，换来的是2024 年 33 轰、2025 年 25 轰 89 分打点的左外野火力。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="tommy edman">
+            <a class="card-link" href="tommy-edman/tommy-edman-scouting-report.html" >
+                <div class="photo-wrap"><img src="tommy-edman/headshot.jpg" alt="Tommy Edman" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Tommy Edman</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Tommy Edman 的 2025 赛季分裂成两半：开季前 30 场他是道奇最烫的打者之一（8 轰 24 分打点，5 轰来自前 9 场），之后右脚踝的两次伤病名单之旅（4/30-5/18、8/4-9/10）把他拖进了一条低产的漫长隧道。最终成绩单停在 .225/.274/.382、OPS .656——距 2024 年那个 NLCS MVP 赛季的进攻影响力有明显落差。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="will smith">
+            <a class="card-link" href="will-smith/will-smith-scouting-report.html" >
+                <div class="photo-wrap"><img src="will-smith/headshot.jpg" alt="Will Smith" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Will Smith</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Will Smith 刚刚打出了一个属于联盟最佳攻击型捕手的赛季：在至少 300 个打席的捕手中，他的.296 打击率与 .404 上垒率都是大联盟捕手位置的第一名，OPS .901 仅次于 Cal Raleigh 与 Hunter Goodman——他还是道奇全队的打击率王和上垒率王。</p>
+                </div>
+            </a>
+        </article>
+        
+
+        <article class="player-card " data-group="Other" data-status="RM" data-name="yoendrys gómez">
+            <a class="card-link" href="yoendrys-gomez/yoendrys-gomez-scouting-report.html" >
+                <div class="photo-wrap"><img src="yoendrys-gomez/headshot.jpg" alt="Yoendrys Gómez" loading="lazy"></div>
+                <div class="card-body">
+                    <div class="card-top">
+                        
+                        <span class="status status-minors">Minors</span>
+                    </div>
+                    <h3>Yoendrys Gómez</h3>
+                    <p class="position"></p>
+                    <p class="stat-line">Yoendrys Gómez 在道奇的停留时间短得需要用小时计：4 月 25 日从扬基 waiver 线上被认领，5 月 6 日被指定让渡，5 月 10 日再被白袜认领——15 天，3 场出赛、4.1 局、自责分率 14.54、1 次救援成功。他是 2025 年道奇牛棚名单上最短暂的过客之一。</p>
+                </div>
+            </a>
+        </article>
+        
+        </div>
+        <div class="empty-state" id="empty">No players match your filters.</div>
+    </div>
+
+    <footer>
+        Generated 2026-11-14 00:25 · Data from MLB Stats API · Headshots from MLB.com
+    </footer>
+
+    <script>
+        const search = document.getElementById('search');
+        const groupFilter = document.getElementById('group-filter');
+        const statusFilter = document.getElementById('status-filter');
+        const grid = document.getElementById('grid');
+        const empty = document.getElementById('empty');
+        const cards = Array.from(document.querySelectorAll('.player-card'));
+
+        function filter() {
+            const term = search.value.toLowerCase();
+            const group = groupFilter.value;
+            const status = statusFilter.value;
+            let visible = 0;
+
+            cards.forEach(card => {
+                const nameMatch = card.dataset.name.includes(term);
+                const groupMatch = !group || card.dataset.group === group;
+                const statusMatch = !status || card.dataset.status === status;
+                const show = nameMatch && groupMatch && statusMatch;
+                card.style.display = show ? '' : 'none';
+                if (show) visible++;
+            });
+
+            empty.style.display = visible ? 'none' : 'block';
+        }
+
+        search.addEventListener('input', filter);
+        groupFilter.addEventListener('change', filter);
+        statusFilter.addEventListener('change', filter);
+    </script>
+</body>
+</html>

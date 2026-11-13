@@ -1,0 +1,16 @@
+{
+ "player_name": "Buddy Kennedy",
+ "slug": "buddy-kennedy",
+ "prefix": "kennedy",
+ "info": {"number": "46", "position_cn": "内野手", "position": "IF"},
+ "cover": {
+  "tagline": "一年三队的内野补丁，Millville 走出的追夢人",
+  "stats": [["AVG", ".059"], ["H", 1], ["RBI", 1], ["G", 7], ["PA", 18], ["Age", 26], ["Teams", 3], ["Pos", "3B/1B"]]
+ },
+ "grades": {"Contact": 30, "Power": 35, "Discipline": 30, "Speed": 35, "Defense": 40, "Versatility": 45},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.190, 0.308, 0.381, 0.689],
+  "y2025": [0.059, 0.111, 0.059, 0.170]
+ }
+}

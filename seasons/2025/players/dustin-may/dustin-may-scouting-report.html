@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Dustin May 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Dustin May</h1>
+ <p class="subtitle">Los Angeles Dodgers #21 | 先发投手 | 右投 | 红发巨人伤后归来，单季扛下 132 局</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="may_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1997-09-06</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">28岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国德州贾斯汀</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'6" / 180 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2019-08-02 (道奇)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#21</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Big Red</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Dustin May 是道奇 2016 年选中的红发巨人，2019 年登上大联盟，2020 年随队夺得世界大赛冠军。他的大联盟生涯始终被同一条主线牵引：<span class="mvp">天赋足以统治打线，身体却一次次按下暂停键</span>。</p>
+ <p style="margin-bottom: 15px;">2025 年——手肘重建手术缺席整个 2024 赛季后的回归年——他交出 25 场出赛（23 场先发）、7 胜 11 负、4.96 自责分率的成绩单。132.1 局的投球量是生涯新高，证明手臂完全经得起轮值负荷；但 1.42 的 WHIP 与每九局 1.43 支全垒打暴露了回归年的生涩：控球还在找回来的路上，球路偏高时被惩罚得很惨。</p>
+ <p>8.37 的三振率是生涯最佳水准，横扫滑球成为真正的主战武器。对于一个两年多没有完整赛季的球员来说，这一季的关键词不是「惊艳」，而是「撑住了」——而这正是道奇轮值最需要的。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💍 2020年 - 世界大赛冠军成员（洛杉矶道奇）</h4>
+ <p>新冠疫情缩水的赛季，May 作为球队重要投手随队夺冠，收下职业生涯第一枚戒指。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2019年 - 高顺位新秀火速登大联盟</h4>
+ <p>2019 年 8 月 2 日完成大联盟首秀，此后迅速站稳轮值，以重沉伸卡与 95+ mph 速球成为球队重点培养的自家先发。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2023年 - 伤前最后的巅峰样本</h4>
+ <p>9 场先发 4 胜 1 负、2.63 自责分率、0.94 WHIP——这是他手肘出问题前最后一个完整样本，也证明了健康时他是轮值前段级别的投手。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 阔别 20 个月的回归</h4>
+ <p>从手肘重建手术中走出，单季 23 场先发、132.1 局均为生涯新高，三振率刷新个人纪录——回归本身即是胜利。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">25</span>
+ <div class="stat-label">出赛（23 先发）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.96</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.42</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">7-11</span>
+ <div class="stat-label">胜-负</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">132.1</span>
+ <div class="stat-label">局数（生涯新高）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">123</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">1.43</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">3.81</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2023 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="may_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比（2024 赛季因手肘重建手术整季缺席）</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2023</td>
+ <td>9</td>
+ <td>9</td>
+ <td>4-1</td>
+ <td>2.63</td>
+ <td>0.94</td>
+ <td>48.0</td>
+ <td>34</td>
+ <td>16</td>
+ <td>6.38</td>
+ </tr>
+ <tr>
+ <td>2025</td>
+ <td>25</td>
+ <td>23</td>
+ <td>7-11</td>
+ <td>4.96</td>
+ <td>1.42</td>
+ <td>132.1</td>
+ <td>123</td>
+ <td>56</td>
+ <td>8.37</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">两年对比呈现鲜明的「生涩回归」曲线：三振率从 6.38 跃升至 8.37（横扫滑球成熟的标志），但 WHIP 从 0.94 涨到 1.42、BB/9 从 3.00 升到 3.81——控球精度还没回到伤前水准。21 支全垒打（HR/9 1.43）是生涯最差，球数落后时的配球与进垒高度都需要重新打磨。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-a">A</span></h3>
+ <div class="velocity">均速 85.2 mph · 占比 39.3%</div>
+ <p>生涯首次成为第一球种。横向位移幅度大、进垒点跨越好球带边缘，是他制造挥空与软击的绝对主力，也让右打者吃尽苦头。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 94.5 mph · 占比 33.5%</div>
+ <p>重沉的伸卡依然是他的立身之本，均速维持 94+ mph 显示手肘恢复良好；但进垒高度一旦偏高，被轰击的概率明显上升。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 95.4 mph · 占比 16.6%</div>
+ <p>球速储备仍在，作为伸卡的陪衬抢好球数；占比下降说明他更依赖位移而非纯速。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>卡特球 (Cutter) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 91.4 mph · 占比 9.7%</div>
+ <p>对付左打者与破坏棒次的第四球种，与小球种变速球合计一成左右，功能性的存在。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">先谈耐久：132 局就是胜利</h3>
+ <p>评价 Dustin May 的 2025 年，必须先看背景：他上一次完整赛季还要追溯到 2023 年上半年。回归年投出 23 场先发、132.1 局、生涯新高，本身就意味着手肘重建完全成功。球速数据佐证了这一点——伸卡 94.5 mph、四缝线 95.4 mph，与伤前水准持平。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">三振进化与控球倒退并存</h3>
+ <p>8.37 的 K/9 是生涯最佳，横扫滑球占比冲到 39.3% 是肉眼可见的进化。但 1.42 的 WHIP 与 3.81 的 BB/9 同样是生涯最差档——简言之：他的「 Stuff 」回来了，「 Feel 」还在路上。7 胜 11 负的败投数很大程度源于球数领先时的进垒不精细，以及被逆转局偏多。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">全垒打隐忧</h3>
+ <p>21 支全垒打、HR/9 1.43 为生涯最差。飞球比例偏高（飞出局 134 对滚出局 127）加上球路偏高，让他在失误球上付出了惨重代价。这是回归年最常见的「找回配球感觉」问题，但若不改善，轮值位置会在竞争中变得危险。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>单季 132.1 局，术后耐久度完全过关</li>
+ <li>K/9 8.37 生涯最佳，横扫滑球成为主战武器</li>
+ <li>伸卡 94.5 / 四缝线 95.4 mph，球速储备依旧</li>
+ <li>2023 年健康样本证明上限是轮值前段</li>
+ <li>夺冠赛季老兵，季后赛经验虽浅但大场面不怯场</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>WHIP 1.42 / BB/9 3.81，控球精度生涯最差档</li>
+ <li>HR/9 1.43，球路偏高时被长打惩罚严重</li>
+ <li>7-11 战绩，领先局面守成能力不足</li>
+ <li>两年伤病史，耐久度仍需第二个完整赛季验证</li>
+ <li>未入选 2025 季后赛名单，信任度受损</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="may_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Sinker</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">60</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Command</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Health</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">伤后回归的轮值竞争人</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 轮值后段</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">May 未入选季后赛名单。常规赛末段他仍在轮值中轮替，但教练组最终在长中继与第五先发之间选择了更稳定的选项。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>缺席季后赛是他 2025 年最大的遗憾——2020 年他曾是冠军轮值一员，这次只能在牛棚棚顶为队友加油</li>
+ <li>对 29 岁的他而言，这是一次明确的信号：2026 年春天，轮值位置的竞争将空前激烈</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Dustin May 的 2026 年取决于两件事：控球能找回几成，以及全垒打数据能否回落。他的球速与三振能力都证明「 Stuff 」仍在轮值水准之上，如果 BB/9 回到 3.0 以下、HR/9 压回 1.0 附近，他完全有机会重新成为 3 号先发级别的投手。反之，若开季重蹈 4 月的覆辙，牛棚化将是不得不面对的选项。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>控球回归 + 滑球延续进化，竞争轮值第 3-4 号位置</p>
+ <p><strong>现实基准：</strong>第 5 先发与长中继之间的摇摆人，局数 130-150</p>
+ <p><strong>下滑风险：</strong>若 WHIP 持续高于 1.40，可能被迫转型牛棚</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>连续两年以上伤病史，任何不适都会被放大检视</li>
+ <li>HR/9 1.43 若不改善，在任何球场都是定时炸弹</li>
+ <li>道奇轮 depth 深厚，他的容错空间不大</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Dustin May 出生于德州贾斯汀——一个连名字都像是为德州人准备的小镇。他标志性的火红卷发从高中时期就是他的注册商标，「Big Red」的绰号跟随他一路从德州业余联赛走进道奇农场。</p>
+ <p>2016 年选秀第三轮，道奇将这个瘦高的红发右投带回洛杉矶。他以惊人的速度攀升：2019 年 8 月 2 日完成大联盟首秀，同年就登上季后赛舞台；2020 年随队夺得世界大赛冠军，那枚戒指是他职业生涯迄今最高的顶点。</p>
+ <p>然而手肘伤势在 2023 年缠上了他。手肘重建手术（Tommy John）让他错过整个 2024 赛季，也让「伤前那个 2.63 自责分率的 May」成为道奇球迷反复追忆的幻影。2025 年他回来了——不再是天才新秀，而是一个必须重新证明自己的 28 岁老将。132.1 局，是他给出的第一个答案。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 术后回归年，轮值竞争人</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Yoendrys Gómez 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Yoendrys Gómez</h1>
+ <p class="subtitle">Los Angeles Dodgers #94 | 后援投手 | 右投 | 四月中转站的 4.1 局，七球种速度与失控并存</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="gomez_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1999-10-15</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">委内瑞拉尼尔瓜</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 212 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2023-09-28</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">94</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Yoendrys Gómez 在道奇的停留时间短得需要用小时计：4 月 25 日从扬基 waiver 线上被认领，5 月 6 日被指定让渡，5 月 10 日再被白袜认领——15 天，3 场出赛、<span class="mvp">4.1 局、自责分率 14.54</span>、1 次救援成功。他是 2025 年道奇牛棚名单上最短暂的过客之一。</p>
+ <p style="margin-bottom: 15px;">但这 4.1 局里有一颗值得记录的投手：6 次三振（K/9 12.46）、七球种武器库（速球、伸卡、横扫滑、曲球、变速、卡特、滑球）、26 岁的身体——速度全面在线，控制全面缺席（10 支安打、2 支全垒打挤进 4.1 局）。这是典型的「高 stuff 未开发」样本：白袜认领他后立刻让他先发 9 场，正是看中了同一样东西。</p>
+ <p>从 2025 年 11 月的视角看，Gómez 的 2025 年反而可以算作成功：从扬基的 waiver 线到白袜的先发轮值，他用四个月完成了从「弃将」到「被认真对待的投手」的跨越。对一位 26 岁的委内瑞拉火球手来说，芝加哥的 48.1 局比洛杉矶的 4.1 局重要得多——但他仍然需要证明，自己的控球能追上自己的球速。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2023年 - 大联盟首秀</h4>
+ <p>9 月 28 日在扬基登上大联盟，首秀 2 局零失分 4 三振——只用一场比赛就让纽约记住了这颗来自委内瑞拉的速球。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 白袜给的先发机会</h4>
+ <p>5 月 10 日被白袜认领后，他单季先发出赛 9 场、投 48.1 局、47 次三振——从 waiver 弃将到 MLB 先发，只用了三周。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-04-25 自扬基 waiver 认领、2025-05-06 被指定让渡）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">14.54</span>
+ <div class="stat-label">自责分率（4.1 局样本）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">2.77</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">12.46</span>
+ <div class="stat-label">K/9（6 K / 4.1 IP）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">1</span>
+ <div class="stat-label">救援成功（1/1）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.1</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">6</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">26</span>
+ <div class="stat-label">年龄</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（扬基）vs 2025（道奇）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="gomez_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>阶段</th><th>球队</th><th>G</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>NYY</td>
+ <td>5</td>
+ <td>3.97</td>
+ <td>1.59</td>
+ <td>11.1</td>
+ <td>10</td>
+ <td>7</td>
+ </tr>
+ <tr>
+ <td>2025（扬基段）</td>
+ <td>NYY</td>
+ <td>6</td>
+ <td>2.70</td>
+ <td>1.40</td>
+ <td>10.0</td>
+ <td>5</td>
+ <td>9</td>
+ </tr>
+ <tr>
+ <td>2025（道奇段）</td>
+ <td>LAD</td>
+ <td>3</td>
+ <td>14.54</td>
+ <td>2.77</td>
+ <td>4.1</td>
+ <td>6</td>
+ <td>2</td>
+ </tr>
+ <tr>
+ <td>2025（白袜段）</td>
+ <td>CWS</td>
+ <td>12</td>
+ <td>4.84</td>
+ <td>1.26</td>
+ <td>48.1</td>
+ <td>47</td>
+ <td>16</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">4.1 局的道奇段是全年曲线的谷底而非趋势：前后两段（扬基 2.70、白袜 4.84）说明他的真实水平在两者之间。道奇段的爆炸由 2 支全垒打和 10 支安打构成——样本小到任何一次坏运气都能写成灾难。真正值得注意的趋势是他的角色跃迁：扬基时期他是纯后援，白袜直接让他先发 9 场——7 球种库+速球底子，球队看到的想象力和即战力一样多。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，全季三队汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 93.8 mph · 占比 33.5%</div>
+ <p>使用率第一的速球底子，进垒角度佳；先发出赛时承担吃局数任务。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 93.2 mph · 占比 19.3%</div>
+ <p>沉球版本，诱导滚地球，与四缝线形成同速差的二元速球。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 82.2 mph · 占比 17.0%</div>
+ <p>主要三振武器，横移幅度可观。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>曲球 (Curveball) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 80.8 mph · 占比 14.4%</div>
+ <p>垂直变化球，改变打者视线的第四选项。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 89.3 mph · 占比 7.6%</div>
+ <p>对付左打的变速，速差 4.5 mph 略小，仍在打磨。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>卡特/滑球 (Cutter/Slider) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">90.3 / 86.8 mph · 合计 8.2%</div>
+ <p>零星使用的过渡与追杀球种——七球种结构的尾部。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">waiver 线上的加速度</h3>
+ <p>Gómez 的 2025 年 5 月可以被写成一部「waiver 线生态」纪录片：4 月 25 日被道奇认领，5 月 6 日被 DFA，5 月 10 日被白袜认领——12 天内两次改变球队。这种频率对多数球员是羞辱，对他却是曝光：白袜认领后立刻给他 9 场先发，这是任何球探报告都换不来的展示机会。他用 48.1 局 47 三振回应了这份信任。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">七球种是武器还是负担</h3>
+ <p>七球种对先发投手是奢侈，对控球不稳的 26 岁投手可能是噪音。Gómez 的 BB/9 全年在 4-8 之间波动，说明他的问题与 Noah Davis 类似：球种太多，每一颗的进垒精度都不够。先发化的 2025 下半场给了答案的一半——他的 WHIP 降到 1.26；但 9 轰也说明，把球放进好球带的代价是被打者更从容地选择攻击球种。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">26 岁的窗口</h3>
+ <p>从 11 月的视角看，Gómez 手中有的是时间（26 岁）、球速（93.8）和想象力（七球种），缺的是一处能让他连续投 100 局的稳定环境。白袜的重建牛棚恰好是这种环境——如果 2026 年他能把 BB/9 压到 3.5 以下，这份 14.54 的道奇段数据将只是一段趣闻；如果不能， waiver 线还会再次见到他。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>K/9 12.46，三振能力在小样本里清晰可见</li>
+ <li>七球种武器库，先发/后援双栖模板</li>
+ <li>26 岁，速度与调整空间都在</li>
+ <li>白袜先发化的成功先例</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>道奇段 4.1 局 14.54，控球与触球同时失守</li>
+ <li>BB/9 全年波动在 4-8，进垒精度不稳定</li>
+ <li>三队辗转，无连续开发环境</li>
+ <li>MLB 生涯仅 40 局，样本极小</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="gomez_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Durability</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">七球种毛坯，速度已到货、精度在路上</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">C+ 级 / 开发中的双栖投手</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Gómez 与这条夺冠路无关——5 月 6 日他已被 DFA，5 月 10 日穿上白袜球衣。他的 2025 年下半场在芝加哥南部度过，与十月的洛杉矶相隔 2000 英里和一整条 waiver 线。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段 3 场 4.1 局 14.54，含 1 次救援成功</li>
+ <li>5 月 10 日被白袜认领，转型先发投出 9 场</li>
+ <li>全年三队辗转（扬基→道奇→白袜），是 waiver 经济活的样本</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Gómez 的 2026 年从白袜的先发/长中继竞争开始：他需要把 48.1 局的先发答卷变成 100+ 局的稳定产出，并把 BB/9 钉在 4 以下。做到了，他会从「waiver 线常客」变成「球队计划的一部分」——这在重建期的芝加哥并非奢望。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>锁定白袜轮值末段，投出 120 局</p>
+ <p><strong>现实基准：</strong>先发与长中继之间的摇摆臂</p>
+ <p><strong>上行惊喜：</strong>控球跃升后进入年轻轮值核心的讨论</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>控球若不改善，先发化会被打者反向利用</li>
+ <li>三队辗转的心理与机制连续性风险</li>
+ <li>重建球队的耐心同样有限，2026 中期可能是最后窗口</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Yoendrys Gómez 来自委内瑞拉的尼尔瓜，在扬基的国际球员体系中成长，2019 年签下职业合约后在农场里一步步爬升。2023 年 9 月 28 日，他在纽约完成大联盟首秀——2 局零失分 4 三振，一个堪称完美的开场。</p>
+ <p>但扬基的牛棚竞争是 MLB 最残酷的，2024-25 两个赛季他只为纽约投了 21 局。2025 年 4 月 25 日，他被道奇认领——15 天后被 DFA，再 4 天后被白袜认领。对多数人来说这是漂泊的耻辱；对 Gómez 来说，这是他在芝加哥获得 9 场先发机会的入场券。</p>
+ <p>2025 年 11 月的 Yoendrys Gómez 用全年 62.2 局、三队球衣和 58 次三振写下了一部「waiver 线生存指南」。他的下一站是白袜的春训——而这一次，他希望是最后一次搬家。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 七球种毛坯，速度已到货、精度在路上</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

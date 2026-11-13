@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tyler Glasnow 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Tyler Glasnow</h1>
+ <p class="subtitle">Los Angeles Dodgers #31 | 先发投手 | 右投左打 | 伤愈归来的 6-8 长颈鹿，三振依旧精英</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="glasnow_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1993-08-23</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">32岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国加州纽霍尔</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'8" / 225 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2016-07-07 (海盗)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#31</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">Baby Giraffe</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Tyler Glasnow 是现役身材最吓人的先发投手之一：6 尺 8 寸的身高配上 95+ mph 的上旋速球与落差惊人的曲球，<span class="mvp">当健康时，他是联盟三振能力最强的轮值投手之一</span>。生涯 1050 次三振、10.9 的生涯 K/9，数据背后是「可惜了」三个字——如果能完整投一个赛季，他会是什么样子？</p>
+ <p style="margin-bottom: 15px;">2025 年他又没能给出完整答案：18 场先发、90.1 局、4 胜 3 负、3.19 自责分率、1.10 WHIP。数据无可挑剔——ERA 比 2024 年更低，每局三振 10.56 依旧 elite——但出赛数再度因伤缩水。6 月他因右肘不适进入伤病名单，虽然避免了韧带重建手术，但赛季第二次复发让教练组在九月直接关掉了他的先发轮值。</p>
+ <p>然后到了季后赛，道奇做出了一个大胆的决定：把他移进牛棚。结果是——12 场出赛、21.1 局、1.69 自责分率、25 次三振、1 次救援成功，成为冠军之路上最不可思议的隐藏武器。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2016年 - 高顺位天才登陆大联盟</h4>
+ <p>2011 年选秀第二轮被海盗选中，2016 年 7 月完成大联盟首秀，6-8 的长颈鹿体型从第一天就成为话题。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2018年 - 重磅交易来到道奇</h4>
+ <p>在涉及 Chris Archer 的重磅交易中从光芒转投道奇（从海盗到光芒再到道奇的旅程），在道奇球探体系下逐步兑现天赋。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2024年 - 道奇首个完整轮值赛季</h4>
+ <p>9 胜 6 负、3.49 自责分率、0.95 WHIP——他职业生涯投得最久也最稳的一个赛季，证明健康版 Glasnow 就是轮值前段。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💍 2025年 - 冠军之路上的牛棚奇兵</h4>
+ <p>季后赛 12 场出赛仅失 4 分自责分（1.69 ERA），25 次三振、1 次救援成功，以 multi-inning 后援身份捧起世界大赛冠军奖杯。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">18</span>
+ <div class="stat-label">出赛（全部先发）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.19</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.10</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4-3</span>
+ <div class="stat-label">胜-负</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">90.1</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">106</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">10.56</span>
+ <div class="stat-label">K/9（轮值第一）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">4.28</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="glasnow_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>22</td>
+ <td>22</td>
+ <td>9-6</td>
+ <td>3.49</td>
+ <td>0.95</td>
+ <td>134.0</td>
+ <td>168</td>
+ <td>35</td>
+ <td>11.28</td>
+ </tr>
+ <tr>
+ <td>2025</td>
+ <td>18</td>
+ <td>18</td>
+ <td>4-3</td>
+ <td>3.19</td>
+ <td>1.10</td>
+ <td>90.1</td>
+ <td>106</td>
+ <td>43</td>
+ <td>10.56</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">ERA 再降 0.30，但样本从 134 局缩水到 90.1 局——这就是 Glasnow 故事的永恒主题。值得注意的变化在 BB/9：2.35 飙到 4.28，肘部不适让他难以稳定重复出手动作，球数落后局明显增加。三振率小幅回落（11.28→10.56）仍居轮值第一，「 Stuff 」从未离开，离开的总是「 Innings 」。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-a">A</span></h3>
+ <div class="velocity">均速 95.7 mph · 占比 36.3%</div>
+ <p>6-8 身高带来的俯视出手角度让 95+ mph 的速球看起来更快，上旋效率顶级，是他抢好球数与两好球后追杀的基石。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>曲球 (Curveball) <span class="grade grade-a">A+</span></h3>
+ <div class="velocity">均速 82.0 mph · 占比 21.9%</div>
+ <p>招牌武器。落差与横向位移兼具，进垒点变化极大，打者哪怕读到出手也常常只能目送——他生涯三振率能站上 elite 的最大功臣。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-a">A-</span></h3>
+ <div class="velocity">均速 89.3 mph · 占比 22.1%</div>
+ <p>89 mph 的滑球几乎是「速球变速」的概念，硬度极高，主要用来对付右打者、填补曲球与速球之间的速差空档。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 96.0 mph · 占比 19.7%</div>
+ <p>2025 年新增的配球元素，95.7→96.0 的均速让他在速球系内部也能制造位移变化，对付左打者的内角武器。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">精英三振投手的低阶进化</h3>
+ <p>Glasnow 的 2025 是「数据上更好、叙事上更焦虑」的一季。3.19 ERA 创道奇生涯新低，HR/9 1.00 保持在可控区间，56 支被安打分布在 90.1 局中（场均仅 5.6 支）显示打者很难摸到他。但 BB/9 从 2.35 涨到 4.28——不是配球选择变了，而是肘部隐患让手指对球的掌控力打折，坏球被迫变多。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">季后赛的奇思妙想</h3>
+ <p>教练组把他移进牛棚是一步妙棋：短局数掩盖了耐久问题，他的 Stuff 在 1-2 局的高强度释放下几乎无解。12 场出赛 25 次三振、被打击率仅 .197，1.69 的季后赛自责分率是他职业生涯最重要的 21.1 局。这也给未来提供了一个有趣的模板——如果健康始终无法支撑 180 局，「精英 multi-inning 武器」可能是延长生涯的最优解。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">风险与回报的天平</h3>
+ <p>生涯 828 局、1050 次三振、10.9 K/9 的数据是赛扬级别的；但 33 岁的他从未单季突破 135 局。2025 年两次进入伤病名单、九月提前关机的现实提醒我们：他的每一季都是「能投多久」的赌局。好消息是季后赛证明了即使只有 80% 的他，依然是冠军拼图。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>K/9 10.56 轮值第一，Stuff 联盟顶级</li>
+ <li>3.19 ERA 创道奇生涯新低，压制力依旧</li>
+ <li>四球种齐备（FF/CU/SL/SI），配球无死角</li>
+ <li>季后赛牛棚转型完美（1.69 ERA / 25K）</li>
+ <li>32 岁仍保持 95-96 mph 球速</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>单季 90.1 局，耐久度依旧是最大问号</li>
+ <li>BB/9 4.28 翻倍，控球精度明显退化</li>
+ <li>右肘两次伤病名单，九月提前关机</li>
+ <li>先发轮值角色在 2026 年存疑</li>
+ <li>33 岁，巅峰窗口正在收窄</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="glasnow_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">75</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">70</span>
+ <div class="stat-label">Curve</div>
+ <span class="grade grade-a">A+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">50</span>
+ <div class="stat-label">Command</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">75</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-a">A</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Health</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">62</div>
+ <p style="color: #90a4ae; margin-top: 10px;">三振精英，健康是唯一变数</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B+ 级 / 轮值前段（健康时）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>G</th><th>GS</th><th>IP</th><th>ERA</th><th>WHIP</th><th>SO</th><th>BB</th><th>SV</th><th>HLD</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>12</td><td>0</td><td>21.1</td><td class="highlight">1.69</td><td>1.22</td><td>25</td><td>11</td><td>1</td><td>1</td>
+ </tr>
+ </tbody>
+ </table>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>从先发转任 multi-inning 后援是教练组季后赛最大胆也最成功的调动——12 场出赛是全队最多</li>
+ <li>被打击率仅 .197（15/76），25 次三振对 88 个打席，三振率接近三成</li>
+ <li>唯一的 blemish 是保送偏多（11 次），但关键局面总能用三振化解</li>
+ <li>冠军游行上他举起了职业生涯第一座世界大赛奖杯——10 年大联盟旅程的最好句点（或新起点）</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tyler Glasnow 的 2026 年只有一个问题：先发还是牛棚？从季后赛的样本看，1-2 局的 Glasnow 是无解的；但如果肘部检查通过，道奇仍会想把他放回轮值——毕竟健康的他是联盟前十的先发。最可能的剧本是「轮值为主、季后赛随时转牛棚」的混合模式，这也可能是延长他生涯寿命的最优解。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>健康投满 140+ 局，回到赛扬讨论圈</p>
+ <p><strong>现实基准：</strong>100-120 局轮值 + 季后赛牛棚，保持 elite 三振率</p>
+ <p><strong>转型选项：</strong>若耐久度持续不达标，专职 multi-inning 后援也能拿高薪</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>右肘伤病史沉重，任何复发都可能直接改变生涯轨迹</li>
+ <li>BB/9 4.28 若不回落，局数会被配球效率进一步压缩</li>
+ <li>33 岁的恢复速度不如从前，伤病名单停留时间可能变长</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tyler Glasnow 出生于加州纽霍尔，高中时期就是选秀圈瞩目的高个子右投。2011 年选秀第二轮被匹兹堡海盗选中，从此开始了他的「天赋兑现长跑」——这条路上有令人窒息的三振表演，也有反复的伤病挫折。</p>
+ <p>2018 年他被交易到坦帕湾光芒，在光芒投手培养体系下 K/9 一度飙到 13 以上，成为美联最令人胆寒的三振机器之一；此后在一笔涉及 Chris Archer 的大交易中来到洛杉矶道奇。在道奇，他第一次感受到了「完整赛季」的滋味——2024 年 134 局、168 次三振是他生涯最稳的一年。</p>
+ <p>6-8 的身高带来不可思议的出手点，也带来了比常人更复杂的投球力学——他的每一次伤病都会被归因于「身体太大、零件太多」。「Baby Giraffe」的绰号既是玩笑也是隐喻：优雅的巨人，总是走得太小心。2025 年的冠军戒指，是他 10 年坚持的最好补偿。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 季后赛牛棚奇兵，冠军成员</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

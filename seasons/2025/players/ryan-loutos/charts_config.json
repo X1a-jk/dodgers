@@ -1,0 +1,19 @@
+{
+ "player_name": "Ryan Loutos",
+ "slug": "ryan-loutos",
+ "prefix": "loutos",
+ "info": {"number": "65", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "被现金交易与 waiver 认领定义的一年，95 mph 火球找不到出口",
+  "stats": [["ERA", "15.00"], ["WHIP", "2.00"], ["K", 2], ["G", 2], ["IP", "3.0"], ["Age", 26]]
+ },
+ "grades": {"Fastball": 60, "Slider": 50, "Changeup": 50, "Control": 35, "Strikeout": 45, "Composure": 35},
+ "comparison_p": {
+  "labels": ["2024红雀", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [0.0, 0.7, 0.0, 2.0, 0.0],
+  "high": [16.0, 2.4, 9.0, 8.0, 4.0],
+  "y2024": [0.00, 1.29, 0.00, 3.86, 0.00],
+  "y2025": [15.00, 2.00, 6.00, 6.00, 3.00]
+ }
+}

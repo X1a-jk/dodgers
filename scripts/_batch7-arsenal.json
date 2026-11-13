@@ -1,0 +1,188 @@
+{
+ "justin-wrobleski": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 312,
+   "pct": 28.6,
+   "avgSpeed": 96.0
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 271,
+   "pct": 24.8,
+   "avgSpeed": 87.8
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 225,
+   "pct": 20.6,
+   "avgSpeed": 95.0
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 154,
+   "pct": 14.1,
+   "avgSpeed": 92.1
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 94,
+   "pct": 8.6,
+   "avgSpeed": 81.4
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 36,
+   "pct": 3.3,
+   "avgSpeed": 88.1
+  }
+ ],
+ "kirby-yates": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 440,
+   "pct": 57.7,
+   "avgSpeed": 92.8
+  },
+  {
+   "code": "FS",
+   "desc": "Splitter",
+   "cn": "快速指叉球",
+   "count": 322,
+   "pct": 42.3,
+   "avgSpeed": 85.9
+  }
+ ],
+ "roki-sasaki": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 310,
+   "pct": 49.9,
+   "avgSpeed": 96.1
+  },
+  {
+   "code": "FO",
+   "desc": "Forkball",
+   "cn": "分叉快速球",
+   "count": 208,
+   "pct": 33.5,
+   "avgSpeed": 84.9
+  },
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 101,
+   "pct": 16.3,
+   "avgSpeed": 82.0
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 2,
+   "pct": 0.3,
+   "avgSpeed": 98.7
+  }
+ ],
+ "tony-gonsolin": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 245,
+   "pct": 40.2,
+   "avgSpeed": 93.5
+  },
+  {
+   "code": "FS",
+   "desc": "Splitter",
+   "cn": "快速指叉球",
+   "count": 163,
+   "pct": 26.8,
+   "avgSpeed": 84.2
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 103,
+   "pct": 16.9,
+   "avgSpeed": 81.7
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 98,
+   "pct": 16.1,
+   "avgSpeed": 88.1
+  }
+ ],
+ "matt-sauer": [
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 163,
+   "pct": 31.8,
+   "avgSpeed": 89.9
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 112,
+   "pct": 21.9,
+   "avgSpeed": 94.2
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 96,
+   "pct": 18.8,
+   "avgSpeed": 83.8
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 90,
+   "pct": 17.6,
+   "avgSpeed": 94.3
+  },
+  {
+   "code": "FS",
+   "desc": "Splitter",
+   "cn": "快速指叉球",
+   "count": 46,
+   "pct": 9.0,
+   "avgSpeed": 87.3
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 5,
+   "pct": 1.0,
+   "avgSpeed": 82.2
+  }
+ ]
+}

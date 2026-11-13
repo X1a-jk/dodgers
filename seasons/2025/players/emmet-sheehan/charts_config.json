@@ -1,0 +1,19 @@
+{
+ "player_name": "Emmet Sheehan",
+ "slug": "emmet-sheehan",
+ "prefix": "sheehan",
+ "info": {"number": "80", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "伤愈归来的纽约本地男孩，三振率轮值第一",
+  "stats": [["ERA", "2.82"], ["WHIP", "0.97"], ["K", 89], ["IP", "73.1"], ["W-L", "6-3"], ["K/9", "10.92"], ["BB/9", "2.70"], ["Age", 25]]
+ },
+ "grades": {"Fastball": 65, "Slider": 60, "Changeup": 55, "Curve": 50, "Control": 60, "Command": 60, "Strikeout": 65},
+ "comparison_p": {
+  "labels": ["2023", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 11.0, 6.0, 7.0],
+  "y2024": [4.92, 1.19, 9.55, 3.88, 5.5],
+  "y2025": [2.82, 0.97, 10.92, 2.70, 6.1]
+ }
+}

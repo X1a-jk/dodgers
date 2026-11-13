@@ -1,0 +1,19 @@
+{
+ "player_name": "Justin Wrobleski",
+ "slug": "justin-wrobleski",
+ "prefix": "wrobleski",
+ "info": {"number": "70", "position_cn": "投手（长中继/摇摆人）", "position": "P"},
+ "cover": {
+  "tagline": "K/BB 4.47 的六球种摇摆人，季后赛零失分",
+  "stats": [["ERA", "4.32"], ["WHIP", "1.23"], ["K", 76], ["IP", "66.2"], ["K/9", "10.26"], ["BB/9", "2.30"], ["W-L", "5-5"], ["Age", 25]]
+ },
+ "grades": {"Fastball": 60, "Slider": 60, "Sinker": 55, "Cutter": 55, "Curve": 50, "Control": 60},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.0],
+  "high": [7.0, 1.8, 12.0, 5.0, 3.0],
+  "y2024": [5.70, 1.38, 6.44, 3.96, 2.23],
+  "y2025": [4.32, 1.23, 10.26, 2.30, 0.81]
+ }
+}

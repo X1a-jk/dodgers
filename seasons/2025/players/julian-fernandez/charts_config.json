@@ -1,0 +1,19 @@
+{
+ "player_name": "Julián Fernández",
+ "slug": "julian-fernandez",
+ "prefix": "fernandez",
+ "info": {"number": "62", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "三年手术之后，97 哩的第二次人生",
+  "stats": [["ERA", "9.00"], ["WHIP", "1.50"], ["K", 1], ["G", 1], ["IP", "2.0"], ["Age", 29], ["FB", "97.4"], ["Teams", 2]]
+ },
+ "grades": {"Fastball": 65, "Changeup": 55, "Control": 40, "Durability": 30, "Composure": 45, "Deception": 50},
+ "comparison_p": {
+  "labels": ["2025道奇", "2025国民"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.5, 3.0, 2.0, 2.0],
+  "high": [10.0, 1.7, 13.0, 5.0, 5.0],
+  "y2024": [9.00, 1.50, 4.50, 4.50, 4.50],
+  "y2025": [3.00, 0.67, 12.00, 3.00, 3.00]
+ }
+}

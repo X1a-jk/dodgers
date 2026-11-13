@@ -1,0 +1,19 @@
+{
+ "player_name": "Dustin May",
+ "slug": "dustin-may",
+ "prefix": "may",
+ "info": {"number": "21", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "红发巨人伤后归来，单季扛下 132 局",
+  "stats": [["ERA", "4.96"], ["WHIP", "1.42"], ["K", 123], ["IP", "132.1"], ["W-L", "7-11"], ["K/9", "8.37"], ["BB/9", "3.81"], ["Age", 28]]
+ },
+ "grades": {"Sinker": 55, "Sweeper": 60, "Fastball": 55, "Control": 45, "Command": 40, "Strikeout": 55, "Health": 45},
+ "comparison_p": {
+  "labels": ["2023", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 11.0, 6.0, 7.0],
+  "y2024": [2.63, 0.94, 6.38, 3.00, 5.3],
+  "y2025": [4.96, 1.42, 8.37, 3.81, 5.7]
+ }
+}

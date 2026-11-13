@@ -853,7 +853,8 @@
     }
   ],
   "years": [
-    "2026"
+    "2026",
+    "2025"
   ],
   "currentSeason": "2026",
   "reportEditions": [
@@ -868,7 +869,11 @@
     {
       "label": "2026 常规赛版",
       "path": "seasons/2026/players-regular/index.html"
+    },
+    {
+      "label": "2025 赛季总结版",
+      "path": "seasons/2025/players/index.html"
     }
   ],
-  "generatedAt": "2026-10-31T22:56:21.343642"
+  "generatedAt": "2026-11-14T00:26:22.163243"
 }

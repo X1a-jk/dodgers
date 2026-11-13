@@ -1,0 +1,19 @@
+{
+ "player_name": "Anthony Banda",
+ "slug": "anthony-banda",
+ "prefix": "banda",
+ "info": {"number": "43", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "71 场出赛全队之最，牛棚里的漂泊老兵",
+  "stats": [["ERA", "3.18"], ["WHIP", "1.22"], ["G", 71], ["IP", "65.0"], ["K", 61], ["HLD", 12], ["W-L", "5-1"], ["Age", 32]]
+ },
+ "grades": {"Fastball": 60, "Sinker": 55, "Slider": 65, "Control": 45, "Versatility": 55, "Strikeout": 50},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/G"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.5],
+  "high": [6.0, 1.8, 13.0, 6.0, 3.5],
+  "y2024": [3.08, 1.25, 9.06, 3.26, 1.0],
+  "y2025": [3.18, 1.22, 8.45, 4.71, 0.9]
+ }
+}

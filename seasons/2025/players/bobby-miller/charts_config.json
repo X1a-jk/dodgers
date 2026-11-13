@@ -1,0 +1,19 @@
+{
+ "player_name": "Bobby Miller",
+ "slug": "bobby-miller",
+ "prefix": "miller",
+ "info": {"number": "28", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "首轮大物的至暗时刻，26 岁从 3A 重新出发",
+  "stats": [["ERA", "12.60"], ["WHIP", "2.60"], ["K", 7], ["G", 2], ["IP", "5.0"], ["K/9", 12.60], ["Age", 26]]
+ },
+ "grades": {"Fastball": 65, "Sinker": 55, "Curveball": 55, "Changeup": 50, "Slider": 45, "Control": 40, "Composure": 40},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 6.0, 2.0, 0.0],
+  "high": [14.0, 2.8, 14.0, 6.0, 4.0],
+  "y2024": [8.52, 1.77, 8.36, 4.82, 2.73],
+  "y2025": [12.60, 2.60, 12.60, 3.60, 3.60]
+ }
+}

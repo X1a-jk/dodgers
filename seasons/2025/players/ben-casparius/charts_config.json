@@ -1,0 +1,19 @@
+{
+ "player_name": "Ben Casparius",
+ "slug": "ben-casparius",
+ "prefix": "casparius",
+ "info": {"number": "78", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "瑞士军刀型右投，46 场全角度覆盖",
+  "stats": [["ERA", "4.64"], ["WHIP", "1.27"], ["K", 71], ["IP", "77.2"], ["G", 46], ["HLD", 13], ["SV", 2], ["Age", 26]]
+ },
+ "grades": {"Fastball": 60, "Sweeper": 60, "Cutter": 55, "Curve": 50, "Control": 55, "Versatility": 65, "Strikeout": 55},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/G"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.5],
+  "high": [6.0, 1.8, 13.0, 6.0, 3.5],
+  "y2024": [2.16, 1.56, 12.96, 4.32, 2.8],
+  "y2025": [4.64, 1.27, 8.23, 2.43, 1.7]
+ }
+}

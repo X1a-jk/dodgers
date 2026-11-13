@@ -12,6 +12,17 @@ import numpy as np
 plt.rcParams['font.sans-serif'] = ['SimHei', 'Microsoft YaHei', 'DejaVu Sans']
 plt.rcParams['axes.unicode_minus'] = False
 
+import unicodedata
+
+
+def _pick_font(name):
+    """名字含 SimHei 不支持的拉丁扩展字符（ñ í é 等）时改用 YaHei（含拉丁扩展-A）。"""
+    decomposed = unicodedata.normalize('NFD', name)
+    has_marks = any(unicodedata.category(c) == 'Mn' for c in decomposed)
+    if has_marks:
+        plt.rcParams['font.sans-serif'] = ['Microsoft YaHei', 'DejaVu Sans']
+
+
 ROOT = r'D:\baseball\seasons\2025\players'
 
 C_DARK = '#1a1a2e'
@@ -107,6 +118,7 @@ def render_comparison_pitcher(cfg, out):
     cats = c['categories']
     lo = c['low']; hi = c['high']
     y24 = c['y2024']; y25 = c['y2025']
+    lbl24, lbl25 = c.get('labels', ['2024', '2025'])
     def norm(v, l, h): return max(0.0, min(1.0, (v - l) / (h - l)))
     n24 = [norm(v, l, h) for v, l, h in zip(y24, lo, hi)]
     n25 = [norm(v, l, h) for v, l, h in zip(y25, lo, hi)]
@@ -117,9 +129,9 @@ def render_comparison_pitcher(cfg, out):
     fig.patch.set_facecolor(C_DARK)
     ax = plt.subplot(111, polar=True)
     ax.set_facecolor(C_DARK)
-    ax.plot(aa, a24, color=C_GRAY, linewidth=2, label='2024')
+    ax.plot(aa, a24, color=C_GRAY, linewidth=2, label=lbl24)
     ax.fill(aa, a24, color=C_GRAY, alpha=0.12)
-    ax.plot(aa, a25, color=C_BLUE, linewidth=2.4, label='2025')
+    ax.plot(aa, a25, color=C_BLUE, linewidth=2.4, label=lbl25)
     ax.fill(aa, a25, color=C_BLUE, alpha=0.25)
     ax.set_xticks(ang)
     ax.set_xticklabels(cats, color='#e0e0e0', fontsize=12)
@@ -129,10 +141,10 @@ def render_comparison_pitcher(cfg, out):
     ax.grid(color='#37474f')
     ax.spines['polar'].set_color('#37474f')
     ax.legend(loc='upper right', bbox_to_anchor=(1.22, 1.1), facecolor=C_DARK, labelcolor='white')
-    ax.set_title('%s — 2024 vs 2025 投球对比（中心=联盟均值档）' % cfg['player_name'], color='white', fontsize=13, fontweight='bold', pad=22)
+    ax.set_title('%s — %s vs %s 投球对比（中心=联盟均值档）' % (cfg['player_name'], lbl24, lbl25), color='white', fontsize=13, fontweight='bold', pad=22)
     # 每轴末端标注真实值
     for a_, v24, v25, cat in zip(ang, y24, y25, cats):
-        ax.text(a_, 1.13, '%s\n24:%s 25:%s' % (cat, v24, v25), color='#90a4ae', fontsize=8.5, ha='center', va='center')
+        ax.text(a_, 1.13, '%s\n%s:%s %s:%s' % (cat, lbl24, v24, lbl25, v25), color='#90a4ae', fontsize=8.5, ha='center', va='center')
     plt.tight_layout()
     plt.savefig(out, bbox_inches='tight', facecolor=C_DARK)
     plt.close()
@@ -142,6 +154,7 @@ def main():
     slug = sys.argv[1]
     d = os.path.join(ROOT, slug)
     cfg = json.load(io.open(os.path.join(d, 'charts_config.json'), encoding='utf-8'))
+    _pick_font(cfg['player_name'])
     pfx = cfg['prefix']
     render_cover(cfg, os.path.join(d, '%s_report_cover.png' % pfx))
     render_grades(cfg, os.path.join(d, '%s_overall_grades.png' % pfx))

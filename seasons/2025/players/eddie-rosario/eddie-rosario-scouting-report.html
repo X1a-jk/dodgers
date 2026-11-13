@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Eddie Rosario 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Eddie Rosario</h1>
+ <p class="subtitle">Los Angeles Dodgers #9 | 外野手 | 左打 | 从 32 轰到两场告别：NLCS MVP 的最后一站</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="rosario_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1991-09-28</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">34岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">波多黎各瓜亚马</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'0" / 180 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2015-05-06（双城）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">9</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">⚠️ <strong>极小样本警告：</strong>本报告基于 2 场 / 4 个打席的道奇段数据——这是 62 人名单中叙事重于数据的极端案例。</p>
+ <p style="margin-bottom: 15px;">Eddie Rosario 的 2025 年道奇段只有 48 小时：<span class="mvp">2 月 16 日签小联盟合约 → 4 月 18 日选入大联盟 → 出赛 2 场（4 打数 1 安打，零三振）→ 4 月 20 日被 DFA → 4 月 25 日 outright 至 3A</span>。然后他回到那个最熟悉的城市——亚特兰大——在赛季尾声又披勇士战袍出赛 3 场，用 4 个打席向 Truist 球场的观众挥手作别。</p>
+ <p style="margin-bottom: 15px;">评价 Rosario 需要拉开时间轴：2019 年他是双城的 cleanup 重炮（32 轰 109 打点），2021 年他扛着亚特兰大走过国联冠军赛（NLCS MVP）并随队赢得世界大赛——那是波多黎各棒球史上最高光的个人章节之一。此后两年，他的 OPS 从 .755（2023）滑到 .529（2024），2025 年只能靠小联盟合约续命。道奇的 2 场不是签下一位明星，是给一位英雄发最后一张大联盟通行证。</p>
+ <p>从 2025 年 11 月的视角看，34 岁的 Rosario 站在退役的门槛上：生涯 169 轰、一座世界大赛冠军、一枚 NLCS MVP 奖杯。如果这 5 场是终点，那么这个终点配得上他职业生涯的每一个高潮。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💥 2019 年 - 生涯年（32 轰 / 109 打点）</h4>
+ <p>明尼苏达双城的巅峰赛季：137 场 .276/.300/.500、32 支全垒打、109 分打点——双城打线的 cleanup 重炮，美联左外野最具威胁的棒子之一。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🏆 2021 年 - NLCS MVP + 世界大赛冠军</h4>
+ <p>被交易到亚特兰大后单季合计 14 轰，季后赛打出传奇表现——国联冠军赛 MVP，随后随勇士夺得世界大赛冠军。波多黎各的国庆日都没那周疯狂。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>⚾ 2017-2018 - 双城的稳定输出</h4>
+ <p>连续两年 24+ 轰：2017 年 .290/.328/.507 27 轰 78 打点，2018 年 24 轰 77 打点——那两年的双城打线里，他的名字永远写在第三或第四棒。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计（道奇段）</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.250</span>
+ <div class="stat-label">打击率（1-for-4）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">三振（4 PA）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">0</span>
+ <div class="stat-label">保送</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">34</span>
+ <div class="stat-label">年龄（生涯第 11 季）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">169</span>
+ <div class="stat-label">生涯全垒打总数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">1</span>
+ <div class="stat-label">世界大赛冠军（2021）+ NLCS MVP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">2</span>
+ <div class="stat-label">2025 年效力球队数（LAD/ATL）</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（国民+勇士）vs 2025（道奇）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="rosario_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>队</th><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="mvp">2019</td>
+ <td>MIN</td>
+ <td>137</td>
+ <td>590</td>
+ <td>.276</td>
+ <td>.300</td>
+ <td>.500</td>
+ <td>.800</td>
+ <td>32</td>
+ <td>109</td>
+ <td>22</td>
+ <td>86</td>
+ </tr>
+ <tr>
+ <td>2021</td>
+ <td>CLE+ATL</td>
+ <td>111</td>
+ <td>412</td>
+ <td>.259</td>
+ <td>.305</td>
+ <td>.435</td>
+ <td>.740</td>
+ <td>14</td>
+ <td>62</td>
+ <td>26</td>
+ <td>61</td>
+ </tr>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>WSN+ATL</td>
+ <td>91</td>
+ <td>319</td>
+ <td>.175</td>
+ <td>.213</td>
+ <td>.316</td>
+ <td>.529</td>
+ <td>10</td>
+ <td>35</td>
+ <td>16</td>
+ <td>77</td>
+ </tr>
+ <tr>
+ <td class="mvp">2025</td>
+ <td>LAD</td>
+ <td>2</td>
+ <td>4</td>
+ <td>.250</td>
+ <td>.250</td>
+ <td>.250</td>
+ <td>.500</td>
+ <td>0</td>
+ <td>0</td>
+ <td>0</td>
+ <td>0</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">把四行放在一起，就是一部完整的「重炮老化史」：2019 的 .800 OPS 是巅峰，2021 的 .740 是冠军年的余温，2024 的 .529 是断崖。值得玩味的是 2025 道奇段那 4 个打席：1 支安打、0 三振、0 保送——他依然是那个「见球就挥」的 Rosario，只是把 2019 年的挥棒速度留在了过去。对一位 34 岁的老将，4 个打席里不三振已经是态度的注脚。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">「挥棒机器」的最后校准</h3>
+ <p>Rosario 整个职业生涯都在与同一个弱点共处：生涯保送率仅 4.8%（几乎每 20 个打席才选到 1 次保送），他的一切价值都建立在「把球打进场内」上。2017-2021 年他的 contact 质量足以支撑这个模型——巅峰期连续三年 .276 以上打击率，他的出棒侵略性是武器而非缺陷。但 2023 年之后，挥空率上升、launch angle 漂移、追打坏球的老毛病被放大，模型瞬间从「重炮」变成「出局机器」。2025 年 4 月的那 4 个打席里，他依然没有保送——这个到死不改的本能，既是他 169 轰的来源，也是他下滑的根源。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">道奇 48 小时的 roster 逻辑</h3>
+ <p>道奇 2 月给他小联盟合约的理由和 9 月给 Heaney 合约的理由相同：depth insurance + 人情。4 月 18 日选入是因为外野出现短期伤病洞；48 小时后 Muncy 激活、名单满员，他成为最先被牺牲的名字。这不是不尊重——恰恰相反，能让道奇在「只缺一个人」时第一个想到你，本身就是老将价值的证明。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">亚特兰大的告别</h3>
+ <p>赛季尾声，勇士给了他 3 场出赛——那是他 2021 年封王的城市，Truist 球场的观众还记得他。3 场 4 个打席 0 安打的成绩单并不体面，但礼物的价值从来不在包装。从瓜亚马到亚特兰大，从 2015 到 2025，他用最后 5 场比赛把职业生涯的终点画在了两个最有意义的城市。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>生涯 169 轰的重炮履历（2019 年 32 轰）</li>
+ <li>2021 NLCS MVP 的大场面基因</li>
+ <li>波多黎各棒球名片的号召力</li>
+ <li>左打 platoon 对右投的 residual 价值</li>
+ <li>多位置外野经验（LF/RF）+ 冠军 clubhouse 气质</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>OPS 三年从 .755 跌到 .529，contact 全面衰退</li>
+ <li>生涯 4.8% 保送率——零选球能力，无法转型</li>
+ <li>34 岁，防守范围与臂力同步缩水</li>
+ <li>2025 全年 5 场 8 PA，样本无法支撑评估</li>
+ <li>市场价值仅剩「导师型老将合约」</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="rosario_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">40</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">20</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-c">D</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Clutch</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">35</div>
+ <p style="color: #90a4ae; margin-top: 10px;">英雄迟暮：重炮的最后通行证</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C 级 / 生涯谢幕与导师转型</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Rosario 与道奇的 2025 季后赛只有 48 小时的交集，自然谈不上登场。但他有一个连道奇冠军队成员都羡慕的资本：2021 年的 NLCS MVP——道奇今年走的那条路（NLCS → 世界大赛），他三年前作为勇士球员亲手走过一遍，还拿走了那轮系列赛的 MVP。这一次，他只能在 3A 的休息室里为曾经的城市加油——Atlanta 也没进十月，他的 2025 季后赛属于电视机和回忆。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：2 场、4 PA、1 安打、0 三振——然后 48 小时内 DFA</li>
+ <li>赛季尾声回亚特兰大出赛 3 场，完成情感告别</li>
+ <li>季后赛未登场（国民/勇士均未晋级）</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Rosario 的 2026 年大概率只有两种形态：退役，或者回波多黎各冬季联赛打完最后几场后退役。34 岁的身体、.529 的近两年 OPS、4.8% 的生涯保送率——这套组合在 MLB 自由市场上换不到任何合约，哪怕是小联盟的。但他的下一站未必是告别棒球：波多黎各国家队、大联盟球队的拉丁美洲球探、或家乡瓜亚马的青少年棒球营，都在等这位 NLCS MVP。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>以导师合约回勇士或双城，打完告别赛季后转教练</p>
+ <p><strong>现实基准：</strong>直接退役，生涯定格在 169 轰 + 2021 冠军</p>
+ <p><strong>下行可能：</strong>无——他的遗产已经不需要任何补充</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>身体机能衰退不可逆，挥棒速度不可回退</li>
+ <li>零选球技能导致无法转型为「老将打点型」角色</li>
+ <li>退役过渡期的心理适应</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Eddie Rosario 来自波多黎各东南海岸的瓜亚马，2015 年在明尼苏达双城登上大联盟。双城时代的他是美联最被低估的重炮之一：2017 年 .290 27 轰，2019 年 32 轰 109 打点——那支以「轰炸机大队」著称的双城打线里，他是最稳定的一根引信。</p>
+ <p>2021 年是他职业生涯的神来之年：先在克里夫兰，季中被交易到亚特兰大，例行赛 14 轰只是序幕——国联冠军赛上他几乎凭一己之力把勇士扛进世界大赛，MVP 实至名归；随后勇士夺冠，瓜亚马的街道整夜未眠。那是波多黎各棒球继 Carlos Correa 时代之后最亮的一夜。</p>
+ <p>2025 年 11 月的 Eddie Rosario 刚结束一个 5 场球的赛季（洛杉矶 2 场 + 亚特兰大 3 场）。从 2015 到 2025，11 个赛季、169 轰、一座世界大赛冠军、一枚 NLCS MVP——如果道奇的 48 小时是他 MLB 生涯的最后一页，那么这个结尾虽短，却写满了一个时代的重量。挥棒机器停机的声音很轻，但瓜亚马的孩子们都听见了。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 英雄迟暮：重炮的最后通行证</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

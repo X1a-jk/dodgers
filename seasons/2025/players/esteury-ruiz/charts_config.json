@@ -1,0 +1,16 @@
+{
+ "player_name": "Esteury Ruiz",
+ "slug": "esteury-ruiz",
+ "prefix": "ruiz",
+ "info": {"number": "27", "position_cn": "外野手", "position": "OF"},
+ "cover": {
+  "tagline": "67 盗的闪电，在道奇只劈中四回",
+  "stats": [["AVG", ".190"], ["OBP", ".261"], ["SB", 4], ["HR", 1], ["G", 19], ["PA", 23], ["SB%", "100%"], ["Age", 26]]
+ },
+ "grades": {"Contact": 35, "Power": 30, "Discipline": 35, "Speed": 70, "Defense": 40, "Baserunning": 65},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.200, 0.270, 0.382, 0.652],
+  "y2025": [0.190, 0.261, 0.333, 0.594]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Chris Stratton",
+ "slug": "chris-stratton",
+ "prefix": "stratton",
+ "info": {"number": "41", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "十年九队的老兵，两周内两签两走的救火生涯注脚",
+  "stats": [["ERA", "6.75"], ["WHIP", "1.25"], ["K", 6], ["G", 3], ["IP", "4.0"], ["K/9", 13.50], ["Age", 35]]
+ },
+ "grades": {"Curveball": 55, "Fastball": 50, "Changeup": 50, "Control": 40, "Composure": 50, "Durability": 40},
+ "comparison_p": {
+  "labels": ["2024皇家", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [3.0, 1.0, 5.0, 3.0, 0.0],
+  "high": [8.0, 1.8, 14.0, 6.0, 5.0],
+  "y2024": [5.55, 1.47, 6.79, 5.09, 0.77],
+  "y2025": [6.75, 1.25, 13.50, 4.50, 4.50]
+ }
+}

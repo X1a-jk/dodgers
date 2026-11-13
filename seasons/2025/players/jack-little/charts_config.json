@@ -1,0 +1,19 @@
+{
+ "player_name": "Jack Little",
+ "slug": "jack-little",
+ "prefix": "little",
+ "info": {"number": "81", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "6 月 19 日的大联盟首秀，3 局的职业生涯第一章",
+  "stats": [["ERA", "6.00"], ["WHIP", "1.67"], ["K", 2], ["G", 2], ["IP", "3.0"], ["Age", 27]]
+ },
+ "grades": {"Fastball": 55, "Slider": 50, "Splitter": 50, "Control": 45, "Composure": 45, "Durability": 45},
+ "comparison_p": {
+  "labels": ["联盟均值(估)", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 4.0, 1.5, 0.0],
+  "high": [8.0, 2.2, 11.0, 5.0, 1.5],
+  "y2024": [4.00, 1.30, 8.90, 3.40, 1.00],
+  "y2025": [6.00, 1.67, 6.00, 3.00, 0.00]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Evan Phillips",
+ "slug": "evan-phillips",
+ "prefix": "phillips",
+ "info": {"number": "59", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "肩伤偷走一个赛季，7 场零失分宣告王牌中继还在",
+  "stats": [["ERA", "0.00"], ["WHIP", "1.06"], ["K", 6], ["G", 7], ["IP", "5.2"], ["SV", 1], ["Age", 31]]
+ },
+ "grades": {"Sweeper": 60, "Fastball": 55, "Control": 55, "Strikeout": 55, "Composure": 60, "Durability": 30},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [0.0, 0.7, 7.0, 1.0, 0.0],
+  "high": [5.0, 1.6, 13.0, 5.0, 2.0],
+  "y2024": [3.62, 1.19, 10.37, 2.80, 0.99],
+  "y2025": [0.00, 1.06, 9.53, 3.18, 0.00]
+ }
+}

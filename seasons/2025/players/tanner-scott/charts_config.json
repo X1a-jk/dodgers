@@ -1,0 +1,19 @@
+{
+ "player_name": "Tanner Scott",
+ "slug": "tanner-scott",
+ "prefix": "scott",
+ "info": {"number": "66", "position_cn": "终结者", "position": "CL"},
+ "cover": {
+  "tagline": "96.5 mph 火球终结者，颠簸的第一年",
+  "stats": [["ERA", "4.74"], ["WHIP", "1.26"], ["SV", 23], ["G", 61], ["IP", "57.0"], ["K", 60], ["BB/9", "2.84"], ["Age", 31]]
+ },
+ "grades": {"Fastball": 65, "Slider": 60, "Control": 55, "Strikeout": 55, "Composure": 45, "Versatility": 50},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [1.0, 0.8, 5.0, 1.0, 0.0],
+  "high": [6.0, 1.8, 13.0, 6.0, 3.0],
+  "y2024": [1.75, 1.13, 10.50, 4.50, 0.38],
+  "y2025": [4.74, 1.26, 9.47, 2.84, 1.74]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Paul Gervase",
+ "slug": "paul-gervase",
+ "prefix": "gervase",
+ "info": {"number": "65", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "6 呎 10 吋的天空线，大联盟第二站",
+  "stats": [["ERA", "4.50"], ["WHIP", "1.50"], ["K", 2], ["G", 1], ["IP", "2.0"], ["Age", 25], ["FB", "93.8"], ["Debut", "6/21"]]
+ },
+ "grades": {"Fastball": 60, "Slider": 50, "Cutter": 45, "Control": 35, "Durability": 40, "Composure": 45},
+ "comparison_p": {
+  "labels": ["联盟均值(估)", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [3.0, 1.0, 7.0, 3.0, 0.0],
+  "high": [5.5, 1.7, 11.0, 5.0, 1.2],
+  "y2024": [4.00, 1.30, 9.00, 3.80, 1.00],
+  "y2025": [4.50, 1.50, 9.00, 4.50, 0.00]
+ }
+}

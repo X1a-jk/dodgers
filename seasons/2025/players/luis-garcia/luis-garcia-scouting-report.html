@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Luis García 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Luis García</h1>
+ <p class="subtitle">Los Angeles Dodgers #57 | 后援投手 | 右投 | 38 岁漂泊老将，道奇是 2025 年唯一没用好他的球队</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="garcia_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1987-01-30</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">38岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">多米尼加圣多明各</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'2" / 240 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2013-07-10</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">57</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Luis García 的 2025 年是一条堪称离奇的曲线：在道奇的 28 场里，他交出 <span class="mvp">5.27 自责分率、1.83 WHIP、BB/9 5.27</span>——然后在 7 月 4 日被释出；身披天使球衣 20 场自责分率 2.00，转投国民又是 10 场 0.90。离开洛杉矶之后，他合计 1.61 自责分率。</p>
+ <p style="margin-bottom: 15px;">数据不会说谎：道奇是 2025 年唯一一支没能用好他的球队。不是手臂老了——同一颗 96.9 mph 的伸卡全年没变；出问题的是控球纪律：道奇段每 9 局送出 5.27 次保送，是他在天使（1.50）的三倍半。加上 5 月底的内收肌拉伤，他在洛杉矶的半年是「带伤硬投 → 控球崩盘 → DFA → 重生」的完整剧本。</p>
+ <p>从 2025 年 11 月的视角看，这位 38 岁的老将用后半季证明了自己还能投：三支球队、58 场、全季 3.42 自责分率。他是那种永远不愁下家的老兵牛棚——问题在于，哪支球队愿意给他一份稳定的合同。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2013年 - 大联盟首秀</h4>
+ <p>7 月 10 日代表费城人登上大联盟，从此开启了横跨十二个赛季、先后效力七支 MLB 球队的漂流生涯——从费城到洛杉矶天使，再到游骑兵、红雀、教士、红袜、道奇、国民。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2017年 - 生涯最佳赛季</h4>
+ <p>费城人生涯的巅峰年：66 场出赛、自责分率 2.65——这个数字至今仍是他的生涯单季最佳，证明了「健康的 García」是什么水平。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 被释出后的逆袭</h4>
+ <p>7 月 4 日被道奇释出后，先在天使投出 18 局 2.00，再在国民交出 10 局 0.90——用两个月的强势表现为自己的第 13 个大联盟赛季续命。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-03-17 自俄克拉荷马城升上、2025-07-04 被释出）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">5.27</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">1.83</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">5.27</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">28</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">27.1</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">24</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0.33</span>
+ <div class="stat-label">HR/9（全季级压制）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">38</span>
+ <div class="stat-label">年龄（队中资深）</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="garcia_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>K/9</th><th>BB/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024（天使/红袜）</td>
+ <td>60</td>
+ <td>5-1</td>
+ <td>4.88</td>
+ <td>1.29</td>
+ <td>59.0</td>
+ <td>53</td>
+ <td>15</td>
+ <td>8.08</td>
+ <td>2.29</td>
+ </tr>
+ <tr>
+ <td>2025（道奇段）</td>
+ <td>28</td>
+ <td>2-0</td>
+ <td>5.27</td>
+ <td>1.83</td>
+ <td>27.1</td>
+ <td>24</td>
+ <td>16</td>
+ <td>7.90</td>
+ <td>5.27</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">对比里最刺眼的不是自责分率，而是 BB/9：2.29 到 5.27，保送数翻了一倍多——三振率几乎没变（8.08→7.90），被全垒打也始终压得住（HR/9 1.22→0.33）。他的道奇半年不是「能力下滑」，而是典型的带伤投球样本：5 月 29 日内收肌拉伤进入伤兵名单，复出后三周的控球雪崩，6 月 29 日被指定让渡、7 月 4 日释出。同样的手臂，离开道奇后立刻回到 2.00 以下的自责分率——体检表和配球记录比任何球探报告都更能说明问题。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，全季三队汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">A-</span></h3>
+ <div class="velocity">均速 96.9 mph · 占比 42.1%</div>
+ <p>使用率第一的招牌，全季均速逼近 97 mph——38 岁还能投出这种伸卡，是他每年都能拿到合同的底气。沉重下坠、诱发滚地球，是他吃局数的根基。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 82.9 mph · 占比 33.7%</div>
+ <p>大幅横移的两好球武器，用来对付右打者、破坏棒头，是他三振贡献的主要来源。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>快速指叉球 (Splitter) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 88.6 mph · 占比 22.3%</div>
+ <p>对付左打者的变速选项，下坠时机与伸卡形成落差；配得好时能让打者「看得到打不到」。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 96.8 mph · 占比 1.9%</div>
+ <p>几乎弃用的配球点缀，主要用来出其不意地抢好球。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">「道奇段」是带伤样本，不是真实水平</h3>
+ <p>判断一名 38 岁老将，最大的陷阱是把伤病期的数据当成衰退证据。García 的 2025 被内收肌拉伤清晰地切成两段：伤前他的控球尚在 2.29 BB/9 的正常轨道，伤后复出立刻雪崩。全季三个阶段的弧线——道奇 5.27 → 天使 2.00 → 国民 0.90——与其说是状态曲线，不如说是健康曲线。他的手臂依旧能投出 97 mph，这颗球没有变老。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">保送才是唯一警报</h3>
+ <p>抛开伤病期，García 生涯后期最大的隐患始终是控球纪律：2024 年 BB/9 2.29 已经是十年最低，2025 全季又回到 4.2 以上。对一名依赖伸卡滚地球的投手来说，保送等于自己给自己挖坑——滚地球双杀救得了一次，救不了一个赛季。想要再签一份大联盟合约，他必须把保送压回 3 以下。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">老兵的价值在第五局</h3>
+ <p>García 的价值从来不只在数据表：十二年七队的经历意味着他见过每一种牛棚角色、每一种季后赛压力。对一支年轻牛棚来说，这样一位「随叫随到、什么局都投过」的老将是更衣室的稳定器——这也是他在 2025 年即便道奇段崩盘，市场上仍会有球队递上小联盟合约的原因。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>96.9 mph 伸卡球，38 岁仍是精英级球速</li>
+ <li>HR/9 0.33，长打压制能力全年在线</li>
+ <li>伸卡+横扫滑+指叉三球种结构完整</li>
+ <li>12 年 7 队经验，任何角色即插即用</li>
+ <li>被释出后 1.61 自责分率的自我证明</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>道奇段 BB/9 5.27，伤病期控球彻底崩盘</li>
+ <li>38 岁高龄，恢复速度与伤病风险逐年走高</li>
+ <li>内收肌拉伤这类软伤容易反复</li>
+ <li>K/9 7.90 低于精英后援门槛</li>
+ <li>高 WHIP 依赖滚地球化解，失误代价大</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="garcia_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Sinker</div>
+ <span class="grade grade-b">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Splitter</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">老兵牛棚，手臂未老、控球定生死</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 /  veteran 后援（健康变量）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">García 没有出现在这条夺冠路上——7 月 4 日他已被释出。讽刺的是，道奇夺冠之夜的牛棚里，没有一位比他后半年表现更差；而他后半年的 1.61 自责分率，恰好投给了另外两支球队。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>7 月 4 日释出后加盟天使：20 场、18 局、2.00 自责分率</li>
+ <li>季末转投国民：10 场、10 局、0.90 自责分率，用实际表现回应了道奇的放弃</li>
+ <li>这是他生涯第 13 个赛季里第 3 次单季效力 2 支以上球队——漂流本身就是他的常态</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>García 的 2026 年大概率仍以小联盟合约起步——38 岁、带着内收肌伤病史的老将没有资格挑合同。但过去五年的规律表明：给他一座牛棚，他总能投回大联盟。他的目标不是重回巅峰，而是把生涯延伸到第十五个赛季。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>春训体检过关，开季进入某队牛棚中段</p>
+ <p><strong>现实基准：</strong>3A 待命老兵，年中因伤病潮被叫上</p>
+ <p><strong>上行惊喜：</strong>复制 2017 年的 2.65 自责分率，成为季后赛球队的交易筹码</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>内收肌拉伤复发将直接击穿他的市场价值</li>
+ <li>BB/9 若回不到 3 以下，高 WHIP 会把 ERA 拖过 5</li>
+ <li>38 岁之后每一次状态滑坡都可能是最后一次</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Luis García 来自多米尼加首都圣多明各，2013 年 7 月 10 日在费城登上大联盟。他的职业生涯几乎是一部 MLB 牛棚的漂流史：费城五年、天使、游骑兵、红雀、教士两年、红袜——2025 年已经是他效力的第七支 MLB 球队，比绝大多数球员的整个生涯见过的队徽都多。</p>
+ <p>2025 年 3 月 17 日，他从俄克拉荷马城被道奇选入 40 人名单。在洛杉矶的半年并不顺：5 月底内收肌拉伤、复出后控球崩盘、6 月 29 日被指定让渡、7 月 4 日正式释出。但 García 的回应方式是他一贯的作风——不抱怨，找下一座牛棚。天使给了他 18 局 2.00，国民又给了他 10 局 0.90。</p>
+ <p>2025 年 11 月的 Luis García 是一个矛盾的样本：同一年里，他既是道奇最想忘掉的投手，又是天使和国民最划算的交易截止日后捡漏。对于一名 38 岁的老将来说，这种矛盾不是终点，而是他第 13 个赛季的全部日常。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 老兵牛棚，手臂未老、控球定生死</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

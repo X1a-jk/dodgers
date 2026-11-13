@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Ben Casparius 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Ben Casparius</h1>
+ <p class="subtitle">Los Angeles Dodgers #78 | 后援投手 | 右投 | 瑞士军刀型右投，46 场全角度覆盖</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="casparius_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1999-02-11</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">26岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国康涅狄格州韦斯特波特</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'2" / 215 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2024-08-31 (道奇)</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#78</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Ben Casparius 是道奇牛棚里最典型的「瑞士军刀」：<span class="mvp">46 场出赛横跨长中继、短中继、布局与终结，甚至紧急先发</span>——教练组把他放在哪里，他就能给出哪个位置的答案。2024 年 8 月底才完成大联盟首秀的他，用一个完整赛季就把自己写进了道奇牛棚的长期计划。</p>
+ <p style="margin-bottom: 15px;">2025 年：46 场出赛（3 场先发）、7 胜 5 负、13 次中继成功、2 次救援成功、4.64 自责分率、1.27 WHIP。ERA 比新人年的 2.16 明显回升，但这更多是角色变化的代价——从「只投无压力的 8 局」变成「哪里需要往哪搬」之后，局局都是硬骨头。1.27 的 WHIP 与 2.43 的 BB/9 说明他的控球骨架依然是可靠的。</p>
+ <p>三振率从 12.96 回落到 8.23 值得警惕，但请注意背景：他的均速没变，球种更丰富了（新增卡特与曲球），用三振换软击是教练组给他的新指令——毕竟吃局数的能力才是他留在名单上的原因。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2024年 - 大联盟惊喜首秀</h4>
+ <p>8 月 31 日完成大联盟首秀，8.1 局 12 次三振、2.16 自责分率——在赛季最关键的阶段给了道奇牛棚一针强心剂，也为自己赢得了 2025 年的名单位置。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 全勤型牛棚答案</h4>
+ <p>46 场出赛、77.2 局、13 次中继成功全队前列——从四月到九月，他是道奇使用频率最高、角色变换最多的投手。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 临危受命的先发</h4>
+ <p>三次紧急先发全部撑过 4 局，其中一场拿下胜投——在轮值连番伤病的赛季里，他的「哪里缺人顶哪里」属性价值千金。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">46</span>
+ <div class="stat-label">出赛（3 先发）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4.64</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.27</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">7-5</span>
+ <div class="stat-label">胜-负</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">77.2</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">13</span>
+ <div class="stat-label">中继成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2</span>
+ <div class="stat-label">救援成功</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">8.23</span>
+ <div class="stat-label">K/9（新人年 12.96）</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="casparius_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>GS</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>K/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024（新人年·小样本）</td>
+ <td>3</td>
+ <td>0</td>
+ <td>2-0</td>
+ <td>2.16</td>
+ <td>1.56</td>
+ <td>8.1</td>
+ <td>12</td>
+ <td>4</td>
+ <td>12.96</td>
+ </tr>
+ <tr>
+ <td>2025（完整赛季）</td>
+ <td>46</td>
+ <td>3</td>
+ <td>7-5</td>
+ <td>4.64</td>
+ <td>1.27</td>
+ <td>77.2</td>
+ <td>71</td>
+ <td>21</td>
+ <td>8.23</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">新人年的 2.16 ERA 建立在 8.1 局的极小样本上，参考意义有限。真正有价值的变化在 BB/9：4.32 降到 2.43——控球精度的提升是角色升级的通行证。HR/9 从 0.00 到 0.93 属于正常回落，8 支全垒打在 77.2 局中并不刺眼。综合来看：他从一个「三振惊艳的小样本新人」成长为一个「能连续出赛、吃局数、角色全能」的可靠牛棚支柱。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-a">A-</span></h3>
+ <div class="velocity">均速 85.3 mph · 占比 32.2%</div>
+ <p>2025 年新增的当家武器，横扫位移对付左打者效果拔群，两好球后的追杀成功率大幅提升。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 96.2 mph · 占比 30.3%</div>
+ <p>均速 96+ mph 的速球是他在牛棚立足的根本，好球带上半部抢好球数的能力稳定。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>卡特球 (Cutter) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 92.1 mph · 占比 21.9%</div>
+ <p>破坏棒次与诱导软弱滚地的利器，面对右打者的内角武器，也是他吃局数效率的来源。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>曲球 (Curveball) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 80.8 mph · 占比 14.4%</div>
+ <p>配球节奏与改变打者视线高度的第四球种，均速落在 80 mph 档位的慢曲，变速效果出色。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">角色价值远超 ERA</h3>
+ <p>4.64 的 ERA 放在自由市场会吓跑很多人，但道奇教练组清楚 Casparius 的价值：46 场出赛里有大量是「比分接近、局面复杂」的真枪实弹。13 次中继成功、0 次救援失败，说明他在被赋予的布局任务中几乎从不失手——ERA  inflated 主要来自长中继与垃圾时间登板的零星失分。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">控球的隐形进化</h3>
+ <p>BB/9 从 4.32 降到 2.43 是 2025 年最重要的数据。对一个需要频繁在压力下登场的后援来说，坏球少意味着可以用更少的球数解决打者，也意味着教练组敢在第九局之前就把他派上去。strikePercentage .640 与 16.25 的每局用球数都说明他的效率骨架已经成型。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">三振率回落的真假之辨</h3>
+ <p>12.96 → 8.23 的三振率下滑看着吓人，但两个背景必须考虑：一是新人年样本只有 8.1 局；二是 2025 年他的配球明显从「全力三振」转向「诱导早接触、快速收尾」——这是教练组对吃局数型后援的标准改造。球速没变（96.2 mph）、球种更杂（ST/FC/CU 全部上线），Stuff 没有退化，只是使用方式变了。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>角色万能：长中继/短中继/布局/终结/紧急先发全都能顶</li>
+ <li>BB/9 2.43，控球精度大幅进化</li>
+ <li>96+ mph 四缝线 + 四球种配球，Stuff 扎实</li>
+ <li>13 中继 2 救援 0 失败，压力局可靠</li>
+ <li> durability 出色，全季 46 场无大伤</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>ERA 4.64 偏高，长中继失分拉低观感</li>
+ <li>K/9 8.23 回落，纯三振解决能力一般</li>
+ <li>面对顶级左打者的压制力有待检验</li>
+ <li>缺乏招牌的「必杀球种」，上限可见</li>
+ <li>季后赛未能进入名单，硬仗履历空白</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="casparius_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Cutter</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">50</span>
+ <div class="stat-label">Curve</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Versatility</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">55</div>
+ <p style="color: #90a4ae; margin-top: 10px;">角色万能的牛棚瑞士军刀</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B 级 / 牛棚多面手</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Casparius 未入选季后赛名单。教练组在牛棚名额的取舍中，优先选择了季后赛经验丰富的老将。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>常规赛的 46 场拼命输出耗尽了他的新鲜感溢价——季后赛是经验与 stuff 的竞技场，他两样都还在积累</li>
+ <li>缺席季后赛不等于否定：26 岁的他还有大把时间把名字写进未来十月的名单</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Ben Casparius 的 2026 年有一个清晰的上行通道：如果三振率能在保持控球的前提下回到 9 以上，他将从「瑞士军刀」升级为「布局核心」。道奇牛棚每年都有人离开，而他的年龄、控球与耐久度都站在时间这一边。当然，他也需要证明自己能在季后赛级别的打线面前投出同样的内容。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>竞争第 7-8 局布局主力，局数上到 85-90</p>
+ <p><strong>现实基准：</strong>继续全能工具人角色，偶尔 stretched 先发</p>
+ <p><strong>上行惊喜：</strong>若横扫滑球继续进化，有机会摸到终结者备胎的位置</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>ERA 若持续在 4.5 以上， offseason 交易筹码价值会被压低</li>
+ <li>缺乏单一招牌球种，面对豪华打线时容易被针对性打击</li>
+ <li>道奇牛棚人才济济，他的位置并非不可撼动</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Ben Casparius 来自康涅狄格州韦斯特波特，大学时期是康涅狄格大学的王牌投手，2021 年选秀第五轮被道奇选中。他的 ascent 不算快——从小联盟一步一步磨上来，靠的不是一鸣惊人的天赋，而是每一年都在进步的控球与不断丰富的武器库。</p>
+ <p>2024 年 8 月 31 日，他在道奇最需要的时刻被拉上大联盟，用 8.1 局 12 次三振的表现证明了自己属于这个舞台。2025 年，他完成了从「惊喜新人」到「牛棚常客」的蜕变，46 场出赛背后是教练组毫无保留的信任。</p>
+ <p>在道奇这支星光璀璨的球队里，Casparius 属于不发光却不可或缺的类型——就像瑞士军刀，平时挂在钥匙圈上不起眼，用到的时候才知道每一把小工具都磨得锋利。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 牛棚全能工具人，向上通道清晰</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

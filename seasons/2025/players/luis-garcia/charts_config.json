@@ -1,0 +1,19 @@
+{
+ "player_name": "Luis García",
+ "slug": "luis-garcia",
+ "prefix": "garcia",
+ "info": {"number": "57", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "38 岁漂泊老将，道奇是 2025 年唯一没用好他的球队",
+  "stats": [["ERA", "5.27"], ["WHIP", "1.83"], ["K", 24], ["G", 28], ["IP", "27.1"], ["BB/9", "5.27"], ["HLD", 2], ["Age", 38]]
+ },
+ "grades": {"Sinker": 60, "Sweeper": 55, "Splitter": 50, "Control": 35, "Strikeout": 45, "Composure": 45},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 4.0, 1.0, 0.0],
+  "high": [7.0, 2.0, 10.0, 6.0, 2.0],
+  "y2024": [4.88, 1.29, 8.08, 2.29, 1.22],
+  "y2025": [5.27, 1.83, 7.90, 5.27, 0.33]
+ }
+}

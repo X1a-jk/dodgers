@@ -1,0 +1,196 @@
+{
+ "luis-garcia": [
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 377,
+   "pct": 42.1,
+   "avgSpeed": 96.9
+  },
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 302,
+   "pct": 33.7,
+   "avgSpeed": 82.9
+  },
+  {
+   "code": "FS",
+   "desc": "Splitter",
+   "cn": "快速指叉球",
+   "count": 200,
+   "pct": 22.3,
+   "avgSpeed": 88.6
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 17,
+   "pct": 1.9,
+   "avgSpeed": 96.8
+  }
+ ],
+ "blake-treinen": [
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 241,
+   "pct": 47.2,
+   "avgSpeed": 84.4
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 152,
+   "pct": 29.7,
+   "avgSpeed": 95.9
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 61,
+   "pct": 11.9,
+   "avgSpeed": 95.2
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 57,
+   "pct": 11.2,
+   "avgSpeed": 91.6
+  }
+ ],
+ "lou-trivino-iii": [
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 203,
+   "pct": 24.1,
+   "avgSpeed": 91.8
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 186,
+   "pct": 22.1,
+   "avgSpeed": 95.2
+  },
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 170,
+   "pct": 20.2,
+   "avgSpeed": 80.5
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 140,
+   "pct": 16.6,
+   "avgSpeed": 87.3
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 132,
+   "pct": 15.7,
+   "avgSpeed": 94.8
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 10,
+   "pct": 1.2,
+   "avgSpeed": 78.7
+  }
+ ],
+ "edgardo-henriquez": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 80,
+   "pct": 28.7,
+   "avgSpeed": 100.9
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 79,
+   "pct": 28.3,
+   "avgSpeed": 100.8
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 55,
+   "pct": 19.7,
+   "avgSpeed": 96.0
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 35,
+   "pct": 12.5,
+   "avgSpeed": 90.7
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 30,
+   "pct": 10.8,
+   "avgSpeed": 83.7
+  }
+ ],
+ "will-klein": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 175,
+   "pct": 57.4,
+   "avgSpeed": 97.9
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 67,
+   "pct": 22.0,
+   "avgSpeed": 85.7
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 49,
+   "pct": 16.1,
+   "avgSpeed": 92.6
+  },
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 14,
+   "pct": 4.6,
+   "avgSpeed": 90.8
+  }
+ ]
+}

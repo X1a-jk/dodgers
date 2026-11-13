@@ -1,0 +1,156 @@
+{
+ "anthony-banda": [
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 524,
+   "pct": 49.2,
+   "avgSpeed": 85.9
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 252,
+   "pct": 23.7,
+   "avgSpeed": 95.8
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 249,
+   "pct": 23.4,
+   "avgSpeed": 95.9
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 40,
+   "pct": 3.8,
+   "avgSpeed": 89.9
+  }
+ ],
+ "blake-snell": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 448,
+   "pct": 43.6,
+   "avgSpeed": 95.1
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 243,
+   "pct": 23.6,
+   "avgSpeed": 85.5
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 223,
+   "pct": 21.7,
+   "avgSpeed": 80.6
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 114,
+   "pct": 11.1,
+   "avgSpeed": 88.2
+  }
+ ],
+ "tanner-scott": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 479,
+   "pct": 52.6,
+   "avgSpeed": 96.5
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 430,
+   "pct": 47.2,
+   "avgSpeed": 88.9
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 2,
+   "pct": 0.2,
+   "avgSpeed": 94.8
+  }
+ ],
+ "alex-vesia": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 588,
+   "pct": 57.5,
+   "avgSpeed": 92.7
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 372,
+   "pct": 36.4,
+   "avgSpeed": 84.8
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 63,
+   "pct": 6.2,
+   "avgSpeed": 83.8
+  }
+ ],
+ "landon-knack": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 375,
+   "pct": 48.5,
+   "avgSpeed": 93.1
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 202,
+   "pct": 26.1,
+   "avgSpeed": 84.6
+  },
+  {
+   "code": "KC",
+   "desc": "Knuckle Curve",
+   "cn": "曲球（指关节型）",
+   "count": 104,
+   "pct": 13.5,
+   "avgSpeed": 80.2
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 92,
+   "pct": 11.9,
+   "avgSpeed": 85.3
+  }
+ ]
+}

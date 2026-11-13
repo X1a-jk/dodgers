@@ -1,0 +1,16 @@
+{
+ "player_name": "Chris Taylor",
+ "slug": "chris-taylor",
+ "prefix": "taylor",
+ "info": {"number": "3", "position_cn": "外野手", "position": "OF"},
+ "cover": {
+  "tagline": "「CT3」十年蓝血的终章：从全能战士到被时代放行",
+  "stats": [["AVG", ".200"], ["OBP", ".200"], ["HR", 0], ["RBI", 2], ["G", 28], ["PA", 35], ["Age", 35], ["BB", 0]]
+ },
+ "grades": {"Contact": 40, "Power": 35, "Discipline": 20, "Speed": 45, "Defense": 50, "Versatility": 60, "Leadership": 50},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.202, 0.298, 0.300, 0.598],
+  "y2025": [0.200, 0.200, 0.257, 0.457]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Jack Dreyer",
+ "slug": "jack-dreyer",
+ "prefix": "dreyer",
+ "info": {"number": "86", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "东京迎来大联盟首秀，新秀年 67 场扛起重任",
+  "stats": [["ERA", "2.95"], ["WHIP", "1.05"], ["K", 74], ["IP", "76.1"], ["G", 67], ["HLD", 10], ["SV", 4], ["Age", 26]]
+ },
+ "grades": {"Fastball": 55, "Slider": 65, "Curve": 50, "Control": 60, "Command": 60, "Durability": 65, "Strikeout": 55},
+ "comparison_p": {
+  "labels": ["联盟均值(估)", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.3],
+  "high": [6.0, 1.8, 11.0, 6.0, 1.8],
+  "y2024": [4.05, 1.31, 8.6, 3.6, 1.05],
+  "y2025": [2.95, 1.05, 8.72, 2.83, 0.47]
+ }
+}

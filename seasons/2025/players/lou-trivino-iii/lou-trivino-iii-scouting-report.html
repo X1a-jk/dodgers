@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Lou Trivino III 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Lou Trivino III</h1>
+ <p class="subtitle">Los Angeles Dodgers #58 | 后援投手 | 右投 | 阔别两年后归来，一季辗转三队的流浪中继</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="trivino_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1991-10-01</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">34岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国宾夕法尼亚州格林莱恩</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'5" / 232 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2018-04-17</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">58</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Lou Trivino 的 2025 年是一部压缩版的职业生涯：开季在巨人投出 5.84 被释出，5 月 11 日与道奇签下小联盟合约，5 月 18 日升上大联盟，在洛杉矶交出 <span class="mvp">26 场、3.76 自责分率、1.41 WHIP</span> 的中段好球——然后在 7 月 21 日被指定让渡、7 月 27 日释出；费城人在截止日后捡走他，他再用 10 场 2.00 为费城人的季后赛冲刺收尾。</p>
+ <p style="margin-bottom: 15px;">这已是他连续两年缺席大联盟之后的回归赛季——2023 与 2024，他一场 MLB 都没投。能够从两年的空白里找回 95.2 mph 的伸卡和完整的五球种配球，本身就是一件值得记录的事；而全季 47 场、3.97 自责分率的答卷说明：他不是回来告别的，是回来继续投的。</p>
+ <p>从 2025 年 11 月的视角看，Trivino 是典型的「被低估的流浪老兵」：三支球队都试过了他，三支球队也都在某个时刻放弃了他的名单位置——但没有一支球队能否认他的投球内容。34 岁、健康、能吃一局以上的中继，他的下一份合约不会缺买家。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2021年 - 运动家终结者</h4>
+ <p>奥克兰时代的巅峰：71 场出赛、3.18 自责分率、22 次救援成功——那是他生涯第一次、也是至今唯一一次坐上终结者的位置，整季守住 44 场完投局。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2022年 - 交易截止日的礼物</h4>
+ <p>8 月被交易到纽约扬基后投出 25 场 1.66 自责分率，成为扬基季后赛牛棚最可靠的一环——也是他受伤前最后的完整赛季。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 两年空白后的回归</h4>
+ <p>连续缺席 2023、2024 两个完整赛季后，以 34 岁之龄回到大联盟，全年辗转巨人、道奇、费城人三队，合计 47 场 3.97——用一整个赛季证明「回来了」。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-05-18 自俄克拉荷马城升上、2025-07-27 被释出）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.76</span>
+ <div class="stat-label">自责分率（全季 3.97）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.41</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2.73</span>
+ <div class="stat-label">BB/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">26</span>
+ <div class="stat-label">出赛（含 2 场先发）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">26.1</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">18</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0.68</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">34</span>
+ <div class="stat-label">年龄（两年伤停后归来）</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025 全季 vs 道奇段对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="trivino_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>阶段</th><th>G</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>K/9</th><th>BB/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">巨人（4-5月）</td>
+ <td>11</td>
+ <td>0-0</td>
+ <td>5.84</td>
+ <td>1.70</td>
+ <td>12.1</td>
+ <td>11</td>
+ <td>10</td>
+ <td>8.01</td>
+ <td>7.29</td>
+ </tr>
+ <tr>
+ <td class="highlight">道奇（5-7月）</td>
+ <td>26</td>
+ <td>2-1</td>
+ <td>3.76</td>
+ <td>1.41</td>
+ <td>26.1</td>
+ <td>18</td>
+ <td>8</td>
+ <td>6.15</td>
+ <td>2.73</td>
+ </tr>
+ <tr>
+ <td>费城人（8-9月）</td>
+ <td>10</td>
+ <td>1-1</td>
+ <td>2.00</td>
+ <td>1.00</td>
+ <td>9.0</td>
+ <td>8</td>
+ <td>0</td>
+ <td>8.00</td>
+ <td>0.00</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">三段曲线是一部清晰的「状态重建史」：巨人段他还在找比赛感觉（10 次保送挤进 12.1 局），道奇段保送砍到 2.73、ERA 压到 3.76，费城人段则进化到 9 局零保送、ERA 2.00 的完全体。道奇在他「找到一半」时放走了他——这是阵容数学的残酷，而非投球内容的否定。全季 47 场、从 5.84 走到 2.00，这条弧线本身比任何单季数据都更能说明他的回归成色。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，全季三队汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>卡特球 (Cutter) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 91.8 mph · 占比 24.1%</div>
+ <p>使用率第一的当家球种，细小横移用来对付左打者、制造软弱击球——两年伤停后仍能稳定进垒，是他回归的支点。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 95.2 mph · 占比 22.1%</div>
+ <p>95+ 的重伸卡是配球地基，沉球诱导滚地球、吃局数的效率工具。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 80.5 mph · 占比 20.2%</div>
+ <p>大幅横移的右打者追杀球，两好球后的主要三振选项。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 87.3 mph · 占比 16.6%</div>
+ <p>对付左打的关键武器，与伸卡形成速差落差；伤停后这颗球的质量维持得最好。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 94.8 mph · 占比 15.7%</div>
+ <p>直上直下的抢好球球种，抬升打者视线为变化球铺垫。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>曲球 (Curveball) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 78.7 mph · 占比 1.2%</div>
+ <p>零星使用的点缀球种，出其不意时偶尔一用。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">从 5.84 到 2.00：一条完整的状态重建曲线</h3>
+ <p>Trivino 的 2025 最值得书写的不是任何一段单独的数据，而是三段之间的递进关系。巨人段（5.84、BB/9 7.29）是典型的「两年没比赛」投手：球速在、控球乱；道奇段（3.76、BB/9 2.73）是重建期：保送减半、配球找回秩序；费城人段（2.00、BB/9 0.00）则是完全体：9 局零保送意味着他每一颗球都知道要去哪。把这种曲线放进 34 岁的身体里，本身就反驳了「伤停两年即报废」的常识。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">道奇段的取舍：数学，不是能力</h3>
+ <p>7 月 21 日道奇 DFA 他时，他的道奇段数据是 3.76/1.41——绝对够格留下。但牛棚名单只有那么多位置，当球队需要在年轻火球手和老将中继之间做选择时，34 岁、可下放的 Trivino 成了算术的牺牲品。值得注意的是费城人 8 月捡走他后立刻把他用进高杠杆（10 场 7 次收尾登板），这是对「投球内容」最直接的背书。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">耐久性是最后的问号</h3>
+ <p>唯一的隐忧写在耐久性一栏：连续两年整季报销的经历让任何球队都不敢给他多年承诺，而 34 岁的身体恢复速度也无法与 28 岁相比。但 2025 年 47 场的出赛量已经是他 2022 年以来最多的一次——如果 2026 年能把这个数字推到 55-60，「流浪中继」这个标签就有机会换成「稳定中段」。他的球种库（五颗以上可用球种）正是能吃大量局数的类型。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>卡特+伸卡+滑球+变速+四缝线五球种结构，左右打者都有解</li>
+ <li>赛季末段 BB/9 归 0，控球完全重建成功</li>
+ <li>2021 年 22 救援的终结者履历，任何角色都能接</li>
+ <li>两年伤停后找回 95.2 mph 伸卡，手臂底子仍在</li>
+ <li> HR/9 0.68，长打压制稳定</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>2023-24 连续两季整季报销，耐久性记录有硬伤</li>
+ <li>34 岁，恢复速度随年龄递减</li>
+ <li>K/9 6.99 属偏低，依赖控球而非三振</li>
+ <li>状态慢热（巨人段 5.84），需要耐心和时间</li>
+ <li>名单边缘属性：随时可能被 DFA 的合约处境</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="trivino_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Sinker</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Cutter</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">35</span>
+ <div class="stat-label">Durability</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">五球种流浪老兵，耐久性是最后的问号</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">C+~B- 级 / 中段中继（耐久变量）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Trivino 没有出现在道奇的季后赛名单里——7 月 27 日他已披上费城人球衣。而命运开了一个小小的玩笑：道奇在 NLDS 淘汰的正是费城人，他在老东家夺冠的路上投完了自己赛季的最后九局（自责分率 2.00）。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段 26 场 3.76 之后被 DFA——阵容数学的牺牲品，而非投球内容的否定</li>
+ <li>费城人 10 场 2.00、9 局零保送，立刻被用进高杠杆（7 次收尾登板）</li>
+ <li>连续两年缺席大联盟后投出 47 场 3.97，这是他生涯最特别的「回归赛季」注脚</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Trivino 的 2026 年大概率仍是一份「低风险、高上限」的短约：球队为五球种经验和终结者履历付钱，他为自己争取第二个完整健康季。如果能把出赛数推到 55-60 场并保持费城人段的控球水平，他将从「流浪者」变回「可靠的中段」。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>春训锁定开季名单，成为某队第六七局的固定选项</p>
+ <p><strong>现实基准：</strong>小联盟合约起步，年中像 2025 一样被需要他的球队捞起</p>
+ <p><strong>上行惊喜：</strong>复制 2021 年轨迹，重回终结者讨论</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>两年整季报销的病史可能重演，任何球队都不会给多年承诺</li>
+ <li>状态慢热属性意味着新东家前一个月需要耐心</li>
+ <li>K/9 偏低，一旦控球波动 ERA 会被迅速放大</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Lou Trivino 来自宾夕法尼亚州的格林莱恩——一个人口不到千人的小镇，他是那里走出的第一位大联盟球员。2018 年他在奥克兰运动家登上大联盟，次年便成为球队牛棚的固定班底；2021 年，他迎来了生涯的巅峰年：71 场、3.18 自责分率、22 次救援成功，坐稳运动家终结者的位置。</p>
+ <p>2022 年 8 月，他被交易到纽约扬基，投出 25 场 1.66 的精彩后援表现——那也是他受伤前最后的完整赛季。此后是漫长的两年空白：2023 与 2024，他一场 MLB 都没投。对大多数投手来说，这就是终点；但对 Trivino 来说，那只是中场休息。</p>
+ <p>2025 年，他用一条「5.84 → 3.76 → 2.00」的曲线完成了体育界最艰难的回归之一，辗转巨人、道奇、费城人三队投出 47 场。2025 年 11 月的 Lou Trivino 仍然是一名流浪中继——但这一次，是他自己选择要继续走下去。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 五球种流浪老兵，耐久性是最后的问号</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

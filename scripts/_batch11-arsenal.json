@@ -1,0 +1,164 @@
+{
+ "brock-stewart": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 332,
+   "pct": 54.4,
+   "avgSpeed": 96.2
+  },
+  {
+   "code": "ST",
+   "desc": "Sweeper",
+   "cn": "横扫滑球",
+   "count": 87,
+   "pct": 14.3,
+   "avgSpeed": 84.7
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 67,
+   "pct": 11.0,
+   "avgSpeed": 96.2
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 66,
+   "pct": 10.8,
+   "avgSpeed": 90.6
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 58,
+   "pct": 9.5,
+   "avgSpeed": 93.2
+  }
+ ],
+ "andrew-heaney": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 909,
+   "pct": 43.7,
+   "avgSpeed": 90.1
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 361,
+   "pct": 17.3,
+   "avgSpeed": 82.0
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 346,
+   "pct": 16.6,
+   "avgSpeed": 80.5
+  },
+  {
+   "code": "SI",
+   "desc": "Sinker",
+   "cn": "伸卡球",
+   "count": 234,
+   "pct": 11.2,
+   "avgSpeed": 89.2
+  },
+  {
+   "code": "CU",
+   "desc": "Curveball",
+   "cn": "曲球",
+   "count": 120,
+   "pct": 5.8,
+   "avgSpeed": 76.8
+  },
+  {
+   "code": "CS",
+   "desc": "Slow Curve",
+   "cn": "Slow Curve",
+   "count": 112,
+   "pct": 5.4,
+   "avgSpeed": 73.5
+  }
+ ],
+ "jp-feyereisen": [
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 36,
+   "pct": 44.4,
+   "avgSpeed": 87.0
+  },
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 28,
+   "pct": 34.6,
+   "avgSpeed": 91.2
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 17,
+   "pct": 21.0,
+   "avgSpeed": 83.3
+  }
+ ],
+ "julian-fernandez": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 52,
+   "pct": 68.4,
+   "avgSpeed": 97.4
+  },
+  {
+   "code": "CH",
+   "desc": "Changeup",
+   "cn": "变速球",
+   "count": 24,
+   "pct": 31.6,
+   "avgSpeed": 86.2
+  }
+ ],
+ "paul-gervase": [
+  {
+   "code": "FF",
+   "desc": "Four-seam FB",
+   "cn": "四缝线速球",
+   "count": 80,
+   "pct": 58.8,
+   "avgSpeed": 93.8
+  },
+  {
+   "code": "SL",
+   "desc": "Slider",
+   "cn": "滑球",
+   "count": 40,
+   "pct": 29.4,
+   "avgSpeed": 84.2
+  },
+  {
+   "code": "FC",
+   "desc": "Cutter",
+   "cn": "卡特球",
+   "count": 16,
+   "pct": 11.8,
+   "avgSpeed": 89.8
+  }
+ ]
+}

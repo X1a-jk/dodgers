@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Brock Stewart 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Brock Stewart</h1>
+ <p class="subtitle">Los Angeles Dodgers #41 | 投手 | 右投 | 从道奇首秀到冠军，绕了九年的回家路</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="stewart_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1991-10-03</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">34岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国伊利诺伊州诺默尔</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'3" / 220 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 左打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2016-06-29（道奇）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">41</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Brock Stewart 的 2025 年是一条完美的 V 形曲线：在双城投出生涯最好的 39 场 2.38 ERA、14 次中继成功，然后在<span class="mvp"> 7 月 31 日交易截止日被换回梦开始的地方——道奇用 James Outman 从双城把他换了回来</span>。九年前他穿着道奇球衣登上大联盟（2016-06-29），九年后他穿着道奇球衣拿到世界大赛戒指的入场券。</p>
+ <p style="margin-bottom: 15px;">道奇段的故事却有点苦涩：8 月 1 日激活后出赛 4 场、2 次中继成功，8 月 12 日右肩发炎进入 15 天伤病名单，直到 9 月 29 日才回归——赛季最后一周他在名单上，但再也没有投球。4 场 3.2 局、4.91、2.18 WHIP 的数字配不上他双城段的 2.38/1.09，但冠军队名册上"Stewart, B."这个名字，是他九年漂流最恰当的终点。</p>
+ <p>从 2025 年 11 月的视角看，33 岁的 Stewart 手握一枚戒指、一条手术重建过的手肘和 2023-2025 三个大联盟赛季合计 3.10 ERA 的成绩单——对一个 2020-2022 连续三年消失在 MLB 名单上的投手来说，这已经是体育史上都排得上号的复出剧本。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2016 年 - 道奇首秀</h4>
+ <p>2016 年 6 月 29 日以先发身份为道奇登上大联盟，当年 7 场（5 先发）。那时的他是被视为轮值苗子的右投新星——谁也没想到这条路要绕九年。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2023 年 - 双城复出年（0.65 ERA）</h4>
+ <p>手肘手术三年后重返大联盟，28 场 27.2 局自责分率 0.65、WHIP 1.08、8 次中继成功 1 救援——这是 MLB 历史上最惊人的复出赛季之一，也重新定义了他的生涯。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025 年 - 巅峰季 + 回家 + 冠军</h4>
+ <p>双城段 39 场 2.38 ERA、14 次中继成功全队领跑；7/31 被交易回道奇；随队拿下世界大赛冠军。从诺默尔到洛杉矶，绕了九年，圆了一个圈。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-07-31 自双城交易加盟、2025-08-12 右肩发炎进入 IL、2025-09-29 激活）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">4.91</span>
+ <div class="stat-label">自责分率（3.2 局样本）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">2.18</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">0.00</span>
+ <div class="stat-label">HR/9</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">4</span>
+ <div class="stat-label">出赛（2 中继成功）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3.2</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">3</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">2.38</span>
+ <div class="stat-label">双城段 ERA（39 场）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">14</span>
+ <div class="stat-label">双城段中继成功</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（双城）vs 2025（双城）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="stewart_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>GS</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>HLD</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2023</td>
+ <td>MIN</td>
+ <td>28</td>
+ <td>0</td>
+ <td>0.65</td>
+ <td>1.08</td>
+ <td>27.2</td>
+ <td>39</td>
+ <td>11</td>
+ <td>8</td>
+ </tr>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>MIN</td>
+ <td>16</td>
+ <td>0</td>
+ <td>5.17</td>
+ <td>1.47</td>
+ <td>15.2</td>
+ <td>20</td>
+ <td>8</td>
+ <td>7</td>
+ </tr>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>MIN</td>
+ <td>39</td>
+ <td>0</td>
+ <td>2.38</td>
+ <td>1.09</td>
+ <td>34.0</td>
+ <td>41</td>
+ <td>11</td>
+ <td>14</td>
+ </tr>
+ <tr>
+ <td class="mvp">2025</td>
+ <td>LAD</td>
+ <td>4</td>
+ <td>0</td>
+ <td>4.91</td>
+ <td>2.18</td>
+ <td>3.2</td>
+ <td>3</td>
+ <td>2</td>
+ <td>2</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">2024 到 2025 的双城段是一条漂亮的反弹曲线：自责分率 5.17→2.38、WHIP 1.47→1.09，保送率几乎砍半（4.60→2.91），而出赛数翻倍。更难得的是三振产量没有牺牲（K/9 维持在 10.9 左右）——这是"控制精进"而非"球速换精准"的成熟标志。道奇段的小样本失速（4.91）与右肩发炎直接相关：8 月那 4 场球他明显在收着投，19.64 球/局也远高于双城段的正常水准。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，双城+道奇汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 96.2 mph · 占比 54.4%</div>
+ <p>绝对主力球种，超过一半的配球。96+ 的速球配上他 6'3" 的出手角度，上旋位移在同速段属中上。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>横扫滑球 (Sweeper) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 84.7 mph · 占比 14.3%</div>
+ <p>主要三振武器，11.5 mph 速差设计用来骗挥空。2025 年横扫滑球的进垒点控制是他保送率下降的关键。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>伸卡球 (Sinker) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 96.2 mph · 占比 11.0%</div>
+ <p>与四缝线同速的沉球版本，对付左打的滚地球诱导选项，双城段用得更多。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-b">B-</span></h3>
+ <div class="velocity">均速 90.6 mph · 占比 10.8%</div>
+ <p>5.6 mph 速差偏小的变速，更多作为配球节奏的干扰项而非夺三振武器。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>卡特球 (Cutter) <span class="grade grade-c">C+</span></h3>
+ <div class="velocity">均速 93.2 mph · 占比 9.5%</div>
+ <p>夹在速球与滑球之间的过渡选项，用来凿内角。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">从「轮值新星」到「中继专家」的九年长征</h3>
+ <p>2016 年的 Stewart 是道奇农场排名前列的先发投手，但大联盟先用残酷的方式给他上课：先发 5 场 5.79、2018 年 6.11、2019 年在道奇 3 场 18.00 后被送到蓝鸟——先发这条路对他关上了门。2019 年后手肘韧带重建手术（Tommy John）又夺走了他三个赛季。真正的转折发生在双城：教练组把他改造为纯后援，减掉配球、放大速球，于是有了 2023 年的 0.65。这条「先发失败→手术→中继重生」的路径，是近十年后援改造最成功的模板之一。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">道奇为什么用 Outman 换他</h3>
+ <p>7 月 31 日的交易在情绪上是「回家」，在棒球逻辑上是典型的冠军球队补强：道奇牛棚需要一个能稳定吃第七八局的中继臂，Stewart 双城段 39 场 2.38、14 次中继成功的产量正是稀缺品。代价 James Outman 是 2023 年的中心打者候选，但 2025 年他已在小联盟蹉跎——用一支球队的「过去」换另一支球队的「现在」，道奇赢在了时间点上。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">右肩的问号</h3>
+ <p>8 月 12 日的右肩发炎让一切按下暂停键。33 岁 + TJ 史 + 肩发炎，这是投手体检表上最需要警惕的组合。9 月 16 日他在 3A 投了康复赛、9 月 29 日回归名单，但道奇在季后赛没有让他登板——保护性冻结。从 11 月的视角看，肩关节的核磁共振结果将决定他 2026 年的身价：是「冠军牛棚的一员」，还是「又一个被肩膀终结的复出故事」。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>96.2 mph 四缝线 + 84.7 mph 横扫滑球的速差组合</li>
+ <li>2025 双城段 2.38/1.09，保送率近乎砍半的控制精进</li>
+ <li>五球种武器库，左右打都有对应解方</li>
+ <li>TJ 后连续三年大联盟出赛，耐久已验证</li>
+ <li>近三年合计 87 场出赛的稳定产出（2023-25）</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>8 月右肩发炎，33 岁的肩部健康是最大问号</li>
+ <li>道奇段 4 场小样本全面失速（WHIP 2.18）</li>
+ <li>救援经验有限（生涯仅 1 次救援成功），定位在第七八局</li>
+ <li>变速球速差偏小（5.6 mph），配球有死角</li>
+ <li>伤史表太长：TJ + 肩，风险溢价高</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="stewart_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Sweeper</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Durability</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">55</div>
+ <p style="color: #90a4ae; margin-top: 10px;">九年绕一圈回家的中继专家</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 冠军牛棚拼图</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Stewart 没有在这条路上登板——8 月的肩伤让他在季后赛名单上属于「被保护的名字」。但对这位 2016 年从道奇出发的投手来说，意义不在出赛记录：九年前他作为轮值希望之星离开这条时间线，九年后他以冠军队成员的身份走完最后一圈。0 场季后赛出赛，1 枚戒指，这是棒球给他的圆满。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：4 场、2 中继成功、右肩发炎提前收官</li>
+ <li>9/29 常规赛前最后一周回归名单，未再登板</li>
+ <li>7/31 交易截止日的回家，是 2025 年道奇最有人情味的一笔操作</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Stewart 的 2026 年取决于右肩的体检报告。如果核磁共振干净，他是自由市场上最诱人的中继名字之一：33 岁、连续三年大联盟、2025 双城段 2.38、还有冠军 pedigree。道奇手里有球队选项的空间，把他留在冠军牛棚是顺理成章的事；市场上也会有至少十支球队愿意为他的 96 mph 开出两年合约。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>肩伤无碍，续约道奇，2026 年成为第八局固定选项</p>
+ <p><strong>现实基准：</strong>一年合约加盟竞争者牛棚，ERA 3.5 档的中继主力</p>
+ <p><strong>下行风险：</strong>肩部需要手术，复出剧本第三次上演</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>右肩发炎的真实程度——这是所有评估的起点</li>
+ <li>34 岁 + TJ 史，合约年限不宜超过两年</li>
+ <li>道奇段 3.2 局样本太小，买家主要参考双城段数据</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Brock Stewart 来自伊利诺伊州的诺默尔（Normal）——一个名叫「正常」的小镇，却走出了他这段绝不正常的职业生涯。2016 年 6 月 29 日，他以道奇先发投手身份登上大联盟，那时的球探报告写满「轮值骨架」「三号先发地板」。大联盟的回答是：先发 5 场、自责分率 5.79，紧接着是三年的挣扎与 2019 年的 Tommy John 手术。</p>
+ <p>2020-2022 赛季，他的名字从大联盟消失。无数投手在这个阶段结束职业生涯，但 Stewart 在 3A 和康复中心重塑了自己：减掉一半配球、把速球提到 96、学会在两球以内解决打者。2023 年在双城，他用 0.65 的自责分率宣布回归——那是当年 MLB 最动人的故事之一。2024 年 5.17 的回落一度让「昙花一现」的质疑卷土重来，但 2025 年 39 场 2.38 的回答干脆利落。</p>
+ <p>2025 年 11 月的 Brock Stewart 站在一个完美叙事的终点：从道奇出发，绕经蓝鸟、手术台、小联盟和明尼苏达的寒夜，最后穿着道奇球衣成为世界冠军。Normal, Illinois 的孩子，走了一条最不正常的路，回到了最开始的地方。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 九年绕一圈回家的中继专家</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

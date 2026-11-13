@@ -1,0 +1,16 @@
+{
+ "player_name": "Justin Dean",
+ "slug": "justin-dean",
+ "prefix": "dean",
+ "info": {"number": "1", "position_cn": "中外野手", "position": "CF"},
+ "cover": {
+  "tagline": "八年农场老兵的 MLB 首演：18 场守备、2 个打席、1 次盗垒",
+  "stats": [["G", 18], ["PA", 2], ["SB", 1], ["AVG", ".000"], ["3A AVG", ".289"], ["3A OBP", ".378"], ["3A SB", 27], ["Age", 28]]
+ },
+ "grades": {"Contact": 35, "Power": 30, "Discipline": 45, "Speed": 60, "Defense": 50, "Baserunning": 55},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.247, 0.338, 0.321, 0.659],
+  "y2025": [0.289, 0.378, 0.431, 0.809]
+ }
+}

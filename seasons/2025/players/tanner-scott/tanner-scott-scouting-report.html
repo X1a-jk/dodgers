@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Tanner Scott 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Tanner Scott</h1>
+ <p class="subtitle">Los Angeles Dodgers #66 | 终结者 | 左投 | 96.5 mph 火球终结者，颠簸的第一年</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="scott_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-07-22</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">31岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国俄亥俄州沃伦</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'0" / 235 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">左投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2017-09-20</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">#66</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Tanner Scott 带着 2024 年 1.75 自责分率、22/24 救援成功与全明星光环，在休赛期与道奇签下四年合约，被寄予厚望成为第九局的标准答案。2025 年 61 场、23 次救援成功仍是全队之最，但 <span class="mvp">4.74 自责分率与 33 次救援机会中 10 次失手</span>，让这第一年的风评褒贬参半。</p>
+ <p style="margin-bottom: 15px;">细看数据会发现一个反直觉的事实：他的控球其实大幅进步了——BB/9 从 4.50 降到 2.84，K/BB 从 2.33 升到 3.33。真正杀死他的不是坏球，而是全垒打：HR/9 从 0.38 暴涨到 1.74，57 局里被敲 11 轰。</p>
+ <p>季末的伤病让他错过了道奇整段夺冠之旅，11 月 2 日才从伤病名单激活。对道奇而言，这是一份还有三年合约的终结者投资第一年；对 Scott 而言，2026 年是必须证明自己值回票价的一年。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2023年 - 世界棒球经典赛冠军成员</h4>
+ <p>随美国国家队夺得 2023 年 WBC 冠军，在国际赛场积累了终结者级的大赛履历。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>🌟 2024年 - 全明星赛季</h4>
+ <p>72 场出赛、1.75 自责分率、22/24 救援成功、84 次三振——生涯最佳一季，入选全明星，跻身联盟顶级终结者行列。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025年 - 道奇首季：23 次救援全队最高</h4>
+ <p>虽然 ERA 飙至 4.74，但 61 场出赛 23 次救援成功仍是全队最高——第九局的大门钥匙，大部分时间仍挂在他的腰上。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">23</span>
+ <div class="stat-label">救援成功（33 机会）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">4.74</span>
+ <div class="stat-label">自责分率</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.26</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">61</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">57.0</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">2.84</span>
+ <div class="stat-label">BB/9（上季 4.50）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">3.33</span>
+ <div class="stat-label">K/BB（生涯最佳）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">1.74</span>
+ <div class="stat-label">HR/9（上季 0.38）</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024 vs 2025 赛季对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="scott_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>G</th><th>W-L</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>SV/SVO</th><th>HR/9</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2024（全明星年）</td>
+ <td>72</td>
+ <td>9-6</td>
+ <td>1.75</td>
+ <td>1.13</td>
+ <td>72.0</td>
+ <td>84</td>
+ <td>36</td>
+ <td>22/24 (92%)</td>
+ <td>0.38</td>
+ </tr>
+ <tr>
+ <td>2025（道奇首季）</td>
+ <td>61</td>
+ <td>1-4</td>
+ <td>4.74</td>
+ <td>1.26</td>
+ <td>57.0</td>
+ <td>60</td>
+ <td>18</td>
+ <td>23/33 (70%)</td>
+ <td>1.74</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">这组对比需要拆开看：控球从 4.50 改善到 2.84、保送率几乎腰斩，说明他的投球机制没有崩；真正崩的是全垒打——从 3 支变成 11 支。终结者的世界容许多少坏球，但容不了一发 ninth-inning 的全垒打。10 次救援失败中相当部分拜长打所赐。这不代表他「不行了」，更像是一颗球种（速球占比 52.6% 偏高且进垒点被研究透）需要调整的警讯。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-a">A-</span></h3>
+ <div class="velocity">均速 96.5 mph · 占比 52.6%</div>
+ <p>联盟顶级火球，尾劲与均速都属上乘。问题是占比过半且进垒高度模式化——当季被研究透后，长打惩罚随之而来。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>滑球 (Slider) <span class="grade grade-b">B+</span></h3>
+ <div class="velocity">均速 88.9 mph · 占比 47.2%</div>
+ <p>与速球形成速度差的第二武器，对付右打者的横向位移出色。若能把配球从「速球主导」转向「滑球主导」，或许是 2026 年的解题钥匙。</p>
+ </div>
+ </div>
+ <p style="margin-top: 15px; color: #90a4ae;">注：2025 年配球几乎完全由速球与滑球两球种构成（合计 99.8%），球种单一性是全联盟终结者中最高的一档——这既是他火球自信的体现，也是对手球队会议上的头号靶点。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">控球的进步不该被 ERA 掩盖</h3>
+ <p>4.50 → 2.84 的 BB/9 是终结者最难得的那类进步——绝大多数失控终结者死于坏球，而 Scott 偏偏把坏球治好了。K/BB 3.33 也刷新了他的生涯纪录。单看这些，他的投球是在「变好」而非「变差」。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">全垒打才是 ERA 飙升的唯一真凶</h3>
+ <p>0.38 → 1.74 的 HR/9 暴涨了 4.5 倍，这是 4.74 ERA 的全部解释。当一个终结者的速球进垒模式被联盟视频组拆解，而你 52.6% 的配球都依赖同一颗速球时，「巧合」就变成了「可复制的打击方案」。休赛期调整配球比例与进垒高度，是他技术层面唯一需要做的事。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">伤病与缺席季后赛的连锁反应</h3>
+ <p>季末伤停让他错过了整段夺冠之旅——这对一个刚签下四年合约的新援来说，意味着错过了与这座城市建立情感链接的最佳窗口。11 月 2 日的激活是好消息，但季末的伤病与整季的不稳定叠加，让他的第二年开局压力陡增。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>96.5 mph 顶级火球，Stuff 天赋仍是联盟终结者上游</li>
+ <li>控球大幅进化：BB/9 2.84、K/BB 3.33 生涯最佳</li>
+ <li>61 场 23 救援，出勤量与 ninth-inning 职责未丢</li>
+ <li>WBC 冠军 + 2024 全明星，大赛履历货真价实</li>
+ <li>四年合约在身，球队资源必将继续倾斜</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>HR/9 1.74 暴涨，速球被针对性打击</li>
+ <li>救援成功率 92%→70%，第九局稳定性遭质疑</li>
+ <li>两球种配球占比 99.8%，武器库单一</li>
+ <li>季末伤病缺席全部季后赛，融入窗口被压缩</li>
+ <li>ERA 4.74 的观感需要至少半年强势开局才能扭转</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="scott_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">60</span>
+ <div class="stat-label">Slider</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Strikeout</div>
+ <span class="grade grade-b">B</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Versatility</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">50</div>
+ <p style="color: #90a4ae; margin-top: 10px;">火球终结者，等待反弹的第二季</p>
+ <p style="margin-top: 15px;"><span class="grade grade-b" style="font-size: 1.2em;">B- 级 / 终结者（反弹候选）</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Scott 因季末伤病未能进入季后赛名单，全程缺席了球队的夺冠之旅，直到 11 月 2 日才随阵容激活回归。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>对一名四年合约新援而言，错过夺冠季后赛意味着错过了融入球队文化的最佳时机</li>
+ <li>教练组在第九局的选择转向 Vesia 等状态火热的 arms——2026 年春训他将从零开始竞争回这个位置</li>
+ <li>伤病本身也为休赛期蒙上阴影：恢复质量将直接决定他能否守住终结者角色</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tanner Scott 的 2026 年只有一个主题：反弹。四年合约还剩三年，道奇没有放弃他的理由，但他需要用上半季的表现把「终结者」三个字从 Vesia 手里拿回来。技术上，调整配球比例（提高滑球占比）、丰富进垒高度，是已被数据指明的方向。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>健康回归，ERA 回到 3 以下，救援成功率 85%+</p>
+ <p><strong>现实基准：</strong>与 Vesia 分担第九局，担任 co-closer</p>
+ <p><strong>上行惊喜：</strong>若滑球主导配球奏效，重返全明星水准</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>季末伤病若影响春训状态，开局即落后</li>
+ <li>道奇牛棚深度恐怖，第九局位置竞争空前激烈</li>
+ <li>HR/9 若维持 1.5+，合约将成为球队负担</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Tanner Scott 来自俄亥俄州沃伦，2017 年 9 月 20 日登上大联盟。他的 ascent 是典型的力量型终结者剧本：从牛棚末段一路靠火球爬升到第九局，2023 年随美国队捧起 WBC 冠军，2024 年用 1.75 的自责分率入选全明星——那是他职业生涯的完美注脚。</p>
+ <p>2024 年休赛期，道奇用一份四年合约把他从自由市场抢走，希望他能为卫冕冠军锁死最后三局。2025 年的现实却是一地碎玻璃：ERA 飙到 4.74、10 次救援失败、季末伤病、错过整段夺冠之旅。</p>
+ <p>但故事还没写完。终结者的世界里，没有比一个愤怒的火球手更适合「第二年反弹」的剧本了。2026 年的第九局，Tanner Scott 仍打算亲手关上那扇门。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 四年合约第一年颠簸，反弹是唯一选项</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

@@ -1,0 +1,19 @@
+{
+ "player_name": "Andrew Heaney",
+ "slug": "andrew-heaney",
+ "prefix": "heaney",
+ "info": {"number": "33", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "两局的道奇重逢，十三年生涯的第七站",
+  "stats": [["ERA", "13.50"], ["WHIP", "2.50"], ["K", 2], ["G", 1], ["IP", "2.0"], ["Age", 34], ["HR", 1], ["Stops", 7]]
+ },
+ "grades": {"Fastball": 50, "Changeup": 55, "Slider": 50, "Control": 50, "Durability": 50, "Composure": 50},
+ "comparison_p": {
+  "labels": ["2024游骑兵", "2025海盗"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [3.0, 1.1, 5.0, 2.0, 0.5],
+  "high": [6.0, 1.5, 10.0, 3.5, 2.0],
+  "y2024": [4.28, 1.25, 8.94, 2.31, 1.29],
+  "y2025": [5.39, 1.36, 6.28, 2.92, 1.79]
+ }
+}

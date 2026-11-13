@@ -1,0 +1,19 @@
+{
+ "player_name": "Brock Stewart",
+ "slug": "brock-stewart",
+ "prefix": "stewart",
+ "info": {"number": "41", "position_cn": "投手", "position": "P"},
+ "cover": {
+  "tagline": "从道奇首秀到冠军，绕了九年的回家路",
+  "stats": [["ERA", "4.91"], ["WHIP", "2.18"], ["K", 3], ["G", 4], ["IP", "3.2"], ["HLD", 2], ["Age", 33], ["Teams", 2]]
+ },
+ "grades": {"Fastball": 60, "Sweeper": 55, "Changeup": 55, "Control": 55, "Durability": 45, "Composure": 55},
+ "comparison_p": {
+  "labels": ["2024双城", "2025双城"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 1.0, 6.0, 2.0, 0.0],
+  "high": [6.0, 1.6, 13.0, 5.0, 1.5],
+  "y2024": [5.17, 1.47, 11.49, 4.60, 1.15],
+  "y2025": [2.38, 1.09, 10.85, 2.91, 0.79]
+ }
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Michael Kopech",
+ "slug": "michael-kopech",
+ "prefix": "kopech",
+ "info": {"number": "45", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "健康时是无解火球，2025 年只健康了 11 局",
+  "stats": [["ERA", "2.45"], ["WHIP", "1.73"], ["K", 12], ["G", 14], ["IP", "11.0"], ["HLD", 6], ["K/9", 9.82], ["Age", 29]]
+ },
+ "grades": {"Fastball": 65, "Cutter": 55, "Control": 35, "Strikeout": 55, "Composure": 45, "Durability": 30},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [0.5, 0.7, 8.0, 2.0, 0.0],
+  "high": [4.0, 2.0, 13.0, 11.0, 2.0],
+  "y2024": [1.13, 0.79, 10.88, 3.75, 0.38],
+  "y2025": [2.45, 1.73, 9.82, 10.64, 0.00]
+ }
+}

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Chuckie Robinson 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Chuckie Robinson</h1>
+ <p class="subtitle">Los Angeles Dodgers | 捕手 | 右打 | 一年穿越三国的流浪捕手，唯一一场出赛跑回一分</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="robinson_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1994-12-14</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">30岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">美国伊利诺伊州 Danville</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'0" / 215 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2022-08-24（红人）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">—</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">⚠️ <strong>极小样本警告：</strong>本报告基于 1 场 / 2 个打席的道奇段数据——这是 62 人名单中赛季数据最薄的报告，叙事价值远大于评估价值。</p>
+ <p style="margin-bottom: 15px;">Chuckie Robinson 的 2025 年是一幅 waiver 线公路地图：天使春训（3A 盐湖城 27 场 .272）→ <span class="mvp">5 月 28 日被 DFA → 5 月 31 日被道奇认领 → 6 月 3 日再被 DFA → 6 月 5 日 outright 奥克拉荷马城</span> → 9 月 6 日因扩编被选入 → 9 月 8 日下放 → 9 月 13 日再召回 → 9 月 16 日再下放 → 9 月 21 日被亚特兰大勇士认领 → 9 月 29 日勇士召回 → 11 月 6 日成为自由球员。十个月内，他的球员档案被五个行政动作改写，穿过的球衣可以从加州排到乔治亚。</p>
+ <p style="margin-bottom: 15px;">而在这一切的中央，是他 2025 年唯一一场 MLB 出赛：9 月的某个傍晚，他作为道奇替补捕手上场 <span class="highlight">2 个打席、1 个打数，没有敲出安打——但他跑回了 1 分</span>。对于一个整年在 waiver 线上漂流的 30 岁捕手来说，这一分是全年 317 个小联盟打席的利息，也是他 2025 年 boxscore 上唯一的数字。</p>
+ <p>从 2025 年 11 月的视角看，Robinson 是 MLB 边缘生态的完整样本：三次大联盟机会（2022 红人 25 场、2024 红人 26 场、2025 道奇 1 场），三个赛季打击率均未破 .150，小联盟常年 .250+。他的棒球生涯由「被需要」三个字驱动——哪支球队的捕手群出现洞，他就出现在哪。11 月 6 日之后，他第一次完全自由地选择自己的下一站。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>🌟 2022 年 - 大联盟首秀（红人）</h4>
+ <p>2022 年 8 月 24 日在辛辛那提登上大联盟，首个赛季 25 场出赛——八年的小联盟长征（2016 年起）终于兑现成 MLB 球衣。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2023 年 - 3A 生涯年（.290 / 13 轰 / 74 打点）</h4>
+ <p>3A 路易斯维尔 101 场 .290/.356/.450——这是他职业生涯数据最好的一年，也是「MLB 轮换捕手」梦想距离最近的一次。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>⚾ 2025 年 - 道奇的 2 个打席与那 1 分</h4>
+ <p>9 月扩编窗口里唯一一场出赛：2 PA、1 AB、0 H、1 R。boxscore 上的一分，是他在道奇——也是 2025 全年 MLB——留下的全部痕迹。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计（道奇段）</h2>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.000</span>
+ <div class="stat-label">打击率（0-for-1）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">1</span>
+ <div class="stat-label">得分（2 PA）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">.254</span>
+ <div class="stat-label">3A 打击率（78 G）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">48</span>
+ <div class="stat-label">3A 打点</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">30</span>
+ <div class="stat-label">年龄（生涯第 4 个 MLB 赛季）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">5</span>
+ <div class="stat-label">全年经历球队/体系数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">52</span>
+ <div class="stat-label">MLB 生涯总出赛</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2024（红人）vs 2025（道奇）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="robinson_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">打击数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>队</th><th>G</th><th>PA</th><th>AVG</th><th>OBP</th><th>SLG</th><th>OPS</th><th>HR</th><th>RBI</th><th>BB</th><th>SO</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td class="highlight">2022</td>
+ <td>CIN</td>
+ <td>25</td>
+ <td>60</td>
+ <td>.136</td>
+ <td>.136</td>
+ <td>.271</td>
+ <td>.407</td>
+ <td>2</td>
+ <td>5</td>
+ <td>0</td>
+ <td>17</td>
+ </tr>
+ <tr>
+ <td class="highlight">2024</td>
+ <td>CIN</td>
+ <td>26</td>
+ <td>76</td>
+ <td>.129</td>
+ <td>.197</td>
+ <td>.129</td>
+ <td>.326</td>
+ <td>0</td>
+ <td>0</td>
+ <td>5</td>
+ <td>20</td>
+ </tr>
+ <tr>
+ <td class="mvp">2025</td>
+ <td>LAD</td>
+ <td>1</td>
+ <td>2</td>
+ <td>.000</td>
+ <td>.000</td>
+ <td>.000</td>
+ <td>.000</td>
+ <td>0</td>
+ <td>0</td>
+ <td>0</td>
+ <td>0</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">三个 MLB 赛季，52 场出赛，OPS .407 → .326 → .000——这不是下滑曲线，这是一份关于「MLB 边缘捕手的三次敲门」的记录。真正值得读的是他 MLB 与小联盟的分裂：三个 MLB 赛季 52 场打击率均未破 .150，而 3A 生涯常年 .250+（2025 年 .254、78 场）。这个鸿沟在 30 岁的门槛上已经没有太多时间弥合；他的价值从来不在打击区，而在蹲捕时。</p>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">waiver 线经济学的完整样本</h3>
+ <p>Robinson 的 2025 年是大联盟 roster 行政学的活教材：认领 → DFA → outright → 选入 → 下放 → 召回 → 再下放 → 被认领，每一步都有明确的 roster 逻辑驱动（伤病、扩编、优先级）。全年 5 个体系（LAA/LAD/ATL + 两队 3A）的穿梭不是混乱，而是联盟深度市场的正常运转——他是那台机器里最耐用的一颗螺丝。这种球员的存在让争冠队敢于在九月放心使用主力捕手，因为他们知道 waiver 线上永远有一个 Robinson 在待命。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">「蹲捕价值」的隐形账本</h3>
+ <p>球探报告写打击数据，但 Robinson 的雇主买的是另一套账本：蹲捕指挥、投手群安抚、速球局数承接。2025 年他在三个组织的 3A 累计出赛 78 场、317 个打席——这些是没有任何 MLB boxscore 会记录的价值。道奇 9 月把他选入再放下，不是因为他的棒子，而是因为 Barnes/Smith 轮休日的每一分每一秒都需要一个「不会让投手紧张」的名字。他的 2 个打席只是这份工作的收据。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">30 岁的分水岭</h3>
+ <p>11 月 6 日他选择成为自由球员——这是他职业生涯第一次主动按下按钮而非被动等待 waiver。30 岁对捕手是一道真实的门槛：阻挡的膝伤累积、速球应对的反射下降，都让「下一个机会」的报价单越来越薄。他的 2026 可能是最后一份 MLB 体系合约，也可能是海外联赛或转任教练的起点。无论走向哪，52 场 MLB 出赛和那一分，已经足够 Danville 的少年吹牛一辈子。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>三个 MLB 组织验证过的「应急蹲捕」可靠性</li>
+ <li>2023 年 3A 13 轰显示过 residual 长打力</li>
+ <li>一年五体系的环境适应力（无人能及）</li>
+ <li>投手群工作关系的口碑资产</li>
+ <li>30 岁捕手的经验溢价在 backup 市场有效</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>MLB 生涯 52 G、三个赛季打击率均未破 .150</li>
+ <li>2022 年 MLB 0 保送（60 PA）——选球盲区</li>
+ <li>三振率在小联盟已达 25%+ 并老化</li>
+ <li>无速度工具，守备范围随年龄收窄</li>
+ <li>30 岁，选项年优势耗尽，只剩老将最低薪资弹性</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="robinson_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">30</span>
+ <div class="stat-label">Contact</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">35</span>
+ <div class="stat-label">Power</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">30</span>
+ <div class="stat-label">Discipline</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">30</span>
+ <div class="stat-label">Speed</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">40</span>
+ <div class="stat-label">Defense</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">40</span>
+ <div class="stat-label">Game-calling</div>
+ <span class="grade grade-b">C+</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">30</div>
+ <p style="color: #90a4ae; margin-top: 10px;">流浪捕手的赛季注脚：两分打席，一分得分</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C 级 / 深度捕手与 3A 导师</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Robinson 与道奇的季后赛没有交集——9 月 21 日勇士的认领早就把他的赛季引向了乔治亚。有趣的是命运的环形结构：他 2025 年 MLB 唯一的得分来自道奇，而道奇夺冠那周，他刚在 Gwinnett 的 3A 赛季末战里收拾好护具。11 月 6 日他选择自由身——这是生涯第一次，他可以自己挑下一支需要捕手的球队，而不是等 waiver 线替他决定。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：1 场、2 PA、1 分——全年 MLB 全部产出</li>
+ <li>9/21 被勇士认领，9/29 上 MLB 名单但未出赛</li>
+ <li>11/6 选择自由球员身份</li>
+ <li>季后赛未登场（道奇/勇士均非其季后赛舞台）</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Robinson 的 2026 年从自由球员市场开始，他的目标读者只有一类人：需要「即插即用 backup 捕手」的球队棒球运营部。理想的报价单是一份带春训邀请的大联盟合约（一年 100-150 万美元区间）；更现实的剧本是 3A 合约 + 六月 roster 电话。30 岁的捕手历史上不乏第二春（ backup 位置的寿命比先发长得多），前提是膝盖和肩肘在 2026 春训前给出绿灯。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>拿到 backup 捕手合约，赛季接满 50 场 MLB</p>
+ <p><strong>现实基准：</strong>3A 导师 + 九月扩编电话，延续流浪地图</p>
+ <p><strong>下行可能：</strong>转向教练/球探岗位——他的经历本身就是教材</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>捕手 30 岁后的膝/肩累积损耗</li>
+ <li>MLB 打击产出持续低于门槛值</li>
+ <li>自由市场上同类 depth 捕手供应过剩</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Chuckie Robinson 来自伊利诺伊州东部的 Danville，2016 年在红人体系开始职业生涯。他的爬升路线是典型的「板凳捕手长征」：九年小联盟生涯累计出赛近 700 场，从 Dayton 到 Pensacola 再到 Louisville，一年一个城市的接力。2022 年 8 月 24 日，28 岁的他终于穿上大联盟球衣——比大多数捕手晚，但比大多数追梦人早。</p>
+ <p>2023 年他在 3A 打出 .290/13 轰的生涯年，那个赛季结束后他以为自己终于站稳了；2024 年 26 场 .129 的回答把他打回原形。2025 年的流浪开始了：天使、道奇、勇士，三个组织的训练馆、五套不同的投手名单、无数次凌晨的航班。他的行李永远半收半放。</p>
+ <p>2025 年 11 月的 Chuckie Robinson 是一名自由球员。从 Danville 到盐湖城到洛杉矶到亚特兰大，他的 2025 年在 boxscore 上只留下一行：1 场、2 打席、1 分。但 waiver 线上的人都知道这行的分量——那个跑了 317 个 3A 打席、接了 700 多局、在五个体系间无缝切换的捕手，值得这一分，也值得下一通电话。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 流浪捕手的赛季注脚：两分打席，一分得分</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>

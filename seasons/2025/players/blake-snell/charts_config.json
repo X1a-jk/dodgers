@@ -1,0 +1,19 @@
+{
+ "player_name": "Blake Snell",
+ "slug": "blake-snell",
+ "prefix": "snell",
+ "info": {"number": "7", "position_cn": "先发投手", "position": "SP"},
+ "cover": {
+  "tagline": "两届赛扬左投，伤愈归来的王牌",
+  "stats": [["ERA", "2.35"], ["WHIP", "1.26"], ["K", 72], ["IP", "61.1"], ["K/9", "10.57"], ["W-L", "5-4"], ["GS", 11], ["Age", 32]]
+ },
+ "grades": {"Fastball": 60, "Changeup": 65, "Curve": 60, "Slider": 55, "Control": 50, "Strikeout": 65},
+ "comparison_p": {
+  "labels": ["2024", "2025"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "IP/GS"],
+  "low": [2.0, 0.9, 5.0, 1.0, 3.0],
+  "high": [6.0, 1.8, 13.0, 6.0, 8.0],
+  "y2024": [3.12, 1.05, 12.55, 3.81, 5.2],
+  "y2025": [2.35, 1.26, 10.57, 3.82, 5.6]
+ }
+}

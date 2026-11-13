@@ -1,0 +1,16 @@
+{
+ "player_name": "Eddie Rosario",
+ "slug": "eddie-rosario",
+ "prefix": "rosario",
+ "info": {"number": "9", "position_cn": "外野手", "position": "OF"},
+ "cover": {
+  "tagline": "从 32 轰到两场告别：NLCS MVP 的最后一站",
+  "stats": [["AVG", ".250"], ["H", 1], ["G", 2], ["PA", 4], ["K", 0], ["Age", 34], ["2019", "32HR"], ["Teams", 2]]
+ },
+ "grades": {"Contact": 35, "Power": 40, "Discipline": 20, "Speed": 40, "Defense": 35, "Clutch": 50},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.175, 0.213, 0.316, 0.529],
+  "y2025": [0.250, 0.250, 0.250, 0.500]
+ }
+}

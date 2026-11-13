@@ -1,0 +1,19 @@
+{
+ "player_name": "Alexis Díaz",
+ "slug": "alexis-diaz",
+ "prefix": "diaz",
+ "info": {"number": "40", "position_cn": "后援投手", "position": "RP"},
+ "cover": {
+  "tagline": "从 37 救援的全明星到一年三队，滑球还在、信心待定",
+  "stats": [["ERA", "5.00"], ["WHIP", "1.00"], ["K", 9], ["G", 9], ["IP", "9.0"], ["BB/9", 2.00], ["HLD", 2], ["Age", 29]]
+ },
+ "grades": {"Fastball": 60, "Slider": 60, "Control": 40, "Strikeout": 55, "Composure": 40, "Durability": 45},
+ "comparison_p": {
+  "labels": ["2024红人", "2025道奇"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 6.0, 1.0, 0.0],
+  "high": [6.0, 1.6, 12.0, 6.0, 2.5],
+  "y2024": [3.99, 1.30, 8.78, 4.95, 0.96],
+  "y2025": [5.00, 1.00, 9.00, 2.00, 2.00]
+ }
+}

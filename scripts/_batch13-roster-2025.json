@@ -1,0 +1,780 @@
+{
+ "players": [
+  {
+   "id": 669257,
+   "name": "Will Smith",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".296",
+    "obp": ".404",
+    "slg": ".497",
+    "ops": ".901",
+    "hr": 17,
+    "rbi": 61
+   },
+   "pit": null
+  },
+  {
+   "id": 518692,
+   "name": "Freddie Freeman",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".295",
+    "obp": ".367",
+    "slg": ".502",
+    "ops": ".869",
+    "hr": 24,
+    "rbi": 90
+   },
+   "pit": null
+  },
+  {
+   "id": 660271,
+   "name": "Shohei Ohtani",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".282",
+    "obp": ".392",
+    "slg": ".622",
+    "ops": "1.014",
+    "hr": 55,
+    "rbi": 102
+   },
+   "pit": {
+    "era": "2.87",
+    "whip": "1.04",
+    "w": 1,
+    "l": 1,
+    "so": 62,
+    "ip": "47.0"
+   }
+  },
+  {
+   "id": 808975,
+   "name": "Hyeseong Kim",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".280",
+    "obp": ".314",
+    "slg": ".385",
+    "ops": ".699",
+    "hr": 3,
+    "rbi": 17
+   },
+   "pit": null
+  },
+  {
+   "id": 681624,
+   "name": "Andy Pages",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".272",
+    "obp": ".313",
+    "slg": ".461",
+    "ops": ".774",
+    "hr": 27,
+    "rbi": 86
+   },
+   "pit": null
+  },
+  {
+   "id": 500743,
+   "name": "Miguel Rojas",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".262",
+    "obp": ".318",
+    "slg": ".397",
+    "ops": ".715",
+    "hr": 7,
+    "rbi": 27
+   },
+   "pit": null
+  },
+  {
+   "id": 605141,
+   "name": "Mookie Betts",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".258",
+    "obp": ".326",
+    "slg": ".406",
+    "ops": ".732",
+    "hr": 20,
+    "rbi": 82
+   },
+   "pit": null
+  },
+  {
+   "id": 592696,
+   "name": "Eddie Rosario",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 669743,
+   "name": "Alex Call",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".247",
+    "obp": ".333",
+    "slg": ".384",
+    "ops": ".717",
+    "hr": 2,
+    "rbi": 5
+   },
+   "pit": null
+  },
+  {
+   "id": 606192,
+   "name": "Teoscar Hernández",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".247",
+    "obp": ".284",
+    "slg": ".454",
+    "ops": ".738",
+    "hr": 25,
+    "rbi": 89
+   },
+   "pit": null
+  },
+  {
+   "id": 571970,
+   "name": "Max Muncy",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".243",
+    "obp": ".376",
+    "slg": ".470",
+    "ops": ".846",
+    "hr": 19,
+    "rbi": 67
+   },
+   "pit": null
+  },
+  {
+   "id": 669242,
+   "name": "Tommy Edman",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".225",
+    "obp": ".274",
+    "slg": ".382",
+    "ops": ".656",
+    "hr": 13,
+    "rbi": 49
+   },
+   "pit": null
+  },
+  {
+   "id": 666163,
+   "name": "Ben Rortvedt",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".224",
+    "obp": ".309",
+    "slg": ".327",
+    "ops": ".636",
+    "hr": 1,
+    "rbi": 4
+   },
+   "pit": null
+  },
+  {
+   "id": 605131,
+   "name": "Austin Barnes",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 687221,
+   "name": "Dalton Rushing",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".204",
+    "obp": ".258",
+    "slg": ".324",
+    "ops": ".582",
+    "hr": 4,
+    "rbi": 24
+   },
+   "pit": null
+  },
+  {
+   "id": 571771,
+   "name": "Enrique Hernández",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".203",
+    "obp": ".255",
+    "slg": ".366",
+    "ops": ".621",
+    "hr": 10,
+    "rbi": 35
+   },
+   "pit": null
+  },
+  {
+   "id": 621035,
+   "name": "Chris Taylor",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 624424,
+   "name": "Michael Conforto",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".199",
+    "obp": ".305",
+    "slg": ".333",
+    "ops": ".638",
+    "hr": 12,
+    "rbi": 36
+   },
+   "pit": null
+  },
+  {
+   "id": 690976,
+   "name": "Alex Freeland",
+   "pos": "",
+   "status": "departed",
+   "bat": {
+    "avg": ".190",
+    "obp": ".292",
+    "slg": ".310",
+    "ops": ".602",
+    "hr": 2,
+    "rbi": 6
+   },
+   "pit": null
+  },
+  {
+   "id": 665923,
+   "name": "Esteury Ruiz",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 681546,
+   "name": "James Outman",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 671083,
+   "name": "Buddy Kennedy",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 607455,
+   "name": "Anthony Banda",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "3.18",
+    "whip": "1.22",
+    "w": 5,
+    "l": 1,
+    "so": 61,
+    "ip": "65.0"
+   }
+  },
+  {
+   "id": 681909,
+   "name": "Justin Dean",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 676439,
+   "name": "Hunter Feduccia",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 642020,
+   "name": "Chuckie Robinson",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 656945,
+   "name": "Tanner Scott",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.74",
+    "whip": "1.26",
+    "w": 1,
+    "l": 4,
+    "so": 60,
+    "ip": "57.0"
+   }
+  },
+  {
+   "id": 623465,
+   "name": "Evan Phillips",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 694361,
+   "name": "Will Klein",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.35",
+    "whip": "1.57",
+    "w": 1,
+    "l": 1,
+    "so": 21,
+    "ip": "15.1"
+   }
+  },
+  {
+   "id": 605483,
+   "name": "Blake Snell",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.35",
+    "whip": "1.26",
+    "w": 5,
+    "l": 4,
+    "so": 72,
+    "ip": "61.1"
+   }
+  },
+  {
+   "id": 683618,
+   "name": "Edgardo Henriquez",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.37",
+    "whip": "1.16",
+    "w": 2,
+    "l": 1,
+    "so": 18,
+    "ip": "19.0"
+   }
+  },
+  {
+   "id": 656629,
+   "name": "Michael Kopech",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.45",
+    "whip": "1.73",
+    "w": 0,
+    "l": 0,
+    "so": 12,
+    "ip": "11.0"
+   }
+  },
+  {
+   "id": 808967,
+   "name": "Yoshinobu Yamamoto",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.49",
+    "whip": "0.99",
+    "w": 12,
+    "l": 8,
+    "so": 201,
+    "ip": "173.2"
+   }
+  },
+  {
+   "id": 686218,
+   "name": "Emmet Sheehan",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.82",
+    "whip": "0.97",
+    "w": 6,
+    "l": 3,
+    "so": 89,
+    "ip": "73.1"
+   }
+  },
+  {
+   "id": 676263,
+   "name": "Jack Dreyer",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "2.95",
+    "whip": "1.05",
+    "w": 3,
+    "l": 2,
+    "so": 74,
+    "ip": "76.1"
+   }
+  },
+  {
+   "id": 570632,
+   "name": "José Ureña",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 681911,
+   "name": "Alex Vesia",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "3.02",
+    "whip": "0.99",
+    "w": 4,
+    "l": 2,
+    "so": 80,
+    "ip": "59.2"
+   }
+  },
+  {
+   "id": 607192,
+   "name": "Tyler Glasnow",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "3.19",
+    "whip": "1.10",
+    "w": 4,
+    "l": 3,
+    "so": 106,
+    "ip": "90.1"
+   }
+  },
+  {
+   "id": 477132,
+   "name": "Clayton Kershaw",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "3.36",
+    "whip": "1.22",
+    "w": 11,
+    "l": 2,
+    "so": 84,
+    "ip": "112.2"
+   }
+  },
+  {
+   "id": 642152,
+   "name": "Lou Trivino III",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "3.76",
+    "whip": "1.41",
+    "w": 2,
+    "l": 1,
+    "so": 18,
+    "ip": "26.1"
+   }
+  },
+  {
+   "id": 680736,
+   "name": "Justin Wrobleski",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.32",
+    "whip": "1.23",
+    "w": 5,
+    "l": 5,
+    "so": 76,
+    "ip": "66.2"
+   }
+  },
+  {
+   "id": 808963,
+   "name": "Roki Sasaki",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.46",
+    "whip": "1.43",
+    "w": 1,
+    "l": 1,
+    "so": 28,
+    "ip": "36.1"
+   }
+  },
+  {
+   "id": 801434,
+   "name": "Paul Gervase",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 676508,
+   "name": "Ben Casparius",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.64",
+    "whip": "1.27",
+    "w": 7,
+    "l": 5,
+    "so": 71,
+    "ip": "77.2"
+   }
+  },
+  {
+   "id": 669160,
+   "name": "Dustin May",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.85",
+    "whip": "1.35",
+    "w": 6,
+    "l": 7,
+    "so": 97,
+    "ip": "104.0"
+   }
+  },
+  {
+   "id": 689017,
+   "name": "Landon Knack",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "4.89",
+    "whip": "1.39",
+    "w": 3,
+    "l": 2,
+    "so": 42,
+    "ip": "42.1"
+   }
+  },
+  {
+   "id": 592779,
+   "name": "Brock Stewart",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 664747,
+   "name": "Alexis Díaz",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 664062,
+   "name": "Tony Gonsolin",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "5.00",
+    "whip": "1.42",
+    "w": 3,
+    "l": 2,
+    "so": 38,
+    "ip": "36.0"
+   }
+  },
+  {
+   "id": 489446,
+   "name": "Kirby Yates",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "5.23",
+    "whip": "1.33",
+    "w": 4,
+    "l": 3,
+    "so": 52,
+    "ip": "41.1"
+   }
+  },
+  {
+   "id": 472610,
+   "name": "Luis García",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "5.27",
+    "whip": "1.83",
+    "w": 2,
+    "l": 0,
+    "so": 24,
+    "ip": "27.1"
+   }
+  },
+  {
+   "id": 595014,
+   "name": "Blake Treinen",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "5.40",
+    "whip": "1.84",
+    "w": 2,
+    "l": 7,
+    "so": 36,
+    "ip": "26.2"
+   }
+  },
+  {
+   "id": 669193,
+   "name": "Jack Little",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 669422,
+   "name": "Matt Sauer",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": {
+    "era": "6.37",
+    "whip": "1.45",
+    "w": 2,
+    "l": 1,
+    "so": 24,
+    "ip": "29.2"
+   }
+  },
+  {
+   "id": 608717,
+   "name": "Chris Stratton",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 642759,
+   "name": "Julian Fernández",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 676272,
+   "name": "Bobby Miller",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 656420,
+   "name": "J.P. Feyereisen",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 571760,
+   "name": "Andrew Heaney",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 672782,
+   "name": "Yoendrys Gómez",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 702795,
+   "name": "Ryan Loutos",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  },
+  {
+   "id": 663562,
+   "name": "Noah Davis",
+   "pos": "",
+   "status": "departed",
+   "bat": null,
+   "pit": null
+  }
+ ]
+}

@@ -1,0 +1,19 @@
+{
+ "player_name": "Roki Sasaki",
+ "slug": "roki-sasaki",
+ "prefix": "sasaki",
+ "info": {"number": "11", "position_cn": "投手（先发/后援）", "position": "P"},
+ "cover": {
+  "tagline": "完全比赛出身的日本神童，季后赛的惊奇",
+  "stats": [["ERA", "4.46"], ["WHIP", "1.43"], ["K", 28], ["BB", 22], ["GS", 8], ["IP", "36.1"], ["PS SV", 3], ["Age", 23]]
+ },
+ "grades": {"Fastball": 70, "Forkball": 70, "Sweeper": 55, "Control": 35, "Strikeout": 55, "Composure": 60},
+ "comparison_p": {
+  "labels": ["联盟均值(估)", "Sasaki"],
+  "categories": ["ERA", "WHIP", "K/9", "BB/9", "HR/9"],
+  "low": [2.0, 0.9, 5.0, 1.0, 0.0],
+  "high": [7.0, 1.8, 13.0, 6.0, 3.0],
+  "y2024": [4.3, 1.32, 8.6, 3.3, 1.1],
+  "y2025": [4.46, 1.43, 6.94, 5.45, 1.49]
+ }
+}

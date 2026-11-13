@@ -1,0 +1,16 @@
+{
+ "player_name": "Chuckie Robinson",
+ "slug": "chuckie-robinson",
+ "prefix": "robinson",
+ "info": {"number": "—", "position_cn": "捕手", "position": "C"},
+ "cover": {
+  "tagline": "一年穿越三国的流浪捕手：唯一一场出赛，跑回珍贵的一分",
+  "stats": [["G", 1], ["PA", 2], ["R", 1], ["AVG", ".000"], ["OBP", ".000"], ["2022 首秀", 58], ["2025 3A G", 78], ["Age", 30]]
+ },
+ "grades": {"Contact": 30, "Power": 35, "Discipline": 30, "Speed": 30, "Defense": 40, "Game-calling": 40},
+ "comparison": {
+  "categories": ["AVG", "OBP", "SLG", "OPS"],
+  "y2024": [0.129, 0.197, 0.129, 0.326],
+  "y2025": [0.000, 0.000, 0.000, 0.000]
+ }
+}

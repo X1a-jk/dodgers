@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+ <meta charset="UTF-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Julián Fernández 球探报告（2025 赛季）</title>
+ <style>
+ * { margin: 0; padding: 0; box-sizing: border-box; }
+ body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: #e0e0e0; line-height: 1.6; min-height: 100vh; }
+ .container { max-width: 1200px; margin: 0 auto; padding: 20px; }
+ .header { text-align: center; padding: 40px 0; background: linear-gradient(90deg, #005A9C 0%, #1a5490 50%, #005A9C 100%); border-radius: 15px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); }
+ .header h1 { font-size: 3em; color: #fff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5); margin-bottom: 10px; }
+ .header .subtitle { font-size: 1.2em; color: #e0e0e0; font-style: italic; }
+ .player-card { background: rgba(255, 255, 255, 0.1); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.2); display: flex; gap: 30px; flex-wrap: wrap; }
+ .player-info { flex: 1; min-width: 250px; }
+ .player-info h2 { color: #4fc3f7; margin-bottom: 15px; font-size: 1.8em; }
+ .info-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; }
+ .info-item { background: rgba(255, 255, 255, 0.05); padding: 10px; border-radius: 8px; }
+ .info-item .label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; }
+ .info-item .value { font-size: 1.2em; color: #fff; font-weight: bold; }
+ .section { background: rgba(255, 255, 255, 0.05); border-radius: 15px; padding: 30px; margin-bottom: 30px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1); }
+ .section h2 { color: #4fc3f7; margin-bottom: 20px; font-size: 1.8em; border-bottom: 2px solid #4fc3f7; padding-bottom: 10px; }
+ .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px; margin-top: 20px; }
+ .stat-card { background: linear-gradient(135deg, rgba(0, 90, 156, 0.3) 0%, rgba(26, 84, 144, 0.3) 100%); border-radius: 10px; padding: 20px; text-align: center; border: 1px solid rgba(79, 195, 247, 0.3); transition: transform 0.3s ease; }
+ .stat-card:hover { transform: translateY(-5px); }
+ .stat-card .stat-value { font-size: 2.5em; font-weight: bold; color: #4fc3f7; display: block; }
+ .stat-card .stat-label { font-size: 0.9em; color: #90a4ae; text-transform: uppercase; letter-spacing: 1px; margin-top: 5px; }
+ .comparison-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+ .comparison-table th, .comparison-table td { padding: 15px; text-align: center; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .comparison-table th { background: rgba(0, 90, 156, 0.3); color: #4fc3f7; font-weight: bold; text-transform: uppercase; letter-spacing: 1px; }
+ .comparison-table tr:hover { background: rgba(255, 255, 255, 0.05); }
+ .pros-cons { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pros, .cons { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; }
+ .pros h3 { color: #4caf50; margin-bottom: 15px; }
+ .cons h3 { color: #f44336; margin-bottom: 15px; }
+ .pros ul, .cons ul { list-style: none; }
+ .pros li, .cons li { padding: 8px 0; border-bottom: 1px solid rgba(255, 255, 255, 0.1); }
+ .pros li::before { content: "✓ "; color: #4caf50; font-weight: bold; }
+ .cons li::before { content: "✗ "; color: #f44336; font-weight: bold; }
+ .grade { display: inline-block; padding: 5px 15px; border-radius: 20px; font-weight: bold; font-size: 0.9em; }
+ .grade-a { background: rgba(76, 175, 80, 0.3); color: #4caf50; }
+ .grade-b { background: rgba(79, 195, 247, 0.3); color: #4fc3f7; }
+ .grade-c { background: rgba(255, 152, 0, 0.3); color: #ff9800; }
+ .highlight { color: #4fc3f7; font-weight: bold; }
+ .mvp { color: #FFD700; font-weight: bold; }
+ .career-highlight { background: rgba(255, 215, 0, 0.1); border: 1px solid rgba(255, 215, 0, 0.3); border-radius: 10px; padding: 15px; margin: 15px 0; }
+ .career-highlight h4 { color: #FFD700; margin-bottom: 10px; }
+ .pitch-arsenal { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px; }
+ .pitch-card { background: rgba(255, 255, 255, 0.05); border-radius: 10px; padding: 20px; border: 1px solid rgba(255, 255, 255, 0.1); }
+ .pitch-card h3 { color: #4fc3f7; margin-bottom: 10px; font-size: 1.1em; }
+ .pitch-card .velocity { font-size: 1.4em; font-weight: bold; color: #ff9800; margin-bottom: 10px; }
+ .footer { text-align: center; padding: 20px; color: #90a4ae; font-size: 0.9em; }
+ @media (max-width: 768px) { .header h1 { font-size: 2em; } .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+ </style>
+</head>
+<body>
+<button onclick="event.stopPropagation();if (window.history.length > 1 && document.referrer) { window.history.back(); }else { window.location.href = '../index.html'; }" style="position:fixed;top:14px;left:14px;z-index:9999;padding:9px 16px;border-radius:22px;border:1px solid rgba(255,255,255,0.3);background:rgba(10,22,40,0.85);color:#e0e0e0;font-size:0.9rem;cursor:pointer;backdrop-filter:blur(6px);font-family:inherit;">&#8592; 返回报告列表</button>
+ <div class="container">
+ <div class="header">
+ <h1>⚾ Julián Fernández</h1>
+ <p class="subtitle">Los Angeles Dodgers #62 | 投手 | 右投 | 三年手术之后，97 哩的第二次人生</p>
+ </div>
+
+ <div class="section" style="text-align: center; padding: 0; background: none; border: none; backdrop-filter: none; box-shadow: none;">
+ <img src="fernandez_report_cover.png" alt="报告封面" style="width: 100%; max-width: 900px; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
+ </div>
+
+ <div class="player-card">
+ <div class="player-info">
+ <h2>基本信息</h2>
+ <div class="info-grid">
+ <div class="info-item"><div class="label">出生日期</div><div class="value">1995-12-05</div></div>
+ <div class="info-item"><div class="label">年龄</div><div class="value">29岁</div></div>
+ <div class="info-item"><div class="label">出生地</div><div class="value">多米尼加博卡奇卡</div></div>
+ <div class="info-item"><div class="label">身高/体重</div><div class="value">6'6" / 230 lbs</div></div>
+ <div class="info-item"><div class="label">投球/击球</div><div class="value">右投 / 右打</div></div>
+ <div class="info-item"><div class="label">MLB首秀</div><div class="value">2021-09-05（洛矶）</div></div>
+ <div class="info-item"><div class="label">背号</div><div class="value">62</div></div>
+ <div class="info-item"><div class="label">绰号</div><div class="value">—</div></div>
+ </div>
+ </div>
+ <div class="player-info">
+ <h2>球探总评</h2>
+
+ <p style="margin-bottom: 15px;">Julián Fernández 的 2025 年只有 10 场大联盟出赛，却浓缩了一部完整的体育电影：<span class="mvp">1 月 6 日与道奇签下小联盟合约（三年手术后的第一张合约）→ 7 月 7 日选入大联盟 → 一场 2 局 → 8 月 15 日被 DFA → 8 月 17 日被国民认领 → 在华盛顿拿下生涯首胜</span>。从博卡奇卡到库尔斯再到道奇与国民，29 岁的他今年投的每一局都是"第二次人生"的注脚。</p>
+ <p style="margin-bottom: 15px;">道奇段的那 2 局（9.00、1 轰、2 安打 1 保送）谈不上成功，但球探报告只对一样东西负责：他的四缝线速球均速 <span class="highlight">97.4 mph</span>——6'6"、230 磅的骨架配上从小在多米尼加棒球场练出的全身发力，手术后球速不降反升。变速球占比 31.6%、均速 86.2，11 mph 的经典速差，这是教科书级的高速后援模板。</p>
+ <p>从 2025 年 11 月的视角看，Fernández 是 waiver 线上最有"物理天赋"的名字：97+ mph、6'6" 身高带来的俯视出手角、以及三年手术磨炼出的耐心。国民最后六周给他的信任（3 场 3.00、0.67 WHIP、12.0 K/9、生涯首胜）证明他离"稳定的大联盟后援"只差健康与机会的同时眷顾。</p>
+
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 职业生涯亮点</h2>
+
+ <div class="career-highlight">
+ <h4>💪 2021 年 - 大联盟首秀（洛矶）</h4>
+ <p>2021 年 9 月 5 日在科罗拉多洛矶登上大联盟——那个以"毁掉投手"闻名的库尔斯主场，成了他职业生涯的第一块投手丘。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2022-2024 年 - 手术与三年沉默</h4>
+ <p>手肘韧带重建手术夺走了整整三个赛季。绝大多数人在此期间退役，Fernández 在康复中心把自己重新组装了一遍——这段沉默是他故事里最重的部分。</p>
+ </div>
+ <div class="career-highlight">
+ <h4>💪 2025 年 - 回归 + 生涯首胜</h4>
+ <p>7 月 7 日道奇选入（时隔 1369 天重返大联盟），8 月 17 日被国民认领后投出 3 场 3.00、0.67 WHIP、12.0 K/9，并拿下大联盟生涯第一胜。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📊 2025赛季统计</h2>
+ <p style="color: #90a4ae; margin-bottom: 10px;">以下为道奇段数据（2025-01-06 小联盟合约签约、2025-07-07 选入大联盟、2025-08-15 DFA、2025-08-17 被国民认领）：</p>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">9.00</span>
+ <div class="stat-label">自责分率（2 局样本）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1.50</span>
+ <div class="stat-label">WHIP</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">出赛</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">2.0</span>
+ <div class="stat-label">局数</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">1</span>
+ <div class="stat-label">三振</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">97.4</span>
+ <div class="stat-label">四缝线均速（mph）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">29</span>
+ <div class="stat-label">年龄（生涯第 5 季）</div>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #FFD700;">3年+</span>
+ <div class="stat-label">距上次 MLB 登板的间隔</div>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 2025（道奇）vs 2025（国民）对比</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="fernandez_season_comparison.png" alt="赛季对比" style="width: 100%; max-width: 900px; border-radius: 10px;">
+ </div>
+ <h3 style="margin-top: 30px; color: #4fc3f7;">投球数据对比</h3>
+ <table class="comparison-table">
+ <thead>
+ <tr><th>赛季</th><th>球队</th><th>G</th><th>ERA</th><th>WHIP</th><th>IP</th><th>SO</th><th>BB</th><th>HR</th></tr>
+ </thead>
+ <tbody>
+ <tr>
+ <td>2021</td>
+ <td>COL</td>
+ <td>6</td>
+ <td>10.80</td>
+ <td>1.95</td>
+ <td>6.2</td>
+ <td>4</td>
+ <td>4</td>
+ <td>2</td>
+ </tr>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>LAD</td>
+ <td>1</td>
+ <td>9.00</td>
+ <td>1.50</td>
+ <td>2.0</td>
+ <td>1</td>
+ <td>1</td>
+ <td>1</td>
+ </tr>
+ <tr>
+ <td class="highlight">2025</td>
+ <td>WAS</td>
+ <td>3</td>
+ <td>3.00</td>
+ <td>0.67</td>
+ <td>3.0</td>
+ <td>4</td>
+ <td>1</td>
+ <td>1</td>
+ </tr>
+ </tbody>
+ </table>
+ <p style="margin-top: 15px; color: #90a4ae;">三行数据三个世界：2021 洛矶的 10.80 是未经打磨的 raw stuff 撞上 MLB；道奇那 2 局是三年手术后第一次站上大联盟丘的紧张标本（36 球仅 23 颗好球）；国民的 3 场才是"真实水平"的首次亮相——0.67 WHIP、12.0 K/9、地面滚飞比 4.0，97 mph 的球速配上终于听话的进垒点。样本都小得可怜，但趋势的方向是从左向右读的。</p>
+ </div>
+
+ <div class="section">
+ <h2>⚾ 投球武器库</h2>
+ <p style="color: #90a4ae; margin-bottom: 15px;">2025 赛季真实配球数据（MLB Stats API pitchArsenal，道奇+国民汇总）：</p>
+ <div class="pitch-arsenal">
+ <div class="pitch-card">
+ <h3>四缝线速球 (Four-Seam) <span class="grade grade-a">A-</span></h3>
+ <div class="velocity">均速 97.4 mph · 占比 68.4%</div>
+ <p>绝对核心武器。6'6" 骨架带来的高出手点让这颗速球产生罕见的俯视进垒角——手术后球速不降反升，是身体完全重建成功的最直接证据。</p>
+ </div>
+ <div class="pitch-card">
+ <h3>变速球 (Changeup) <span class="grade grade-b">B</span></h3>
+ <div class="velocity">均速 86.2 mph · 占比 31.6%</div>
+ <p>11.2 mph 的教科书速差。国民段它开始真正干扰打者——大量追打出现在这颗球上——还帮他摘下了生涯首胜。，道奇段则还停留在"展示"阶段——两队的差异本质是信心的差异。</p>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🔍 球探分析</h2>
+
+ <div style="margin-top: 20px;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">从库尔斯丘到手术台再到 waiver 线</h3>
+ <p>Fernández 的职业路径与大多数多米尼加火球手相反：别人从低阶起步，他 2021 年直接在库尔斯球场（全 MLB 对投手最不友好的环境）首秀——6 场 10.80 的数据里至少有一半是主场的锅。随后手肘手术给了他三年强制停赛，2025 年 1 月道奇的小联盟合约是 30 支球队里唯一一份报价。这张合约最终变成：一场大联盟出赛、一次 DFA、一次 waiver 认领、一场生涯首胜——对小联盟合约来说，这是超额回报。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">道奇与国民的两堂课</h3>
+ <p>道奇段的问题清晰：36 球 23 好球（.640 好球率）、变速球只敢在领先时丢——这是"怕失误"的投法，结果是两颗安打里含一支全垒打。国民段他换了个人：0.67 WHIP、四球种里变速球占比升到能真正干扰打者的程度，还摘下了生涯首胜。同一个人、同一颗 97.4 mph 的速球，区别只在于国民给了他"投丢也不会死"的心理空间。对后援投手来说，这种空间往往比任何机械调整都值钱。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">6'6" 的物理优势与它的保质期</h3>
+ <p>高出手点投手的巅峰窗口通常比矮个投手长——肩部承受的力臂角度更优，老化曲线更平缓。29 岁的 Fernández 在这个模板上刚刚"开机"：如果 2026 年能投 40 场，他的 ERA 中位数预期在 4 上下；如果能解决变速球的使用信心， ceiling 是第八局。风险同样清晰：TJ 后的第二个完整赛季是复断高发期，他的耐久评分因此必须保守。</p>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>✅ 优势 vs ❌ 劣势</h2>
+ <div class="pros-cons">
+ <div class="pros">
+ <h3>优势 (Strengths)</h3>
+ <ul>
+ <li>97.4 mph 四缝线，术后球速不降反升</li>
+ <li>6'6" / 230 磅骨架的高出手俯视角</li>
+ <li>11 mph 速差的教科书变速球（国民段已激活）</li>
+ <li>国民段 0.67 WHIP / 12.0 K/9 的 upward trend</li>
+ <li>29 岁，高龄新秀的巅峰窗口刚打开</li>
+ </ul>
+ </div>
+ <div class="cons">
+ <h3>劣势 (Weaknesses)</h3>
+ <ul>
+ <li>TJ 史 + 第二个完整赛季是复断高发期</li>
+ <li>生涯 10 场 MLB 出赛，样本薄如纸</li>
+ <li>控球不稳（道奇段好球率仅 .640）</li>
+ <li>变速球使用信心看环境，心理波动大</li>
+ <li>两球种结构，打者第三次见面后调整空间大</li>
+ </ul>
+ </div>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>📊 综合评分</h2>
+ <div style="text-align: center; margin: 20px 0;">
+ <img src="fernandez_overall_grades.png" alt="综合评分雷达图" style="width: 100%; max-width: 600px; border-radius: 10px;">
+ </div>
+ <div class="stats-grid">
+
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4caf50;">65</span>
+ <div class="stat-label">Fastball</div>
+ <span class="grade grade-a">A-</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">55</span>
+ <div class="stat-label">Changeup</div>
+ <span class="grade grade-b">B+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">40</span>
+ <div class="stat-label">Control</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #f44336;">30</span>
+ <div class="stat-label">Durability</div>
+ <span class="grade grade-c">C</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #ff9800;">45</span>
+ <div class="stat-label">Composure</div>
+ <span class="grade grade-c">C+</span>
+ </div>
+ <div class="stat-card">
+ <span class="stat-value" style="color: #4fc3f7;">50</span>
+ <div class="stat-label">Deception</div>
+ <span class="grade grade-b">B-</span>
+ </div>
+ </div>
+ <div style="margin-top: 30px; text-align: center;">
+ <h3 style="color: #4fc3f7; margin-bottom: 15px;">总体潜力评分</h3>
+ <div style="font-size: 4em; color: #4fc3f7; font-weight: bold;">45</div>
+ <p style="color: #90a4ae; margin-top: 10px;">97 哩第二次人生的多米尼加巨塔</p>
+ <p style="margin-top: 15px;"><span class="grade grade-c" style="font-size: 1.2em;">C+ 级 / waiver 线上的物理天赋彩票</span></p>
+ </div>
+ </div>
+
+ <div class="section">
+ <h2>🏆 2025 季后赛表现</h2>
+ <p style="margin-bottom: 15px;">道奇 2025 季后赛夺冠之路：外卡 2-0 红人 → NLDS 3-1 费城人 → NLCS 4-0 酿酒人 → 世界大赛 4-3 多伦多蓝鸟。</p>
+ <p style="margin-bottom: 15px;">Fernández 的 2025 季后赛属于旁观者席——8 月 17 日披上国民球衣的那一刻起，他就与道奇的十月无关了。国民连季后赛门槛都没摸到，他的赛季在华盛顿九月的夕阳里结束。但对一个三年前还在怀疑能否再投球的人来说，"有球队愿意认领"本身就是颁奖礼；首胜那张比赛用球，会放在博卡奇卡的家里最显眼的位置。</p>
+ <ul style="margin-left: 20px; line-height: 2; margin-top: 15px;">
+ <li>道奇段：1 场、2 局、9.00——三年手术后的大联盟重启</li>
+ <li>8/17 被国民认领，华盛顿段 3 场 3.00 + 生涯首胜</li>
+ <li>季后赛未登场</li>
+ </ul>
+ </div>
+
+ <div class="section">
+ <h2>🔮 未来展望</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Fernández 的 2026 年大概率从国民的春训名单开始——华盛顿正在重建，重建球队最愿意给的就是他这样的"物理天赋+小样本闪光"型投手机会。理想路径：4 月进入牛棚，6 月前投满 25 场，把国民段的 0.67 WHIP 拉长到有意义的样本。如果他做到了，明年冬天他会是市场上最抢手的后援名字之一：97 mph、29 岁、高出手点，这三个标签在任何 GM 的 Excel 里都会自动高亮。</p>
+
+ <h3 style="color: #4fc3f7; margin: 20px 0 15px 0;">展望</h3>
+ <p><strong>理想剧本：</strong>国民牛棚主力，全年 50 场 3.5 ERA， offseason 签两年合约</p>
+ <p><strong>现实基准：</strong>重建队第七八局，在 waiver 线上最后一次证明自己</p>
+ <p><strong>下行风险：</strong>TJ 复断，第三次手术基本等于退役判决</p>
+
+ <h3 style="color: #ff9800; margin: 20px 0 15px 0;">风险因素</h3>
+ <ul style="margin-left: 20px; line-height: 2;">
+ <li>手肘的第二个完整赛季是复断高发期</li>
+ <li>控球精度（好球率 .640）离稳定后援标准还有一档</li>
+ <li>两球种结构需要第三球种（滑球/卡特）才能真正站稳</li>
+ </ul>
+ </div>
+
+ </div>
+
+ <div class="section">
+ <h2>📖 背景故事</h2>
+
+ <div style="margin-top: 20px;">
+ <p>Julián Fernández 来自多米尼加首都圣多明各郊外的博卡奇卡——加勒比海棒球带的核心地带。科罗拉多洛矶在 2021 年 9 月给了他第一张机票，直接把这位 25 岁的高个子右投放进了库尔斯球场的投手丘。首秀年的 10.80 并不出人意料：库尔斯会惩罚每一个还没学会"如何把球压低"的新人，何况他的肘部当时已经在报警。</p>
+ <p>手肘韧带重建手术随后夺走了 2022-2024 三个完整赛季。三年里，同届的多米尼加投手有的签了百万合约，有的销声匿迹；Fernández 在康复中心的跑步机上一天一天把自己拼回来。2025 年 1 月 6 日，道奇给了他一份小联盟合约——全联盟 30 支球队里唯一的一份。</p>
+ <p>2025 年 11 月的 Julián Fernández 手里握着：一场道奇的出赛、一次 waiver 认领、三场 3.00 的国民段表现、一张生涯首胜的比赛用球，和一颗依然 97.4 mph 的速球。从博卡奇卡出发绕的这一大圈，现在看起来一点都不亏——对 6'6" 的巨塔来说，天空线才刚刚出现在地平线上。</p>
+ </div>
+
+ </div>
+
+ <div class="footer">
+ <p>数据来源：MLB.com | Baseball Savant (Statcast) | MLB Stats API</p>
+ <p>报告视角：2025 赛季结束（2025-11）| 97 哩第二次人生的多米尼加巨塔</p>
+ <p>⚾ 洛杉矶道奇队球探报告 · 2025 赛季档案</p>
+ </div>
+ </div>
+</body>
+</html>
