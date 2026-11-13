@@ -29,7 +29,7 @@ from pathlib import Path
 from datetime import datetime
 
 TEAM_ID = 119
-SEASON = datetime.now().year
+SEASON = os.environ.get("DASH_SEASON", str(datetime.now().year))
 # 2026-10-17: 支持从赛季名单快照生成批次仪表盘（如 players-regular 封存批次）
 REPORT_ROOT = Path(os.environ.get("DASH_REPORT_ROOT", "D:/baseball/report"))
 SCRIPT_ROOT = Path("D:/baseball/scripts")
@@ -326,7 +326,7 @@ def render_dashboard_html(players, total, active, il, minors, reports_ready):
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los Angeles Dodgers 2026 Player Reports</title>
+    <title>Los Angeles Dodgers {SEASON} Player Reports</title>
     <style>
         :root {{
             --dodgers-blue: #005A9C;
@@ -480,7 +480,7 @@ def render_dashboard_html(players, total, active, il, minors, reports_ready):
 <body>
     <header>
         <h1>⚾ Los Angeles Dodgers</h1>
-        <p>2026 Player Scouting Report Dashboard</p>
+        <p>{SEASON} Player Scouting Report Dashboard</p>
         <div class="stats-bar">
             <div class="stat-pill"><strong>{total}</strong> 40-Man Players</div>
             <div class="stat-pill"><strong>{active}</strong> Active</div>
