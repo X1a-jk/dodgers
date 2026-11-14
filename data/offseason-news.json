@@ -1,14 +1,54 @@
 {
- "generatedAt": "2026-11-01T10:20:00",
+ "generatedAt": "2026-11-14T21:20:00",
  "note": "流言/传闻维护文件。助手应用户要求搜索后追加条目；已官宣的由 fetch-offseason.py 抓取的 transactions 坐实后可删。可信度：rumor=传闻 / solid=较可靠 / official=已官宣",
  "items": [
   {
-   "date": "2026-11-01",
-   "player": "示例条目",
-   "text": "这是格式示例，正式使用时删除本条目。",
-   "source": "https://example.com",
-   "sourceName": "示例来源",
-   "credibility": "rumor"
+   "date": "2026-11-13",
+   "player": "Shohei Ohtani",
+   "text": "Ohtani 获国联 MVP 票选第二。2026 赛季末段伤病拖累状态，仍被评为国联最佳之一。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB.com",
+   "credibility": "solid"
+  },
+  {
+   "date": "2026-11-12",
+   "player": "Yoshinobu Yamamoto / Tarik Skubal",
+   "text": "山本由伸与 Tarik Skubal 双双入选 All-MLB 二阵（拉斯维加斯 MLB Awards 揭晓）。Skubal 连续三年获此荣誉。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB.com",
+   "credibility": "solid"
+  },
+  {
+   "date": "2026-11-12",
+   "player": "40 人名单",
+   "text": "Rule 5 保护截止：30 支球队须在周二（11/17）美东 18:00 前敲定 40 人名单，否则符合条件的小联盟球员可在 12 月 Rule 5 选秀中被挑走。道奇目前 40 人名单 38 人，尚有两个空位。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB.com",
+   "credibility": "solid"
+  },
+  {
+   "date": "2026-11-10",
+   "player": "Pedro Guerrero",
+   "text": "道奇官宣任命 Pedro Guerrero 进入大联盟教练组担任打击教练，接替上周离任的 Aaron Bates（后者在道奇体系任职 12 年）。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB.com",
+   "credibility": "official"
+  },
+  {
+   "date": "2026-11-05",
+   "player": "Aaron Bates",
+   "text": "MLB Trade Rumors 率先报道：道奇与打击教练 Aaron Bates 分道扬镳，球队当时未确认；一周后新帅 Guerrero 到位坐实。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB Trade Rumors / MLB.com",
+   "credibility": "solid"
+  },
+  {
+   "date": "2026-10-30",
+   "player": "Tarik Skubal",
+   "text": "GM Brandon Gomes 公开承认球队正在追求与本季中途加盟的两届美联赛扬 Tarik Skubal 重聚：「We've been in touch with...」。Skubal 是当今自由市场头号目标，预计身价创纪录，道奇将面临全联盟竞逐。",
+   "source": "https://www.mlb.com/dodgers/news",
+   "sourceName": "MLB.com",
+   "credibility": "solid"
   }
  ]
 }

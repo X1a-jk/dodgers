@@ -1,11 +1,95 @@
 {
- "generatedAt": "2026-11-01T10:50:07",
+ "generatedAt": "2026-11-14T20:43:15",
  "window": {
   "start": "2026-10-28",
-  "end": "2026-11-01"
+  "end": "2026-11-14"
  },
  "dodgers": {
   "moves": [
+   {
+    "id": 949929,
+    "name": "Christian Cairo",
+    "personId": 686551,
+    "date": "2026-11-09",
+    "type": "other",
+    "typeCn": "其他",
+    "desc": "Los Angeles Dodgers claimed SS Christian Cairo off waivers from New York Mets.",
+    "cn": "Los Angeles Dodgers claimed SS Christian Cairo off waivers from New York Mets.",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": "New York Mets",
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947839,
+    "name": "Gavin Stone",
+    "personId": 694813,
+    "date": "2026-11-02",
+    "type": "other",
+    "typeCn": "其他",
+    "desc": "Los Angeles Dodgers activated RHP Gavin Stone from the 60-day injured list.",
+    "cn": "道奇从the 60-day injured list.激活/上调右投 Gavin Stone",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947838,
+    "name": "Will Klein",
+    "personId": 694361,
+    "date": "2026-11-02",
+    "type": "other",
+    "typeCn": "其他",
+    "desc": "Los Angeles Dodgers activated RHP Will Klein from the 60-day injured list.",
+    "cn": "道奇从the 60-day injured list.激活/上调右投 Will Klein",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947837,
+    "name": "Jake Cousins",
+    "personId": 664776,
+    "date": "2026-11-02",
+    "type": "other",
+    "typeCn": "其他",
+    "desc": "Los Angeles Dodgers activated RHP Jake Cousins from the 60-day injured list.",
+    "cn": "道奇从the 60-day injured list.激活/上调右投 Jake Cousins",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947836,
+    "name": "Ben Casparius",
+    "personId": 676508,
+    "date": "2026-11-02",
+    "type": "other",
+    "typeCn": "其他",
+    "desc": "Los Angeles Dodgers activated RHP Ben Casparius from the 60-day injured list.",
+    "cn": "道奇从the 60-day injured list.激活/上调右投 Ben Casparius",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
+    "id": 947298,
+    "name": "Brusdar Graterol",
+    "personId": 660813,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "RHP Brusdar Graterol elected free agency.",
+    "cn": "右投 Brusdar Graterol 选择成为自由球员，可与任何球队签约",
+    "pos": "RHP",
+    "posCn": "右投",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
    {
     "id": 947419,
     "name": "Kris Bubic",
@@ -21,16 +105,16 @@
     "toTeam": "Los Angeles Dodgers"
    },
    {
-    "id": 947347,
-    "name": "Miguel Rojas",
-    "personId": 500743,
+    "id": 947302,
+    "name": "Eric Lauer",
+    "personId": 641778,
     "date": "2026-10-29",
     "type": "declared_fa",
     "typeCn": "宣布自由球员",
-    "desc": "SS Miguel Rojas elected free agency.",
-    "cn": "游击手 Miguel Rojas 选择成为自由球员，可与任何球队签约",
-    "pos": "SS",
-    "posCn": "游击手",
+    "desc": "LHP Eric Lauer elected free agency.",
+    "cn": "左投 Eric Lauer 选择成为自由球员，可与任何球队签约",
+    "pos": "LHP",
+    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -91,6 +175,20 @@
     "toTeam": "Los Angeles Dodgers"
    },
    {
+    "id": 947347,
+    "name": "Miguel Rojas",
+    "personId": 500743,
+    "date": "2026-10-29",
+    "type": "declared_fa",
+    "typeCn": "宣布自由球员",
+    "desc": "SS Miguel Rojas elected free agency.",
+    "cn": "游击手 Miguel Rojas 选择成为自由球员，可与任何球队签约",
+    "pos": "SS",
+    "posCn": "游击手",
+    "fromTeam": null,
+    "toTeam": "Los Angeles Dodgers"
+   },
+   {
     "id": 947361,
     "name": "Evan Phillips",
     "personId": 623465,
@@ -101,34 +199,6 @@
     "cn": "右投 Evan Phillips 选择成为自由球员，可与任何球队签约",
     "pos": "RHP",
     "posCn": "右投",
-    "fromTeam": null,
-    "toTeam": "Los Angeles Dodgers"
-   },
-   {
-    "id": 947298,
-    "name": "Brusdar Graterol",
-    "personId": 660813,
-    "date": "2026-10-29",
-    "type": "declared_fa",
-    "typeCn": "宣布自由球员",
-    "desc": "RHP Brusdar Graterol elected free agency.",
-    "cn": "右投 Brusdar Graterol 选择成为自由球员，可与任何球队签约",
-    "pos": "RHP",
-    "posCn": "右投",
-    "fromTeam": null,
-    "toTeam": "Los Angeles Dodgers"
-   },
-   {
-    "id": 947302,
-    "name": "Eric Lauer",
-    "personId": 641778,
-    "date": "2026-10-29",
-    "type": "declared_fa",
-    "typeCn": "宣布自由球员",
-    "desc": "LHP Eric Lauer elected free agency.",
-    "cn": "左投 Eric Lauer 选择成为自由球员，可与任何球队签约",
-    "pos": "LHP",
-    "posCn": "左投",
     "fromTeam": null,
     "toTeam": "Los Angeles Dodgers"
    },
@@ -148,7 +218,7 @@
    }
   ],
   "roster40": {
-   "count": 37,
+   "count": 38,
    "list": [
     "Alex Call",
     "Alex Freeland",
@@ -157,6 +227,7 @@
     "Blake Snell",
     "Bobby Miller",
     "Brock Stewart",
+    "Christian Cairo",
     "Dalton Rushing",
     "Edgardo Henriquez",
     "Edwin Díaz",
@@ -188,12 +259,105 @@
     "Will Smith",
     "Yoshinobu Yamamoto"
    ],
-   "added": [],
+   "added": [
+    "Christian Cairo"
+   ],
    "removed": []
   }
  },
  "league": {
   "signings": [
+   {
+    "id": 950099,
+    "name": "Evan Phillips",
+    "date": "2026-11-12",
+    "kind": "signing",
+    "desc": "Atlanta Braves signed free agent RHP Evan Phillips.",
+    "cn": "Atlanta Braves signed free agent RHP Evan Phillips.",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Atlanta Braves",
+    "exDodger": true
+   },
+   {
+    "id": 950007,
+    "name": "Ryan Weiss",
+    "date": "2026-11-11",
+    "kind": "signing",
+    "desc": "San Diego Padres signed free agent RHP Ryan Weiss.",
+    "cn": "San Diego Padres signed free agent RHP Ryan Weiss.",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "San Diego Padres",
+    "exDodger": false
+   },
+   {
+    "id": 949789,
+    "name": "Robert Cranz / Reiver Sanmartin",
+    "date": "2026-11-06",
+    "kind": "trade",
+    "desc": "Washington Nationals traded RHP Robert Cranz to San Francisco Giants for LHP Reiver Sanmartin.",
+    "cn": "国民将右投 Robert Cranz交易至巨人，换回左投 Reiver Sanmartin",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": "Washington Nationals",
+    "toTeam": "San Francisco Giants",
+    "exDodger": false
+   },
+   {
+    "id": 947930,
+    "name": "Eduardo Rivera / Juan García",
+    "date": "2026-11-03",
+    "kind": "trade",
+    "desc": "Boston Red Sox traded LHP Eduardo Rivera to St. Louis Cardinals for RHP Juan García.",
+    "cn": "红袜将左投 Eduardo Rivera交易至红雀，换回右投 Juan García",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": "Boston Red Sox",
+    "toTeam": "St. Louis Cardinals",
+    "exDodger": false
+   },
+   {
+    "id": 947743,
+    "name": "Jacob Waguespack",
+    "date": "2026-11-02",
+    "kind": "signing",
+    "desc": "Detroit Tigers signed free agent RHP Jacob Waguespack.",
+    "cn": "Detroit Tigers signed free agent RHP Jacob Waguespack.",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": null,
+    "toTeam": "Detroit Tigers",
+    "exDodger": false
+   },
+   {
+    "id": 947670,
+    "name": "Evan Reifert",
+    "date": "2026-11-02",
+    "kind": "trade",
+    "desc": "Tampa Bay Rays traded RHP Evan Reifert to Houston Astros for cash.",
+    "cn": "光芒将右投 Evan Reifert交易至太空人，换取现金",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": "Tampa Bay Rays",
+    "toTeam": "Houston Astros",
+    "exDodger": false
+   },
+   {
+    "id": 947637,
+    "name": "Nate Furman / Tony Neubeck",
+    "date": "2026-11-01",
+    "kind": "trade",
+    "desc": "San Francisco Giants traded 2B Nate Furman to Washington Nationals for LHP Tony Neubeck.",
+    "cn": "San Francisco Giants traded 2B Nate Furman to Washington Nationals for LHP Tony Neubeck.",
+    "pos": null,
+    "posCn": null,
+    "fromTeam": "San Francisco Giants",
+    "toTeam": "Washington Nationals",
+    "exDodger": false
+   },
    {
     "id": 947273,
     "name": "Jareth Rayo / Nate Eaton",
@@ -225,16 +389,21 @@
  "fa": {
   "pending": [
    {
+    "name": "Brusdar Graterol",
+    "date": "2026-10-29",
+    "posCn": null
+   },
+   {
     "name": "Kris Bubic",
     "date": "2026-10-29",
     "posCn": "投手",
     "stats": "5 场 · ERA 0.00 · 5 K"
    },
    {
-    "name": "Miguel Rojas",
+    "name": "Eric Lauer",
     "date": "2026-10-29",
-    "posCn": "二垒手",
-    "stats": "打击率 .267 · 4 轰 · 23 打点 · 1 盗垒"
+    "posCn": "投手",
+    "stats": "14 场 · ERA 4.50 · 46 K"
    },
    {
     "name": "Enrique Hernández",
@@ -261,21 +430,16 @@
     "stats": "10 场 · ERA 2.61 · 70 K"
    },
    {
+    "name": "Miguel Rojas",
+    "date": "2026-10-29",
+    "posCn": "二垒手",
+    "stats": "打击率 .267 · 4 轰 · 23 打点 · 1 盗垒"
+   },
+   {
     "name": "Evan Phillips",
     "date": "2026-10-29",
     "posCn": "投手",
     "stats": "31 场 · ERA 3.46 · 33 K"
-   },
-   {
-    "name": "Brusdar Graterol",
-    "date": "2026-10-29",
-    "posCn": null
-   },
-   {
-    "name": "Eric Lauer",
-    "date": "2026-10-29",
-    "posCn": "投手",
-    "stats": "14 场 · ERA 4.50 · 46 K"
    }
   ],
   "reSigned": [],

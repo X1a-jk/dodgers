@@ -1,0 +1,1823 @@
+{
+ "generatedAt": "2026-11-14T20:31:08.306343",
+ "season": 2025,
+ "regularSeasonComplete": true,
+ "postseasonPublished": true,
+ "bracket": {
+  "AL": {
+   "name": "美联",
+   "teams": {
+    "1": {
+     "id": 141,
+     "name": "Toronto Blue Jays",
+     "abbr": "TOR",
+     "div": "East",
+     "divRank": 1,
+     "w": 94,
+     "l": 68,
+     "pct": 0.58,
+     "seed": 1
+    },
+    "2": {
+     "id": 136,
+     "name": "Seattle Mariners",
+     "abbr": "SEA",
+     "div": "West",
+     "divRank": 1,
+     "w": 90,
+     "l": 72,
+     "pct": 0.556,
+     "seed": 2
+    },
+    "3": {
+     "id": 114,
+     "name": "Cleveland Guardians",
+     "abbr": "CLE",
+     "div": "Central",
+     "divRank": 1,
+     "w": 88,
+     "l": 74,
+     "pct": 0.543,
+     "seed": 3
+    },
+    "4": {
+     "id": 147,
+     "name": "New York Yankees",
+     "abbr": "NYY",
+     "div": "East",
+     "divRank": 2,
+     "w": 94,
+     "l": 68,
+     "pct": 0.58,
+     "seed": 4
+    },
+    "5": {
+     "id": 111,
+     "name": "Boston Red Sox",
+     "abbr": "BOS",
+     "div": "East",
+     "divRank": 3,
+     "w": 89,
+     "l": 73,
+     "pct": 0.549,
+     "seed": 5
+    },
+    "6": {
+     "id": 116,
+     "name": "Detroit Tigers",
+     "abbr": "DET",
+     "div": "Central",
+     "divRank": 2,
+     "w": 87,
+     "l": 75,
+     "pct": 0.537,
+     "seed": 6
+    }
+   }
+  },
+  "NL": {
+   "name": "国联",
+   "teams": {
+    "1": {
+     "id": 158,
+     "name": "Milwaukee Brewers",
+     "abbr": "MIL",
+     "div": "Central",
+     "divRank": 1,
+     "w": 97,
+     "l": 65,
+     "pct": 0.599,
+     "seed": 1
+    },
+    "2": {
+     "id": 143,
+     "name": "Philadelphia Phillies",
+     "abbr": "PHI",
+     "div": "East",
+     "divRank": 1,
+     "w": 96,
+     "l": 66,
+     "pct": 0.593,
+     "seed": 2
+    },
+    "3": {
+     "id": 119,
+     "name": "Los Angeles Dodgers",
+     "abbr": "LAD",
+     "div": "West",
+     "divRank": 1,
+     "w": 93,
+     "l": 69,
+     "pct": 0.574,
+     "seed": 3
+    },
+    "4": {
+     "id": 112,
+     "name": "Chicago Cubs",
+     "abbr": "CHC",
+     "div": "Central",
+     "divRank": 2,
+     "w": 92,
+     "l": 70,
+     "pct": 0.568,
+     "seed": 4
+    },
+    "5": {
+     "id": 135,
+     "name": "San Diego Padres",
+     "abbr": "SD",
+     "div": "West",
+     "divRank": 2,
+     "w": 90,
+     "l": 72,
+     "pct": 0.556,
+     "seed": 5
+    },
+    "6": {
+     "id": 113,
+     "name": "Cincinnati Reds",
+     "abbr": "CIN",
+     "div": "Central",
+     "divRank": 3,
+     "w": 83,
+     "l": 79,
+     "pct": 0.512,
+     "seed": 6
+    }
+   }
+  }
+ },
+ "rounds": {
+  "AL": {
+   "wc": [
+    {
+     "round": "Wild Card Series",
+     "bestOf": 3,
+     "games": [
+      {
+       "gamePk": 813072,
+       "date": "2025-09-30T17:08:00Z",
+       "beijing": "10-01 01:08",
+       "gameNumber": 1,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 2
+       },
+       "home": {
+        "id": 114,
+        "name": "Cleveland Guardians",
+        "score": 1
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813071,
+       "date": "2025-10-01T17:08:00Z",
+       "beijing": "10-02 01:08",
+       "gameNumber": 2,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 1
+       },
+       "home": {
+        "id": 114,
+        "name": "Cleveland Guardians",
+        "score": 6
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813073,
+       "date": "2025-10-02T19:08:00Z",
+       "beijing": "10-03 03:08",
+       "gameNumber": 3,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 6
+       },
+       "home": {
+        "id": 114,
+        "name": "Cleveland Guardians",
+        "score": 3
+       },
+       "winnerSide": "away"
+      }
+     ],
+     "wins": {
+      "116": 2,
+      "114": 1
+     },
+     "gamesPlayed": 3,
+     "hasData": true
+    },
+    {
+     "round": "Wild Card Series",
+     "bestOf": 3,
+     "games": [
+      {
+       "gamePk": 813074,
+       "date": "2025-09-30T22:08:00Z",
+       "beijing": "10-01 06:08",
+       "gameNumber": 1,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "score": 3
+       },
+       "home": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 1
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813070,
+       "date": "2025-10-01T22:08:00Z",
+       "beijing": "10-02 06:08",
+       "gameNumber": 2,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "score": 3
+       },
+       "home": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 4
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813065,
+       "date": "2025-10-03T00:08:00Z",
+       "beijing": "10-03 08:08",
+       "gameNumber": 3,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 111,
+        "name": "Boston Red Sox",
+        "score": 0
+       },
+       "home": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 4
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "111": 1,
+      "147": 2
+     },
+     "gamesPlayed": 3,
+     "hasData": true
+    }
+   ],
+   "ds": [
+    {
+     "round": "Division Series",
+     "bestOf": 5,
+     "games": [
+      {
+       "gamePk": 813063,
+       "date": "2025-10-04T20:08:00Z",
+       "beijing": "10-05 04:08",
+       "gameNumber": 1,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 1
+       },
+       "home": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "score": 10
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813062,
+       "date": "2025-10-05T20:08:00Z",
+       "beijing": "10-06 04:08",
+       "gameNumber": 2,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 7
+       },
+       "home": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "score": 13
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813061,
+       "date": "2025-10-08T00:08:00Z",
+       "beijing": "10-08 08:08",
+       "gameNumber": 3,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "score": 6
+       },
+       "home": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 9
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813060,
+       "date": "2025-10-08T23:08:00Z",
+       "beijing": "10-09 07:08",
+       "gameNumber": 4,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 141,
+        "name": "Toronto Blue Jays",
+        "score": 5
+       },
+       "home": {
+        "id": 147,
+        "name": "New York Yankees",
+        "score": 2
+       },
+       "winnerSide": "away"
+      }
+     ],
+     "wins": {
+      "141": 3,
+      "147": 1
+     },
+     "gamesPlayed": 4,
+     "hasData": true
+    },
+    {
+     "round": "Division Series",
+     "bestOf": 5,
+     "games": [
+      {
+       "gamePk": 813058,
+       "date": "2025-10-05T00:38:00Z",
+       "beijing": "10-05 08:38",
+       "gameNumber": 1,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 3
+       },
+       "home": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "score": 2
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813057,
+       "date": "2025-10-06T00:03:00Z",
+       "beijing": "10-06 08:03",
+       "gameNumber": 2,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 2
+       },
+       "home": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "score": 3
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813056,
+       "date": "2025-10-07T20:08:00Z",
+       "beijing": "10-08 04:08",
+       "gameNumber": 3,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "score": 8
+       },
+       "home": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 4
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813055,
+       "date": "2025-10-08T19:08:00Z",
+       "beijing": "10-09 03:08",
+       "gameNumber": 4,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "score": 3
+       },
+       "home": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 9
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813054,
+       "date": "2025-10-11T00:08:00Z",
+       "beijing": "10-11 08:08",
+       "gameNumber": 5,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 116,
+        "name": "Detroit Tigers",
+        "score": 2
+       },
+       "home": {
+        "id": 136,
+        "name": "Seattle Mariners",
+        "score": 3
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "116": 2,
+      "136": 3
+     },
+     "gamesPlayed": 5,
+     "hasData": true
+    }
+   ],
+   "cs": {
+    "round": "League Championship Series",
+    "bestOf": 7,
+    "games": [
+     {
+      "gamePk": 813040,
+      "date": "2025-10-13T00:03:00Z",
+      "beijing": "10-13 08:03",
+      "gameNumber": 1,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 3
+      },
+      "home": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 1
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813044,
+      "date": "2025-10-13T21:03:00Z",
+      "beijing": "10-14 05:03",
+      "gameNumber": 2,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 10
+      },
+      "home": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 3
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813043,
+      "date": "2025-10-16T00:08:00Z",
+      "beijing": "10-16 08:08",
+      "gameNumber": 3,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 13
+      },
+      "home": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 4
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813035,
+      "date": "2025-10-17T00:33:00Z",
+      "beijing": "10-17 08:33",
+      "gameNumber": 4,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 8
+      },
+      "home": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 2
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813039,
+      "date": "2025-10-17T22:08:00Z",
+      "beijing": "10-18 06:08",
+      "gameNumber": 5,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 2
+      },
+      "home": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 6
+      },
+      "winnerSide": "home"
+     },
+     {
+      "gamePk": 813038,
+      "date": "2025-10-20T00:03:00Z",
+      "beijing": "10-20 08:03",
+      "gameNumber": 6,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 2
+      },
+      "home": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 6
+      },
+      "winnerSide": "home"
+     },
+     {
+      "gamePk": 813037,
+      "date": "2025-10-21T00:10:00Z",
+      "beijing": "10-21 08:10",
+      "gameNumber": 7,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 136,
+       "name": "Seattle Mariners",
+       "score": 3
+      },
+      "home": {
+       "id": 141,
+       "name": "Toronto Blue Jays",
+       "score": 4
+      },
+      "winnerSide": "home"
+     }
+    ],
+    "wins": {
+     "136": 3,
+     "141": 4
+    },
+    "gamesPlayed": 7,
+    "hasData": true
+   }
+  },
+  "NL": {
+   "wc": [
+    {
+     "round": "Wild Card Series",
+     "bestOf": 3,
+     "games": [
+      {
+       "gamePk": 813069,
+       "date": "2025-10-01T01:08:00Z",
+       "beijing": "10-01 09:08",
+       "gameNumber": 1,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 113,
+        "name": "Cincinnati Reds",
+        "score": 5
+       },
+       "home": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 10
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813068,
+       "date": "2025-10-02T01:08:00Z",
+       "beijing": "10-02 09:08",
+       "gameNumber": 2,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 113,
+        "name": "Cincinnati Reds",
+        "score": 4
+       },
+       "home": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 8
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "119": 2
+     },
+     "gamesPlayed": 2,
+     "hasData": true
+    },
+    {
+     "round": "Wild Card Series",
+     "bestOf": 3,
+     "games": [
+      {
+       "gamePk": 813066,
+       "date": "2025-09-30T19:08:00Z",
+       "beijing": "10-01 03:08",
+       "gameNumber": 1,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "score": 1
+       },
+       "home": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 3
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813064,
+       "date": "2025-10-01T19:08:00Z",
+       "beijing": "10-02 03:08",
+       "gameNumber": 2,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "score": 3
+       },
+       "home": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 0
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813059,
+       "date": "2025-10-02T21:08:00Z",
+       "beijing": "10-03 05:08",
+       "gameNumber": 3,
+       "gamesInSeries": 3,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 135,
+        "name": "San Diego Padres",
+        "score": 1
+       },
+       "home": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 3
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "112": 2,
+      "135": 1
+     },
+     "gamesPlayed": 3,
+     "hasData": true
+    }
+   ],
+   "ds": [
+    {
+     "round": "Division Series",
+     "bestOf": 5,
+     "games": [
+      {
+       "gamePk": 813047,
+       "date": "2025-10-04T18:08:00Z",
+       "beijing": "10-05 02:08",
+       "gameNumber": 1,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 3
+       },
+       "home": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "score": 9
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813048,
+       "date": "2025-10-07T01:08:00Z",
+       "beijing": "10-07 09:08",
+       "gameNumber": 2,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 3
+       },
+       "home": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "score": 7
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813049,
+       "date": "2025-10-08T21:08:00Z",
+       "beijing": "10-09 05:08",
+       "gameNumber": 3,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "score": 3
+       },
+       "home": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 4
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813050,
+       "date": "2025-10-10T01:08:00Z",
+       "beijing": "10-10 09:08",
+       "gameNumber": 4,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "score": 0
+       },
+       "home": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 6
+       },
+       "winnerSide": "home"
+      },
+      {
+       "gamePk": 813046,
+       "date": "2025-10-12T00:08:00Z",
+       "beijing": "10-12 08:08",
+       "gameNumber": 5,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 112,
+        "name": "Chicago Cubs",
+        "score": 1
+       },
+       "home": {
+        "id": 158,
+        "name": "Milwaukee Brewers",
+        "score": 3
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "158": 3,
+      "112": 2
+     },
+     "gamesPlayed": 5,
+     "hasData": true
+    },
+    {
+     "round": "Division Series",
+     "bestOf": 5,
+     "games": [
+      {
+       "gamePk": 813051,
+       "date": "2025-10-04T22:38:00Z",
+       "beijing": "10-05 06:38",
+       "gameNumber": 1,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 5
+       },
+       "home": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "score": 3
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813052,
+       "date": "2025-10-06T22:08:00Z",
+       "beijing": "10-07 06:08",
+       "gameNumber": 2,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 4
+       },
+       "home": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "score": 3
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813041,
+       "date": "2025-10-09T01:08:00Z",
+       "beijing": "10-09 09:08",
+       "gameNumber": 3,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "score": 8
+       },
+       "home": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 2
+       },
+       "winnerSide": "away"
+      },
+      {
+       "gamePk": 813042,
+       "date": "2025-10-09T22:08:00Z",
+       "beijing": "10-10 06:08",
+       "gameNumber": 4,
+       "gamesInSeries": 5,
+       "status": "Final",
+       "final": true,
+       "away": {
+        "id": 143,
+        "name": "Philadelphia Phillies",
+        "score": 1
+       },
+       "home": {
+        "id": 119,
+        "name": "Los Angeles Dodgers",
+        "score": 2
+       },
+       "winnerSide": "home"
+      }
+     ],
+     "wins": {
+      "119": 3,
+      "143": 1
+     },
+     "gamesPlayed": 4,
+     "hasData": true
+    }
+   ],
+   "cs": {
+    "round": "League Championship Series",
+    "bestOf": 7,
+    "games": [
+     {
+      "gamePk": 813036,
+      "date": "2025-10-14T00:08:00Z",
+      "beijing": "10-14 08:08",
+      "gameNumber": 1,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 119,
+       "name": "Los Angeles Dodgers",
+       "score": 2
+      },
+      "home": {
+       "id": 158,
+       "name": "Milwaukee Brewers",
+       "score": 1
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813034,
+      "date": "2025-10-15T00:08:00Z",
+      "beijing": "10-15 08:08",
+      "gameNumber": 2,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 119,
+       "name": "Los Angeles Dodgers",
+       "score": 5
+      },
+      "home": {
+       "id": 158,
+       "name": "Milwaukee Brewers",
+       "score": 1
+      },
+      "winnerSide": "away"
+     },
+     {
+      "gamePk": 813033,
+      "date": "2025-10-16T22:08:00Z",
+      "beijing": "10-17 06:08",
+      "gameNumber": 3,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 158,
+       "name": "Milwaukee Brewers",
+       "score": 1
+      },
+      "home": {
+       "id": 119,
+       "name": "Los Angeles Dodgers",
+       "score": 3
+      },
+      "winnerSide": "home"
+     },
+     {
+      "gamePk": 813031,
+      "date": "2025-10-18T00:38:00Z",
+      "beijing": "10-18 08:38",
+      "gameNumber": 4,
+      "gamesInSeries": 7,
+      "status": "Final",
+      "final": true,
+      "away": {
+       "id": 158,
+       "name": "Milwaukee Brewers",
+       "score": 1
+      },
+      "home": {
+       "id": 119,
+       "name": "Los Angeles Dodgers",
+       "score": 5
+      },
+      "winnerSide": "home"
+     }
+    ],
+    "wins": {
+     "119": 4
+    },
+    "gamesPlayed": 4,
+    "hasData": true
+   }
+  },
+  "ws": {
+   "round": "World Series",
+   "bestOf": 7,
+   "games": [
+    {
+     "gamePk": 813027,
+     "date": "2025-10-25T00:00:00Z",
+     "beijing": "10-25 08:00",
+     "gameNumber": 1,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 4
+     },
+     "home": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 11
+     },
+     "winnerSide": "home"
+    },
+    {
+     "gamePk": 813026,
+     "date": "2025-10-26T00:00:00Z",
+     "beijing": "10-26 08:00",
+     "gameNumber": 2,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 5
+     },
+     "home": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 1
+     },
+     "winnerSide": "away"
+    },
+    {
+     "gamePk": 813032,
+     "date": "2025-10-28T00:00:00Z",
+     "beijing": "10-28 08:00",
+     "gameNumber": 3,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 5
+     },
+     "home": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 6
+     },
+     "winnerSide": "home"
+    },
+    {
+     "gamePk": 813023,
+     "date": "2025-10-29T00:00:00Z",
+     "beijing": "10-29 08:00",
+     "gameNumber": 4,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 6
+     },
+     "home": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 2
+     },
+     "winnerSide": "away"
+    },
+    {
+     "gamePk": 813022,
+     "date": "2025-10-30T00:00:00Z",
+     "beijing": "10-30 08:00",
+     "gameNumber": 5,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 6
+     },
+     "home": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 1
+     },
+     "winnerSide": "away"
+    },
+    {
+     "gamePk": 813025,
+     "date": "2025-11-01T00:00:00Z",
+     "beijing": "11-01 08:00",
+     "gameNumber": 6,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 3
+     },
+     "home": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 1
+     },
+     "winnerSide": "away"
+    },
+    {
+     "gamePk": 813024,
+     "date": "2025-11-02T00:00:00Z",
+     "beijing": "11-02 08:00",
+     "gameNumber": 7,
+     "gamesInSeries": 7,
+     "status": "Final",
+     "final": true,
+     "away": {
+      "id": 119,
+      "name": "Los Angeles Dodgers",
+      "score": 5
+     },
+     "home": {
+      "id": 141,
+      "name": "Toronto Blue Jays",
+      "score": 4
+     },
+     "winnerSide": "away"
+    }
+   ],
+   "wins": {
+    "141": 3,
+    "119": 4
+   },
+   "gamesPlayed": 7,
+   "hasData": true
+  }
+ },
+ "roundCn": {
+  "Wild Card Series": "外卡系列赛",
+  "Division Series": "分区系列赛",
+  "League Championship Series": "联盟冠军赛",
+  "World Series": "世界大赛"
+ },
+ "dodgers": {
+  "teamId": 119,
+  "seed": null,
+  "record": "96-66",
+  "status": "世界大赛冠军 🏆",
+  "champion": 119
+ },
+ "leaders": {
+  "hitting": {
+   "hr": [
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "homeRuns": 55,
+     "rbi": 102,
+     "stolenBases": 20,
+     "avg": ".282",
+     "hits": 172,
+     "ops": "1.014",
+     "g": 158
+    },
+    {
+     "id": 681624,
+     "name": "Andy Pages",
+     "homeRuns": 27,
+     "rbi": 86,
+     "stolenBases": 14,
+     "avg": ".272",
+     "hits": 158,
+     "ops": ".774",
+     "g": 156
+    },
+    {
+     "id": 606192,
+     "name": "Teoscar Hernández",
+     "homeRuns": 25,
+     "rbi": 89,
+     "stolenBases": 5,
+     "avg": ".247",
+     "hits": 126,
+     "ops": ".738",
+     "g": 134
+    },
+    {
+     "id": 518692,
+     "name": "Freddie Freeman",
+     "homeRuns": 24,
+     "rbi": 90,
+     "stolenBases": 6,
+     "avg": ".295",
+     "hits": 164,
+     "ops": ".869",
+     "g": 147
+    },
+    {
+     "id": 605141,
+     "name": "Mookie Betts",
+     "homeRuns": 20,
+     "rbi": 82,
+     "stolenBases": 8,
+     "avg": ".258",
+     "hits": 152,
+     "ops": ".732",
+     "g": 150
+    }
+   ],
+   "rbi": [
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "homeRuns": 55,
+     "rbi": 102,
+     "stolenBases": 20,
+     "avg": ".282",
+     "hits": 172,
+     "ops": "1.014",
+     "g": 158
+    },
+    {
+     "id": 518692,
+     "name": "Freddie Freeman",
+     "homeRuns": 24,
+     "rbi": 90,
+     "stolenBases": 6,
+     "avg": ".295",
+     "hits": 164,
+     "ops": ".869",
+     "g": 147
+    },
+    {
+     "id": 606192,
+     "name": "Teoscar Hernández",
+     "homeRuns": 25,
+     "rbi": 89,
+     "stolenBases": 5,
+     "avg": ".247",
+     "hits": 126,
+     "ops": ".738",
+     "g": 134
+    },
+    {
+     "id": 681624,
+     "name": "Andy Pages",
+     "homeRuns": 27,
+     "rbi": 86,
+     "stolenBases": 14,
+     "avg": ".272",
+     "hits": 158,
+     "ops": ".774",
+     "g": 156
+    },
+    {
+     "id": 605141,
+     "name": "Mookie Betts",
+     "homeRuns": 20,
+     "rbi": 82,
+     "stolenBases": 8,
+     "avg": ".258",
+     "hits": 152,
+     "ops": ".732",
+     "g": 150
+    }
+   ],
+   "sb": [
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "homeRuns": 55,
+     "rbi": 102,
+     "stolenBases": 20,
+     "avg": ".282",
+     "hits": 172,
+     "ops": "1.014",
+     "g": 158
+    },
+    {
+     "id": 681624,
+     "name": "Andy Pages",
+     "homeRuns": 27,
+     "rbi": 86,
+     "stolenBases": 14,
+     "avg": ".272",
+     "hits": 158,
+     "ops": ".774",
+     "g": 156
+    },
+    {
+     "id": 808975,
+     "name": "Hyeseong Kim",
+     "homeRuns": 3,
+     "rbi": 17,
+     "stolenBases": 13,
+     "avg": ".280",
+     "hits": 45,
+     "ops": ".699",
+     "g": 71
+    },
+    {
+     "id": 605141,
+     "name": "Mookie Betts",
+     "homeRuns": 20,
+     "rbi": 82,
+     "stolenBases": 8,
+     "avg": ".258",
+     "hits": 152,
+     "ops": ".732",
+     "g": 150
+    },
+    {
+     "id": 518692,
+     "name": "Freddie Freeman",
+     "homeRuns": 24,
+     "rbi": 90,
+     "stolenBases": 6,
+     "avg": ".295",
+     "hits": 164,
+     "ops": ".869",
+     "g": 147
+    }
+   ],
+   "avg": [
+    {
+     "id": 669257,
+     "name": "Will Smith",
+     "homeRuns": 17,
+     "rbi": 61,
+     "stolenBases": 2,
+     "avg": ".296",
+     "hits": 107,
+     "ops": ".901",
+     "g": 110
+    },
+    {
+     "id": 518692,
+     "name": "Freddie Freeman",
+     "homeRuns": 24,
+     "rbi": 90,
+     "stolenBases": 6,
+     "avg": ".295",
+     "hits": 164,
+     "ops": ".869",
+     "g": 147
+    },
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "homeRuns": 55,
+     "rbi": 102,
+     "stolenBases": 20,
+     "avg": ".282",
+     "hits": 172,
+     "ops": "1.014",
+     "g": 158
+    },
+    {
+     "id": 681624,
+     "name": "Andy Pages",
+     "homeRuns": 27,
+     "rbi": 86,
+     "stolenBases": 14,
+     "avg": ".272",
+     "hits": 158,
+     "ops": ".774",
+     "g": 156
+    },
+    {
+     "id": 500743,
+     "name": "Miguel Rojas",
+     "homeRuns": 7,
+     "rbi": 27,
+     "stolenBases": 5,
+     "avg": ".262",
+     "hits": 76,
+     "ops": ".715",
+     "g": 114
+    }
+   ],
+   "ops": [
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "homeRuns": 55,
+     "rbi": 102,
+     "stolenBases": 20,
+     "avg": ".282",
+     "hits": 172,
+     "ops": "1.014",
+     "g": 158
+    },
+    {
+     "id": 669257,
+     "name": "Will Smith",
+     "homeRuns": 17,
+     "rbi": 61,
+     "stolenBases": 2,
+     "avg": ".296",
+     "hits": 107,
+     "ops": ".901",
+     "g": 110
+    },
+    {
+     "id": 518692,
+     "name": "Freddie Freeman",
+     "homeRuns": 24,
+     "rbi": 90,
+     "stolenBases": 6,
+     "avg": ".295",
+     "hits": 164,
+     "ops": ".869",
+     "g": 147
+    },
+    {
+     "id": 571970,
+     "name": "Max Muncy",
+     "homeRuns": 19,
+     "rbi": 67,
+     "stolenBases": 4,
+     "avg": ".243",
+     "hits": 76,
+     "ops": ".846",
+     "g": 100
+    },
+    {
+     "id": 681624,
+     "name": "Andy Pages",
+     "homeRuns": 27,
+     "rbi": 86,
+     "stolenBases": 14,
+     "avg": ".272",
+     "hits": 158,
+     "ops": ".774",
+     "g": 156
+    }
+   ]
+  },
+  "pitching": {
+   "w": [
+    {
+     "id": 808967,
+     "name": "Yoshinobu Yamamoto",
+     "wins": 12,
+     "era": "2.49",
+     "whip": "0.99",
+     "saves": 0,
+     "strikeOuts": 201,
+     "inningsPitched": "173.2",
+     "g": 30
+    },
+    {
+     "id": 477132,
+     "name": "Clayton Kershaw",
+     "wins": 11,
+     "era": "3.36",
+     "whip": "1.22",
+     "saves": 0,
+     "strikeOuts": 84,
+     "inningsPitched": "112.2",
+     "g": 23
+    },
+    {
+     "id": 676508,
+     "name": "Ben Casparius",
+     "wins": 7,
+     "era": "4.64",
+     "whip": "1.27",
+     "saves": 2,
+     "strikeOuts": 71,
+     "inningsPitched": "77.2",
+     "g": 46
+    },
+    {
+     "id": 686218,
+     "name": "Emmet Sheehan",
+     "wins": 6,
+     "era": "2.82",
+     "whip": "0.97",
+     "saves": 0,
+     "strikeOuts": 89,
+     "inningsPitched": "73.1",
+     "g": 15
+    },
+    {
+     "id": 669160,
+     "name": "Dustin May",
+     "wins": 6,
+     "era": "4.85",
+     "whip": "1.35",
+     "saves": 0,
+     "strikeOuts": 97,
+     "inningsPitched": "104.0",
+     "g": 19
+    }
+   ],
+   "so": [
+    {
+     "id": 808967,
+     "name": "Yoshinobu Yamamoto",
+     "wins": 12,
+     "era": "2.49",
+     "whip": "0.99",
+     "saves": 0,
+     "strikeOuts": 201,
+     "inningsPitched": "173.2",
+     "g": 30
+    },
+    {
+     "id": 607192,
+     "name": "Tyler Glasnow",
+     "wins": 4,
+     "era": "3.19",
+     "whip": "1.10",
+     "saves": 0,
+     "strikeOuts": 106,
+     "inningsPitched": "90.1",
+     "g": 18
+    },
+    {
+     "id": 669160,
+     "name": "Dustin May",
+     "wins": 6,
+     "era": "4.85",
+     "whip": "1.35",
+     "saves": 0,
+     "strikeOuts": 97,
+     "inningsPitched": "104.0",
+     "g": 19
+    },
+    {
+     "id": 686218,
+     "name": "Emmet Sheehan",
+     "wins": 6,
+     "era": "2.82",
+     "whip": "0.97",
+     "saves": 0,
+     "strikeOuts": 89,
+     "inningsPitched": "73.1",
+     "g": 15
+    },
+    {
+     "id": 477132,
+     "name": "Clayton Kershaw",
+     "wins": 11,
+     "era": "3.36",
+     "whip": "1.22",
+     "saves": 0,
+     "strikeOuts": 84,
+     "inningsPitched": "112.2",
+     "g": 23
+    }
+   ],
+   "sv": [
+    {
+     "id": 656945,
+     "name": "Tanner Scott",
+     "wins": 1,
+     "era": "4.74",
+     "whip": "1.26",
+     "saves": 23,
+     "strikeOuts": 60,
+     "inningsPitched": "57.0",
+     "g": 61
+    },
+    {
+     "id": 681911,
+     "name": "Alex Vesia",
+     "wins": 4,
+     "era": "3.02",
+     "whip": "0.99",
+     "saves": 5,
+     "strikeOuts": 80,
+     "inningsPitched": "59.2",
+     "g": 68
+    },
+    {
+     "id": 676263,
+     "name": "Jack Dreyer",
+     "wins": 3,
+     "era": "2.95",
+     "whip": "1.05",
+     "saves": 4,
+     "strikeOuts": 74,
+     "inningsPitched": "76.1",
+     "g": 67
+    },
+    {
+     "id": 489446,
+     "name": "Kirby Yates",
+     "wins": 4,
+     "era": "5.23",
+     "whip": "1.33",
+     "saves": 3,
+     "strikeOuts": 52,
+     "inningsPitched": "41.1",
+     "g": 50
+    },
+    {
+     "id": 680736,
+     "name": "Justin Wrobleski",
+     "wins": 5,
+     "era": "4.32",
+     "whip": "1.23",
+     "saves": 2,
+     "strikeOuts": 76,
+     "inningsPitched": "66.2",
+     "g": 24
+    }
+   ],
+   "era": [
+    {
+     "id": 694361,
+     "name": "Will Klein",
+     "wins": 1,
+     "era": "2.35",
+     "whip": "1.57",
+     "saves": 0,
+     "strikeOuts": 21,
+     "inningsPitched": "15.1",
+     "g": 14
+    },
+    {
+     "id": 605483,
+     "name": "Blake Snell",
+     "wins": 5,
+     "era": "2.35",
+     "whip": "1.26",
+     "saves": 0,
+     "strikeOuts": 72,
+     "inningsPitched": "61.1",
+     "g": 11
+    },
+    {
+     "id": 683618,
+     "name": "Edgardo Henriquez",
+     "wins": 2,
+     "era": "2.37",
+     "whip": "1.16",
+     "saves": 1,
+     "strikeOuts": 18,
+     "inningsPitched": "19.0",
+     "g": 22
+    },
+    {
+     "id": 656629,
+     "name": "Michael Kopech",
+     "wins": 0,
+     "era": "2.45",
+     "whip": "1.73",
+     "saves": 0,
+     "strikeOuts": 12,
+     "inningsPitched": "11.0",
+     "g": 14
+    },
+    {
+     "id": 808967,
+     "name": "Yoshinobu Yamamoto",
+     "wins": 12,
+     "era": "2.49",
+     "whip": "0.99",
+     "saves": 0,
+     "strikeOuts": 201,
+     "inningsPitched": "173.2",
+     "g": 30
+    }
+   ],
+   "whip": [
+    {
+     "id": 686218,
+     "name": "Emmet Sheehan",
+     "wins": 6,
+     "era": "2.82",
+     "whip": "0.97",
+     "saves": 0,
+     "strikeOuts": 89,
+     "inningsPitched": "73.1",
+     "g": 15
+    },
+    {
+     "id": 808967,
+     "name": "Yoshinobu Yamamoto",
+     "wins": 12,
+     "era": "2.49",
+     "whip": "0.99",
+     "saves": 0,
+     "strikeOuts": 201,
+     "inningsPitched": "173.2",
+     "g": 30
+    },
+    {
+     "id": 681911,
+     "name": "Alex Vesia",
+     "wins": 4,
+     "era": "3.02",
+     "whip": "0.99",
+     "saves": 5,
+     "strikeOuts": 80,
+     "inningsPitched": "59.2",
+     "g": 68
+    },
+    {
+     "id": 660271,
+     "name": "Shohei Ohtani",
+     "wins": 1,
+     "era": "2.87",
+     "whip": "1.04",
+     "saves": 0,
+     "strikeOuts": 62,
+     "inningsPitched": "47.0",
+     "g": 14
+    },
+    {
+     "id": 676263,
+     "name": "Jack Dreyer",
+     "wins": 3,
+     "era": "2.95",
+     "whip": "1.05",
+     "saves": 4,
+     "strikeOuts": 74,
+     "inningsPitched": "76.1",
+     "g": 67
+    }
+   ]
+  }
+ }
+}

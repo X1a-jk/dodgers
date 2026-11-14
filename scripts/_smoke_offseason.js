@@ -45,7 +45,7 @@ const rows = htmlStr => (htmlStr.match(/class="os-row"/g) || []).length;
     await renderOffseasonPage();
 
     check('六板块标题齐全（中文名）', ['冬市总览', '转会流水台', '全联盟重磅动向', '自由球员追踪', '流言雷达', '40 人名单守望'].every(t => captured.includes(t)));
-    check('总览卡显示 37 / 40', captured.includes('37 / 40'));
+    check('总览卡显示 38 / 40', captured.includes('38 / 40'));
     check('无加载失败提示', !captured.includes('休赛期数据加载失败'));
 
     // 时间轴
@@ -54,8 +54,8 @@ const rows = htmlStr => (htmlStr.match(/class="os-row"/g) || []).length;
 
     // 流水台：日期分组 + 中文摘要
     const feed = (stubMap['#os-feed'] || {}).innerHTML || '';
-    check('流水台渲染全部 10 条', rows(feed) === 10);
-    check('日期分组存在', (feed.match(/os-date-group/g) || []).length === 2 && feed.includes('10月29日'));
+    check('流水台渲染全部 15 条', rows(feed) === 15);
+    check('日期分组存在（4 个日期组）', (feed.match(/os-date-group/g) || []).length === 4 && feed.includes('10月29日'));
     check('中文摘要（选择成为自由球员）', feed.includes('选择成为自由球员'));
     check('中文摘要（小联盟合约签下）', feed.includes('小联盟合约签下') && feed.includes('Alberto Santos'));
     check('位置标签（左投/游击手）', feed.includes('左投') && feed.includes('游击手'));
@@ -66,14 +66,14 @@ const rows = htmlStr => (htmlStr.match(/class="os-row"/g) || []).length;
     const feed2 = (stubMap['#os-feed'] || {}).innerHTML || '';
     check('搜索 rojas 只剩 1 条', rows(feed2) === 1 && feed2.includes('Rojas'));
     osSetQuery('');
-    check('清空搜索恢复 10 条', rows((stubMap['#os-feed'] || {}).innerHTML || '') === 10);
+    check('清空搜索恢复 15 条', rows((stubMap['#os-feed'] || {}).innerHTML || '') === 15);
 
     // 筛选（other 应只剩 0 条名单操作 -> 显示空态；用 signed_milb 筛 1 条）
     osSetFilter('signed_milb', null);
     const feed3 = (stubMap['#os-feed'] || {}).innerHTML || '';
     check('筛选小联盟签约只剩 Santos', rows(feed3) === 1 && feed3.includes('Santos'));
     osSetFilter('all', null);
-    check('恢复全部筛选', rows((stubMap['#os-feed'] || {}).innerHTML || '') === 10);
+    check('恢复全部筛选', rows((stubMap['#os-feed'] || {}).innerHTML || '') === 15);
 
     // 全联盟重磅
     check('全联盟交易合并（Rayo / Eaton）', captured.includes('Jareth Rayo / Nate Eaton'));
@@ -85,11 +85,11 @@ const rows = htmlStr => (htmlStr.match(/class="os-row"/g) || []).length;
     check('Vesia 投手数据', captured.includes('ERA 2.64'));
 
     // 流言
-    check('流言示例条目被过滤+空态提示', !captured.includes('示例条目') && captured.includes('搜一下转会流言'));
+    check('流言示例条目被过滤+真实条目渲染', !captured.includes('示例条目') && captured.includes('Pedro Guerrero'));
 
     // 40 人守望
     check('40 人进度条存在', captured.includes('os-progress-bar'));
-    check('剩余名额提示', captured.includes('剩余 3 个名额'));
+    check('剩余名额提示', captured.includes('剩余 2 个名额'));
     check('40 人新增红绿标渲染数与数据一致', (captured.match(/os-man del/g) || []).length === (osData.dodgers.roster40.removed || []).length && (captured.match(/os-man add/g) || []).length === (osData.dodgers.roster40.added || []).length);
     check('40 人移除与 JSON 一致（当前应为 0：上次快照已含变动）', (captured.match(/os-man del/g) || []).length === 0 || captured.includes((osData.dodgers.roster40.removed || [])[0] || ''));
 

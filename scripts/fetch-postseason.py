@@ -99,6 +99,8 @@ def build_bracket():
         out[lcode] = {
             "name": CN_NAME.get(lcode, lcode),
             "teams": {t["seed"]: t for t in div_winners + others[:3]},
+            # 完整候选池（含未进季后赛球队），供 WC 种子纠偏用，输出前剔除
+            "_pool": {t["id"]: t for t in teams},
         }
     return out
 
@@ -262,7 +264,16 @@ def fetch_team_leaders():
 def _wins(series, team_id):
     if not series:
         return 0
-    return series.get("wins", {}).get(str(team_id), 0)
+    w = series.get("wins", {})
+    # wins 键在内存中是 int、JSON 序列化后是 str，两种都要能查到
+    return w.get(team_id, w.get(str(team_id), 0))
+
+
+def _has_team(series, team_id):
+    if not series:
+        return False
+    w = series.get("wins", {})
+    return team_id in w or str(team_id) in w
 
 
 def _series_over(series):
@@ -315,7 +326,7 @@ def dodgers_status(rounds, published):
 
     # 分区系列赛阶段
     for s in nl.get("ds", []):
-        if _wins(s, DODGERS_ID) > 0 or DODGERS_ID in s.get("wins", {}):
+        if _wins(s, DODGERS_ID) > 0 or _has_team(s, DODGERS_ID):
             w = _wins(s, DODGERS_ID)
             if _series_over(s):
                 opp = max((int(t) for t in s.get("wins", {}) if int(t) != DODGERS_ID), default=None)
@@ -324,6 +335,39 @@ def dodgers_status(rounds, published):
             return f"分区系列赛进行中（{w} 胜）"
 
     return "季后赛进行中"
+
+
+def fix_wc_seeds(bracket, rounds):
+    """实际外卡参赛队与对阵树种子 3-6 不一致时（如战绩并列 tiebreak 错），
+    以赛程实际参赛队为准替换未参赛的种子。2025 NL 6 号种子即因此纠正（红人/大都会并列）。"""
+    for lcode in ("NL", "AL"):
+        lg = (bracket or {}).get(lcode)
+        rds = (rounds or {}).get(lcode) or {}
+        if not lg or not lg.get("_pool"):
+            continue
+        participants = set()
+        for s in rds.get("wc") or []:
+            if s and s.get("games"):
+                g0 = s["games"][0]
+                participants |= {g0["away"]["id"], g0["home"]["id"]}
+        if not participants:
+            continue
+        for seed in (3, 4, 5, 6):
+            t = lg["teams"].get(seed)
+            if not t or t["id"] in participants:
+                continue
+            actual = participants - {x["id"] for x in lg["teams"].values()}
+            if not actual:
+                break
+            tid = next(iter(actual))
+            pool_t = lg["_pool"].get(tid)
+            if pool_t:
+                pool_t = dict(pool_t)
+                pool_t["seed"] = seed
+                lg["teams"][seed] = pool_t
+                print(f"  [fix_wc] {lcode} #{seed}: {t['name']} → {pool_t['name']}" +
+                      "（按实际外卡参赛队纠正并列 tiebreak）", flush=True)
+            break
 
 
 def main():
@@ -340,13 +384,17 @@ def main():
           flush=True)
 
     rounds = aggregate_series(bracket, series_map) if published else {}
+    if published:
+        fix_wc_seeds(bracket, rounds)
     leaders = fetch_team_leaders()
     print(f"[postseason] 球队领袖: 打击{len(leaders['hitting']['hr'])}人/投球{len(leaders['pitching']['w'])}人", flush=True)
 
-    dod = bracket["NL"]["teams"].get(2)
+    # 按队伍 id 找道奇，勿假设种子位（2025 道奇是 3 号种子，非 2 号）
+    dod = next((t for t in bracket["NL"]["teams"].values()
+                if t.get("id") == DODGERS_ID), None)
     dodgers_info = {
         "teamId": DODGERS_ID,
-        "seed": dod["seed"] if dod and dod.get("id") == DODGERS_ID else None,
+        "seed": dod["seed"] if dod else None,
         "record": f"{dod['w']}-{dod['l']}" if dod else None,
         "status": dodgers_status(rounds, published),
         "champion": ws_champion(rounds),

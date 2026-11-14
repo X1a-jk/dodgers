@@ -155,3 +155,28 @@ node D:\baseball\scripts\_smoke_recap.js               # 总结页存档列表+�
 - 前提: 仓库必须 public（免费版 Pages 不支持私有库）
 - 验证方式: 用 web_fetch 或手机网络；本机直连 github.io 被墙，curl/Invoke-WebRequest 都会超时，不代表站点挂了
 - 注意: 门户内所有 fetch 都是相对路径（portal/、data/、seasons/...），新增内容目录时保持相对引用即可，禁止写死本地绝对路径
+
+## 九、2026-11-14 年份切换补全 + fetch-postseason 修复（2027 前必读）
+
+### 2025 年份切换三件套（现已全部就位）
+- 球员报告批次：seasons\2025\players\（62 人，reportEditions 自动收录「2025 赛季总结版」）
+- 历年阵容快照：seasons\2025\snapshots\season-roster.json（scripts\_fetch-sr-2025.py 生成，schema 同 2026）
+- 季后赛快照 + 总结：seasons\2025\snapshots\postseason.json + seasons\2025\2025-赛季总结.md（recap 页 2025 阅读入口）
+
+### fetch-postseason.py 修复了三个暗坑（2027 直接受益）
+1. **_wins 键类型陷阱**：wins 字典在内存里是 int 键、JSON 里是 str 键，_wins() 只查 str 会全部落空——2026 赛季 status 是「0-4 被横扫」碰巧让错误的推导蒙对答案。已改 int/str 双查。
+2. **道奇种子位写死**：原代码按 	eams.get(2) 找道奇（默认 2 号种子），2025 道奇是 3 号种子会拿错战绩/种子。已改按 teamId 查找。
+3. **外卡并列 tiebreak**：战绩并列时（2025 红人/大都会 83-79）默认排序可能选错 6 号种子。新增 ix_wc_seeds()——以赛程实际参赛队为准替换未参赛种子，输出前剔除 _pool 辅助键。
+- 重跑 2026 data\postseason.json 验证：status/冠军推导与修复前完全一致。
+
+### transactions 方向字段陷阱（做历年阵容快照必看）
+- DES（指定让渡）/REL（释出）的 raw 数据 **fromTeam=None、toTeam=道奇**——方向不体现在 from/to 里；OPT/OUT/CU/TR/CLW 方向正常。
+- teamId=119 限定查询时，DES/REL/OUT 一律视为道奇阵容动作直接判离队。
+- 「宣布自由球员」typeCode='DFA'（和 Designated for Assignment 的 'DES' 不是一个码）。
+- /stats?teamId=119 的 split 已按队伍过滤（多队球员只返回道奇段，带 team 字段），不需要再手动过滤。
+
+### 休赛期转会中心首次实战（2026-11-14）
+- fetch-offseason.py 无 cron 模式跑通：15 条道奇操作 + 9 条全联盟重磅 + 40 人 38/40。
+- web_search 工具当时超时，流言雷达本次未更新；官宣条目由 transactions 自动坐实。
+
+*2026-11-14*

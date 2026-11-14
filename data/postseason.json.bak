@@ -1,5 +1,5 @@
 {
- "generatedAt": "2026-10-29T20:11:30.307670",
+ "generatedAt": "2026-10-29T20:14:40.798385",
  "season": 2026,
  "regularSeasonComplete": true,
  "postseasonPublished": true,
@@ -1118,7 +1118,8 @@
   "teamId": 119,
   "seed": 2,
   "record": "100-62",
-  "status": "季后赛进行中"
+  "status": "止步国联冠军赛（NLCS 0-4）",
+  "champion": 158
  },
  "leaders": {
   "hitting": {
