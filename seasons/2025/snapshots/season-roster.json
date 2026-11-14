@@ -1,0 +1,1751 @@
+{
+ "generatedAt": "2026-11-14T08:20:59.379836",
+ "season": 2025,
+ "summary": {
+  "total": 62,
+  "current": 35,
+  "il": 0,
+  "minors": 0,
+  "departed": 27,
+  "joinedMidseason": 33
+ },
+ "players": [
+  {
+   "id": 660271,
+   "name": "Shohei Ohtani",
+   "pos": "DH",
+   "g": 158,
+   "bat": {
+    "avg": ".282",
+    "hr": 55,
+    "rbi": 102,
+    "ops": "1.014",
+    "sb": 20,
+    "hits": 172
+   },
+   "pit": {
+    "w": 1,
+    "l": 1,
+    "era": "2.87",
+    "so": 62,
+    "sv": 0,
+    "ip": "47.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 681624,
+   "name": "Andy Pages",
+   "pos": "CF",
+   "g": 156,
+   "bat": {
+    "avg": ".272",
+    "hr": 27,
+    "rbi": 86,
+    "ops": ".774",
+    "sb": 14,
+    "hits": 158
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 605141,
+   "name": "Mookie Betts",
+   "pos": "SS",
+   "g": 150,
+   "bat": {
+    "avg": ".258",
+    "hr": 20,
+    "rbi": 82,
+    "ops": ".732",
+    "sb": 8,
+    "hits": 152
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 518692,
+   "name": "Freddie Freeman",
+   "pos": "1B",
+   "g": 147,
+   "bat": {
+    "avg": ".295",
+    "hr": 24,
+    "rbi": 90,
+    "ops": ".869",
+    "sb": 6,
+    "hits": 164
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 624424,
+   "name": "Michael Conforto",
+   "pos": "LF",
+   "g": 138,
+   "bat": {
+    "avg": ".199",
+    "hr": 12,
+    "rbi": 36,
+    "ops": ".638",
+    "sb": 1,
+    "hits": 83
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 606192,
+   "name": "Teoscar Hernández",
+   "pos": "RF",
+   "g": 134,
+   "bat": {
+    "avg": ".247",
+    "hr": 25,
+    "rbi": 89,
+    "ops": ".738",
+    "sb": 5,
+    "hits": 126
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 500743,
+   "name": "Miguel Rojas",
+   "pos": "2B",
+   "g": 114,
+   "bat": {
+    "avg": ".262",
+    "hr": 7,
+    "rbi": 27,
+    "ops": ".715",
+    "sb": 5,
+    "hits": 76
+   },
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "12.60",
+    "so": 0,
+    "sv": 0,
+    "ip": "5.0"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 669257,
+   "name": "Will Smith",
+   "pos": "C",
+   "g": 110,
+   "bat": {
+    "avg": ".296",
+    "hr": 17,
+    "rbi": 61,
+    "ops": ".901",
+    "sb": 2,
+    "hits": 107
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 571970,
+   "name": "Max Muncy",
+   "pos": "3B",
+   "g": 100,
+   "bat": {
+    "avg": ".243",
+    "hr": 19,
+    "rbi": 67,
+    "ops": ".846",
+    "sb": 4,
+    "hits": 76
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 669242,
+   "name": "Tommy Edman",
+   "pos": "2B",
+   "g": 97,
+   "bat": {
+    "avg": ".225",
+    "hr": 13,
+    "rbi": 49,
+    "ops": ".656",
+    "sb": 3,
+    "hits": 78
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 571771,
+   "name": "Enrique Hernández",
+   "pos": "1B",
+   "g": 93,
+   "bat": {
+    "avg": ".203",
+    "hr": 10,
+    "rbi": 35,
+    "ops": ".621",
+    "sb": 0,
+    "hits": 47
+   },
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "15.19",
+    "so": 1,
+    "sv": 0,
+    "ip": "5.1"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 808975,
+   "name": "Hyeseong Kim",
+   "pos": "2B",
+   "g": 71,
+   "bat": {
+    "avg": ".280",
+    "hr": 3,
+    "rbi": 17,
+    "ops": ".699",
+    "sb": 13,
+    "hits": 45
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 05/03",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-05-03",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 607455,
+   "name": "Anthony Banda",
+   "pos": "P",
+   "g": 71,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 1,
+    "era": "3.18",
+    "so": 61,
+    "sv": 0,
+    "ip": "65.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 681911,
+   "name": "Alex Vesia",
+   "pos": "P",
+   "g": 68,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 2,
+    "era": "3.02",
+    "so": 80,
+    "sv": 5,
+    "ip": "59.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 676263,
+   "name": "Jack Dreyer",
+   "pos": "P",
+   "g": 67,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 2,
+    "era": "2.95",
+    "so": 74,
+    "sv": 4,
+    "ip": "76.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 656945,
+   "name": "Tanner Scott",
+   "pos": "P",
+   "g": 61,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 4,
+    "era": "4.74",
+    "so": 60,
+    "sv": 23,
+    "ip": "57.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 687221,
+   "name": "Dalton Rushing",
+   "pos": "C",
+   "g": 53,
+   "bat": {
+    "avg": ".204",
+    "hr": 4,
+    "rbi": 24,
+    "ops": ".582",
+    "sb": 0,
+    "hits": 29
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 05/14",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-05-14",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 489446,
+   "name": "Kirby Yates",
+   "pos": "P",
+   "g": 50,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 3,
+    "era": "5.23",
+    "so": 52,
+    "sv": 3,
+    "ip": "41.1"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 676508,
+   "name": "Ben Casparius",
+   "pos": "P",
+   "g": 46,
+   "bat": null,
+   "pit": {
+    "w": 7,
+    "l": 5,
+    "era": "4.64",
+    "so": 71,
+    "sv": 2,
+    "ip": "77.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 09/29",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 669743,
+   "name": "Alex Call",
+   "pos": "LF",
+   "g": 38,
+   "bat": {
+    "avg": ".247",
+    "hr": 2,
+    "rbi": 5,
+    "ops": ".717",
+    "sb": 1,
+    "hits": 18
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 07/31",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-31",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 595014,
+   "name": "Blake Treinen",
+   "pos": "P",
+   "g": 32,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 7,
+    "era": "5.40",
+    "so": 36,
+    "sv": 2,
+    "ip": "26.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 808967,
+   "name": "Yoshinobu Yamamoto",
+   "pos": "P",
+   "g": 30,
+   "bat": null,
+   "pit": {
+    "w": 12,
+    "l": 8,
+    "era": "2.49",
+    "so": 201,
+    "sv": 0,
+    "ip": "173.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 690976,
+   "name": "Alex Freeland",
+   "pos": "3B",
+   "g": 29,
+   "bat": {
+    "avg": ".190",
+    "hr": 2,
+    "rbi": 6,
+    "ops": ".602",
+    "sb": 1,
+    "hits": 16
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 07/29",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-29",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 621035,
+   "name": "Chris Taylor",
+   "pos": "LF",
+   "g": 28,
+   "bat": {
+    "avg": ".200",
+    "hr": 0,
+    "rbi": 2,
+    "ops": ".457",
+    "sb": 0,
+    "hits": 7
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "释出",
+   "joined": null,
+   "departed": "释出 05/18",
+   "moves": [
+    {
+     "date": "2025-05-18",
+     "text": "释出"
+    }
+   ]
+  },
+  {
+   "id": 472610,
+   "name": "Luis García",
+   "pos": "P",
+   "g": 28,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 0,
+    "era": "5.27",
+    "so": 24,
+    "sv": 0,
+    "ip": "27.1"
+   },
+   "status": "departed",
+   "statusCn": "释出",
+   "joined": null,
+   "departed": "释出 07/04",
+   "moves": [
+    {
+     "date": "2025-03-17",
+     "text": "上调"
+    },
+    {
+     "date": "2025-06-29",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-07-04",
+     "text": "释出"
+    }
+   ]
+  },
+  {
+   "id": 642152,
+   "name": "Lou Trivino III",
+   "pos": "P",
+   "g": 26,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 1,
+    "era": "3.76",
+    "so": 18,
+    "sv": 0,
+    "ip": "26.1"
+   },
+   "status": "departed",
+   "statusCn": "释出",
+   "joined": "签约 05/11",
+   "departed": "释出 07/27",
+   "moves": [
+    {
+     "date": "2025-05-11",
+     "text": "签约"
+    },
+    {
+     "date": "2025-05-18",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-21",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-07-27",
+     "text": "释出"
+    }
+   ]
+  },
+  {
+   "id": 680736,
+   "name": "Justin Wrobleski",
+   "pos": "P",
+   "g": 24,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 5,
+    "era": "4.32",
+    "so": 76,
+    "sv": 2,
+    "ip": "66.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 04/08",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-04-08",
+     "text": "上调"
+    },
+    {
+     "date": "2025-05-15",
+     "text": "上调"
+    },
+    {
+     "date": "2025-06-06",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-27",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 477132,
+   "name": "Clayton Kershaw",
+   "pos": "P",
+   "g": 23,
+   "bat": null,
+   "pit": {
+    "w": 11,
+    "l": 2,
+    "era": "3.36",
+    "so": 84,
+    "sv": 0,
+    "ip": "112.2"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 681546,
+   "name": "James Outman",
+   "pos": "CF",
+   "g": 22,
+   "bat": {
+    "avg": ".103",
+    "hr": 2,
+    "rbi": 4,
+    "ops": ".487",
+    "sb": 0,
+    "hits": 4
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "交易离队",
+   "joined": "上调 05/06",
+   "departed": "交易离队 07/31",
+   "moves": [
+    {
+     "date": "2025-05-06",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-07",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-31",
+     "text": "交易离队"
+    }
+   ]
+  },
+  {
+   "id": 683618,
+   "name": "Edgardo Henriquez",
+   "pos": "P",
+   "g": 22,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 1,
+    "era": "2.37",
+    "so": 18,
+    "sv": 1,
+    "ip": "19.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 07/21",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-21",
+     "text": "上调"
+    },
+    {
+     "date": "2025-08-12",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 665923,
+   "name": "Esteury Ruiz",
+   "pos": "LF",
+   "g": 19,
+   "bat": {
+    "avg": ".190",
+    "hr": 1,
+    "rbi": 2,
+    "ops": ".594",
+    "sb": 4,
+    "hits": 4
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 04/02",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-04-02",
+     "text": "交易获得"
+    },
+    {
+     "date": "2025-07-03",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 669160,
+   "name": "Dustin May",
+   "pos": "P",
+   "g": 19,
+   "bat": null,
+   "pit": {
+    "w": 6,
+    "l": 7,
+    "era": "4.85",
+    "so": 97,
+    "sv": 0,
+    "ip": "104.0"
+   },
+   "status": "departed",
+   "statusCn": "交易离队",
+   "joined": null,
+   "departed": "交易离队 07/31",
+   "moves": [
+    {
+     "date": "2025-07-31",
+     "text": "交易离队"
+    }
+   ]
+  },
+  {
+   "id": 666163,
+   "name": "Ben Rortvedt",
+   "pos": "C",
+   "g": 18,
+   "bat": {
+    "avg": ".224",
+    "hr": 1,
+    "rbi": 4,
+    "ops": ".636",
+    "sb": 0,
+    "hits": 11
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 07/31",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-31",
+     "text": "交易获得"
+    },
+    {
+     "date": "2025-09-04",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 681909,
+   "name": "Justin Dean",
+   "pos": "CF",
+   "g": 18,
+   "bat": {
+    "avg": ".000",
+    "hr": 0,
+    "rbi": 0,
+    "ops": ".000",
+    "sb": 1,
+    "hits": 0
+   },
+   "pit": null,
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 08/08",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-08-08",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 607192,
+   "name": "Tyler Glasnow",
+   "pos": "P",
+   "g": 18,
+   "bat": null,
+   "pit": {
+    "w": 4,
+    "l": 3,
+    "era": "3.19",
+    "so": 106,
+    "sv": 0,
+    "ip": "90.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 686218,
+   "name": "Emmet Sheehan",
+   "pos": "P",
+   "g": 15,
+   "bat": null,
+   "pit": {
+    "w": 6,
+    "l": 3,
+    "era": "2.82",
+    "so": 89,
+    "sv": 0,
+    "ip": "73.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 07/06",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-06",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 694361,
+   "name": "Will Klein",
+   "pos": "P",
+   "g": 14,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 1,
+    "era": "2.35",
+    "so": 21,
+    "sv": 0,
+    "ip": "15.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 06/02",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-06-20",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-01",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-19",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 656629,
+   "name": "Michael Kopech",
+   "pos": "P",
+   "g": 14,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "2.45",
+    "so": 12,
+    "sv": 0,
+    "ip": "11.0"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": null,
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 605131,
+   "name": "Austin Barnes",
+   "pos": "C",
+   "g": 13,
+   "bat": {
+    "avg": ".214",
+    "hr": 0,
+    "rbi": 2,
+    "ops": ".519",
+    "sb": 0,
+    "hits": 9
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "释出",
+   "joined": null,
+   "departed": "释出 05/20",
+   "moves": [
+    {
+     "date": "2025-05-14",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-05-20",
+     "text": "释出"
+    }
+   ]
+  },
+  {
+   "id": 605483,
+   "name": "Blake Snell",
+   "pos": "P",
+   "g": 11,
+   "bat": null,
+   "pit": {
+    "w": 5,
+    "l": 4,
+    "era": "2.35",
+    "so": 72,
+    "sv": 0,
+    "ip": "61.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 808963,
+   "name": "Roki Sasaki",
+   "pos": "P",
+   "g": 10,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 1,
+    "era": "4.46",
+    "so": 28,
+    "sv": 0,
+    "ip": "36.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-03-17",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 689017,
+   "name": "Landon Knack",
+   "pos": "P",
+   "g": 10,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 2,
+    "era": "4.89",
+    "so": 42,
+    "sv": 1,
+    "ip": "42.1"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 04/09",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-04-09",
+     "text": "上调"
+    },
+    {
+     "date": "2025-05-07",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-28",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 669422,
+   "name": "Matt Sauer",
+   "pos": "P",
+   "g": 10,
+   "bat": null,
+   "pit": {
+    "w": 2,
+    "l": 1,
+    "era": "6.37",
+    "so": 24,
+    "sv": 1,
+    "ip": "29.2"
+   },
+   "status": "departed",
+   "statusCn": "释出",
+   "joined": "上调 04/06",
+   "departed": "释出 09/10",
+   "moves": [
+    {
+     "date": "2025-08-21",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-06",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-09-10",
+     "text": "释出"
+    },
+    {
+     "date": "2025-09-18",
+     "text": "签约"
+    }
+   ]
+  },
+  {
+   "id": 664747,
+   "name": "Alexis Díaz",
+   "pos": "P",
+   "g": 9,
+   "bat": null,
+   "pit": {
+    "w": 1,
+    "l": 0,
+    "era": "5.00",
+    "so": 9,
+    "sv": 0,
+    "ip": "9.0"
+   },
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "交易获得 05/29",
+   "departed": "Waiver 离队 09/07",
+   "moves": [
+    {
+     "date": "2025-07-08",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-22",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-04",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-09-07",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 671083,
+   "name": "Buddy Kennedy",
+   "pos": "3B",
+   "g": 7,
+   "bat": {
+    "avg": ".059",
+    "hr": 0,
+    "rbi": 1,
+    "ops": ".170",
+    "sb": 0,
+    "hits": 1
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "认领 08/15",
+   "departed": "Outright 下放 08/28",
+   "moves": [
+    {
+     "date": "2025-08-15",
+     "text": "认领"
+    },
+    {
+     "date": "2025-08-25",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-08-28",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 623465,
+   "name": "Evan Phillips",
+   "pos": "P",
+   "g": 7,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "0.00",
+    "so": 6,
+    "sv": 1,
+    "ip": "5.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 664062,
+   "name": "Tony Gonsolin",
+   "pos": "P",
+   "g": 7,
+   "bat": null,
+   "pit": {
+    "w": 3,
+    "l": 2,
+    "era": "5.00",
+    "so": 38,
+    "sv": 0,
+    "ip": "36.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": null,
+   "departed": null,
+   "moves": []
+  },
+  {
+   "id": 663562,
+   "name": "Noah Davis",
+   "pos": "P",
+   "g": 5,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "19.50",
+    "so": 8,
+    "sv": 0,
+    "ip": "6.0"
+   },
+   "status": "departed",
+   "statusCn": "交易离队",
+   "joined": "上调 04/18",
+   "departed": "交易离队 07/14",
+   "moves": [
+    {
+     "date": "2025-06-01",
+     "text": "上调"
+    },
+    {
+     "date": "2025-06-29",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-11",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-07-14",
+     "text": "交易离队"
+    }
+   ]
+  },
+  {
+   "id": 592779,
+   "name": "Brock Stewart",
+   "pos": "P",
+   "g": 4,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "4.91",
+    "so": 3,
+    "sv": 0,
+    "ip": "3.2"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 07/31",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-31",
+     "text": "交易获得"
+    }
+   ]
+  },
+  {
+   "id": 608717,
+   "name": "Chris Stratton",
+   "pos": "P",
+   "g": 3,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "6.75",
+    "so": 6,
+    "sv": 0,
+    "ip": "4.0"
+   },
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "签约 05/25",
+   "departed": "Outright 下放 06/09",
+   "moves": [
+    {
+     "date": "2025-06-05",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2025-06-06",
+     "text": "签约"
+    },
+    {
+     "date": "2025-06-07",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-06-09",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 672782,
+   "name": "Yoendrys Gómez",
+   "pos": "P",
+   "g": 3,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "14.54",
+    "so": 6,
+    "sv": 1,
+    "ip": "4.1"
+   },
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "认领 04/25",
+   "departed": "Waiver 离队 05/10",
+   "moves": [
+    {
+     "date": "2025-04-25",
+     "text": "认领"
+    },
+    {
+     "date": "2025-05-06",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-05-10",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 592696,
+   "name": "Eddie Rosario",
+   "pos": "DH",
+   "g": 2,
+   "bat": {
+    "avg": ".250",
+    "hr": 0,
+    "rbi": 0,
+    "ops": ".500",
+    "sb": 0,
+    "hits": 1
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "上调 04/18",
+   "departed": "Outright 下放 04/25",
+   "moves": [
+    {
+     "date": "2025-04-18",
+     "text": "上调"
+    },
+    {
+     "date": "2025-04-20",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-04-25",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 676439,
+   "name": "Hunter Feduccia",
+   "pos": "X",
+   "g": 2,
+   "bat": {
+    "avg": ".000",
+    "hr": 0,
+    "rbi": 0,
+    "ops": ".333",
+    "sb": 0,
+    "hits": 0
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "交易离队",
+   "joined": "上调 04/04",
+   "departed": "交易离队 07/31",
+   "moves": [
+    {
+     "date": "2025-04-04",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-31",
+     "text": "交易离队"
+    }
+   ]
+  },
+  {
+   "id": 570632,
+   "name": "José Ureña",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "3.00",
+    "so": 2,
+    "sv": 0,
+    "ip": "3.0"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": "签约 06/03",
+   "departed": "宣布自由球员 06/13",
+   "moves": [
+    {
+     "date": "2025-06-03",
+     "text": "签约"
+    },
+    {
+     "date": "2025-06-10",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-06-13",
+     "text": "宣布自由球员"
+    }
+   ]
+  },
+  {
+   "id": 669193,
+   "name": "Jack Little",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "6.00",
+    "so": 2,
+    "sv": 0,
+    "ip": "3.0"
+   },
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "上调 06/19",
+   "departed": "Waiver 离队 08/06",
+   "moves": [
+    {
+     "date": "2025-06-19",
+     "text": "上调"
+    },
+    {
+     "date": "2025-07-05",
+     "text": "上调"
+    },
+    {
+     "date": "2025-08-04",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-08-06",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 676272,
+   "name": "Bobby Miller",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "12.60",
+    "so": 7,
+    "sv": 0,
+    "ip": "5.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "上调 04/16",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-04-16",
+     "text": "上调"
+    },
+    {
+     "date": "2025-05-24",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 656420,
+   "name": "J.P. Feyereisen",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 1,
+    "era": "13.50",
+    "so": 2,
+    "sv": 0,
+    "ip": "2.0"
+   },
+   "status": "departed",
+   "statusCn": "Outright",
+   "joined": "认领 05/01",
+   "departed": "Outright 下放 05/27",
+   "moves": [
+    {
+     "date": "2025-05-06",
+     "text": "上调"
+    },
+    {
+     "date": "2025-05-13",
+     "text": "上调"
+    },
+    {
+     "date": "2025-05-25",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-05-27",
+     "text": "Outright 下放"
+    }
+   ]
+  },
+  {
+   "id": 702795,
+   "name": "Ryan Loutos",
+   "pos": "P",
+   "g": 2,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "15.00",
+    "so": 2,
+    "sv": 0,
+    "ip": "3.0"
+   },
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "交易获得 05/01",
+   "departed": "Waiver 离队 06/10",
+   "moves": [
+    {
+     "date": "2025-05-16",
+     "text": "上调"
+    },
+    {
+     "date": "2025-06-02",
+     "text": "上调"
+    },
+    {
+     "date": "2025-06-06",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-06-10",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 642020,
+   "name": "Chuckie Robinson",
+   "pos": "C",
+   "g": 1,
+   "bat": {
+    "avg": ".000",
+    "hr": 0,
+    "rbi": 0,
+    "ops": ".000",
+    "sb": 0,
+    "hits": 0
+   },
+   "pit": null,
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "认领 05/31",
+   "departed": "Waiver 离队 09/21",
+   "moves": [
+    {
+     "date": "2025-06-05",
+     "text": "Outright 下放"
+    },
+    {
+     "date": "2025-09-06",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-13",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-21",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 801434,
+   "name": "Paul Gervase",
+   "pos": "P",
+   "g": 1,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "4.50",
+    "so": 2,
+    "sv": 0,
+    "ip": "2.0"
+   },
+   "status": "a",
+   "statusCn": "活跃",
+   "joined": "交易获得 07/31",
+   "departed": null,
+   "moves": [
+    {
+     "date": "2025-07-31",
+     "text": "交易获得"
+    },
+    {
+     "date": "2025-08-20",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    }
+   ]
+  },
+  {
+   "id": 642759,
+   "name": "Julian Fernández",
+   "pos": "P",
+   "g": 1,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "9.00",
+    "so": 1,
+    "sv": 0,
+    "ip": "2.0"
+   },
+   "status": "departed",
+   "statusCn": "Waiver",
+   "joined": "上调 07/07",
+   "departed": "Waiver 离队 08/17",
+   "moves": [
+    {
+     "date": "2025-07-07",
+     "text": "上调"
+    },
+    {
+     "date": "2025-08-15",
+     "text": "DFA"
+    },
+    {
+     "date": "2025-08-17",
+     "text": "Waiver 离队"
+    }
+   ]
+  },
+  {
+   "id": 571760,
+   "name": "Andrew Heaney",
+   "pos": "P",
+   "g": 1,
+   "bat": null,
+   "pit": {
+    "w": 0,
+    "l": 0,
+    "era": "13.50",
+    "so": 2,
+    "sv": 0,
+    "ip": "2.0"
+   },
+   "status": "departed",
+   "statusCn": "宣布自由球员",
+   "joined": "签约 09/01",
+   "departed": "宣布自由球员 11/02",
+   "moves": [
+    {
+     "date": "2025-09-01",
+     "text": "签约"
+    },
+    {
+     "date": "2025-09-27",
+     "text": "上调"
+    },
+    {
+     "date": "2025-09-29",
+     "text": "上调"
+    },
+    {
+     "date": "2025-11-02",
+     "text": "宣布自由球员"
+    }
+   ]
+  }
+ ]
+}
