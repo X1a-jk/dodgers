@@ -179,10 +179,26 @@ def fetch_dodgers(start, end):
 
 
 def fetch_league(start, end, dodger_ids, ex_names):
-    url = '%s/transactions?sportId=1&startDate=%s&endDate=%s' % (API, start, end)
-    data = get_json(url)
+    # 宽窗口会截断/分页（实测 10/28~11/14 全联盟 479 条），必须 3 天粒度小窗扫
+    raw = []
+    seen_ids = set()
+    d0 = datetime.datetime.strptime(start, '%Y-%m-%d').date()
+    d1 = datetime.datetime.strptime(end, '%Y-%m-%d').date()
+    while d0 <= d1:
+        e = min(d0 + datetime.timedelta(days=2), d1)
+        url = '%s/transactions?sportId=1&startDate=%s&endDate=%s' % (API, d0, e)
+        data = get_json(url)
+        for t in data.get('transactions', []):
+            # 现金交易会拆成同 id 两条（球员侧 + 对价侧），去重键必须含 person，
+            # 否则对价侧抢先入集会把球员侧挤掉、整条交易蒸发
+            dk = (t.get('id'), (t.get('person') or {}).get('id'))
+            if dk in seen_ids:
+                continue
+            seen_ids.add(dk)
+            raw.append(t)
+        d0 = e + datetime.timedelta(days=1)
     keep = []
-    for t in data.get('transactions', []):
+    for t in raw:
         d = (t.get('typeDesc') or '').lower()
         desc = (t.get('description') or '').lower()
         is_mlb_signing = 'signed as free agent' in d and 'minor league' not in desc
