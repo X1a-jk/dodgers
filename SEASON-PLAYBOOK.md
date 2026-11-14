@@ -178,5 +178,7 @@ node D:\baseball\scripts\_smoke_recap.js               # 总结页存档列表+�
 ### 休赛期转会中心首次实战（2026-11-14）
 - fetch-offseason.py 无 cron 模式跑通：15 条道奇操作 + 9 条全联盟重磅 + 40 人 38/40。
 - web_search 工具当时超时，流言雷达本次未更新；官宣条目由 transactions 自动坐实。
+- **fetch_league 两个修复（重要）**：① 宽窗口单抓有截断风险，改 3 天小窗扫+按 (id, personId) 去重（实测窗口全量 479 条）；② **现金交易同 id 拆两条记录（球员侧+对价侧），去重键只按 id 会把球员侧挤掉、整条交易蒸发**——去重键必须含 person。
+- 全联盟 SFA 37 笔人工审计：大联盟合约仅 3 笔（Phillips→勇士 / Weiss→教士 / Waguespack→老虎），其余全是小联盟约，过滤正确；CLW/DES 抽查无重磅漏网。
 
 *2026-11-14*
