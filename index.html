@@ -615,7 +615,7 @@
 
         /* Playoff picture (季后赛形势) */
         .sp-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 26px; }
-        @media (max-width: 900px) { .sp-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .sp-grid { grid-template-columns: minmax(0, 1fr); } }
         .sp-seed-row {
             display: flex;
             align-items: center;
@@ -1062,7 +1062,7 @@
         .os-news-meta { font-size: 0.75rem; color: var(--text-muted); }
         .os-news-meta a { color: #7dd3fc; }
         .os-fa-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        @media (max-width: 900px) { .os-fa-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .os-fa-grid { grid-template-columns: minmax(0, 1fr); } }
         .os-man { display: inline-block; padding: 4px 11px; border-radius: 8px; font-size: 0.8rem; margin: 0 6px 6px 0; border: 1px solid var(--border); background: rgba(255,255,255,0.03); }
         .os-man.add { border-color: rgba(34,197,94,0.5); color: #86efac; }
         .os-man.del { border-color: rgba(239,68,68,0.45); color: #fca5a5; text-decoration: line-through; }
@@ -1170,7 +1170,7 @@
 
         /* Responsive */
         @media (max-width: 1024px) {
-            .layout { grid-template-columns: 1fr; }
+            .layout { grid-template-columns: minmax(0, 1fr); }
             .sidebar {
                 height: auto;
                 position: relative;
@@ -1184,14 +1184,43 @@
             .nav-group-title { display: none; }
             .nav-item { margin-bottom: 0; margin-right: 6px; white-space: nowrap; }
             .sidebar-footer { display: none; }
-            .module-layout { grid-template-columns: 1fr; height: auto; }
+            .module-layout { grid-template-columns: minmax(0, 1fr); height: auto; }
             .module-sidebar { max-height: 300px; }
+            .sidebar { flex-wrap: wrap; row-gap: 4px; }
+            .brand { flex-shrink: 0; }
+            .october-banner {
+                flex: 0 0 100%;
+                order: 5;
+                margin: 6px 0 2px;
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                min-width: 0;
+            }
+            nav {
+                min-width: 0;
+                display: flex;
+                padding: 0;
+                overflow-x: auto;
+                overflow-y: hidden;
+                flex: 0 0 100%;
+                order: 6;
+                margin-top: 6px;
+                -webkit-mask-image: linear-gradient(90deg, #000 82%, transparent);
+                mask-image: linear-gradient(90deg, #000 82%, transparent);
+            }
         }
 
         @media (max-width: 768px) {
             .content { padding: 20px 18px; }
             header { padding: 16px 18px; flex-direction: column; align-items: flex-start; gap: 12px; }
-            .dashboard-grid { grid-template-columns: 1fr; }
+            .dashboard-grid { grid-template-columns: minmax(0, 1fr); }
+            .markdown-body table { display: block; overflow-x: auto; -webkit-overflow-scrolling: touch; }
+            .card-meta, .meta { font-size: 0.85rem; }
+            .organ-item { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+            .organ-panel { right: 12px; bottom: 70px; max-width: calc(100vw - 24px); }
+            .organ-fab { right: 12px; bottom: 14px; }
+            h1 { font-size: 1.5rem; }
         }
 
         .hidden { display: none !important; }
@@ -1221,7 +1250,7 @@
             margin-bottom: 22px;
         }
         @media (max-width: 1024px) {
-            .gh-grid { grid-template-columns: 1fr; }
+            .gh-grid { grid-template-columns: minmax(0, 1fr); }
         }
         .gh-card {
             background: var(--panel);
@@ -2235,7 +2264,7 @@
             color: var(--text-muted); font-size: 0.85rem;
         }
         .ps-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
-        @media (max-width: 900px) { .ps-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .ps-grid { grid-template-columns: minmax(0, 1fr); } }
         .ps-league {
             background: var(--panel); border: 1px solid var(--border);
             border-radius: var(--radius); padding: 14px;
@@ -2288,7 +2317,7 @@
         .rc-hero .rc-num { font-size: 1.7rem; font-weight: 900; color: #f5b942; }
         .rc-hero .rc-label { font-size: 0.78rem; color: var(--text-muted); margin-top: 2px; }
         .rc-leader-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-        @media (max-width: 900px) { .rc-leader-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 900px) { .rc-leader-grid { grid-template-columns: minmax(0, 1fr); } }
         .rc-chip {
             display: flex; align-items: center; gap: 8px; padding: 7px 10px;
             border-radius: 9px; background: rgba(15,23,42,0.55);
@@ -7032,13 +7061,13 @@
     <div class="organ-fab" id="organ-fab" onclick="organToggle()" title="球场风琴">🎵</div>
     <div class="organ-panel" id="organ-panel">
         <div class="organ-title">🏟️ 球场风琴<span>Web Audio 实时合成 · 零音频文件</span></div>
-        <div class="organ-item" id="organ-victory" onclick="organPlay('victory')"><span>🏆</span> 胜利小调<em>约 20 秒</em></div>
-        <div class="organ-item" id="organ-charge" onclick="organPlay('charge')"><span>📣</span> Charge 助威<em>约 20 秒</em></div>
-        <div class="organ-item" id="organ-ballgame" onclick="organPlay('ballgame')"><span>⚾</span> 第八局之歌 · Take Me Out to the Ball Game<em>8-bit · 约 40 秒</em></div>
-        <div class="organ-item" id="organ-banner" onclick="organPlay('banner')"><span>🇺🇸</span> 星条旗国歌<em>8-bit · 约 41 秒</em></div>
-        <div class="organ-item" id="organ-ssf" onclick="organPlay('ssf')"><span>🎺</span> 星条旗永不落<em>8-bit · 约 37 秒</em></div>
-        <div class="organ-item" id="organ-grandold" onclick="organPlay('grandold')"><span>🚩</span> Grand Old Flag<em>8-bit · 约 29 秒</em></div>
-        <div class="organ-item" id="organ-saints" onclick="organPlay('saints')"><span>😇</span> When the Saints<em>8-bit · 约 19 秒</em></div>
+        <div class="organ-item" id="organ-victory" onclick="organPlay('victory')"><span>🏆</span> 胜利小调</div>
+        <div class="organ-item" id="organ-charge" onclick="organPlay('charge')"><span>📣</span> Charge 助威</div>
+        <div class="organ-item" id="organ-ballgame" onclick="organPlay('ballgame')"><span>⚾</span> 第八局之歌 · Take Me Out to the Ball Game</div>
+        <div class="organ-item" id="organ-banner" onclick="organPlay('banner')"><span>🇺🇸</span> 星条旗国歌</div>
+        <div class="organ-item" id="organ-ssf" onclick="organPlay('ssf')"><span>🎺</span> 星条旗永不落</div>
+        <div class="organ-item" id="organ-grandold" onclick="organPlay('grandold')"><span>🚩</span> Grand Old Flag</div>
+        <div class="organ-item" id="organ-saints" onclick="organPlay('saints')"><span>😇</span> When the Saints</div>
         <div class="organ-foot">再点一次停止 · Esc 也可停止</div>
     </div>
 </body>
