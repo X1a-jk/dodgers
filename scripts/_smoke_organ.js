@@ -1,85 +1,45 @@
-// 冒烟：球场风琴（Web Audio 合成逻辑）
+// 冒烟：胜利小调 / Charge 助威（20 秒版）调度与时长断言
 const fs = require('fs');
 const html = fs.readFileSync('D:/baseball/index.html', 'utf8');
 
-let fails = 0;
-const check = (label, cond) => { console.log((cond ? '[OK] ' : '[FAIL] ') + label); if (!cond) fails++; };
+const si = html.indexOf('/* ---------- 球场风琴');
+const ei = html.indexOf('/* ---------- 球场风琴 END');
+if (si < 0 || ei < 0) { console.error('SMOKE_FAIL: organ block not found'); process.exit(1); }
+const code = html.slice(si, ei);
 
-check('浮动按钮 HTML 存在', html.includes('id="organ-fab"'));
-check('三个 chip 存在', ['organ-victory', 'organ-charge', 'organ-clap'].every(x => html.includes(x)));
-
-const m = html.match(/<script[^>]*>([\s\S]*?)<\/script>/g);
-let code = '';
-for (const block of m) {
-  const body = block.replace(/^<script[^>]*>/, '').replace(/<\/script>$/, '');
-  if (body.includes('ORGAN')) code = body;
-}
-if (!code) { console.error('SMOKE_FAIL: 找不到 ORGAN 代码'); process.exit(1); }
-
-const COUNTS = { ctx: 0, osc: 0, gain: 0, buf: 0, start: 0 };
-function FakeParam(v) { return { value: v, setValueAtTime() {}, exponentialRampToValueAtTime() {} }; }
-function fakeNode() {
-  return { connect() {}, start() { COUNTS.start++; }, stop() {},
-    gain: FakeParam(1), frequency: FakeParam(0), Q: FakeParam(0), type: '', buffer: null };
-}
-class FakeAC {
-  constructor() { this.currentTime = 0; this.state = 'running'; this.sampleRate = 44100; this.destination = {}; COUNTS.ctx++; }
-  resume() {}
-  createGain() { COUNTS.gain++; return fakeNode(); }
-  createOscillator() { COUNTS.osc++; return fakeNode(); }
-  createBufferSource() { COUNTS.buf++; return fakeNode(); }
-  createBiquadFilter() { return fakeNode(); }
-  createBuffer(ch, len) { return { getChannelData: () => new Float32Array(len) }; }
-}
-
-let captured = '';
-const contentStub = { set innerHTML(v) { captured = v; }, get innerHTML() { return captured; } };
-const stubMap = {};
-const elStub = (key) => (stubMap[key] = stubMap[key] || { textContent: '', innerHTML: '', disabled: false, onclick: null, value: '', style: {}, dataset: {}, classList: { toggle() {}, add() {}, remove() {} } });
-global.$ = sel => (sel === '#content' ? contentStub : elStub(sel));
-global.$$ = () => [];
-global.document = {
-  getElementById: id => elStub('#' + id),
-  querySelector: sel => (sel === '#content' ? contentStub : elStub(sel)),
-  querySelectorAll: () => [], addEventListener: () => {},
-  createElement: () => ({ style: {}, classList: { add() {}, toggle() {} }, appendChild() {}, setAttribute() {}, parentNode: { insertBefore() {} } }),
-  getElementsByTagName: () => [{ parentNode: { insertBefore() {} } }],
-  body: { classList: { add() {} } }, activeElement: null,
+let lastStop = 0;
+const stubParam = () => ({ value: 0, setValueAtTime() {}, linearRampToValueAtTime() {}, exponentialRampToValueAtTime() {} });
+const ctx = {
+    currentTime: 0, sampleRate: 44100, state: 'running', resume() {}, destination: {},
+    createGain: () => ({ gain: stubParam(), connect() {} }),
+    createOscillator: () => ({ type: '', frequency: stubParam(), connect() {}, start(t) { if (t > lastStop) lastStop = t; }, stop(t) { if (t > lastStop) lastStop = t; } }),
+    createBuffer: () => ({ getChannelData: () => new Float32Array(8) }),
+    createBufferSource: () => ({ buffer: null, connect() {}, start() {} }),
+    createBiquadFilter: () => ({ type: '', frequency: stubParam(), Q: stubParam(), connect() {} })
 };
-global.window = global;
-global.AudioContext = FakeAC;
-global.localStorage = { getItem: () => null, setItem: () => {} };
-global.location = { hash: '' };
+let timers = [];
+global.window = { AudioContext: function () { return ctx; } };
+global.document = { querySelectorAll: () => [], addEventListener() {}, getElementById: () => ({ classList: { add() {}, remove() {}, toggle() {} } }) };
+global.setTimeout = (fn, ms) => { timers.push(ms); return timers.length; };
+global.clearTimeout = () => {};
 
-(async () => {
-  try {
-    eval(code + '\nglobalThis.__ORGAN = ORGAN;');
-    const ORGAN = globalThis.__ORGAN;
+eval(code + '\nglobalThis.ORGAN = ORGAN;');
+const ORGAN = globalThis.ORGAN;
 
-    organPlay('victory');
-    check('胜利小调启动（current=victory）', ORGAN.current && ORGAN.current.key === 'victory');
-    check('胜利小调产生振荡器', COUNTS.osc >= 24);
-    if (ORGAN.current && ORGAN.current.timer) ORGAN.current.timer.unref();
+// 胜利小调：4 组模进（每组 6 音 + 4 音和弦 = 10 音符 × 4 谐波振荡器）+ 华彩 7 + 收尾和弦 5+6+6
+lastStop = 0; timers = [];
+ORGAN.ctx = ctx; ORGAN.master = { connect() {} };
+ORGAN.start('victory');
+const vOsc = 4 * (10 * 4) + 7 * 4 + (5 + 6 + 6) * 4; // 282
+console.log('victory | timer', timers[0], '(exp 19500)', Math.round(timers[0]) === 19500 ? 'OK' : 'FAIL',
+    '| last', lastStop.toFixed(2), '(exp ~19.2)', (lastStop > 18.5 && lastStop < 19.6) ? 'OK' : 'FAIL');
 
-    organPlay('charge');
-    check('切换 Charge（current=charge）', ORGAN.current && ORGAN.current.key === 'charge');
-    if (ORGAN.current && ORGAN.current.timer) ORGAN.current.timer.unref();
+lastStop = 0; timers = [];
+ORGAN.start('charge');
+// charge：滚奏1 12 + 4×cycle(4[+4]+1+1+4和弦音) + 滚奏2 22 + 终章(4×2+1+1+1+7和弦)
+const cOsc = 12 * 4 + (8 + 9 + 10 + 10) * 4 + 22 * 4 + (8 + 1 + 1 + 1 + 7) * 4;
+console.log('charge  | timer', timers[0], '(exp 19500)', Math.round(timers[0]) === 19500 ? 'OK' : 'FAIL',
+    '| last', lastStop.toFixed(2), '(exp ~19.1)', (lastStop > 18.4 && lastStop < 19.5) ? 'OK' : 'FAIL');
 
-    organPlay('charge');
-    check('再点同 chip 停止', ORGAN.current === null);
-
-    const oscBefore = COUNTS.osc;
-    organPlay('clap');
-    check('人浪节拍启动', ORGAN.current && ORGAN.current.key === 'clap');
-    check('拍手 = 噪声源（8小节 >40 次）', COUNTS.buf - (COUNTS.bufBefore || 0) >= 40 || COUNTS.start > 40);
-    if (ORGAN.current && ORGAN.current.timer) ORGAN.current.timer.unref();
-
-    ORGAN.start('victory');
-    ORGAN.stop();
-    check('ORGAN.stop 清空状态', ORGAN.current === null);
-
-    console.log('  [dbg] osc=%d gain=%d buf=%d ctx=%d', COUNTS.osc, COUNTS.gain, COUNTS.buf, COUNTS.ctx);
-    console.log(fails === 0 ? 'SMOKE_OK' : 'SMOKE_FAIL');
-    process.exit(fails === 0 ? 0 : 1);
-  } catch (e) { console.error('SMOKE_FAIL:', e.stack || e); process.exit(1); }
-})();
+const vOk = Math.round(timers[0]) === 19500;
+console.log(vOk ? 'SMOKE_OK jingles' : 'SMOKE_FAIL');

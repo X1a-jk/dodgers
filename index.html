@@ -6786,25 +6786,49 @@
                 const t0 = this.ctx.currentTime + 0.06;
                 let secs = 0;
                 if (key === 'victory') {
-                    // 胜利小调：上行动机 ×2 → 终止和弦
-                    this.note(60, t0, 0.2);            // C4
-                    this.note(64, t0 + 0.2, 0.2);      // E4
-                    this.note(67, t0 + 0.4, 0.2);      // G4
-                    this.note(72, t0 + 0.6, 0.42);     // C5
-                    this.note(67, t0 + 1.1, 0.18);     // G4
-                    this.note(72, t0 + 1.3, 0.6);      // C5
-                    this.chord([72, 76, 79, 84], t0 + 2.05, 1.1, 1.1); // C 大和弦收尾
-                    secs = 3.3;
+                    // 胜利小调（约 20 秒）：C→F→G→C 模进 ×4 → 分解和弦华彩 → 大和弦收尾
+                    let vt = t0;
+                    [0, 5, 7, 0].forEach(tr => {
+                        this.note(60 + tr, vt, 0.2);            // 分解三和弦上行
+                        this.note(64 + tr, vt + 0.2, 0.2);
+                        this.note(67 + tr, vt + 0.4, 0.2);
+                        this.note(72 + tr, vt + 0.6, 0.42);
+                        this.note(67 + tr, vt + 1.1, 0.18);
+                        this.note(72 + tr, vt + 1.3, 0.6);
+                        this.chord([72 + tr, 76 + tr, 79 + tr, 84 + tr], vt + 2.05, 1.1, 1.1);
+                        vt += 3.3;
+                    });
+                    [60, 64, 67, 72, 76, 79, 84].forEach((m, i) => this.note(m, vt + i * 0.16, i === 6 ? 0.9 : 0.15, 1.05)); // C4→C6 华彩
+                    this.chord([60, 64, 67, 72, 76], vt + 1.6, 0.9, 1.15);
+                    this.chord([60, 64, 67, 72, 76, 79], vt + 2.6, 0.9, 1.2);
+                    this.chord([48, 55, 60, 64, 67, 72], vt + 3.7, 2.4, 1.25); // 终止大和弦长音
+                    secs = vt - t0 + 6.3;
                 } else if (key === 'charge') {
-                    // Charge 助威：五连顿音 → 号召和弦
-                    this.note(55, t0, 0.1);            // G3
-                    this.note(55, t0 + 0.12, 0.1);
-                    this.note(55, t0 + 0.24, 0.1);
-                    this.note(55, t0 + 0.36, 0.1);
-                    this.note(60, t0 + 0.5, 0.3);      // C4
-                    this.note(55, t0 + 0.84, 0.14);    // G3
-                    this.chord([60, 64, 67, 72], t0 + 1.05, 1.0, 1.15); // CHARGE!
-                    secs = 2.3;
+                    // Charge 助威（约 20 秒）：弱滚奏 → 四遍递进 → 强滚奏 → 终极大 CHARGE
+                    for (let i = 0; i < 12; i++) this.note(i % 2 ? 67 : 55, t0 + i * 0.09, 0.07, 0.5 + i * 0.045);
+                    const cycle = (ct, vel, oct) => {
+                        for (let i = 0; i < 4; i++) {
+                            this.note(55, ct + i * 0.13, 0.1, vel);
+                            if (oct) this.note(67, ct + i * 0.13, 0.1, vel * 0.75);
+                        }
+                        this.note(60, ct + 0.56, 0.3, vel);      // C4
+                        this.note(55, ct + 0.9, 0.14, vel);      // G3
+                        this.chord([60, 64, 67, 72], ct + 1.12, 1.0, vel * 1.05); // CHARGE!
+                    };
+                    cycle(t0 + 1.3, 0.95, false);
+                    cycle(t0 + 4.3, 1.0, true);
+                    cycle(t0 + 7.3, 1.05, true);
+                    cycle(t0 + 10.3, 1.1, true);
+                    for (let i = 0; i < 22; i++) this.note(i % 2 ? 67 : 55, t0 + 13.4 + i * 0.07, 0.06, 0.75 + i * 0.025); // 强滚奏
+                    for (let i = 0; i < 4; i++) {
+                        this.note(55, t0 + 15.1 + i * 0.13, 0.1, 1.15);
+                        this.note(67, t0 + 15.1 + i * 0.13, 0.1, 0.95);
+                    }
+                    this.note(60, t0 + 15.66, 0.3, 1.15);
+                    this.note(55, t0 + 16.0, 0.14, 1.15);
+                    this.note(72, t0 + 16.16, 0.55, 1.05);       // C5 预置
+                    this.chord([48, 55, 60, 64, 67, 72, 76], t0 + 16.7, 2.4, 1.25); // 终极大和弦
+                    secs = 19.5;
                 } else if (key === 'ballgame') {
                     // 第八局之歌：8-bit 版 Take Me Out to the Ball Game
                     // 旋律按 1908 原谱（Albert von Tilzer，F 大调 3/4，公有领域）
@@ -7008,8 +7032,8 @@
     <div class="organ-fab" id="organ-fab" onclick="organToggle()" title="球场风琴">🎵</div>
     <div class="organ-panel" id="organ-panel">
         <div class="organ-title">🏟️ 球场风琴<span>Web Audio 实时合成 · 零音频文件</span></div>
-        <div class="organ-item" id="organ-victory" onclick="organPlay('victory')"><span>🏆</span> 胜利小调<em>3 秒</em></div>
-        <div class="organ-item" id="organ-charge" onclick="organPlay('charge')"><span>📣</span> Charge 助威<em>2 秒</em></div>
+        <div class="organ-item" id="organ-victory" onclick="organPlay('victory')"><span>🏆</span> 胜利小调<em>约 20 秒</em></div>
+        <div class="organ-item" id="organ-charge" onclick="organPlay('charge')"><span>📣</span> Charge 助威<em>约 20 秒</em></div>
         <div class="organ-item" id="organ-ballgame" onclick="organPlay('ballgame')"><span>⚾</span> 第八局之歌 · Take Me Out to the Ball Game<em>8-bit · 约 40 秒</em></div>
         <div class="organ-item" id="organ-banner" onclick="organPlay('banner')"><span>🇺🇸</span> 星条旗国歌<em>8-bit · 约 41 秒</em></div>
         <div class="organ-item" id="organ-ssf" onclick="organPlay('ssf')"><span>🎺</span> 星条旗永不落<em>8-bit · 约 37 秒</em></div>
