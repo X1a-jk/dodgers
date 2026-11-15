@@ -3280,7 +3280,7 @@
                                     "path": "seasons/2025/players/index.html"
                         }
             ],
-            "generatedAt": "2026-11-14T00:26:22.163243"
+            "generatedAt": "2026-11-15T09:26:08.357846"
 };
 
         let currentPage = 'dashboard';
@@ -6713,18 +6713,65 @@
                 });
             },
             chord(midis, t0, dur, vel) { midis.forEach(m => this.note(m, t0, dur, vel)); },
-            clap(t0) {
-                const len = Math.floor(this.ctx.sampleRate * 0.2);
-                const buf = this.ctx.createBuffer(1, len, this.ctx.sampleRate);
-                const d = buf.getChannelData(0);
-                for (let i = 0; i < len; i++) d[i] = (Math.random() * 2 - 1) * Math.pow(1 - i / len, 2.4);
-                const src = this.ctx.createBufferSource();
-                src.buffer = buf;
-                const bp = this.ctx.createBiquadFilter();
-                bp.type = 'bandpass'; bp.frequency.value = 1400; bp.Q.value = 0.9;
-                const g = this.ctx.createGain(); g.gain.value = 0.9;
-                src.connect(bp); bp.connect(g); g.connect(this.master);
-                src.start(t0);
+            /* 8-bit 音色（方波主奏 + 三角波贝斯 + 和弦击奏） */
+            lead(midi, t0, dur, vel) {
+                const f = 440 * Math.pow(2, (midi - 69) / 12);
+                const v = vel == null ? 1 : vel;
+                const g = this.ctx.createGain();
+                g.connect(this.master);
+                const peak = 0.3 * v;
+                g.gain.setValueAtTime(0.0001, t0);
+                g.gain.linearRampToValueAtTime(peak, t0 + 0.008);
+                g.gain.exponentialRampToValueAtTime(Math.max(peak * 0.55, 0.001), t0 + Math.min(0.25, dur * 0.5));
+                g.gain.setValueAtTime(Math.max(peak * 0.55, 0.001), t0 + Math.max(0.03, dur - 0.07));
+                g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+                const o = this.ctx.createOscillator();
+                o.type = 'square';
+                o.frequency.value = f;
+                o.connect(g);
+                o.start(t0); o.stop(t0 + dur + 0.03);
+                // 高八度弱叠加，增加 8-bit 亮度
+                const o2 = this.ctx.createOscillator();
+                o2.type = 'square';
+                o2.frequency.value = f * 2;
+                const g2 = this.ctx.createGain();
+                g2.gain.value = 0.1;
+                o2.connect(g2); g2.connect(g);
+                o2.start(t0); o2.stop(t0 + dur + 0.03);
+            },
+            bass(midi, t0, dur) {
+                const f = 440 * Math.pow(2, (midi - 69) / 12);
+                const o = this.ctx.createOscillator();
+                o.type = 'triangle';
+                o.frequency.value = f;
+                const g = this.ctx.createGain();
+                g.gain.setValueAtTime(0.0001, t0);
+                g.gain.linearRampToValueAtTime(0.24, t0 + 0.012);
+                g.gain.exponentialRampToValueAtTime(0.0001, t0 + dur);
+                o.connect(g); g.connect(this.master);
+                o.start(t0); o.stop(t0 + dur + 0.03);
+            },
+            stab(midis, t0) {
+                midis.forEach(m => this.lead(m, t0, 0.12, 0.32));
+            },
+            /* 曲库播放器：每小节 [旋律[[midi,单位数]...], [根音,三音,五音]]，弱起小节和声 [0,0,0] */
+            song(t0, spec) {
+                let t = t0;
+                spec.bars.forEach(([mel, harm]) => {
+                    const barSec = mel.reduce((s, n) => s + n[1], 0) * spec.unit;
+                    if (harm[0]) {
+                        this.bass(harm[0], t, barSec * 0.4);
+                        const pair = [harm[1], harm[2]];
+                        if (spec.meter === 3) { this.stab(pair, t + barSec / 3); this.stab(pair, t + 2 * barSec / 3); }
+                        else if (spec.meter === 2) { this.stab(pair, t + barSec / 2); }
+                        else { this.stab(pair, t + barSec / 4); this.stab(pair, t + 3 * barSec / 4); }
+                    }
+                    mel.forEach(([m, l]) => {
+                        if (m !== null) this.lead(m, t, l * spec.unit * 0.92);
+                        t += l * spec.unit;
+                    });
+                });
+                return t - t0 + 0.5;
             },
             stop() {
                 if (this.current && this.current.timer) clearTimeout(this.current.timer);
@@ -6758,21 +6805,42 @@
                     this.note(55, t0 + 0.84, 0.14);    // G3
                     this.chord([60, 64, 67, 72], t0 + 1.05, 1.0, 1.15); // CHARGE!
                     secs = 2.3;
-                } else if (key === 'clap') {
-                    // 人浪节拍：100 BPM × 8 小节，2/4 拍手 + 变化小节
-                    const beat = 0.6;
-                    const barPat = [
-                        [2, 4], [2, 4], [1, 2, 3, 4], [2, 4, 4.5],
-                        [2, 4], [2, 4], [1, 2, 3, 4], [2, 2.5, 4, 4.5],
+                } else if (key === 'ballgame') {
+                    // 第八局之歌：8-bit 版 Take Me Out to the Ball Game
+                    // 旋律按 1908 原谱（Albert von Tilzer，F 大调 3/4，公有领域）
+                    const beat = 0.42;
+                    // [midi, 起始beat, 时长beat]  全曲 32 小节 × 3 拍 = 96 拍
+                    const MELODY = [
+                        [65,0,1],[77,2,1], [74,3,1],[72,4,1],[69,5,1], [72,6,3],
+                        [67,9,3], [65,12,1],[77,14,1], [74,15,1],[72,16,1],[69,17,1], [72,18,6],
+                        [74,24,1],[73,25,1],[74,26,1], [69,27,1],[70,28,1],[72,29,1], [74,30,2],[70,32,1],
+                        [67,33,3], [74,36,2],[74,38,1], [74,39,1],[76,40,1],[77,41,1], [79,42,1],[76,43,1],[74,44,1],
+                        [72,45,1],[69,46,1],[67,47,1], [65,48,1],[77,50,1], [74,51,1],[72,52,1],[69,53,1], [72,54,3],
+                        [67,57,2],[69,59,1], [65,60,2],[67,62,1], [69,63,1],[70,64,1],[72,65,1], [74,66,4],[74,70,1],[76,71,1],
+                        [77,72,1], [77,75,1], [77,78,1],[76,79,1],[74,80,1], [72,81,1],[71,82,1],[72,83,1],
+                        [74,84,3], [76,87,3], [77,90,4]
                     ];
-                    let beats = 0;
-                    for (let bar = 0; bar < 8; bar++) {
-                        for (const b of barPat[bar % barPat.length]) {
-                            this.clap(t0 + (beats + b - 1) * beat);
-                        }
-                        beats += 4;
-                    }
-                    secs = beats * beat + 0.5;
+                    // 每小节：[和弦名, 贝斯根音midi, 和声击奏midi对]  贝斯在 1 拍，击奏在 2、3 拍
+                    const HARM = [
+                        ['F',53,[65,69]],['Dm',50,[62,65]],['C',48,[60,64]],['C',48,[60,64]],
+                        ['F',53,[65,69]],['Dm',50,[62,65]],['C',48,[60,64]],['C',48,[60,64]],
+                        ['D7',50,[62,66]],['D7',50,[62,66]],['Gm',43,[55,58]],['Gm',43,[55,58]],
+                        ['G7',43,[55,59]],['G7',43,[55,59]],['C',48,[60,64]],['C',48,[60,64]],
+                        ['F',53,[65,69]],['Dm',50,[62,65]],['C',48,[60,64]],['C',48,[60,64]],
+                        ['F',53,[65,69]],['F7',53,[65,69]],['Bb',46,[58,62]],['Bb',46,[58,62]],
+                        ['Bb',46,[58,62]],['G7',47,[59,62]],['C',48,[60,64]],['D7',50,[62,66]],
+                        ['Gm',43,[55,58]],['C',48,[60,64]],['F',53,[65,69]],['F',53,[65,69]]
+                    ];
+                    MELODY.forEach(([m, b, d]) => this.lead(m, t0 + b * beat, d * beat * 0.92));
+                    HARM.forEach(([ch, root, pair], bar) => {
+                        const bt = t0 + bar * 3 * beat;
+                        this.bass(root, bt, beat * 0.9);
+                        this.stab(pair, bt + beat);
+                        this.stab(pair, bt + 2 * beat);
+                    });
+                    secs = 96 * beat + 0.6;
+                } else if (ORGAN_TUNES[key]) {
+                    secs = this.song(t0, ORGAN_TUNES[key]);
                 } else { return; }
                 this.current = { key, timer: setTimeout(() => this.stop(), secs * 1000) };
                 const item = document.getElementById('organ-' + key);
@@ -6780,6 +6848,136 @@
                 const fab = document.getElementById('organ-fab');
                 if (fab) fab.classList.add('playing');
             }
+        };
+
+        /* 8-bit 曲库（源谱：John Chambers ABC 曲库 / Albert von Tilzer 1908 / John Stafford Smith 1814 / Sousa 1896 / Cohan 1906，均为公有领域） */
+        const ORGAN_TUNES = {
+            banner:   { unit: 0.21, meter: 3, name: '星条旗国歌',
+                        bars: [
+                        [[[67,1],[64,1]],[0,0,0]],
+                        [[[60,2],[64,2],[67,2]],[48,64,67]],
+                        [[[72,4],[76,1],[74,1]],[45,60,64]],
+                        [[[72,2],[64,2],[66,2]],[50,66,69]],
+                        [[[67,4],[67,1],[67,1]],[43,71,74]],
+                        [[[76,3],[74,1],[72,2]],[48,64,67]],
+                        [[[71,4],[69,1],[71,1]],[43,71,74]],
+                        [[[72,2],[72,2],[67,2]],[48,64,67]],
+                        [[[64,2],[60,2],[67,1],[64,1]],[48,64,67]],
+                        [[[60,2],[64,2],[67,2]],[48,64,67]],
+                        [[[72,4],[76,1],[74,1]],[45,60,64]],
+                        [[[72,2],[64,2],[66,2]],[50,66,69]],
+                        [[[67,4],[67,1],[67,1]],[43,71,74]],
+                        [[[76,3],[74,1],[72,2]],[48,64,67]],
+                        [[[71,4],[69,1],[71,1]],[43,71,74]],
+                        [[[72,2],[72,2],[67,2]],[48,64,67]],
+                        [[[64,2],[60,2],[76,1],[76,1]],[48,64,67]],
+                        [[[76,2],[77,2],[79,2]],[48,64,67]],
+                        [[[79,4],[77,1],[76,1]],[48,64,67]],
+                        [[[74,2],[76,2],[77,2]],[43,71,74]],
+                        [[[77,4],[77,2]],[41,69,72]],
+                        [[[76,3],[74,1],[72,2]],[48,64,67]],
+                        [[[71,4],[69,1],[71,1]],[43,71,74]],
+                        [[[72,2],[64,2],[66,2]],[50,66,69]],
+                        [[[67,4],[67,2]],[43,71,74]],
+                        [[[72,2],[72,2],[72,1],[71,1]],[48,64,67]],
+                        [[[69,2],[69,2],[69,2]],[41,69,72]],
+                        [[[74,2],[77,1],[76,1],[74,1],[72,1]],[38,65,69]],
+                        [[[72,2],[71,2],[67,1],[67,1]],[43,71,74]],
+                        [[[72,3],[74,1],[76,1],[77,1]],[48,64,67]],
+                        [[[79,4],[72,1],[74,1]],[48,64,67]],
+                        [[[76,3],[77,1],[74,2]],[43,71,74]],
+                        [[[72,6]],[48,64,67]]
+                        ] },
+            ssf:      { unit: 0.28, meter: 4, name: '星条旗永不落',
+                        bars: [
+                        [[[74,2]],[0,0,0]],
+                        [[[74,2],[72,1],[71,1]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[43,71,74]],
+                        [[[71,4]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[43,71,74]],
+                        [[[74,2],[71,1],[74,1]],[43,71,74]],
+                        [[[72,4]],[43,71,74]],
+                        [[[69,3],[69,1]],[50,66,69]],
+                        [[[69,2],[68,1],[69,1]],[50,66,69]],
+                        [[[69,2],[68,1],[69,1]],[50,66,69]],
+                        [[[72,4]],[48,64,67]],
+                        [[[72,2],[71,1],[69,1]],[48,64,67]],
+                        [[[71,1],[74,3]],[43,71,74]],
+                        [[[76,3],[76,1]],[48,64,67]],
+                        [[[69,4]],[50,66,69]],
+                        [[[69,2],[74,2]],[50,66,69]],
+                        [[[74,2],[72,1],[71,1]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[43,71,74]],
+                        [[[71,4]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[43,71,74]],
+                        [[[71,2],[70,1],[71,1]],[47,63,66]],
+                        [[[72,1],[71,1],[69,1],[66,1]],[47,63,66]],
+                        [[[69,4]],[40,67,71]],
+                        [[[67,3],[67,1]],[40,67,71]],
+                        [[[67,2],[66,1],[67,1]],[48,63,67]],
+                        [[[70,2],[69,1],[67,1]],[39,67,70]],
+                        [[[79,4]],[43,71,74]],
+                        [[[null,1],[67,1],[69,1],[71,1]],[43,71,74]],
+                        [[[74,1],[67,1],[69,1],[71,1]],[43,71,74]],
+                        [[[74,1],[62,1],[64,1],[71,1]],[50,66,69]],
+                        [[[69,4]],[50,66,69]],
+                        [[[67,4]],[43,71,74]]
+                        ] },
+            grandold: { unit: 0.22, meter: 2, name: "You're a Grand Old Flag",
+                        bars: [
+                        [[[79,1],[76,1]],[0,0,0]],
+                        [[[72,2],[72,2]],[48,64,67]],
+                        [[[72,2],[69,1],[67,1]],[48,64,67]],
+                        [[[72,1],[74,2],[71,1]],[43,71,74]],
+                        [[[72,2],[69,1],[67,1]],[48,64,67]],
+                        [[[72,2],[69,1],[67,1]],[48,64,67]],
+                        [[[72,2],[69,1],[67,1]],[48,64,67]],
+                        [[[71,4]],[43,71,74]],
+                        [[[71,2],[null,1],[67,1]],[43,71,74]],
+                        [[[71,2],[72,2]],[43,71,74]],
+                        [[[74,2],[71,1],[67,1]],[43,71,74]],
+                        [[[72,2],[74,2]],[48,64,67]],
+                        [[[76,4]],[48,64,67]],
+                        [[[74,1],[76,2],[72,1]],[50,66,69]],
+                        [[[74,1],[76,2],[72,1]],[50,66,69]],
+                        [[[74,4]],[43,71,74]],
+                        [[[74,2],[79,1],[76,1]],[43,71,74]],
+                        [[[72,2],[72,2]],[48,64,67]],
+                        [[[72,2],[69,1],[67,1]],[48,64,67]],
+                        [[[72,1],[74,2],[71,1]],[43,71,74]],
+                        [[[72,2],[71,1],[70,1]],[48,64,67]],
+                        [[[69,2],[73,1],[76,1]],[45,61,64]],
+                        [[[81,2],[79,2]],[45,61,64]],
+                        [[[77,4]],[38,65,69]],
+                        [[[77,2],[67,2]],[43,71,74]],
+                        [[[72,3],[71,1]],[48,64,67]],
+                        [[[72,2],[76,2]],[48,64,67]],
+                        [[[74,3],[73,1]],[43,71,74]],
+                        [[[74,2],[67,1],[67,1]],[43,71,74]],
+                        [[[69,1],[72,2],[71,1]],[41,69,72]],
+                        [[[72,2],[74,2]],[43,71,74]],
+                        [[[72,4],[72,2]],[48,64,67]]
+                        ] },
+            saints:   { unit: 0.30, meter: 4, name: 'When the Saints',
+                        bars: [
+                        [[[60,1],[64,1],[65,1]],[0,0,0]],
+                        [[[67,4]],[48,64,67]],
+                        [[[null,1],[60,1],[64,1],[65,1]],[48,64,67]],
+                        [[[67,4]],[48,64,67]],
+                        [[[null,1],[60,1],[64,1],[65,1]],[48,64,67]],
+                        [[[67,2],[64,2]],[48,64,67]],
+                        [[[60,2],[64,2]],[48,64,67]],
+                        [[[62,4]],[43,71,74]],
+                        [[[null,1],[64,1],[64,1],[62,1]],[43,71,74]],
+                        [[[60,4]],[48,64,67]],
+                        [[[64,2],[67,2]],[48,64,67]],
+                        [[[67,1],[65,3]],[41,69,72]],
+                        [[[null,2],[64,1],[65,1]],[41,69,72]],
+                        [[[67,2],[64,2]],[48,64,67]],
+                        [[[60,2],[62,2]],[43,71,74]],
+                        [[[60,4]],[48,64,67]]
+                        ] }
         };
 
         function organToggle() {
@@ -6812,7 +7010,11 @@
         <div class="organ-title">🏟️ 球场风琴<span>Web Audio 实时合成 · 零音频文件</span></div>
         <div class="organ-item" id="organ-victory" onclick="organPlay('victory')"><span>🏆</span> 胜利小调<em>3 秒</em></div>
         <div class="organ-item" id="organ-charge" onclick="organPlay('charge')"><span>📣</span> Charge 助威<em>2 秒</em></div>
-        <div class="organ-item" id="organ-clap" onclick="organPlay('clap')"><span>👏</span> 人浪节拍<em>循环 19 秒</em></div>
+        <div class="organ-item" id="organ-ballgame" onclick="organPlay('ballgame')"><span>⚾</span> 第八局之歌 · Take Me Out to the Ball Game<em>8-bit · 约 40 秒</em></div>
+        <div class="organ-item" id="organ-banner" onclick="organPlay('banner')"><span>🇺🇸</span> 星条旗国歌<em>8-bit · 约 41 秒</em></div>
+        <div class="organ-item" id="organ-ssf" onclick="organPlay('ssf')"><span>🎺</span> 星条旗永不落<em>8-bit · 约 37 秒</em></div>
+        <div class="organ-item" id="organ-grandold" onclick="organPlay('grandold')"><span>🚩</span> Grand Old Flag<em>8-bit · 约 29 秒</em></div>
+        <div class="organ-item" id="organ-saints" onclick="organPlay('saints')"><span>😇</span> When the Saints<em>8-bit · 约 19 秒</em></div>
         <div class="organ-foot">再点一次停止 · Esc 也可停止</div>
     </div>
 </body>
