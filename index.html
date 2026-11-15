@@ -5914,17 +5914,11 @@
             if (sel && iframe) iframe.src = sel.value + '?v=' + Date.now();
         }
 
-        /* ---------- 十月主题：赛程公布或进入 10 月自动启用 ---------- */
+        /* ---------- 十月主题：每年 10/1 – 11/10 自动启用（覆盖世界大赛尾声） ---------- */
         async function applyOctoberTheme() {
             try {
-                let oct = new Date().getMonth() === 9;
-                try {
-                    const res = await fetch('data/postseason.json?v=' + Date.now());
-                    if (res.ok) {
-                        const d = await res.json();
-                        if (d.postseasonPublished) oct = true;
-                    }
-                } catch (e) { /* 文件不存在则仅按日期判断 */ }
+                const now = new Date();
+                const oct = (now.getMonth() === 9) || (now.getMonth() === 10 && now.getDate() <= 10);
                 if (oct) {
                     document.body.classList.add('october');
                     const banner = $('#october-banner');
